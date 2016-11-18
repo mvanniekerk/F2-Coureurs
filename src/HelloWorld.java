@@ -16,7 +16,7 @@ public class HelloWorld extends Application {
         StackPane root = new StackPane();
         root.getChildren().add(button);
 
-        stage.setTitle("Hello World!");
+        stage.setTitle("Hello World Application!");
         stage.setScene(new Scene(root, 300, 300));
         stage.show();
     }
