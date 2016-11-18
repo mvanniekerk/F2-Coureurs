@@ -11,7 +11,7 @@ public class HelloWorld extends Application {
 
     @Override
     public void start(Stage stage) {
-        Button button = new Button("Click here of doe het niet!");
+        Button button = new Button("Click here of niet!");
 
         StackPane root = new StackPane();
         root.getChildren().add(button);
