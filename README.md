@@ -9,3 +9,7 @@ Stephan Tromer (stromer) 4177398
 Matthijs van Niekerk (mrsvanniekerk) 4608976
 
 ![Image of Matthijs](team-photos/matthijs.jpg)
+
+Alex Settels (asettels) 4455622
+
+![Image of Alex] (team-photos/alex.jpg)
