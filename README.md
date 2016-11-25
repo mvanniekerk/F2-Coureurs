@@ -17,3 +17,7 @@ Alex Settels (asettels) 4455622
 Nils Boertjes (nboertjes) 4456939
 
 ![Image of Nils] (team-photos/nils.jpg)
+
+Axel van Eerden (avaneerden) 4600479
+
+![Image of Axel] (team-photos/axel.jpg)
