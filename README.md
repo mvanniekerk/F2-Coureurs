@@ -4,4 +4,4 @@
 
 Stephan Tromer 4177398
 
-![Image of Stephan](team%20photos/stephan.jpg)
+![Image of Stephan](team-photos/stephan.jpg)
