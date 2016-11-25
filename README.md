@@ -21,3 +21,7 @@ Nils Boertjes (nboertjes) 4456939
 Axel van Eerden (avaneerden) 4600479
 
 ![Image of Axel] (team-photos/axel.jpg)
+
+Yin Wu (yinwu) 4530454
+
+![Image of Yin] (team-photos/yin.jpg)
