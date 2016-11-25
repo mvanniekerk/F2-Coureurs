@@ -1,4 +1,5 @@
 # F2 Coureurs
+[![Build Status](https://travis-ci.org/F2-Coureurs/F2-Coureurs.svg?branch=master)](https://travis-ci.org/F2-Coureurs/F2-Coureurs)
 
 ## Goal of project
 Through this project, we want to improve our programming skills using the knowledge we have gained. We are aiming to build a fully-functional, well-working software system from a “vague” assignment, make a beneficial use of version control, set up a proper UML class diagram and realistic planning. We aspire to be “lazy” in a smart and safe way.
