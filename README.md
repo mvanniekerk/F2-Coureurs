@@ -13,3 +13,7 @@ Matthijs van Niekerk (mrsvanniekerk) 4608976
 Alex Settels (asettels) 4455622
 
 ![Image of Alex] (team-photos/alex.jpg)
+
+Nils Boertjes (nboertjes) 4456939
+
+![Image of Nils] (team-photos/nils.jpg)
