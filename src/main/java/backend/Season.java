@@ -16,14 +16,14 @@ public class Season {
      */
     public Season() {
         this.currentRound = 0;
-        // Yin, je kan hier verder alles toevoegen,
-        // ik heb deze class alleen aangemaakt voor de json parser.
+        // Yin, the constructor is temporary. Feel free to change it.
+        // You will need to update the Tests and the equals method!!!
     }
 
     /**
      * Gets the current round.
      *
-     * @return Current round
+     * @return current round
      */
     public int getCurrentRound() {
         return currentRound;
@@ -32,7 +32,7 @@ public class Season {
     /**
      * Sets the current round.
      *
-     * @param currentRound The round to be set to current Round
+     * @param currentRound the round to be set to current Round
      */
     public void setCurrentRound(int currentRound) {
         this.currentRound = currentRound;
@@ -41,7 +41,7 @@ public class Season {
     /**
      * Converts the current Season class to a json object.
      *
-     * @return String containing a json representation of the current season.
+     * @return string containing a json representation of the current season
      */
     public String toJson() {
         Gson gson = new Gson();
@@ -51,8 +51,8 @@ public class Season {
     /**
      * Converts the jsonString to a Season class.
      *
-     * @param jsonString A json String representing a Season class
-     * @return A season class
+     * @param jsonString a json String representing a Season class
+     * @return a season class
      */
     public static Season fromJson(String jsonString) throws JsonSyntaxException {
         Gson gson = new Gson();
@@ -66,8 +66,8 @@ public class Season {
      * Currently, it fails fast, instead of catching errors. But this can be changed
      * depending on the project requirements.
      *
-     * @param inputFile A scanner of a json file containing a Season
-     * @return A season
+     * @param inputFile a scanner of a json file containing a Season
+     * @return a season
      * @throws IOException throws if the file does not exist
      */
     public static Season readFromJsonFile(Scanner inputFile) throws IOException {
@@ -78,7 +78,7 @@ public class Season {
     /**
      * Writes json to a file, fails fast.
      *
-     * @param filename File to write to
+     * @param filename file to write to
      * @throws IOException throws in rare cases (I'm not sure when)
      */
     public void writeToJsonFile(String filename) throws IOException {
@@ -92,7 +92,7 @@ public class Season {
     /**
      * Checks if two season classes are the same.
      *
-     * @param other The class you want to test equality for.
+     * @param other the class you want to test equality for.
      * @return true if other is the same as the current class, false otherwise.
      */
     @Override
