@@ -1,8 +1,9 @@
 package backend;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
-import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -29,6 +30,15 @@ public class Season {
     }
 
     /**
+     * Sets the current round.
+     *
+     * @param currentRound The round to be set to current Round
+     */
+    public void setCurrentRound(int currentRound) {
+        this.currentRound = currentRound;
+    }
+
+    /**
      * Converts the current Season class to a json object.
      *
      * @return String containing a json representation of the current season.
@@ -44,7 +54,7 @@ public class Season {
      * @param jsonString A json String representing a Season class
      * @return A season class
      */
-    public static Season fromJson(String jsonString) {
+    public static Season fromJson(String jsonString) throws JsonSyntaxException {
         Gson gson = new Gson();
 
         return gson.fromJson(jsonString, Season.class);
@@ -56,15 +66,27 @@ public class Season {
      * Currently, it fails fast, instead of catching errors. But this can be changed
      * depending on the project requirements.
      *
-     * @param filename A file-location of a json file containing a Season
+     * @param inputFile A scanner of a json file containing a Season
      * @return A season
      * @throws IOException throws if the file does not exist
      */
-    public static Season fromJsonFile(String filename) throws IOException {
-        Scanner sc = new Scanner(new File(filename));
-        String fileString = sc.nextLine();
+    public static Season readFromJsonFile(Scanner inputFile) throws IOException {
+        String fileString = inputFile.nextLine();
         return fromJson(fileString);
+    }
 
+    /**
+     * Writes json to a file, fails fast.
+     *
+     * @param filename File to write to
+     * @throws IOException throws in rare cases (I'm not sure when)
+     */
+    public void writeToJsonFile(String filename) throws IOException {
+        FileOutputStream out = new FileOutputStream(filename);
+        String jsonString = toJson();
+        out.write(jsonString.getBytes());
+        out.flush();
+        out.close();
     }
 
     /**
@@ -83,5 +105,9 @@ public class Season {
         return false;
     }
 
+    public static void main(String[] args) throws IOException {
+        Season season = new Season();
+        season.writeToJsonFile("save.json");
+    }
 
 }
