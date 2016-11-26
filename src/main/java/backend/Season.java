@@ -60,7 +60,6 @@ public class Season {
         return gson.fromJson(jsonString, Season.class);
     }
 
-
     /**
      * Reads a json file representing a season and stores it as a Season object.
      * Currently, it fails fast, instead of catching errors. But this can be changed
