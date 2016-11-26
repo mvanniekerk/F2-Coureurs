@@ -109,5 +109,4 @@ public class Season {
         Season season = new Season();
         season.writeToJsonFile("save.json");
     }
-
 }
