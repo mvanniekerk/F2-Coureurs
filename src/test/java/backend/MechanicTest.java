@@ -15,11 +15,11 @@ public class MechanicTest {
 
     @Test
     public void constructorTest_name() {
-        assertTrue(driver.getName().equals("Steve Matchett"));
+        assertTrue(mechanic.getName().equals("Steve Matchett"));
     }
 
     @Test
     public void constructorTest_salary() {
-        assertTrue(driver.getSalary() == 100000);
+        assertTrue(mechanic.getSalary() == 100000);
     }
 }
