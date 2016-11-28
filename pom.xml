@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>group-template</groupId>
-    <artifactId>OOP-Project</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <artifactId>F2-Coureurs</artifactId>
+    <version>0.1</version>
 
     <properties>
         <checkstyle.version>7.2</checkstyle.version>
@@ -74,6 +74,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
