@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane xmlns="http://javafx.com/javafx/8.0.101"
+      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0">
+
+    <Label layoutX="472.0" layoutY="46.0" text="Main Screen">
+        <font>
+            <Font size="47.0" />
+        </font>
+    </Label>
+</Pane>
