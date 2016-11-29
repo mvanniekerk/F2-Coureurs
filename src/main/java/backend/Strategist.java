@@ -11,4 +11,15 @@ public class Strategist extends Staff {
     public Strategist(String name, int salary) {
         super(name, salary);
     }
+
+    /**
+     * Finds the quality of the strategist by combining all its attributes.
+     *
+     * @return the quality of the strategist, an int between 0 and 100
+     */
+    @Override
+    public int getQuality() {
+        //TODO: Decide how to calculate Mechanic quality
+        return 0;
+    }
 }
