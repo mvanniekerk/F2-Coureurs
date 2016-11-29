@@ -24,7 +24,7 @@ public class EngineTest {
 
     @Test
     public void testConstructor2() {
-        assertEquals(50, engine.getDrivability());
+        assertEquals(70, engine.getDrivability());
     }
 
     @Test
