@@ -59,7 +59,7 @@ public abstract class Staff {
     public abstract int getQuality();
 
     /**
-     * Implements a equals method that checks all attributes of Staff for equality
+     * Implements a equals method that checks all attributes of Staff for equality.
      *
      * @param other Object to check against
      * @return true if all attributes are equal, false otherwise
