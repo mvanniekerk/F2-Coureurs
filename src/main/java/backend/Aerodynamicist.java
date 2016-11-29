@@ -1,12 +1,14 @@
 package backend;
 
-public class Aerodynamicist extends Staff{
+public class Aerodynamicist extends Staff {
 
     /**
-     *  Create a new aerodynamicisit
+     *  Create a new Aerodynamicist.
      *
      *  @param name the name of the staff member
      *  @param salary the salary per race
      */
-    public Aerodynamicist(String name, int salary) { super(name, salary);}
+    public Aerodynamicist(String name, int salary) {
+        super(name, salary);
+    }
 }

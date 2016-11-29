@@ -6,17 +6,18 @@ import static org.junit.Assert.*;
 public class StrategyTest {
 
     @Test
-    public void getLowRisk() {
-        assertTrue(Strategy.getLowRisk() == 1);
+    public void lowRiskTest(){
+        assertEquals(1, Strategy.LOW_RISK);
     }
 
     @Test
-    public void getMediumRisk() {
-        assertTrue(Strategy.getMediumRisk() == 2);
+    public void mediumRiskTest(){
+        assertEquals(2, Strategy.MEDIUM_RISK);
     }
 
     @Test
-    public void getHighRisk() {
-        assertTrue(Strategy.getHighRisk() == 3);
+    public void highRiskTest(){
+        assertEquals(3, Strategy.HIGH_RISK);
     }
+
 }

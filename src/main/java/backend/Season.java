@@ -12,7 +12,6 @@ public class Season {
 
     /**
      * Create a new season.
-     *
      */
     public Season() {
         this.currentRound = 0;

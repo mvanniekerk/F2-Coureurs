@@ -6,17 +6,17 @@ import static org.junit.Assert.*;
 public class SetupTest {
 
     @Test
-    public void getLowRisk() {
-        assertTrue(Setup.getLowRisk() == 1);
+    public void lowRiskTest(){
+        assertEquals(1, Setup.LOW_RISK);
     }
 
     @Test
-    public void getMediumRisk() {
-        assertTrue(Setup.getMediumRisk() == 2);
+    public void mediumRiskTest(){
+        assertEquals(2, Setup.MEDIUM_RISK);
     }
 
     @Test
-    public void getHighRisk() {
-        assertTrue(Setup.getHighRisk() == 3);
+    public void highRiskTest(){
+        assertEquals(3, Setup.HIGH_RISK);
     }
 }
