@@ -71,14 +71,14 @@ public class Driver extends Staff {
     public boolean equals(Object other) {
         if (other instanceof Driver) {
             Driver that = (Driver) other;
-            boolean bSpeed = this.speed == that.speed;
-            boolean bCraft = this.raceCraft == that.raceCraft;
-            boolean bInsight = this.strategyInsight == that.strategyInsight;
-            boolean bWins = this.raceWins == that.raceWins;
-            boolean bPoints = this.points == that.points;
-            boolean bChampion = this.championLastYear == that.championLastYear;
-            boolean bAll = bSpeed && bCraft && bInsight && bWins && bPoints && bChampion;
-            return bAll && super.equals(other);
+            boolean boSpeed = this.speed == that.speed;
+            boolean boCraft = this.raceCraft == that.raceCraft;
+            boolean boInsight = this.strategyInsight == that.strategyInsight;
+            boolean boWins = this.raceWins == that.raceWins;
+            boolean boPoints = this.points == that.points;
+            boolean boChampion = this.championLastYear == that.championLastYear;
+            boolean boAll = boSpeed && boCraft && boInsight && boWins && boPoints && boChampion;
+            return boAll && super.equals(other);
         } else {
             return false;
         }
