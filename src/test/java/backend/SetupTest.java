@@ -53,4 +53,9 @@ public class SetupTest {
     public void highRiskTest(){
         assertEquals(3, Setup.HIGH_RISK);
     }
+
+    @Test
+    public void equalsOtherObject() {
+        assertNotEquals(setup, new String());
+    }
 }

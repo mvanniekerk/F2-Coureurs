@@ -51,4 +51,8 @@ public class StrategyTest {
         assertEquals(3, Strategy.HIGH_RISK);
     }
 
+    @Test
+    public void equalsOtherObject() {
+        assertNotEquals(strategy, new String());
+    }
 }

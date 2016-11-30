@@ -51,4 +51,9 @@ public class EngineTest {
     public void testEquals_other() {
         assertFalse(engine.equals(otherEngine));
     }
+
+    @Test
+    public void equalsOtherObject() {
+        assertNotEquals(engine, new String());
+    }
 }

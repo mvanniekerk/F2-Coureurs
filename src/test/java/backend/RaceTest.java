@@ -52,4 +52,9 @@ public class RaceTest {
     public void equalsSameAttr() {
         assertEquals(race, sameRace);
     }
+
+    @Test
+    public void equalsOtherObject() {
+        assertNotEquals(race, new String());
+    }
 }

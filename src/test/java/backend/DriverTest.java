@@ -49,4 +49,9 @@ public class DriverTest {
     public void equalsSameAttr() {
         assertEquals(driver, sameDriver);
     }
+
+    @Test
+    public void equalsOtherObject() {
+        assertNotEquals(driver, new String());
+    }
 }
