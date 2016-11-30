@@ -11,8 +11,19 @@ The end-result of this project is a game called ‘F1 Manager’. This game allo
 - Java
 - Maven
 
-### Installation procedures
-TODO
+### Installation and contribution procedures
+1. Fork the project
+2. Get the project from GitHub
+`git clone https://github.com/[USERNAME]/F2-Coureurs.git`
+3. Add remote upstream
+`git remote add upstream https://github.com/F2-Coureurs/F2-Coureurs.git`
+4. Create new feature branch
+`git checkout -b [BRANCH-NAME]`
+5. Contribute. Please read [this](https://https://github.com/F2-Coureurs/F2-Coureurs/wiki/How-to-contribute) before contributing
+6. Push changes to your own fork
+`git push origin [BRANCH-NAME]`
+7. Create pull request
+8. Ask someone to merge your changes
 
 ## Tests
 Tests can be run using: 
@@ -21,6 +32,9 @@ Tests can be run using:
 ### Project reports
 You can create a project report using:
 `mvn site`
+
+You can check your code for checkstyle errors with:
+`mvn checkstyle:check -Dcheckstyle.config.location=TI1216.checkstyle.xml -Dcheckstyle.violationSeverity=warning`
 
 ## Documentation
 TODO
