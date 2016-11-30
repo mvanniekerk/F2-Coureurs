@@ -51,7 +51,7 @@ public class Race {
     }
 
     /**
-     * Gets the round in the Championship
+     * Gets the round in the Championship.
      *
      * @return the round in the championship
      */

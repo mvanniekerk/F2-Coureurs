@@ -1,7 +1,5 @@
 package backend;
 
-import java.util.Objects;
-
 public class Strategy {
     public static final int LOW_RISK = 1;
     public static final int MEDIUM_RISK = 2;
@@ -31,7 +29,7 @@ public class Strategy {
     }
 
     /**
-     * Checks to see if two objects have the same type and attributes
+     * Checks to see if two objects have the same type and attributes.
      *
      * @param other The object to check against
      * @return True if both objects are the same, false otherwise
