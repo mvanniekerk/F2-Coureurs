@@ -96,14 +96,16 @@ public class Engine {
 
     @Override
     public boolean equals(Object other) {
-        if (this == other) return true;
-        if (other == null || getClass() != other.getClass()) return false;
-
+        if (this == other) {
+            return true;
+        }
+        if (other == null || getClass() != other.getClass()) {
+            return false;
+        }
         Engine engine = (Engine) other;
-
-        if (power != engine.power) return false;
-        if (drivability != engine.drivability) return false;
-        if (fuelConsumption != engine.fuelConsumption) return false;
-        return name != null ? name.equals(engine.name) : engine.name == null;
+        return power == engine.power
+                && drivability == engine.drivability
+                && fuelConsumption == engine.fuelConsumption
+                && name.equals(engine.getName());
     }
 }
