@@ -18,6 +18,34 @@ public class EngineTest {
     }
 
     @Test
+    public void setPowerTest() {
+        Engine eng = new Engine(800, 70, 80, "Mercedes");
+        eng.setPower(900);
+        assertEquals(engine, eng);
+    }
+
+    @Test
+    public void setDrivabilityTest() {
+        Engine eng = new Engine(900, 80, 80, "Mercedes");
+        eng.setDrivability(70);
+        assertEquals(engine, eng);
+    }
+
+    @Test
+    public void setFuelConsumptionTest() {
+        Engine eng = new Engine(900, 70, 70, "Mercedes");
+        eng.setFuelConsumption(80);
+        assertEquals(engine, eng);
+    }
+
+    @Test
+    public void setNameTest() {
+        Engine eng = new Engine(900, 70, 80, "Ferrari");
+        eng.setName("Mercedes");
+        assertEquals(engine, eng);
+    }
+
+    @Test
     public void testConstructor1() {
         assertEquals(900, engine.getPower());
     }
