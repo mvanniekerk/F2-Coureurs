@@ -48,4 +48,9 @@ public class MechanicTest {
     public void sameEqualsAttr() {
         assertEquals(mechanic, sameMechanic);
     }
+
+    @Test
+    public void equalsOtherObject() {
+        assertNotEquals(mechanic, new String());
+    }
 }
