@@ -11,21 +11,43 @@ public class Driver extends Staff {
     /**
      * Create a new driver.
      *
-     * @param name the name of the staff member
-     * @param salary the salary per race
-     * @param speed the speed of the driver (0-100)
-     * @param raceCraft the raceCraft of the driver (0-100)
-     * @param strategyInsight the strategy insight of the driver (0-100)
+     * @param name             the name of the staff member
+     * @param salary           the salary per race
+     * @param speed            the speed of the driver (0-100)
+     * @param raceCraft        the raceCraft of the driver (0-100)
+     * @param strategyInsight  the strategy insight of the driver (0-100)
      * @param championLastYear true if the driver was the champion last year
      */
     public Driver(String name, int salary, int speed, int raceCraft, int strategyInsight,
-            boolean championLastYear) {
+                  boolean championLastYear) {
         super(name, salary);
 
         this.speed = speed;
         this.raceCraft = raceCraft;
         this.strategyInsight = strategyInsight;
         this.championLastYear = championLastYear;
+        this.raceWins = 0;
+        this.points = 0;
+    }
+
+    /**
+     * set the race wins.
+     *
+     * @param raceWins must be between 0 and 100
+     */
+    public void setRaceWins(int raceWins) {
+        //TODO: Enforce between 0 and 100?
+        this.raceWins = raceWins;
+    }
+
+    /**
+     * Set the points of the driver.
+     *
+     * @param points must be between 0 and 100
+     */
+    public void setPoints(int points) {
+        //TODO: Enforce between 0 and 100
+        this.points = points;
     }
 
     /**
@@ -47,22 +69,18 @@ public class Driver extends Staff {
      */
     @Override
     public boolean equals(Object other) {
-        // using java 7 equals/hashcode generator
-        if (this == other) {
-            return true;
-        }
-        if (other == null || getClass() != other.getClass()) {
+        if (other instanceof Driver) {
+            Driver that = (Driver) other;
+            boolean bSpeed = this.speed == that.speed;
+            boolean bCraft = this.raceCraft == that.raceCraft;
+            boolean bInsight = this.strategyInsight == that.strategyInsight;
+            boolean bWins = this.raceWins == that.raceWins;
+            boolean bPoints = this.points == that.points;
+            boolean bChampion = this.championLastYear == that.championLastYear;
+            boolean bAll = bSpeed && bCraft && bInsight && bWins && bPoints && bChampion;
+            return bAll && super.equals(other);
+        } else {
             return false;
         }
-        if (!super.equals(other)) {
-            return false;
-        }
-        Driver driver = (Driver) other;
-        return speed == driver.speed
-                && raceCraft == driver.raceCraft
-                && strategyInsight == driver.strategyInsight
-                && raceWins == driver.raceWins
-                && points == driver.points
-                && championLastYear == driver.championLastYear;
     }
 }
