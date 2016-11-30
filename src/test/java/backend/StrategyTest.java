@@ -25,7 +25,7 @@ public class StrategyTest {
     }
 
     @Test
-    public void riskTest() {
+    public void highRisk() {
         assertEquals(Strategy.HIGH_RISK, strategy.getRisk());
     }
 
