@@ -1,7 +1,9 @@
 package backend;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.Set;
 
@@ -11,12 +13,39 @@ public class SetupTest {
     private Setup setup;
     private Setup sameSetup;
     private Setup otherSetup;
+    private Setup highRisk;
+
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
+
 
     @Before
     public void SetUp() {
         setup = new Setup(Setup.LOW_RISK);
         sameSetup = new Setup(Setup.LOW_RISK);
         otherSetup = new Setup(Setup.MEDIUM_RISK);
+        highRisk = new Setup(setup.HIGH_RISK);
+    }
+
+    @Test
+    public void highRisk() {
+        assertEquals(Setup.HIGH_RISK, highRisk.getRisk());
+    }
+
+    @Test
+    public void lowRisk() {
+        assertEquals(Setup.LOW_RISK, setup.getRisk());
+    }
+
+    @Test
+    public void mediumRisk() {
+        assertEquals(Setup.MEDIUM_RISK, otherSetup.getRisk());
+    }
+
+    @Test
+    public void riskError() {
+        expectedException.expect(IllegalArgumentException.class);
+        Setup fail = new Setup(4);
     }
 
     @Test
@@ -52,5 +81,10 @@ public class SetupTest {
     @Test
     public void highRiskTest(){
         assertEquals(3, Setup.HIGH_RISK);
+    }
+
+    @Test
+    public void equalsOtherObject() {
+        assertNotEquals(setup, new String());
     }
 }

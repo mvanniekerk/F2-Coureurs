@@ -83,4 +83,8 @@ public class SeasonTest {
         assertEquals(season, Season.readFromJsonFile(sc));
     }
 
+    @Test
+    public void equalsOtherObject() {
+        assertNotEquals(season, new String());
+    }
 }
