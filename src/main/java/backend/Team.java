@@ -17,6 +17,22 @@ public class Team {
     private Strategist strategist;
     private List<Driver> drivers;
 
+    /**
+     * Create a new team.
+     * Create a new arraylist for drivers.
+     *
+     * @param name the name of the team
+     * @param manager the name of the manager
+     * @param budget the current budget of this team
+     * @param pointsAllTime the total amount of points until now
+     * @param pointsThisSeason the total amount of in this season
+     * @param winAllTime the total amount of wins until now
+     * @param winThisSeason the total wins in this season
+     * @param engine the engine of this team
+     * @param aerodynamicist the aerodynamicist of this team
+     * @param mechanic the mechanis of the team
+     * @param strategist the strategist of the team
+     */
     public Team(String name, String manager, int budget, int pointsAllTime, int pointsThisSeason,
                 int winAllTime, int winThisSeason, Engine engine,
                 Aerodynamicist aerodynamicist, Mechanic mechanic, Strategist strategist) {
@@ -34,94 +50,210 @@ public class Team {
         drivers = new ArrayList<Driver>();
     }
 
+    /**
+     * Get the name of the team.
+     *
+     * @return the name of the team
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Set the name of the team.
+     *
+     * @param name the name of the team
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Get the name of the manager.
+     *
+     * @return the name of the manager
+     */
     public String getManager() {
         return manager;
     }
 
+    /**
+     * Set the name of the manager.
+     *
+     * @param manager the name of the manager
+     */
     public void setManager(String manager) {
         this.manager = manager;
     }
 
+    /**
+     * Get the current budget.
+     *
+     * @return the current budget
+     */
     public int getBudget() {
         return budget;
     }
 
+    /**
+     * Set the current budget.
+     *
+     * @param budget the current budget
+     */
     public void setBudget(int budget) {
         this.budget = budget;
     }
 
+    /**
+     * Get the total amount of points until now.
+     *
+     * @return the total amount pf points until now
+     */
     public int getPointsAllTime() {
         return pointsAllTime;
     }
 
+    /**
+     * Set the total amount of points until now.
+     *
+     * @param pointsAllTime the total amount of points in this season
+     */
     public void setPointsAllTime(int pointsAllTime) {
         this.pointsAllTime = pointsAllTime;
     }
 
+    /**
+     * Get the total amount of points in this season.
+     *
+     * @return the total amount of points in this season
+     */
     public int getPointsThisSeason() {
         return pointsThisSeason;
     }
 
+    /**
+     * Set the total amount of points in this season.
+     *
+     * @param pointsThisSeason the total amount of points in this season
+     */
     public void setPointsThisSeason(int pointsThisSeason) {
         this.pointsThisSeason = pointsThisSeason;
     }
 
+    /**
+     * Get the total amount of wins until now.
+     *
+     * @return the total amount of wins until now
+     */
     public int getWinAllTime() {
         return winAllTime;
     }
 
+    /**
+     * Set the total amount of wins until now.
+     *
+     * @return the total amount of wins until now
+     */
     public void setWinAllTime(int winAllTime) {
         this.winAllTime = winAllTime;
     }
 
+    /**
+     * Get the total amount of wins in this season.
+     *
+     * @return the total amount of wins in this season
+     */
     public int getWinThisSeason() {
         return winThisSeason;
     }
 
+    /**
+     * Set the total amount of wins in this season.
+     *
+     * @param winThisSeason the total amount of wins in this season
+     */
     public void setWinThisSeason(int winThisSeason) {
         this.winThisSeason = winThisSeason;
     }
 
+    /**
+     * Get the engine.
+     *
+     * @return the engine
+     */
     public Engine getEngine() {
         return engine;
     }
 
+    /**
+     * Set the engine.
+     *
+     * @param engine the engine
+     */
     public void setEngine(Engine engine) {
         this.engine = engine;
     }
 
+    /**
+     * Get the aerodynamicist.
+     *
+     * @return the aerodynamicist
+     */
     public Aerodynamicist getAerodynamicist() {
         return aerodynamicist;
     }
 
+    /**
+     * Set the aerodynamicist.
+     *
+     * @param aerodynamicist the aerodynamicist
+     */
     public void setAerodynamicist(Aerodynamicist aerodynamicist) {
         this.aerodynamicist = aerodynamicist;
     }
 
+    /**
+     * Get the mechanic.
+     *
+     * @return the mechanic
+     */
     public Mechanic getMechanic() {
         return mechanic;
     }
 
+    /**
+     * Set the mechanic.
+     *
+     * @param mechanic the mechanic
+     */
     public void setMechanic(Mechanic mechanic) {
         this.mechanic = mechanic;
     }
 
+    /**
+     * Get the strategist.
+     *
+     * @return the strategist
+     */
     public Strategist getStrategist() {
         return strategist;
     }
 
+    /**
+     * Set the strategist.
+     *
+     * @param strategist the strategist
+     */
     public void setStrategist(Strategist strategist) {
         this.strategist = strategist;
     }
 
+    /**
+     * Report on whether the list contains driver.
+     *
+     * @param driver the driver to compare with
+     * @return true if driver is in drivers and false otherwise
+     */
     public boolean contains(Driver driver) {
         for (Driver item : drivers) {
             if (item == driver) {
@@ -131,6 +263,12 @@ public class Team {
         return false;
     }
 
+    /**
+     * Aad a driver to the list.
+     *
+     * @param driver the driver to compare with
+     * @throws IllegalArgumentException if list contains driver
+     */
     public void addDriver(Driver driver) {
         if (drivers.contains(driver)) {
             throw new IllegalArgumentException("This driver is already in the list");
@@ -139,19 +277,29 @@ public class Team {
         }
     }
 
+    /**
+     * Get the list of drivers.
+     *
+     * @return the list of drivers
+     */
     public List<Driver> getDrivers() {
         return drivers;
     }
 
-    @Override
+    /**
+     * Report on whether or not the object is equal to team.
+     *
+     * @param other the object to compare with
+     * @return true if they are equal and false otherwise
+     */
     public boolean equals(Object other) {
         if (other instanceof Team) {
             Team team = (Team) other;
             boolean boBudget = getBudget() == team.getBudget();
             boolean boPointAll = getPointsAllTime() == team.getPointsAllTime();
             boolean boPointThis = getPointsThisSeason() == team.getPointsThisSeason();
-            boolean boWinAll = getWinAllTime() != team.getWinAllTime();
-            boolean boWinThis = getWinThisSeason() != team.getWinThisSeason();
+            boolean boWinAll = getWinAllTime() == team.getWinAllTime();
+            boolean boWinThis = getWinThisSeason() == team.getWinThisSeason();
             boolean boName = getName().equals(team.getName());
             boolean boManager = getManager().equals(team.getManager());
             boolean boEngine = getEngine().equals(team.getEngine());
