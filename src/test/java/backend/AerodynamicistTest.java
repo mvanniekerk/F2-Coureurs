@@ -49,4 +49,9 @@ public class  AerodynamicistTest {
     public void equalsSameAttr() {
         assertEquals(aerodynamicist, sameAero);
     }
+
+    @Test
+    public void equalsOtherObject() {
+        assertNotEquals(aerodynamicist, new String());
+    }
 }

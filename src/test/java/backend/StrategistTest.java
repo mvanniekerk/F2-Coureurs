@@ -48,4 +48,9 @@ public class StrategistTest {
     public void sameEqualsAttr() {
         assertEquals(strategist, sameStrategist);
     }
+
+    @Test
+    public void equalsOtherObject() {
+        assertNotEquals(strategist, new String());
+    }
 }
