@@ -139,7 +139,7 @@ public class Team {
      *
      * @return the total amount of wins until now
      */
-    public int getWinAlltime() {
+    public int getWinsAlltime() {
         return winsAlltime;
     }
 
@@ -148,7 +148,7 @@ public class Team {
      *
      * @winAllTime the value you want tot change
      */
-    public void setWinAlltime(int winAllTime) {
+    public void setWinsAlltime(int winAllTime) {
         this.winsAlltime = winAllTime;
     }
 
@@ -157,17 +157,17 @@ public class Team {
      *
      * @return the total amount of wins in this season
      */
-    public int getWinThisSeason() {
+    public int getWinsThisSeason() {
         return winsThisSeason;
     }
 
     /**
      * Set the total amount of wins in this season.
      *
-     * @param winThisSeason the total amount of wins in this season
+     * @param winsThisSeason the total amount of wins in this season
      */
-    public void setWinThisSeason(int winThisSeason) {
-        this.winsThisSeason = winThisSeason;
+    public void setWinThisSeason(int winsThisSeason) {
+        this.winsThisSeason = winsThisSeason;
     }
 
     /**
@@ -250,7 +250,7 @@ public class Team {
      */
     public boolean contains(Driver driver) {
         for (Driver item : drivers) {
-            if (item == driver) {
+            if (item.equals(driver)) {
                 return true;
             }
         }
@@ -293,8 +293,8 @@ public class Team {
             Team team = (Team) other;
             boolean boPointAll = getPointsAlltime() == team.getPointsAlltime();
             boolean boPointThis = getPointsThisSeason() == team.getPointsThisSeason();
-            boolean boWinAll = getWinAlltime() == team.getWinAlltime();
-            boolean boWinThis = getWinThisSeason() == team.getWinThisSeason();
+            boolean boWinAll = getWinsAlltime() == team.getWinsAlltime();
+            boolean boWinThis = getWinsThisSeason() == team.getWinsThisSeason();
             boolean boBudget = getBudget() == team.getBudget();
             boolean boName = getName().equals(team.getName());
             boolean boManager = getManager().equals(team.getManager());

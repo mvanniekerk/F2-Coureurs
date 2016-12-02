@@ -75,19 +75,19 @@ public class TeamTest {
     }
 
     @Test
-    public void getPointsAllTime() {
-        assertEquals(5000, team.getPointsAlltime());
+    public void getPointsAlltime() {
+        assertEquals(0, team.getPointsAlltime());
     }
 
     @Test
-    public void setPointsAllTime() {
+    public void setPointsAlltime() {
         otherTeam.setPointsAlltime(3);
         assertEquals(3, otherTeam.getPointsAlltime());
     }
 
     @Test
     public void getPointsThisSeason() {
-        assertEquals(500, team.getPointsThisSeason());
+        assertEquals(0, team.getPointsThisSeason());
     }
 
     @Test
@@ -97,25 +97,25 @@ public class TeamTest {
     }
 
     @Test
-    public void getWinAllTime() {
-        assertEquals(70, team.getWinAllTime());
+    public void getWinsAllTime() {
+        assertEquals(0, team.getWinsAlltime());
     }
 
     @Test
-    public void setWinAllTime() {
-        otherTeam.setWinAllTime(3);
-        assertEquals(3, otherTeam.getWinAllTime());
+    public void setWinsAllTime() {
+        otherTeam.setWinsAlltime(3);
+        assertEquals(3, otherTeam.getWinsAlltime());
     }
 
     @Test
-    public void getWinThisSeason() {
-        assertEquals(10, team.getWinThisSeason());
+    public void getWinsThisSeason() {
+        assertEquals(0, team.getWinsThisSeason());
     }
 
     @Test
-    public void setWinThisSeason() {
+    public void setWinsThisSeason() {
         otherTeam.setWinThisSeason(3);
-        assertEquals(3, otherTeam.getWinThisSeason());
+        assertEquals(3, otherTeam.getWinsThisSeason());
     }
 
     @Test
@@ -190,8 +190,7 @@ public class TeamTest {
 
     @Test
     public void testEquals_same() {
-        Team sameTeam = new Team("F2", "User", 2500000, 5000, 500, 70, 10,
-                engine, aerodynamicist, mechanic, strategist);
+        Team sameTeam = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
         sameTeam.addDriver(driver);
         sameTeam.addDriver(driver2);
         assertTrue(team.equals(sameTeam));
@@ -199,41 +198,36 @@ public class TeamTest {
 
     @Test
     public void testEquals_other() {
-        otherTeam = new Team("name", "manager", 2000000, 0, 0, 0, 0,
-                otherEngine, aerodynamicist2, mechanic2, strategist2);
+        otherTeam = new Team("name", "manager", 2000000, otherEngine, aerodynamicist2, mechanic2, strategist2);
         otherTeam.addDriver(driver2);
         otherTeam.addDriver(driver3);
         assertFalse(team.equals(otherTeam));
     }
 
     @Test
-    public void diffObject() { assertNotEquals(team, new String()); }
+    public void diffObject() { assertNotEquals(team, ""); }
 
     @Test
     public void diffName() {
-        Team diffName = new Team("F3", "User", 2500000, 5000, 500, 70, 10,
-                engine, aerodynamicist, mechanic, strategist);
+        Team diffName = new Team("F3", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
         assertNotEquals(diffName, team);
     }
 
     @Test
     public void diffManager() {
-        Team diffManager = new Team("F2", "Manager", 2500000, 5000, 500, 70, 10,
-                engine, aerodynamicist, mechanic, strategist);
+        Team diffManager = new Team("F2", "Manager", 2500000, engine, aerodynamicist, mechanic, strategist);
         assertNotEquals(diffManager, team);
     }
 
     @Test
     public void diffBudget() {
-        Team diffBudget = new Team("F2", "User", 2280000, 5000, 500, 70, 10,
-                engine, aerodynamicist, mechanic, strategist);
-        assertNotEquals(diffBudget, team);
+        Team diffBudget = new Team("F2", "User", 2280000, engine, aerodynamicist, mechanic, strategist);
+        assertFalse(diffBudget.equals(team));
     }
 
     @Test
-    public void diffPoint() {
-        Team diffPoint = new Team("F2", "User", 2500000, 500, 50, 70, 10,
-                engine, aerodynamicist, mechanic, strategist);
-        assertNotEquals(diffPoint, team);
+    public void diffEngine() {
+        Team diffEngine = new Team("F2", "User", 2500000, otherEngine, aerodynamicist, mechanic, strategist);
+        assertNotEquals(diffEngine, team);
     }
 }
