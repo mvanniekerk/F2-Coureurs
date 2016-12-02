@@ -12,11 +12,15 @@ public class Manager extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/views/splash.fxml"));
-        Scene scene = new Scene(root, 1200, 800);
+        Scene scene = new Scene(root, 1920, 1080);
 
         primaryStage.setResizable(false);
         primaryStage.setTitle(TITLE);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
