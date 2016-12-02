@@ -7,10 +7,10 @@ public class Team {
     private String name;
     private String manager;
     private int budget;
-    private int pointsAlltime = 0;
-    private int pointsThisSeason = 0;
-    private int winsAlltime = 0;
-    private int winsThisSeason = 0;
+    private int pointsAlltime;
+    private int pointsThisSeason;
+    private int winsAlltime;
+    private int winsThisSeason;
     private Engine engine;
     private Aerodynamicist aerodynamicist;
     private Mechanic mechanic;
@@ -37,6 +37,10 @@ public class Team {
         this.aerodynamicist = aerodynamicist;
         this.mechanic = mechanic;
         this.strategist = strategist;
+        this.pointsAlltime = 0;
+        this.pointsThisSeason = 0;
+        this.winsAlltime = 0;
+        this.winsThisSeason = 0;
         drivers = new ArrayList<Driver>();
     }
 
@@ -282,28 +286,26 @@ public class Team {
      * @param other the object to compare with
      * @return true if they are equal and false otherwise
      */
+    @Override
     public boolean equals(Object other) {
+        //TODO: Reduce complexity
         if (other instanceof Team) {
             Team team = (Team) other;
             boolean boPointAll = getPointsAlltime() == team.getPointsAlltime();
             boolean boPointThis = getPointsThisSeason() == team.getPointsThisSeason();
             boolean boWinAll = getWinAlltime() == team.getWinAlltime();
             boolean boWinThis = getWinThisSeason() == team.getWinThisSeason();
-            boolean standing = boPointAll && boPointThis && boWinAll && boWinThis;
-            if (standing) {
-                boolean boBudget = getBudget() == team.getBudget();
-                boolean boName = getName().equals(team.getName());
-                boolean boManager = getManager().equals(team.getManager());
-                boolean boEngine = getEngine().equals(team.getEngine());
-                boolean boAerodynamicist = getAerodynamicist().equals(team.getAerodynamicist());
-                boolean boMechanic = getMechanic().equals(team.getMechanic());
-                boolean boStrategist = getStrategist().equals(team.getStrategist());
-                boolean boDrivers = getDrivers().equals(team.getDrivers());
-                boolean all = boBudget
-                        && boName && boManager && boEngine && boAerodynamicist
-                        && boMechanic && boStrategist && boDrivers;
-                return all;
-            }
+            boolean boBudget = getBudget() == team.getBudget();
+            boolean boName = getName().equals(team.getName());
+            boolean boManager = getManager().equals(team.getManager());
+            boolean boEngine = getEngine().equals(team.getEngine());
+            boolean boAerodynamicist = getAerodynamicist().equals(team.getAerodynamicist());
+            boolean boMechanic = getMechanic().equals(team.getMechanic());
+            boolean boStrategist = getStrategist().equals(team.getStrategist());
+            boolean boDrivers = getDrivers().equals(team.getDrivers());
+            return boPointAll && boPointThis && boPointAll && boWinAll && boWinThis
+                    && boBudget && boName && boManager && boEngine && boAerodynamicist
+                    && boMechanic && boStrategist && boDrivers;
         }
         return false;
     }
