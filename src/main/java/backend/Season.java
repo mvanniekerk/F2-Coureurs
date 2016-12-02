@@ -5,18 +5,22 @@ import com.google.gson.JsonSyntaxException;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Season {
     private int currentRound;
+    private List<Race> rounds;
+    private List<Team> teams;
 
     /**
      * Create a new season.
      */
     public Season() {
         this.currentRound = 0;
-        // Yin, the constructor is temporary. Feel free to change it.
-        // You will need to update the Tests and the equals method!!!
+        this.rounds = new ArrayList<>();
+        this.teams = new ArrayList<>();
     }
 
     /**
@@ -24,8 +28,20 @@ public class Season {
      *
      * @return current round
      */
-    public int getCurrentRound() {
+    public int getRoundInt() {
         return currentRound;
+    }
+
+    /**
+     * Gets the current round.
+     *
+     * @return current race
+     */
+    public Race getCurrentRound() {
+        if (this.currentRound >= this.rounds.size()) {
+            throw new IllegalArgumentException("Current round does not exist in this.rounds");
+        }
+        return this.rounds.get(this.currentRound);
     }
 
     /**
@@ -45,6 +61,24 @@ public class Season {
     public String toJson() {
         Gson gson = new Gson();
         return gson.toJson(this);
+    }
+
+    /**
+     * Adds a team to the season.
+     *
+     * @param team the team to add
+     */
+    public void addTeam(Team team) {
+        this.teams.add(team);
+    }
+
+    /**
+     * Adds a race to the rounds.
+     *
+     * @param race the race to add
+     */
+    public void addRace(Race race) {
+        this.rounds.add(race);
     }
 
     /**
@@ -98,13 +132,22 @@ public class Season {
         if (other instanceof Season) {
             Season that = (Season) other;
 
+            if (this.rounds.size() == that.rounds.size()) {
+                for (Race round : this.rounds) {
+                    if (!(that.rounds.contains(round))) {
+                        return false;
+                    }
+                }
+            }
+            if (this.teams.size() == that.teams.size()) {
+                for (Team team : this.teams) {
+                    if (!(that.teams.contains(team))) {
+                        return false;
+                    }
+                }
+            }
             return this.currentRound == that.currentRound;
         }
         return false;
-    }
-
-    public static void main(String[] args) throws IOException {
-        Season season = new Season();
-        season.writeToJsonFile("save.json");
     }
 }
