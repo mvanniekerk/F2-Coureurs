@@ -150,9 +150,4 @@ public class Season {
         }
         return false;
     }
-
-    public static void main(String[] args) throws IOException {
-        Season season = new Season();
-        season.writeToJsonFile("save.json");
-    }
 }

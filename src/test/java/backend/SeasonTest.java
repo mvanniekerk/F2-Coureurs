@@ -60,6 +60,11 @@ public class SeasonTest {
     }
 
     @Rule
+    public void getCurrentRoundTest() {
+        assertEquals(this.race, this.season.getCurrentRound());
+    }
+
+    @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
