@@ -106,7 +106,7 @@ public class Team {
     /**
      * Set the total amount of points until now.
      *
-     * @param pointsAllTime the total amount of points in this season
+     * @param pointsAlltime the total amount of points in this season
      */
     public void setPointsAlltime(int pointsAlltime) {
         this.pointsAlltime = pointsAlltime;
@@ -142,7 +142,7 @@ public class Team {
     /**
      * Set the total amount of wins until now.
      *
-     * @return the total amount of wins until now
+     * @winAllTime the value you want tot change
      */
     public void setWinAlltime(int winAllTime) {
         this.winsAlltime = winAllTime;
@@ -276,7 +276,6 @@ public class Team {
         return drivers;
     }
 
-    //CHECKSTYLE.OFF
     /**
      * Report on whether or not the object is equal to team.
      *
@@ -308,5 +307,4 @@ public class Team {
         }
         return false;
     }
-    //CHECKSTYLE.ON
 }
