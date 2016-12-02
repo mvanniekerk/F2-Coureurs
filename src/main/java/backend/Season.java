@@ -64,6 +64,24 @@ public class Season {
     }
 
     /**
+     * Adds a team to the season.
+     *
+     * @param team the team to add
+     */
+    public void addTeam(Team team) {
+        this.teams.add(team);
+    }
+
+    /**
+     * Adds a race to the rounds.
+     *
+     * @param race the race to add
+     */
+    public void addRace(Race race) {
+        this.rounds.add(race);
+    }
+
+    /**
      * Converts the jsonString to a Season class.
      *
      * @param jsonString a json String representing a Season class
