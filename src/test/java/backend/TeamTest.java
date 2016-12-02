@@ -33,9 +33,9 @@ public class TeamTest {
         strategist2 = new Strategist("some guy", 10000);
         engine = new Engine(900, 70, 80, "Mercedes");
         otherEngine = new Engine(700, 50, 100, "Honda");
-        team = new Team("F2", "User", 2500000, 5000, 500, 70, 10,
+        team = new Team("F2", "User", 2500000,
                 engine, aerodynamicist, mechanic, strategist);
-        otherTeam = new Team("name", "manager", 2000000, 0, 0, 0, 0,
+        otherTeam = new Team("name", "manager", 2000000,
                 otherEngine, aerodynamicist2, mechanic2, strategist2);
         team.addDriver(driver);
         team.addDriver(driver2);
@@ -74,49 +74,7 @@ public class TeamTest {
         assertEquals(2000003, otherTeam.getBudget());
     }
 
-    @Test
-    public void getPointsAllTime() {
-        assertEquals(5000, team.getPointsAllTime());
-    }
 
-    @Test
-    public void setPointsAllTime() {
-        otherTeam.setPointsAllTime(3);
-        assertEquals(3, otherTeam.getPointsAllTime());
-    }
-
-    @Test
-    public void getPointsThisSeason() {
-        assertEquals(500, team.getPointsThisSeason());
-    }
-
-    @Test
-    public void setPointsThisSeason() {
-        otherTeam.setPointsThisSeason(3);
-        assertEquals(3, otherTeam.getPointsThisSeason());
-    }
-
-    @Test
-    public void getWinAllTime() {
-        assertEquals(70, team.getWinAllTime());
-    }
-
-    @Test
-    public void setWinAllTime() {
-        otherTeam.setWinAllTime(3);
-        assertEquals(3, otherTeam.getWinAllTime());
-    }
-
-    @Test
-    public void getWinThisSeason() {
-        assertEquals(10, team.getWinThisSeason());
-    }
-
-    @Test
-    public void setWinThisSeason() {
-        otherTeam.setWinThisSeason(3);
-        assertEquals(3, otherTeam.getWinThisSeason());
-    }
 
     @Test
     public void getEngine() {
@@ -190,7 +148,7 @@ public class TeamTest {
 
     @Test
     public void testEquals_same() {
-        Team sameTeam = new Team("F2", "User", 2500000, 5000, 500, 70, 10,
+        Team sameTeam = new Team("F2", "User", 2500000,
                 engine, aerodynamicist, mechanic, strategist);
         sameTeam.addDriver(driver);
         sameTeam.addDriver(driver2);
@@ -199,7 +157,7 @@ public class TeamTest {
 
     @Test
     public void testEquals_other() {
-        otherTeam = new Team("name", "manager", 2000000, 0, 0, 0, 0,
+        otherTeam = new Team("name", "manager", 2000000,
                 otherEngine, aerodynamicist2, mechanic2, strategist2);
         otherTeam.addDriver(driver2);
         otherTeam.addDriver(driver3);
@@ -211,28 +169,28 @@ public class TeamTest {
 
     @Test
     public void diffName() {
-        Team diffName = new Team("F3", "User", 2500000, 5000, 500, 70, 10,
+        Team diffName = new Team("F3", "User", 2500000,
                 engine, aerodynamicist, mechanic, strategist);
         assertNotEquals(diffName, team);
     }
 
     @Test
     public void diffManager() {
-        Team diffManager = new Team("F2", "Manager", 2500000, 5000, 500, 70, 10,
+        Team diffManager = new Team("F2", "Manager", 2500000,
                 engine, aerodynamicist, mechanic, strategist);
         assertNotEquals(diffManager, team);
     }
 
     @Test
     public void diffBudget() {
-        Team diffBudget = new Team("F2", "User", 2280000, 5000, 500, 70, 10,
+        Team diffBudget = new Team("F2", "User", 2280000,
                 engine, aerodynamicist, mechanic, strategist);
         assertNotEquals(diffBudget, team);
     }
 
     @Test
     public void diffPoint() {
-        Team diffPoint = new Team("F2", "User", 2500000, 500, 50, 70, 10,
+        Team diffPoint = new Team("F2", "User", 2500000,
                 engine, aerodynamicist, mechanic, strategist);
         assertNotEquals(diffPoint, team);
     }
