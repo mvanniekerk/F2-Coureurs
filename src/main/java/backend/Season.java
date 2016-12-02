@@ -5,18 +5,22 @@ import com.google.gson.JsonSyntaxException;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Season {
     private int currentRound;
+    private List<Race> rounds;
+    private List<Team> teams;
 
     /**
      * Create a new season.
      */
     public Season() {
         this.currentRound = 0;
-        // Yin, the constructor is temporary. Feel free to change it.
-        // You will need to update the Tests and the equals method!!!
+        this.rounds = new ArrayList<>();
+        this.teams = new ArrayList<>();
     }
 
     /**
@@ -24,8 +28,20 @@ public class Season {
      *
      * @return current round
      */
-    public int getCurrentRound() {
+    public int getRoundInt() {
         return currentRound;
+    }
+
+    /**
+     * Gets the current round.
+     *
+     * @return current race
+     */
+    public Race getCurrentRound() {
+        if (this.rounds.size() <= this.currentRound) {
+            return this.rounds.get(this.currentRound);
+        }
+        throw new IllegalArgumentException("Current round does not exist in this.rounds");
     }
 
     /**
