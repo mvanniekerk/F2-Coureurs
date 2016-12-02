@@ -38,7 +38,7 @@ public class Season {
      * @return current race
      */
     public Race getCurrentRound() {
-        if (this.rounds.size() <= this.currentRound) {
+        if (this.rounds.size() > this.currentRound) {
             return this.rounds.get(this.currentRound);
         }
         throw new IllegalArgumentException("Current round does not exist in this.rounds");

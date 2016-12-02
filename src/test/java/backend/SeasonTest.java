@@ -60,15 +60,25 @@ public class SeasonTest {
     }
 
     @Rule
+    public ExpectedException expectedException = ExpectedException.none();
+
+    @Test
     public void getCurrentRoundTest() {
         assertEquals(this.race, this.season.getCurrentRound());
     }
 
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
+    @Test
+    public void getCurrentRoundException() {
+        Season exceptSeason = new Season();
+        exceptSeason.addRace(race);
+        exceptSeason.addTeam(team);
+        exceptSeason.setCurrentRound(1);
+        expectedException.expect(IllegalArgumentException.class);
+        exceptSeason.getCurrentRound();
+    }
 
     @Test
-    public void currentRoundTest() {
+    public void roundIntTest() {
         assertEquals(0, season.getRoundInt());
     }
 
