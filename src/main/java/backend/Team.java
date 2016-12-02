@@ -106,7 +106,7 @@ public class Team {
     /**
      * Set the total amount of points until now.
      *
-     * @param pointsAllTime the total amount of points in this season
+     * @param pointsAlltime the total amount of points in this season
      */
     public void setPointsAlltime(int pointsAlltime) {
         this.pointsAlltime = pointsAlltime;
