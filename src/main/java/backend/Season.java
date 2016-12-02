@@ -132,6 +132,20 @@ public class Season {
         if (other instanceof Season) {
             Season that = (Season) other;
 
+            if (this.rounds.size() == that.rounds.size()) {
+                for (Race round : this.rounds) {
+                    if (!(that.rounds.contains(round))) {
+                        return false;
+                    }
+                }
+            }
+            if (this.teams.size() == that.teams.size()) {
+                for (Team team : this.teams) {
+                    if (!(that.teams.contains(team))) {
+                        return false;
+                    }
+                }
+            }
             return this.currentRound == that.currentRound;
         }
         return false;
