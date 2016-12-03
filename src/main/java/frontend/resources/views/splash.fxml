@@ -11,7 +11,7 @@
 
     <AnchorPane layoutY="112.0">
         <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@media/logo.png" />
+            <Image url="@../media/logo.png" />
         </ImageView>
     </AnchorPane>
     <Button fx:id="buttonNext" layoutX="338.0" layoutY="14.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="87.0" prefWidth="525.0" text="Go to the next scene">
