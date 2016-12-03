@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'BentonSans Regular';
+    src: url("../fonts/benton-sans-regular.otf");
+}
+
 Button {
     -fx-text-fill: white;
     -fx-border-color: #95989a;
@@ -7,20 +12,38 @@ Button {
     -fx-pref-height: 115;
     -fx-pref-width: 235;
     -fx-wrap-text: true;
+    -fx-text-alignment: center;
 }
+
+Label {
+    -fx-text-fill: white;
+}
+
+.title{
+    -fx-font-size: 64;
+}
+
+.content{
+    -fx-font-size: 45;
+}
+
 
 Button#red {
     -fx-background-color: rgba(255, 0, 0, 0.59);
 }
 
-#pane{
-    -fx-background-image: url("media/background.jpg");
+.pane{
     -fx-background-repeat: stretch;
     -fx-background-size: 1920 1080;
     -fx-background-position: center center;
 }
 
-Label {
-    -fx-font-size: 47;
-    -fx-text-fill: white;
+#home{
+    -fx-background-image: url("../media/background.jpg");
+}
+
+.block{
+    -fx-background-color: rgba(95, 95, 95, 0.59);
+    -fx-border-color: #95989a;
+    -fx-border-width: 1;
 }
