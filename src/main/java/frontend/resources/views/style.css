@@ -39,7 +39,7 @@ Button#red {
 }
 
 #home{
-    -fx-background-image: url("../media/background.jpg");
+    -fx-background-image: url("../media/backgrounds/home.jpg");
 }
 
 .block{
