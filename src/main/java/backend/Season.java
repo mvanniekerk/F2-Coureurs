@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
-import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -132,6 +132,20 @@ public class Season {
     }
 
     /**
+     * Writes pretty json to a file.
+     *
+     * @param filename file to write to
+     * @throws IOException throws in rare cases (I'm not sure when)
+     */
+    public void writeToJsonFilePretty(String filename) throws IOException {
+        FileOutputStream out = new FileOutputStream(filename);
+        String jsonString = toJsonPretty();
+        out.write(jsonString.getBytes());
+        out.flush();
+        out.close();
+    }
+
+    /**
      * Checks if two season classes are the same.
      *
      * @param other the class you want to test equality for.
@@ -161,5 +175,17 @@ public class Season {
             return this.currentRound == that.currentRound;
         }
         return false;
+    }
+
+    /**
+     * Temporary main. Use this to test the Json write and read functionality.
+     *
+     * @param args Nothing
+     * @throws IOException If the file or directory does not exist
+     */
+    public static void main(String[] args) throws IOException {
+        InputStream seasonStart = new FileInputStream("assets/SeasonStart.json");
+        Season season = Season.readFromJsonFile(seasonStart);
+        season.writeToJsonFile("saves/save1.json");
     }
 }
