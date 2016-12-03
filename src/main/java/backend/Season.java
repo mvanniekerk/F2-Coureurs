@@ -184,7 +184,7 @@ public class Season {
      * @throws IOException If the file or directory does not exist
      */
     public static void main(String[] args) throws IOException {
-        InputStream seasonStart = new FileInputStream("assets/SeasonStart.json");
+        InputStream seasonStart = new FileInputStream("assets/seasonStart.json");
         Season season = Season.readFromJsonFile(seasonStart);
         season.writeToJsonFile("saves/save1.json");
     }
