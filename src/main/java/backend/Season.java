@@ -1,10 +1,13 @@
 package backend;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -63,6 +66,11 @@ public class Season {
         return gson.toJson(this);
     }
 
+    public String toJsonPretty() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
+    }
+
     /**
      * Adds a team to the season.
      *
@@ -102,8 +110,10 @@ public class Season {
      * @return a season
      * @throws IOException throws if the file does not exist
      */
-    public static Season readFromJsonFile(Scanner inputFile) throws IOException {
-        String fileString = inputFile.nextLine();
+    public static Season readFromJsonFile(InputStream inputFile) throws IOException {
+        Scanner sc = new Scanner(inputFile);
+        sc.useDelimiter("//Z");
+        String fileString = sc.next();
         return fromJson(fileString);
     }
 
@@ -116,6 +126,20 @@ public class Season {
     public void writeToJsonFile(String filename) throws IOException {
         FileOutputStream out = new FileOutputStream(filename);
         String jsonString = toJson();
+        out.write(jsonString.getBytes());
+        out.flush();
+        out.close();
+    }
+
+    /**
+     * Writes pretty json to a file.
+     *
+     * @param filename file to write to
+     * @throws IOException throws in rare cases (I'm not sure when)
+     */
+    public void writeToJsonFilePretty(String filename) throws IOException {
+        FileOutputStream out = new FileOutputStream(filename);
+        String jsonString = toJsonPretty();
         out.write(jsonString.getBytes());
         out.flush();
         out.close();
@@ -151,5 +175,17 @@ public class Season {
             return this.currentRound == that.currentRound;
         }
         return false;
+    }
+
+    /**
+     * Temporary main. Use this to test the Json write and read functionality.
+     *
+     * @param args Nothing
+     * @throws IOException If the file or directory does not exist
+     */
+    public static void main(String[] args) throws IOException {
+        InputStream seasonStart = new FileInputStream("assets/seasonStart.json");
+        Season season = Season.readFromJsonFile(seasonStart);
+        season.writeToJsonFile("saves/save1.json");
     }
 }

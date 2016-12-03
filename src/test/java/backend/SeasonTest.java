@@ -10,16 +10,17 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 public class SeasonTest {
+    private Season simpleSeason;
     private Season season;
     private Season sameSeason;
     private Season otherSeason;
     private String jsonString;
+    private String jsonStringSpaces;
     private Team team;
     private Driver driver;
     private Driver driver2;
@@ -42,6 +43,7 @@ public class SeasonTest {
         team.addDriver(driver);
         team.addDriver(driver2);
 
+        this.simpleSeason = new Season();
         this.season = new Season();
         this.sameSeason = new Season();
         this.otherSeason = new Season();
@@ -57,6 +59,7 @@ public class SeasonTest {
 
         otherSeason.setCurrentRound(5);
         this.jsonString = "{\"currentRound\":0,\"rounds\":[{\"setup\":{\"risk\":1},\"strategy\":{\"risk\":3},\"trackName\":\"Circuit de Monaco\",\"roundInChampionship\":8}],\"teams\":[{\"name\":\"F2\",\"manager\":\"User\",\"budget\":2500000,\"pointsAlltime\":0,\"pointsThisSeason\":0,\"winsAlltime\":0,\"winsThisSeason\":0,\"engine\":{\"power\":900,\"drivability\":70,\"fuelConsumption\":80,\"name\":\"Mercedes\"},\"aerodynamicist\":{\"name\":\"Dan Fallows\",\"salary\":700000},\"mechanic\":{\"reliability\":50,\"partFixing\":50,\"pitstops\":50,\"name\":\"Steve Matchett\",\"salary\":100000},\"strategist\":{\"name\":\"Anonyme\",\"salary\":1000000},\"drivers\":[{\"speed\":50,\"raceCraft\":50,\"strategyInsight\":50,\"raceWins\":0,\"points\":0,\"championLastYear\":false,\"name\":\"Kimi Raikkonen\",\"salary\":16},{\"speed\":58,\"raceCraft\":52,\"strategyInsight\":40,\"raceWins\":0,\"points\":0,\"championLastYear\":true,\"name\":\"Lewis Hamilton\",\"salary\":18}]}]}";
+        this.jsonStringSpaces = "{\n\"currentRound\":0,\n\"rounds\":[\n{\"setup\":{\"risk\":1},\"strategy\":{\"risk\":3},\"trackName\":\"Circuit de Monaco\",\"roundInChampionship\":8}],\"teams\":[{\"name\":\"F2\",\"manager\":\"User\",\"budget\":2500000,\"pointsAlltime\":0,\"pointsThisSeason\":0,\"winsAlltime\":0,\"winsThisSeason\":0,\"engine\":{\"power\":900,\"drivability\":70,\"fuelConsumption\":80,\"name\":\"Mercedes\"},\"aerodynamicist\":{\"name\":\"Dan Fallows\",\"salary\":700000},\"mechanic\":{\"reliability\":50,\"partFixing\":50,\"pitstops\":50,\"name\":\"Steve Matchett\",\"salary\":100000},\"strategist\":{\"name\":\"Anonyme\",\"salary\":1000000},\"drivers\":[{\"speed\":50,\"raceCraft\":50,\"strategyInsight\":50,\"raceWins\":0,\"points\":0,\"championLastYear\":false,\"name\":\"Kimi Raikkonen\",\"salary\":16},{\"speed\":58,\"raceCraft\":52,\"strategyInsight\":40,\"raceWins\":0,\"points\":0,\"championLastYear\":true,\"name\":\"Lewis Hamilton\",\"salary\":18}]}]}";
     }
 
     @Rule
@@ -108,8 +111,19 @@ public class SeasonTest {
     }
 
     @Test
+    public void toJsonPrettyTest() {
+        String prettySimple = "{\n  \"currentRound\": 0,\n  \"rounds\": [],\n  \"teams\": []\n}";
+        assertEquals(prettySimple, simpleSeason.toJsonPretty());
+    }
+
+    @Test
     public void fromJsonTest() {
         assertEquals(season, Season.fromJson(jsonString));
+    }
+
+    @Test
+    public void fromJsonSpaces() {
+        assertEquals(season, Season.fromJson(jsonStringSpaces));
     }
 
     @Test
@@ -121,9 +135,15 @@ public class SeasonTest {
     @Test
     public void readFromJsonFileTest() throws IOException {
         InputStream is = new ByteArrayInputStream(jsonString.getBytes(StandardCharsets.UTF_8));
-        Scanner sc = new Scanner(is);
 
-        assertEquals(season, Season.readFromJsonFile(sc));
+        assertEquals(season, Season.readFromJsonFile(is));
+    }
+
+    @Test
+    public void readFromJsonSpaces() throws IOException {
+        InputStream is = new ByteArrayInputStream(jsonStringSpaces.getBytes(StandardCharsets.UTF_8));
+
+        assertEquals(season, Season.readFromJsonFile(is));
     }
 
     @Test
