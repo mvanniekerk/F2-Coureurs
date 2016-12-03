@@ -1,10 +1,13 @@
 package backend;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -63,6 +66,11 @@ public class Season {
         return gson.toJson(this);
     }
 
+    public String toJsonPretty() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
+    }
+
     /**
      * Adds a team to the season.
      *
@@ -102,8 +110,10 @@ public class Season {
      * @return a season
      * @throws IOException throws if the file does not exist
      */
-    public static Season readFromJsonFile(Scanner inputFile) throws IOException {
-        String fileString = inputFile.nextLine();
+    public static Season readFromJsonFile(InputStream inputFile) throws IOException {
+        Scanner sc = new Scanner(inputFile);
+        sc.useDelimiter("//Z");
+        String fileString = sc.next();
         return fromJson(fileString);
     }
 
