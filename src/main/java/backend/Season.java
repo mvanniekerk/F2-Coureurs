@@ -4,7 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -114,16 +117,23 @@ public class Season {
      *
      * @param inputFile a scanner of a json file containing a Season
      * @return a season
-     * @throws IOException throws if the file does not exist
      */
-    public static Season readFromJsonFile(InputStream inputFile) throws IOException {
+    public static Season readFromJsonFile(InputStream inputFile) {
         Scanner sc = new Scanner(inputFile);
         sc.useDelimiter("//Z");
         String fileString = sc.next();
         return fromJson(fileString);
     }
 
-    public static Season loadNewGameFromSeasonStart() throws IOException {
+    /**
+     * Loads the data from seasonStart.json into the project.
+     * Uses a static way of loading resources via a ClassLoader.
+     * http://stackoverflow.com/questions/15749192/how-do-i-load-a-file-from-resource-folder#15749281
+     * the resource folder in main MUST be marked as a resource folder.
+     *
+     * @return a new Season with the information of seasonStart.json
+     */
+    public static Season loadNewGameFromSeasonStart() {
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         InputStream seasonStart = loader.getResourceAsStream("seasonStart.json");
         return readFromJsonFile(seasonStart);
@@ -138,12 +148,26 @@ public class Season {
      * @param filename file to write to
      * @throws IOException throws in rare cases (I'm not sure when)
      */
-    public void writeToJsonFile(String filename) throws IOException {
-        try(FileOutputStream out = new FileOutputStream(filename)) {
+    private void writeToJsonFile(String filename) throws IOException {
+        try (FileOutputStream out = new FileOutputStream(filename)) {
             // Change next line to toJsonPretty() if you want readable output.
             String jsonString = toJson();
             out.write(jsonString.getBytes());
         }
+    }
+
+    /**
+     * Saves Season to saveName in json format.
+     * The file gets saved to the saves directory, in the same folder as the executable.
+     *
+     * @param saveName the name the fie gets saved to
+     * @throws IOException throws in special cases,
+     *      like if the executable is in a admin only directory.
+     */
+    public void save(String saveName) throws IOException {
+        File dir = new File("saves");
+        dir.mkdir();
+        writeToJsonFile("saves/" + saveName);
     }
 
     /**
@@ -186,6 +210,6 @@ public class Season {
      */
     public static void main(String[] args) throws IOException {
         Season season = Season.loadNewGameFromSeasonStart();
-        season.writeToJsonFile("saves/save1.json");
+        season.save("save1.json");
     }
 }
