@@ -4,10 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -57,21 +54,6 @@ public class Season {
     }
 
     /**
-     * Converts the current Season class to a json object.
-     *
-     * @return string containing a json representation of the current season
-     */
-    public String toJson() {
-        Gson gson = new Gson();
-        return gson.toJson(this);
-    }
-
-    public String toJsonPretty() {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(this);
-    }
-
-    /**
      * Adds a team to the season.
      *
      * @param team the team to add
@@ -87,6 +69,30 @@ public class Season {
      */
     public void addRace(Race race) {
         this.rounds.add(race);
+    }
+
+    /**
+     * Converts the current Season class to a json object.
+     *
+     * @return string containing a json representation of the current season
+     */
+    public String toJson() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
+
+    /**
+     * Converts the current Season class to a human-readable json String.
+     * This method should for example be used for SeasonStart.json,
+     * because that file needs to be edited by humans frequently.
+     * However, if we are getting ready for production, it would be better
+     * to minimize SeasonStart.json.
+     *
+     * @return String containing a json representation of the Season
+     */
+    public String toJsonPretty() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
     }
 
     /**
@@ -117,32 +123,27 @@ public class Season {
         return fromJson(fileString);
     }
 
+    public static Season loadNewGameFromSeasonStart() throws IOException {
+        ClassLoader loader = Thread.currentThread().getContextClassLoader();
+        InputStream seasonStart = loader.getResourceAsStream("seasonStart.json");
+        return readFromJsonFile(seasonStart);
+    }
+
+
     /**
-     * Writes json to a file, fails fast.
+     * Writes json to a file.
+     * Use the following article for reference:
+     * http://www.oracle.com/technetwork/articles/java/trywithresources-401775.html
      *
      * @param filename file to write to
      * @throws IOException throws in rare cases (I'm not sure when)
      */
     public void writeToJsonFile(String filename) throws IOException {
-        FileOutputStream out = new FileOutputStream(filename);
-        String jsonString = toJson();
-        out.write(jsonString.getBytes());
-        out.flush();
-        out.close();
-    }
-
-    /**
-     * Writes pretty json to a file.
-     *
-     * @param filename file to write to
-     * @throws IOException throws in rare cases (I'm not sure when)
-     */
-    public void writeToJsonFilePretty(String filename) throws IOException {
-        FileOutputStream out = new FileOutputStream(filename);
-        String jsonString = toJsonPretty();
-        out.write(jsonString.getBytes());
-        out.flush();
-        out.close();
+        try(FileOutputStream out = new FileOutputStream(filename)) {
+            // Change next line to toJsonPretty() if you want readable output.
+            String jsonString = toJson();
+            out.write(jsonString.getBytes());
+        }
     }
 
     /**
@@ -184,8 +185,7 @@ public class Season {
      * @throws IOException If the file or directory does not exist
      */
     public static void main(String[] args) throws IOException {
-        InputStream seasonStart = new FileInputStream("assets/seasonStart.json");
-        Season season = Season.readFromJsonFile(seasonStart);
+        Season season = Season.loadNewGameFromSeasonStart();
         season.writeToJsonFile("saves/save1.json");
     }
 }
