@@ -32,6 +32,22 @@ Button#red {
     -fx-background-color: rgba(255, 0, 0, 0.59);
 }
 
+Button#green {
+    -fx-background-color: rgba(0, 255, 0, 0.59);
+}
+
+Button#start-race {
+    -fx-background-color: rgba(0, 255, 0, 0.59);
+    -fx-pref-height: 220;
+    -fx-pref-width: 530;
+    -fx-font-size: 50;
+}
+
+Button.settings-quit {
+    -fx-pref-height: 100;
+    -fx-pref-width: 180;
+}
+
 .pane{
     -fx-background-repeat: stretch;
     -fx-background-size: 1920 1080;
@@ -40,6 +56,10 @@ Button#red {
 
 #home{
     -fx-background-image: url("../media/backgrounds/home.jpg");
+}
+
+#prepare-race {
+    -fx-background-image: url("../media/backgrounds/race-preset.jpg");
 }
 
 .block{
