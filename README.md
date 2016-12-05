@@ -36,6 +36,8 @@ You can create a project report using:
 You can check your code for checkstyle errors with:
 `mvn checkstyle:check -Dcheckstyle.config.location=TI1216.checkstyle.xml -Dcheckstyle.violationSeverity=warning`
 
+Project reports can be found here [here](https://github.com/F2-Coureurs/F2-Coureurs/tree/master/project/reports).
+
 ## Documentation
 TODO
 
