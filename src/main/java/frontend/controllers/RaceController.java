@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
@@ -47,14 +46,11 @@ public class RaceController {
         Parent root = FXMLLoader.load(getClass().getResource("/views/race-result.fxml"));
         Stage stage = (Stage)startRace.getScene().getWindow();
 
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        stage.getScene().setRoot(root);
 
         // Get label and set it to the winning driver
-        winningDriverLabel = (Label) scene.lookup("#winningDriverLabel");
+        winningDriverLabel = (Label) stage.getScene().lookup("#winningDriverLabel");
         winningDriverLabel.setText("Race winner: " + winningDriver.getName());
         winningDriverLabel.setTextFill(Color.BLACK);
-
-        stage.show();
     }
 }

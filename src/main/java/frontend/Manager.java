@@ -14,9 +14,9 @@ public class Manager extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/views/splash.fxml"));
         Scene scene = new Scene(root, 1200, 800);
 
-        primaryStage.setResizable(false);
         primaryStage.setTitle(TITLE);
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 
