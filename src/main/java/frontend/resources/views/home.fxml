@@ -6,12 +6,16 @@
 <?scenebuilder-stylesheet style.css?>
 
 <?import javafx.scene.image.Image?>
-<Pane id="home" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8">
+<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      id="home" fx:controller="frontend.controllers.HomeController" maxHeight="-Infinity"
+      maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
+      prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
+
        <!-- Bottom menu-->
        <Button id="red" layoutX="80" layoutY="915" text="Home" />
        <Button layoutX="335" layoutY="915" text="Edit Team" />
        <Button layoutX="588" layoutY="915" text="Standings" />
-       <Button layoutX="842" layoutY="915" text="Prepare Race" />
+       <Button fx:id="buttonPrepareRace" layoutX="842" layoutY="915" text="Prepare Race" onAction="#prepareRaceAction"/>
 
         <!-- settings-quit -->
         <Button styleClass="settings-quit" layoutY="925" layoutX="1470" text="Settings" />
