@@ -9,7 +9,7 @@
       maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
       prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
     <!-- Title-->
-    <Pane layoutX="88" layoutY="104" prefHeight="127" prefWidth="528" styleClass="block">
+    <Pane layoutX="80" layoutY="104" prefHeight="127" prefWidth="530" styleClass="block">
         <Label layoutX="30" layoutY="20" styleClass="title" text="New Game"/>
     </Pane>
 
