@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -24,8 +23,6 @@ public class HomeController {
         Parent root = FXMLLoader.load(getClass().getResource("/views/prepare-race.fxml"));
         Stage stage = (Stage) buttonPrepareRace.getScene().getWindow();
 
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        stage.getScene().setRoot(root);
     }
 }
