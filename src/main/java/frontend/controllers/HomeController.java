@@ -12,6 +12,9 @@ public class HomeController {
     @FXML
     private Button buttonPrepareRace;
 
+    @FXML
+    private Button quitGame;
+
     /**
      * Show the prepare race screen.
      *
