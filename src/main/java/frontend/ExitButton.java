@@ -6,6 +6,10 @@ import javafx.scene.control.Button;
 
 public class ExitButton extends Button {
 
+    /**
+     * Constructs a new Exit Button that closes the application when clicked.
+     *
+     */
     public ExitButton() {
         this.setOnAction(new EventHandler<ActionEvent>() {
             @Override
