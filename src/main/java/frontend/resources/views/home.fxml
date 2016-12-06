@@ -6,6 +6,7 @@
 <?scenebuilder-stylesheet style.css?>
 
 <?import javafx.scene.image.Image?>
+<?import frontend.ExitButton?>
 <Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
       id="home" fx:controller="frontend.controllers.HomeController" maxHeight="-Infinity"
       maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
@@ -19,7 +20,7 @@
 
         <!-- settings-quit -->
         <Button styleClass="settings-quit" layoutY="925" layoutX="1470" text="Settings" />
-        <Button fx:id="quitGame" styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" onAction="#quitGameAction"/>
+        <ExitButton styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
 
        <!-- Team block-->
        <Pane layoutX="80" layoutY="125" prefHeight="645" prefWidth="530" styleClass="block">

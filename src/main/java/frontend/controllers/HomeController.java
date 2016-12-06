@@ -28,16 +28,4 @@ public class HomeController {
 
         stage.getScene().setRoot(root);
     }
-
-    /**
-     * Quits the game when the quit button is pressed.
-     *
-     * @param event the event that called this method
-     */
-    @FXML
-    public void quitGameAction(ActionEvent event) {
-        Stage stage = (Stage) quitGame.getScene().getWindow();
-        stage.close();
-
-    }
 }

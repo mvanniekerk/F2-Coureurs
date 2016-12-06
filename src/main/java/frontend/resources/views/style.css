@@ -3,7 +3,7 @@
     src: url("../fonts/benton-sans-regular.otf");
 }
 
-Button {
+Button, ExitButton {
     -fx-text-fill: white;
     -fx-border-color: #95989a;
     -fx-border-width: 1;
@@ -37,14 +37,14 @@ Button#green {
     -fx-background-color: rgba(0, 255, 0, 0.59);
 }
 
-Button.start-race {
+.start-race {
     -fx-background-color: rgba(0, 255, 0, 0.59);
     -fx-pref-height: 220;
     -fx-pref-width: 530;
     -fx-font-size: 50;
 }
 
-Button.settings-quit {
+.settings-quit {
     -fx-pref-height: 100;
     -fx-pref-width: 180;
 }
