@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      stylesheets="@style.css" id="prepare-race" fx:controller="frontend.controllers.RaceController"
+      stylesheets="@style.css" id="prepare-race" fx:controller="frontend.controllers.PrepareRaceController"
       maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
       prefWidth="1920.0">
 
@@ -82,5 +82,5 @@
 
     <!-- settings-quit -->
     <Button styleClass="settings-quit" layoutY="925" layoutX="1470" text="Settings" />
-    <Button styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
+    <Button fx:id="quitGame" styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" onAction="#quitGameAction"/>
 </Pane>

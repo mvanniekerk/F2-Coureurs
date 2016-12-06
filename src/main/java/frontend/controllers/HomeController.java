@@ -12,6 +12,9 @@ public class HomeController {
     @FXML
     private Button buttonPrepareRace;
 
+    @FXML
+    private Button quitGame;
+
     /**
      * Show the prepare race screen.
      *
@@ -24,5 +27,12 @@ public class HomeController {
         Stage stage = (Stage) buttonPrepareRace.getScene().getWindow();
 
         stage.getScene().setRoot(root);
+    }
+
+    @FXML
+    public void quitGameAction(ActionEvent event) {
+        Stage stage = (Stage) quitGame.getScene().getWindow();
+        stage.close();
+
     }
 }

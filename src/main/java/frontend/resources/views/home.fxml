@@ -19,7 +19,7 @@
 
         <!-- settings-quit -->
         <Button styleClass="settings-quit" layoutY="925" layoutX="1470" text="Settings" />
-        <Button styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
+        <Button fx:id="quitGame" styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" onAction="#quitGameAction"/>
 
        <!-- Team block-->
        <Pane layoutX="80" layoutY="125" prefHeight="645" prefWidth="530" styleClass="block">
