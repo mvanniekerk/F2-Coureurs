@@ -71,6 +71,11 @@ public class SeasonTest {
     }
 
     @Test
+    public void getTeamsTest() {
+        assertEquals(this.season.getTeams(), this.sameSeason.getTeams());
+    }
+
+    @Test
     public void getCurrentRoundException() {
         Season exceptSeason = new Season();
         exceptSeason.addRace(race);

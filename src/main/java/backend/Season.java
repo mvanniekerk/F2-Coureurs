@@ -66,6 +66,15 @@ public class Season {
     }
 
     /**
+     * Get all the teams of the season.
+     *
+     * @return all the teams
+     */
+    public List<Team> getTeams() {
+        return this.teams;
+    }
+
+    /**
      * Adds a race to the rounds.
      *
      * @param race the race to add
