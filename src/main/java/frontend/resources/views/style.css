@@ -71,11 +71,15 @@ Button#green {
     -fx-background-image: url("../media/backgrounds/pre-home.jpg");
 }
 
+#welcome {
+    -fx-background-image: url("../media/icons/logo.png");
+}
+
 .option {
     -fx-padding: none;
     -fx-font-size: 58;
-    -fx-pref-width: 527;
-    -fx-pref-height: 200.74;
+    -fx-pref-width: 530;
+    -fx-pref-height: 200;
 }
 
 .block{
