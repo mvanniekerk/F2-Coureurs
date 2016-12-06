@@ -13,6 +13,7 @@ Button {
     -fx-pref-width: 235;
     -fx-wrap-text: true;
     -fx-text-alignment: center;
+	-fx-cursor: hand;
 }
 
 Label {
@@ -60,6 +61,10 @@ Button.settings-quit {
 
 #prepare-race {
     -fx-background-image: url("../media/backgrounds/race-preset.jpg");
+}
+
+#race-result {
+	-fx-background-image: url("../media/backgrounds/home.jpg");
 }
 
 .block{
