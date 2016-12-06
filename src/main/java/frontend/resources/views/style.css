@@ -37,7 +37,7 @@ Button#green {
     -fx-background-color: rgba(0, 255, 0, 0.59);
 }
 
-Button#start-race {
+Button.start-race {
     -fx-background-color: rgba(0, 255, 0, 0.59);
     -fx-pref-height: 220;
     -fx-pref-width: 530;
