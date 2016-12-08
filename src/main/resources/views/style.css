@@ -20,6 +20,13 @@ Label {
     -fx-text-fill: white;
 }
 
+.edit-team{
+    -fx-pref-height: 115;
+    -fx-pref-width: 530;
+    -fx-alignment:center-right;
+    -fx-padding: 35;
+}
+
 .title{
     -fx-font-size: 64;
 }
@@ -73,6 +80,10 @@ Button#green {
 
 #welcome {
     -fx-background-image: url("../media/icons/logo.png");
+}
+
+#edit-team{
+    -fx-background-image: url("../media/backgrounds/edit-team.jpg");
 }
 
 .option {
