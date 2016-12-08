@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?scenebuilder-stylesheet style.css?>
+<?import frontend.ExitButton?>
 
 <Pane xmlns="http://javafx.com/javafx/8" id="welcome"
       maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
@@ -15,6 +16,5 @@
     <!-- Three options-->
     <Button layoutX="80" layoutY="440" styleClass="option" text="Load Game"/>
     <Button layoutX="700" layoutY="440" styleClass="option" text="New Game"/>
-    <Button layoutX="1320" layoutY="440" styleClass="option" text="Quit"/>
-
+    <ExitButton layoutX="1320" layoutY="440" styleClass="option" text="Quit"/>
 </Pane>
