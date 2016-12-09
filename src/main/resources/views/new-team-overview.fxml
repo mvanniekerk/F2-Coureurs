@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<Pane id="new-team-ovverview" stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8">
+    <!-- settings-quit -->
+    <Button id="red" layoutY="925" layoutX="1300" text="Cancel" />
+    <Button id="green" layoutY="925" layoutX="1580" text="Save" />
+
+    <!-- New team -->
+    <Pane layoutX="80" layoutY="100" prefHeight="220" prefWidth="530" styleClass="block">
+        <Label layoutX="30" layoutY="40" styleClass="title" text="New team"/>
+        <Label layoutX="30" layoutY="120" styleClass="content" text="Overview"/>
+        <ImageView fitHeight="100" fitWidth="100" layoutX="375" layoutY="40">
+            <Image url="@../media/icons/team.png"/>
+        </ImageView>
+    </Pane>
+
+    <!-- Budget -->
+    <Pane layoutX="700" layoutY="375" prefHeight="220" prefWidth="530" styleClass="block">
+        <Label layoutX="30" layoutY="40" styleClass="title" text="Budget"/>
+        <Label layoutX="30" id="currentBudget" layoutY="120" styleClass="content" text="€ 200,000,000"/>
+        <ImageView fitHeight="75" fitWidth="75" layoutX="375" layoutY="40">
+            <Image url="@../media/icons/eurosign.png"/>
+        </ImageView>
+    </Pane>
+
+    <!-- Team block-->
+    <Pane layoutX="80" layoutY="375" prefHeight="645" prefWidth="530" styleClass="block">
+        <Label layoutX="30" layoutY="40" styleClass="title" text="Your team"/>
+        <ImageView  fitWidth="100" fitHeight="100" layoutX="400" layoutY="25">
+            <Image url="@../media/icons/team.png" />
+        </ImageView>
+
+        <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="150">
+            <Image url="@../media/icons/engine.png"/>
+        </ImageView>
+        <Label id="engine" layoutX="150" layoutY="160" styleClass="content" text="Engine"/>
+
+        <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="225">
+            <Image url="@../media/icons/driver1.png"/>
+        </ImageView>
+        <Label id="firstDriver" layoutX="150" layoutY="235" styleClass="content" text="First driver"/>
+
+        <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="300">
+            <Image url="@../media/icons/driver2.png"/>
+        </ImageView>
+        <Label id="secondDriver" layoutX="150" layoutY="310" styleClass="content" text="Second driver"/>
+
+        <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="375">
+            <Image url="@../media/icons/strategist.png"/>
+        </ImageView>
+        <Label id="strategist" layoutX="150" layoutY="385" styleClass="content" text="Strategist"/>
+
+        <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="450">
+            <Image url="@../media/icons/aero.png"/>
+        </ImageView>
+        <Label id="aerodynamicist" layoutX="150" layoutY="460" styleClass="content" text="Aerodynamicist"/>
+
+        <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="525">
+            <Image url="@../media/icons/mechanic.png"/>
+        </ImageView>
+        <Label id="mechanic" layoutX="150" layoutY="535" styleClass="content" text="Mechanic"/>
+    </Pane>
+
+
+</Pane>
