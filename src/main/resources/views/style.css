@@ -77,7 +77,7 @@ Button#green {
 	-fx-background-image: url("../media/backgrounds/home.jpg");
 }
 
-#new_game, #load_game{
+#new_game, #load_game, #new-team{
     -fx-background-image: url("../media/backgrounds/pre-home.jpg");
 }
 

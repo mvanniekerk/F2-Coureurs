@@ -6,14 +6,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<Pane id="edit-team" stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8">
+<Pane id="new-team" stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8">
     <!-- settings-quit -->
     <Button id="red" layoutY="925" layoutX="1300" text="Cancel" />
     <Button id="green" layoutY="925" layoutX="1580" text="Save" />
 
     <!-- New team -->
     <Pane layoutX="80" layoutY="125" prefHeight="220" prefWidth="530" styleClass="block">
-        <Label layoutX="30" layoutY="40" styleClass="title" text="Create team"/>
+        <Label layoutX="30" layoutY="40" styleClass="title" text="New team"/>
         <Label layoutX="30" layoutY="120" styleClass="content" text="Select your team"/>
         <ImageView fitHeight="100" fitWidth="100" layoutX="375" layoutY="40">
             <Image url="@../media/icons/team.png"/>
