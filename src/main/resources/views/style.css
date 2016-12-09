@@ -85,6 +85,10 @@ Button#green {
     -fx-background-image: url("../media/icons/logo.png");
 }
 
+#newgame-existing {
+    -fx-background-image: url("../media/backgrounds/pre-home.jpg");
+}
+
 #edit-team{
     -fx-background-image: url("../media/backgrounds/edit-team.jpg");
 }
@@ -118,6 +122,16 @@ Tableview {
     -fx-background-color: rgba(95, 95, 95, 0.59);
     -fx-border-color: #95989a;
     -fx-border-width: 1;
+}
+
+.team-container {
+    -fx-background-color: rgba(255, 255, 255, 0.59);
+    -fx-pref-height: 235;
+    -fx-pref-width: 275;
+}
+
+.team-container-text {
+    -fx-font-size: 30;
 }
 
 #teambutton{
