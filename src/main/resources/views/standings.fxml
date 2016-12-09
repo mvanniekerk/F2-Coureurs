@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?scenebuilder-stylesheet style.css?>
 
+<?import frontend.ExitButton?>
 <Pane id="standings" xmlns="http://javafx.com/javafx/8"
       maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@style.css" >
@@ -14,6 +15,10 @@
     <Button layoutX="335" layoutY="915" text="Edit Team" />
     <Button id="red" layoutX="588" layoutY="915" text="Standings" />
     <Button layoutX="842" layoutY="915" text="Prepare Race" />
+
+    <!-- settings-quit -->
+    <Button styleClass="settings-quit" layoutY="925" layoutX="1470" text="Settings" />
+    <ExitButton styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
 
     <!-- Driver standings block-->
     <Pane layoutX="80" layoutY="67" prefHeight="790" prefWidth="810" styleClass="block">
