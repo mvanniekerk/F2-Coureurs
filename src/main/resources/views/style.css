@@ -75,15 +75,6 @@ Button#green {
     -fx-background-image: url("../media/icons/logo.png");
 }
 
-#standings {
-    -fx-background-image: url("../media/backgrounds/standings.jpg")
-}
-
-.driver-standing {
-    -fx-padding: 60px;
-    -fx-font-size: 24;
-}
-
 .option {
     -fx-padding: none;
     -fx-font-size: 58;
