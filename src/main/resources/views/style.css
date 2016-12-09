@@ -89,6 +89,17 @@ Button#green {
     -fx-background-image: url("../media/backgrounds/edit-team.jpg");
 }
 
+#standings {
+    -fx-background-image: url("../media/backgrounds/standings.jpg");
+}
+
+Tableview {
+    -fx-background-color: transparent;
+}
+.standing {
+    -fx-font-size: 30;
+}
+
 .option {
     -fx-padding: none;
     -fx-font-size: 58;
@@ -112,3 +123,4 @@ Button#green {
 #teambutton{
     -fx-background-color: blue;
 }
+

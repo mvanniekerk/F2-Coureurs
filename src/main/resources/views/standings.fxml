@@ -22,8 +22,11 @@
             <Image url="@../media/icons/driver.png" />
         </ImageView>
 
-        <Label styleClass="driver-standing" layoutY="40" text="Lewis Hamilton" />
-        <Label styleClass="driver-standing" layoutY="70" text="Nico Rosberg" />
+        <Pane layoutX="60" layoutY="110">
+            <Label styleClass="standing"  text="Lewis Hamilton" />
+            <Label styleClass="standing" layoutX="270" text="Mercedes" />
+            <Label styleClass="standing" layoutX="580" text="25" />
+        </Pane>
     </Pane>
 
     <!-- Team standings block-->
@@ -32,6 +35,10 @@
         <ImageView fitHeight="180" fitWidth="180" layoutX="630" layoutY="-30">
             <Image url="@../media/icons/aero.png" />
         </ImageView>
+        <Pane layoutX="60" layoutY="110">
+            <Label styleClass="standing" text="Mercedes AMG Petronas" />
+            <Label styleClass="standing" layoutX="580" text="43" />
+        </Pane>
     </Pane>
 
 </Pane>
