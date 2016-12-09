@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?scenebuilder-stylesheet style.css?>
+
+<Pane id="standings" xmlns="http://javafx.com/javafx/8"
+      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@style.css" >
+
+    <!-- Bottom menu-->
+    <Button layoutX="80" layoutY="915" text="Home" />
+    <Button layoutX="335" layoutY="915" text="Edit Team" />
+    <Button id="red" layoutX="588" layoutY="915" text="Standings" />
+    <Button layoutX="842" layoutY="915" text="Prepare Race" />
+
+    <!-- Driver standings block-->
+    <Pane layoutX="80" layoutY="67" prefHeight="790" prefWidth="810" styleClass="block">
+        <Label layoutX="60" layoutY="15" styleClass="title" text="Driver Standings" />
+        <ImageView fitHeight="100" fitWidth="100" layoutX="680" layoutY="15">
+            <Image url="@../media/icons/driver.png" />
+        </ImageView>
+
+        <Label styleClass="driver-standing" layoutY="40" text="Lewis Hamilton" />
+        <Label styleClass="driver-standing" layoutY="70" text="Nico Rosberg" />
+    </Pane>
+
+    <!-- Team standings block-->
+    <Pane layoutX="1030" layoutY="67" prefHeight="470" prefWidth="810" styleClass="block">
+        <Label layoutX="60" layoutY="15" styleClass="title" text="Team Standings" />
+        <ImageView fitHeight="180" fitWidth="180" layoutX="630" layoutY="-30">
+            <Image url="@../media/icons/aero.png" />
+        </ImageView>
+    </Pane>
+
+</Pane>
