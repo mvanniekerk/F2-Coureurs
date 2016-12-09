@@ -30,6 +30,75 @@
     </Pane>
 
     <!-- Buttons -->
-    <Button styleClass="edit-team" layoutX="80" layoutY="367" text="TEST"/>
+    <Button styleClass="edit-team" layoutX="80" layoutY="380">
+        <graphic>
+            <HBox alignment="CENTER" mouseTransparent="true">
+                <Label alignment="CENTER_RIGHT" text="Engine"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="75" fitWidth="75">
+                    <Image url="@../media/icons/engine.png" />
+                </ImageView>
+            </HBox>
+        </graphic>
+    </Button>
 
+    <Button styleClass="edit-team" layoutX="80" layoutY="520">
+        <graphic>
+            <HBox alignment="CENTER" mouseTransparent="true">
+                <Label alignment="CENTER_RIGHT" text="First driver"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="75" fitWidth="75">
+                    <Image url="@../media/icons/driver1.png" />
+                </ImageView>
+            </HBox>
+        </graphic>
+    </Button>
+
+    <Button styleClass="edit-team" layoutX="80" layoutY="660">
+        <graphic>
+            <HBox alignment="CENTER" mouseTransparent="true">
+                <Label alignment="CENTER_RIGHT" text="Second Driver"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="75" fitWidth="75">
+                    <Image url="@../media/icons/driver2.png" />
+                </ImageView>
+            </HBox>
+        </graphic>
+    </Button>
+
+    <Button styleClass="edit-team" layoutX="700" layoutY="380">
+        <graphic>
+            <HBox alignment="CENTER" mouseTransparent="true">
+                <Label alignment="CENTER_RIGHT" text="Strategist"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="75" fitWidth="75">
+                    <Image url="@../media/icons/strategist.png" />
+                </ImageView>
+            </HBox>
+        </graphic>
+    </Button>
+
+    <Button styleClass="edit-team" layoutX="700" layoutY="520">
+        <graphic>
+            <HBox alignment="CENTER" mouseTransparent="true">
+                <Label alignment="CENTER_RIGHT" text="Aerodynamicist"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="75" fitWidth="75">
+                    <Image url="@../media/icons/aero.png" />
+                </ImageView>
+            </HBox>
+        </graphic>
+    </Button>
+
+    <Button styleClass="edit-team" layoutX="700" layoutY="660">
+        <graphic>
+            <HBox alignment="CENTER" mouseTransparent="true">
+                <Label alignment="CENTER_RIGHT" text="Mechanic"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="75" fitWidth="75">
+                    <Image url="@../media/icons/mechanic.png" />
+                </ImageView>
+            </HBox>
+        </graphic>
+    </Button>
 </Pane>
