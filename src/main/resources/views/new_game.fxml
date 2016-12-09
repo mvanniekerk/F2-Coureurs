@@ -15,6 +15,6 @@
 
     <!-- Two options-->
     <Button layoutX="250" layoutY="440" styleClass="option" text="Create new team"/>
-    <Button layoutX="1143" layoutY="440" styleClass="option" text="Using existing team"/>
+    <Button layoutX="1143" layoutY="440" styleClass="option" text="Use existing team"/>
 
 </Pane>
