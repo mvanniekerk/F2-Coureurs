@@ -22,15 +22,15 @@ public class TeamTest {
 
     @Before
     public void setUp() {
-        driver = new Driver("Kimi Raikkonen", 16, 50, 50, 50, false);
-        driver2 = new Driver("Lewis Hamilton", 18, 58, 52, 40, true);
-        driver3 = new Driver("Driver3", 8, 49, 20, 30, false);
-        aerodynamicist = new Aerodynamicist("Dan Fallows", 700000);
-        aerodynamicist2 = new Aerodynamicist("Aerodynamicist", 500000);
-        mechanic = new Mechanic("Steve Matchett", 100000, 50, 50, 50);
-        mechanic2 = new Mechanic("Bill Murray", 120000, 80, 40, 40);
-        strategist = new Strategist("Anonyme", 1000000);
-        strategist2 = new Strategist("some guy", 10000);
+        driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+        driver2 = new Driver("Lewis Hamilton", 18, 100, 58, 52, 40, true);
+        driver3 = new Driver("Driver3", 8, 100, 49, 20, 30, false);
+        aerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 1000000);
+        aerodynamicist2 = new Aerodynamicist("Aerodynamicist", 500000, 1000000);
+        mechanic = new Mechanic("Steve Matchett", 100000, 1000000, 50, 50, 50);
+        mechanic2 = new Mechanic("Bill Murray", 120000, 1000000, 80, 40, 40);
+        strategist = new Strategist("Anonyme", 1000000, 1000000);
+        strategist2 = new Strategist("some guy", 10000, 1000000);
         engine = new Engine(900, 70, 80, "Mercedes");
         otherEngine = new Engine(700, 50, 100, "Honda");
         team = new Team("F2", "User", 2500000,

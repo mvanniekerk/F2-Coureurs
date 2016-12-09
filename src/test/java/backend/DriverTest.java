@@ -20,14 +20,14 @@ public class DriverTest {
 
     @Before
     public void setUp() {
-        driver = new Driver("Kimi Raikkonen", 16, 50, 50, 50, false);
-        sameDriver = new Driver("Kimi Raikkonen", 16, 50, 50, 50, false);
-        salaryDifferent = new Driver("Kimi Raikkonen", 17, 50, 50, 50, false);
-        speedDifferent = new Driver("Kimi Raikkonen", 16, 51, 50, 50, false);
-        raceCraftDifferent = new Driver("Kimi Raikkonen", 16, 50, 51, 50, false);
-        insightDifferent = new Driver("Kimi Raikkonen", 16, 50, 50, 51, false);
-        championDiffers = new Driver("Kimi Raikkonen", 16, 50, 50, 50, true);
-        otherDriver = new Driver("Kimi Raikkonen", 16, 58, 52, 40, true);
+        driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+        sameDriver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+        salaryDifferent = new Driver("Kimi Raikkonen", 17, 100, 50, 50, 50, false);
+        speedDifferent = new Driver("Kimi Raikkonen", 16, 100, 51, 50, 50, false);
+        raceCraftDifferent = new Driver("Kimi Raikkonen", 16, 100, 50, 51, 50, false);
+        insightDifferent = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 51, false);
+        championDiffers = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, true);
+        otherDriver = new Driver("Kimi Raikkonen", 16, 100, 58, 52, 40, true);
     }
 
     @Test
@@ -92,14 +92,14 @@ public class DriverTest {
 
     @Test
     public void raceWinsDiffers() {
-        Driver dr = new Driver("Kimi Raikkonen", 16, 50, 50, 50, false);
+        Driver dr = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
         dr.setRaceWins(1);
         assertNotEquals(this.driver, dr);
     }
 
     @Test
     public void pointsDiffers() {
-        Driver dr= new Driver("Kimi Raikkonen", 16, 50, 50, 50, false);
+        Driver dr= new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
         dr.setPoints(1);
         assertNotEquals(this.driver, dr);
     }
