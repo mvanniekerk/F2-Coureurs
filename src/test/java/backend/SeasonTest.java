@@ -10,6 +10,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -58,7 +59,7 @@ public class SeasonTest {
         this.otherSeason.addRace(race);
 
         otherSeason.setCurrentRound(5);
-        this.jsonString = "{\"currentRound\":0,\"rounds\":[{\"setup\":{\"risk\":1},\"strategy\":{\"risk\":3},\"trackName\":\"Circuit de Monaco\",\"roundInChampionship\":8}],\"teams\":[{\"name\":\"F2\",\"manager\":\"User\",\"budget\":2500000,\"pointsAlltime\":0,\"pointsThisSeason\":0,\"winsAlltime\":0,\"winsThisSeason\":0,\"engine\":{\"power\":900,\"drivability\":70,\"fuelConsumption\":80,\"name\":\"Mercedes\"},\"aerodynamicist\":{\"name\":\"Dan Fallows\",\"salary\":700000},\"mechanic\":{\"reliability\":50,\"partFixing\":50,\"pitstops\":50,\"name\":\"Steve Matchett\",\"salary\":100000},\"strategist\":{\"name\":\"Anonyme\",\"salary\":1000000},\"drivers\":[{\"speed\":50,\"raceCraft\":50,\"strategyInsight\":50,\"raceWins\":0,\"points\":0,\"championLastYear\":false,\"name\":\"Kimi Raikkonen\",\"salary\":16},{\"speed\":58,\"raceCraft\":52,\"strategyInsight\":40,\"raceWins\":0,\"points\":0,\"championLastYear\":true,\"name\":\"Lewis Hamilton\",\"salary\":18}]}]}";
+        this.jsonString = "{\"currentRound\":0,\"rounds\":[{\"setup\":{\"risk\":1},\"strategy\":{\"risk\":3},\"trackName\":\"Circuit de Monaco\",\"roundInChampionship\":8}],\"teams\":[{\"name\":\"F2\",\"manager\":\"User\",\"budget\":2500000,\"pointsAlltime\":0,\"pointsThisSeason\":0,\"winsAlltime\":0,\"winsThisSeason\":0,\"engine\":{\"power\":900,\"drivability\":70,\"fuelConsumption\":80,\"name\":\"Mercedes\"},\"aerodynamicist\":{\"name\":\"Dan Fallows\",\"salary\":700000},\"mechanic\":{\"reliability\":50,\"partFixing\":50,\"pitstops\":50,\"name\":\"Steve Matchett\",\"salary\":100000},\"strategist\":{\"name\":\"Anonyme\",\"salary\":1000000},\"drivers\":[{\"speed\":50,\"raceCraft\":50,\"strategyInsight\":50,\"raceWins\":0,\"points\":0,\"championLastYear\":false,\"name\":\"Kimi Raikkonen\",\"salary\":16},{\"speed\":58,\"raceCraft\":52,\"strategyInsight\":40,\"raceWins\":0,\"points\":0,\"championLastYear\":true,\"name\":\"Lewis Hamilton\",\"salary\":18}]}],\"contractAerodynamicists\":[],\"contractDrivers\":[],\"contractMechanics\":[],\"contractStrategists\":[]}";
         this.jsonStringSpaces = "{\n\"currentRound\":0,\n\"rounds\":[\n{\"setup\":{\"risk\":1},\"strategy\":{\"risk\":3},\"trackName\":\"Circuit de Monaco\",\"roundInChampionship\":8}],\"teams\":[{\"name\":\"F2\",\"manager\":\"User\",\"budget\":2500000,\"pointsAlltime\":0,\"pointsThisSeason\":0,\"winsAlltime\":0,\"winsThisSeason\":0,\"engine\":{\"power\":900,\"drivability\":70,\"fuelConsumption\":80,\"name\":\"Mercedes\"},\"aerodynamicist\":{\"name\":\"Dan Fallows\",\"salary\":700000},\"mechanic\":{\"reliability\":50,\"partFixing\":50,\"pitstops\":50,\"name\":\"Steve Matchett\",\"salary\":100000},\"strategist\":{\"name\":\"Anonyme\",\"salary\":1000000},\"drivers\":[{\"speed\":50,\"raceCraft\":50,\"strategyInsight\":50,\"raceWins\":0,\"points\":0,\"championLastYear\":false,\"name\":\"Kimi Raikkonen\",\"salary\":16},{\"speed\":58,\"raceCraft\":52,\"strategyInsight\":40,\"raceWins\":0,\"points\":0,\"championLastYear\":true,\"name\":\"Lewis Hamilton\",\"salary\":18}]}]}";
     }
 
@@ -96,6 +97,26 @@ public class SeasonTest {
     }
 
     @Test
+    public void getContractAeroTest() {
+        assertEquals(new ArrayList<Aerodynamicist>(), season.getContractAerodynamicists());
+    }
+
+    @Test
+    public void getContractDrivers() {
+        assertEquals(new ArrayList<Driver>(), season.getContractDrivers());
+    }
+
+    @Test
+    public void getContractMechanics() {
+        assertEquals(new ArrayList<Mechanic>(), season.getContractMechanics());
+    }
+
+    @Test
+    public void getContractStrategists() {
+        assertEquals(new ArrayList<Strategist>(), season.getContractStrategists());
+    }
+
+    @Test
     public void equalsSame() {
         assertEquals(season, sameSeason);
     }
@@ -117,7 +138,7 @@ public class SeasonTest {
 
     @Test
     public void toJsonPrettyTest() {
-        String prettySimple = "{\n  \"currentRound\": 0,\n  \"rounds\": [],\n  \"teams\": []\n}";
+        String prettySimple = "{\n  \"currentRound\": 0,\n  \"rounds\": [],\n  \"teams\": [],\n  \"contractAerodynamicists\": [],\n  \"contractDrivers\": [],\n  \"contractMechanics\": [],\n  \"contractStrategists\": []\n}";
         assertEquals(prettySimple, simpleSeason.toJsonPretty());
     }
 

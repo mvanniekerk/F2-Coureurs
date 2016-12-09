@@ -3,6 +3,7 @@ package backend;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import javafx.event.ActionEvent;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,6 +17,10 @@ public class Season {
     private int currentRound;
     private List<Race> rounds;
     private List<Team> teams;
+    private List<Aerodynamicist> contractAerodynamicists;
+    private List<Driver> contractDrivers;
+    private List<Mechanic> contractMechanics;
+    private List<Strategist> contractStrategists;
 
     /**
      * Create a new season.
@@ -24,6 +29,10 @@ public class Season {
         this.currentRound = 0;
         this.rounds = new ArrayList<>();
         this.teams = new ArrayList<>();
+        this.contractAerodynamicists = new ArrayList<>();
+        this.contractDrivers = new ArrayList<>();
+        this.contractMechanics = new ArrayList<>();
+        this.contractStrategists = new ArrayList<>();
     }
 
     /**
@@ -81,6 +90,38 @@ public class Season {
      */
     public void addRace(Race race) {
         this.rounds.add(race);
+    }
+
+    /**
+     * Gets the list of all contract Aerodynamicists.
+     * @return ArrayList
+     */
+    public List<Aerodynamicist> getContractAerodynamicists() {
+        return this.contractAerodynamicists;
+    }
+
+    /**
+     * Gets the list of all contract Drivers.
+     * @return ArrayList
+     */
+    public List<Driver> getContractDrivers() {
+        return this.contractDrivers;
+    }
+
+    /**
+     * Gets the list of all contract Drivers.
+     * @return ArrayList
+     */
+    public List<Mechanic> getContractMechanics() {
+        return this.contractMechanics;
+    }
+
+    /**
+     * Gets the list of all contract Strategists.
+     * @return ArrayList
+     */
+    public List<Strategist> getContractStrategists() {
+        return this.contractStrategists;
     }
 
     /**
@@ -203,6 +244,38 @@ public class Season {
             }
             for (Team team : this.teams) {
                 if (!(that.teams.contains(team))) {
+                    return false;
+                }
+            }
+            if (this.contractAerodynamicists.size() != that.contractAerodynamicists.size()) {
+                return false;
+            }
+            for (Aerodynamicist aerodynamicist : this.contractAerodynamicists) {
+                if (!(that.contractAerodynamicists.contains(aerodynamicist))) {
+                    return false;
+                }
+            }
+            if (this.contractDrivers.size() != that.contractDrivers.size()) {
+                return false;
+            }
+            for (Driver driver : this.contractDrivers) {
+                if (!(that.contractDrivers.contains(driver))) {
+                    return false;
+                }
+            }
+            if (this.contractMechanics.size() != that.contractMechanics.size()) {
+                return false;
+            }
+            for (Mechanic mechanic : this.contractMechanics) {
+                if (!(that.contractMechanics.contains(mechanic))) {
+                    return false;
+                }
+            }
+            if (this.contractStrategists.size() != that.contractStrategists.size()) {
+                return false;
+            }
+            for (Strategist strategist : this.contractStrategists) {
+                if (!(that.contractStrategists.contains(strategist))) {
                     return false;
                 }
             }
