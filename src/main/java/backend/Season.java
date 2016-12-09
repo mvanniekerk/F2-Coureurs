@@ -3,7 +3,6 @@ package backend;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
-import javafx.event.ActionEvent;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -220,6 +219,78 @@ public class Season {
         writeToJsonFile("saves/" + saveName);
     }
 
+    private boolean equalsRounds(Season that) {
+        if (this.rounds.size() != that.rounds.size()) {
+            return false;
+        }
+        for (Race round : this.rounds) {
+            if (!(that.rounds.contains(round))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean equalsTeams(Season that) {
+        if (this.teams.size() != that.teams.size()) {
+            return false;
+        }
+        for (Team team : this.teams) {
+            if (!(that.teams.contains(team))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean equalsAero(Season that) {
+        if (this.contractAerodynamicists.size() != that.contractAerodynamicists.size()) {
+            return false;
+        }
+        for (Aerodynamicist aerodynamicist : this.contractAerodynamicists) {
+            if (!(that.contractAerodynamicists.contains(aerodynamicist))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean equalsDrivers(Season that) {
+        if (this.contractDrivers.size() != that.contractDrivers.size()) {
+            return false;
+        }
+        for (Driver driver : this.contractDrivers) {
+            if (!(that.contractDrivers.contains(driver))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean equalsMechanics(Season that) {
+        if (this.contractMechanics.size() != that.contractMechanics.size()) {
+            return false;
+        }
+        for (Mechanic mechanic : this.contractMechanics) {
+            if (!(that.contractMechanics.contains(mechanic))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean equalsStrategists(Season that) {
+        if (this.contractStrategists.size() != that.contractStrategists.size()) {
+            return false;
+        }
+        for (Strategist strategist : this.contractStrategists) {
+            if (!(that.contractStrategists.contains(strategist))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
      * Checks if two season classes are the same.
      *
@@ -230,56 +301,13 @@ public class Season {
     public boolean equals(Object other) {
         if (other instanceof Season) {
             Season that = (Season) other;
-
-            if (this.rounds.size() != that.rounds.size()) {
-                return false;
-            }
-            for (Race round : this.rounds) {
-                if (!(that.rounds.contains(round))) {
-                    return false;
-                }
-            }
-            if (this.teams.size() != that.teams.size()) {
-                return false;
-            }
-            for (Team team : this.teams) {
-                if (!(that.teams.contains(team))) {
-                    return false;
-                }
-            }
-            if (this.contractAerodynamicists.size() != that.contractAerodynamicists.size()) {
-                return false;
-            }
-            for (Aerodynamicist aerodynamicist : this.contractAerodynamicists) {
-                if (!(that.contractAerodynamicists.contains(aerodynamicist))) {
-                    return false;
-                }
-            }
-            if (this.contractDrivers.size() != that.contractDrivers.size()) {
-                return false;
-            }
-            for (Driver driver : this.contractDrivers) {
-                if (!(that.contractDrivers.contains(driver))) {
-                    return false;
-                }
-            }
-            if (this.contractMechanics.size() != that.contractMechanics.size()) {
-                return false;
-            }
-            for (Mechanic mechanic : this.contractMechanics) {
-                if (!(that.contractMechanics.contains(mechanic))) {
-                    return false;
-                }
-            }
-            if (this.contractStrategists.size() != that.contractStrategists.size()) {
-                return false;
-            }
-            for (Strategist strategist : this.contractStrategists) {
-                if (!(that.contractStrategists.contains(strategist))) {
-                    return false;
-                }
-            }
-            return this.currentRound == that.currentRound;
+            return this.currentRound == that.currentRound
+                    && this.equalsRounds(that)
+                    && this.equalsTeams(that)
+                    && this.equalsAero(that)
+                    && this.equalsDrivers(that)
+                    && this.equalsMechanics(that)
+                    && this.equalsStrategists(that);
         }
         return false;
     }
