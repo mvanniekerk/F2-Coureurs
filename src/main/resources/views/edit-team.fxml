@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<Pane id="edit-team" stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8">
+    <!-- settings-quit -->
+    <Button id="red" layoutY="925" layoutX="1300" text="Save" />
+    <Button id="green" layoutY="925" layoutX="1580" text="Cancel" />
+
+    <!-- Edit team -->
+    <Pane layoutX="80" layoutY="125" prefHeight="220" prefWidth="530" styleClass="block">
+        <Label layoutX="30" layoutY="40" styleClass="title" text="Edit team"/>
+        <Label layoutX="30" id="nextCircuit" layoutY="120" styleClass="content" text="Select what to change"/>
+        <ImageView fitHeight="100" fitWidth="100" layoutX="375" layoutY="40">
+            <Image url="@../media/icons/team.png"/>
+        </ImageView>
+    </Pane>
+
+    <!-- Budget -->
+    <Pane layoutX="700" layoutY="125" prefHeight="220" prefWidth="530" styleClass="block">
+        <Label layoutX="30" layoutY="40" styleClass="title" text="Budget"/>
+        <Label layoutX="30" id="currentBudget" layoutY="120" styleClass="content" text="€ 200,000,000"/>
+        <ImageView fitHeight="75" fitWidth="75" layoutX="375" layoutY="40">
+            <Image url="@../media/icons/eurosign.png"/>
+        </ImageView>
+    </Pane>
+
+    <!-- Buttons -->
+    <Button styleClass="edit-team" layoutX="80" layoutY="380">
+        <graphic>
+            <HBox alignment="CENTER" mouseTransparent="true">
+                <Label alignment="CENTER_RIGHT" text="Engine"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="75" fitWidth="75">
+                    <Image url="@../media/icons/engine.png" />
+                </ImageView>
+            </HBox>
+        </graphic>
+    </Button>
+
+    <Button styleClass="edit-team" layoutX="80" layoutY="520">
+        <graphic>
+            <HBox alignment="CENTER" mouseTransparent="true">
+                <Label alignment="CENTER_RIGHT" text="First driver"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="75" fitWidth="75">
+                    <Image url="@../media/icons/driver1.png" />
+                </ImageView>
+            </HBox>
+        </graphic>
+    </Button>
+
+    <Button styleClass="edit-team" layoutX="80" layoutY="660">
+        <graphic>
+            <HBox alignment="CENTER" mouseTransparent="true">
+                <Label alignment="CENTER_RIGHT" text="Second Driver"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="75" fitWidth="75">
+                    <Image url="@../media/icons/driver2.png" />
+                </ImageView>
+            </HBox>
+        </graphic>
+    </Button>
+
+    <Button styleClass="edit-team" layoutX="700" layoutY="380">
+        <graphic>
+            <HBox alignment="CENTER" mouseTransparent="true">
+                <Label alignment="CENTER_RIGHT" text="Strategist"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="75" fitWidth="75">
+                    <Image url="@../media/icons/strategist.png" />
+                </ImageView>
+            </HBox>
+        </graphic>
+    </Button>
+
+    <Button styleClass="edit-team" layoutX="700" layoutY="520">
+        <graphic>
+            <HBox alignment="CENTER" mouseTransparent="true">
+                <Label alignment="CENTER_RIGHT" text="Aerodynamicist"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="75" fitWidth="75">
+                    <Image url="@../media/icons/aero.png" />
+                </ImageView>
+            </HBox>
+        </graphic>
+    </Button>
+
+    <Button styleClass="edit-team" layoutX="700" layoutY="660">
+        <graphic>
+            <HBox alignment="CENTER" mouseTransparent="true">
+                <Label alignment="CENTER_RIGHT" text="Mechanic"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="75" fitWidth="75">
+                    <Image url="@../media/icons/mechanic.png" />
+                </ImageView>
+            </HBox>
+        </graphic>
+    </Button>
+</Pane>
