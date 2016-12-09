@@ -3,8 +3,89 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane stylesheets="@style.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8">
-    <children>
-        <Label layoutX="301.0" layoutY="132.0" text="Main screen" />
-    </children>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<Pane stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0"
+      xmlns="http://javafx.com/javafx/8" id="newgame-existing">
+        <Pane layoutX="95" layoutY="75" prefHeight="120" prefWidth="530" styleClass="block">
+                <Label layoutX="30" layoutY="15" styleClass="title" text="Select Team"/>
+        </Pane>
+
+        <Pane layoutX="95" layoutY="265" styleClass="team-container">
+                <ImageView fitWidth="275" fitHeight="135" layoutY="40">
+                        <Image url="@../media/team-logos/ferrari.png" />
+                </ImageView>
+                <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
+        </Pane>
+
+        <Pane layoutX="410" layoutY="265" styleClass="team-container">
+                <ImageView fitWidth="275" fitHeight="135" layoutX="20" layoutY="40">
+                        <Image url="@../media/team-logos/mercedes.png" />
+                </ImageView>
+                <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
+        </Pane>
+
+        <Pane layoutX="735" layoutY="265" styleClass="team-container">
+                <ImageView fitWidth="275" fitHeight="135" layoutY="40">
+                        <Image url="@../media/team-logos/redbull.png" />
+                </ImageView>
+                <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
+        </Pane>
+
+        <Pane layoutX="1070" layoutY="265" styleClass="team-container">
+                <ImageView fitWidth="275" fitHeight="135" layoutY="40">
+                        <Image url="@../media/team-logos/mclaren.png" />
+                </ImageView>
+                <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
+        </Pane>
+
+        <Pane layoutX="1420" layoutY="265" styleClass="team-container" style="-fx-background-color: rgba(0,0,0,0.65);">
+                <ImageView fitWidth="275" fitHeight="135" layoutY="40">
+                        <Image url="@../media/team-logos/forceindia.png" />
+                </ImageView>
+                <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
+        </Pane>
+
+        <Pane layoutX="95" layoutY="540" styleClass="team-container">
+                <ImageView fitWidth="275" fitHeight="135" layoutY="40">
+                        <Image url="@../media/team-logos/haas.png" />
+                </ImageView>
+                <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
+        </Pane>
+
+        <Pane layoutX="410" layoutY="540" styleClass="team-container">
+                <ImageView fitWidth="275" fitHeight="135" layoutY="40">
+                        <Image url="@../media/team-logos/manor.png" />
+                </ImageView>
+                <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
+        </Pane>
+
+        <Pane layoutX="735" layoutY="540" styleClass="team-container" style="-fx-background-color: rgba(255,255,0,0.65);">
+                <ImageView fitWidth="275" fitHeight="135" layoutY="40">
+                        <Image url="@../media/team-logos/renault.png" />
+                </ImageView>
+                <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
+        </Pane>
+
+        <Pane layoutX="1070" layoutY="540" styleClass="team-container">
+                <ImageView fitWidth="275" fitHeight="135" layoutY="40">
+                        <Image url="@../media/team-logos/sauber.png" />
+                </ImageView>
+                <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
+        </Pane>
+
+        <Pane layoutX="1420" layoutY="540" styleClass="team-container" style="-fx-background-color: rgba(32,50,85,0.65);">
+                <ImageView fitWidth="275" fitHeight="135" layoutY="40">
+                        <Image url="@../media/team-logos/torrorosso.png" />
+                </ImageView>
+                <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
+        </Pane>
+
+        <Pane layoutX="95" layoutY="815" styleClass="team-container">
+                <ImageView fitWidth="275" fitHeight="135" layoutY="40">
+                        <Image url="@../media/team-logos/williams.png" />
+                </ImageView>
+                <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
+        </Pane>
+
 </Pane>
