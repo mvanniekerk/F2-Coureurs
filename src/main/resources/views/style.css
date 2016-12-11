@@ -38,6 +38,11 @@ Label {
     -fx-font-size: 45;
 }
 
+.table-view {
+    -fx-font-size: 20;
+    -fx-text-alignment: left;
+    -fx-background-color: transparent;
+}
 
 Button#red {
     -fx-background-color: rgba(255, 0, 0, 0.59);
@@ -89,7 +94,7 @@ Button#green {
     -fx-background-image: url("../media/backgrounds/pre-home.jpg");
 }
 
-#edit-team{
+#edit-team, #select-driver {
     -fx-background-image: url("../media/backgrounds/edit-team.jpg");
 }
 
@@ -97,9 +102,6 @@ Button#green {
     -fx-background-image: url("../media/backgrounds/standings.jpg");
 }
 
-Tableview {
-    -fx-background-color: transparent;
-}
 .standing {
     -fx-font-size: 30;
 }
