@@ -14,12 +14,11 @@
 
        <!-- Bottom menu-->
        <Button id="red" layoutX="80" layoutY="915" text="Home" />
-       <Button layoutX="335" layoutY="915" text="Edit Team" />
-       <Button layoutX="588" layoutY="915" text="Standings" />
+       <Button fx:id="buttonEditTeam" layoutX="335" layoutY="915" text="Edit Team" onAction="#editTeamAction"/>
+       <Button fx:id="buttonChampionshipStandings" layoutX="588" layoutY="915" text="Standings" onAction="#championshipStandingsAction" />
        <Button fx:id="buttonPrepareRace" layoutX="842" layoutY="915" text="Prepare Race" onAction="#prepareRaceAction"/>
 
         <!-- settings-quit -->
-        <Button styleClass="settings-quit" layoutY="925" layoutX="1470" text="Settings" />
         <ExitButton styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
 
        <!-- Team block-->
