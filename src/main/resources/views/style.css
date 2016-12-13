@@ -73,11 +73,11 @@ Button#green {
     -fx-background-image: url("../media/backgrounds/race-preset.jpg");
 }
 
-#race-result {
-	-fx-background-image: url("../media/backgrounds/home.jpg");
+#race-result, #your-result {
+	-fx-background-image: url("../media/backgrounds/race-result.jpg");
 }
 
-#new_game, #load_game, #new-team, #new-team-ovverview{
+#new_game, #load_game, #new-team, #new-team-overview{
     -fx-background-image: url("../media/backgrounds/pre-home.jpg");
 }
 
