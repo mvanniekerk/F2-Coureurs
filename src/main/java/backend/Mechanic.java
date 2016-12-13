@@ -14,8 +14,9 @@ public class Mechanic extends Staff {
      * @param partFixing the speed that the mechanic fixes a part (0-100)
      * @param pitstops the workflow in pitstops
      */
-    public Mechanic(String name, int salary, int reliability, int partFixing, int pitstops) {
-        super(name, salary);
+    public Mechanic(String name, int salary, int buyoutClause, int reliability,
+                    int partFixing, int pitstops) {
+        super(name, salary, buyoutClause);
 
         this.reliability = reliability;
         this.partFixing = partFixing;

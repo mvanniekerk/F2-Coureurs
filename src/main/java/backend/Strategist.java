@@ -8,8 +8,8 @@ public class Strategist extends Staff {
      *  @param name the name of the staff member
      *  @param salary the salary per race
      */
-    public Strategist(String name, int salary) {
-        super(name, salary);
+    public Strategist(String name, int salary, int buyoutClause) {
+        super(name, salary, buyoutClause);
     }
 
     /**

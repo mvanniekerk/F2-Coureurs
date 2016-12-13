@@ -14,9 +14,9 @@ public class StrategistTest {
 
     @Before
     public void setUp() {
-        strategist = new Strategist("Anonyme", 1000000);
-        sameStrategist = new Strategist("Anonyme", 1000000);
-        otherStrategist = new Strategist("some guy", 10000);
+        strategist = new Strategist("Anonyme", 1000000, 10000000);
+        sameStrategist = new Strategist("Anonyme", 1000000, 10000000);
+        otherStrategist = new Strategist("some guy", 10000, 1000000);
     }
 
     @Test
