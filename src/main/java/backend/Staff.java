@@ -3,6 +3,7 @@ package backend;
 public abstract class Staff {
     private String name;
     private int salary;
+    private int buyoutClause;
 
     /**
      * Create a new staff member.
@@ -10,9 +11,10 @@ public abstract class Staff {
      * @param name the name of the staff member
      * @param salary the salary per race
      */
-    public Staff(String name, int salary) {
+    public Staff(String name, int salary, int buyoutClause) {
         this.name = name;
         this.salary = salary;
+        this.buyoutClause = buyoutClause;
     }
 
     /**
@@ -68,9 +70,13 @@ public abstract class Staff {
     public boolean equals(Object other) {
         if (other instanceof Staff) {
             Staff that = (Staff) other;
-            boolean nameEq = this.name.equals(that.name);
-            boolean salaryEq = this.salary == that.salary;
-            return nameEq && salaryEq;
+            if (!this.name.equals(that.name)) {
+                return false;
+            }
+            if (this.salary != that.salary) {
+                return false;
+            }
+            return this.buyoutClause == that.buyoutClause;
         }
         return false;
     }

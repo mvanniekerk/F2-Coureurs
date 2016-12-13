@@ -16,6 +16,10 @@ public class Season {
     private int currentRound;
     private List<Race> rounds;
     private List<Team> teams;
+    private List<Aerodynamicist> contractAerodynamicists;
+    private List<Driver> contractDrivers;
+    private List<Mechanic> contractMechanics;
+    private List<Strategist> contractStrategists;
 
     /**
      * Create a new season.
@@ -24,6 +28,10 @@ public class Season {
         this.currentRound = 0;
         this.rounds = new ArrayList<>();
         this.teams = new ArrayList<>();
+        this.contractAerodynamicists = new ArrayList<>();
+        this.contractDrivers = new ArrayList<>();
+        this.contractMechanics = new ArrayList<>();
+        this.contractStrategists = new ArrayList<>();
     }
 
     /**
@@ -81,6 +89,38 @@ public class Season {
      */
     public void addRace(Race race) {
         this.rounds.add(race);
+    }
+
+    /**
+     * Gets the list of all contract Aerodynamicists.
+     * @return ArrayList
+     */
+    public List<Aerodynamicist> getContractAerodynamicists() {
+        return this.contractAerodynamicists;
+    }
+
+    /**
+     * Gets the list of all contract Drivers.
+     * @return ArrayList
+     */
+    public List<Driver> getContractDrivers() {
+        return this.contractDrivers;
+    }
+
+    /**
+     * Gets the list of all contract Drivers.
+     * @return ArrayList
+     */
+    public List<Mechanic> getContractMechanics() {
+        return this.contractMechanics;
+    }
+
+    /**
+     * Gets the list of all contract Strategists.
+     * @return ArrayList
+     */
+    public List<Strategist> getContractStrategists() {
+        return this.contractStrategists;
     }
 
     /**
@@ -179,6 +219,78 @@ public class Season {
         writeToJsonFile("saves/" + saveName);
     }
 
+    private boolean equalsRounds(Season that) {
+        if (this.rounds.size() != that.rounds.size()) {
+            return false;
+        }
+        for (Race round : this.rounds) {
+            if (!(that.rounds.contains(round))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean equalsTeams(Season that) {
+        if (this.teams.size() != that.teams.size()) {
+            return false;
+        }
+        for (Team team : this.teams) {
+            if (!(that.teams.contains(team))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean equalsAero(Season that) {
+        if (this.contractAerodynamicists.size() != that.contractAerodynamicists.size()) {
+            return false;
+        }
+        for (Aerodynamicist aerodynamicist : this.contractAerodynamicists) {
+            if (!(that.contractAerodynamicists.contains(aerodynamicist))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean equalsDrivers(Season that) {
+        if (this.contractDrivers.size() != that.contractDrivers.size()) {
+            return false;
+        }
+        for (Driver driver : this.contractDrivers) {
+            if (!(that.contractDrivers.contains(driver))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean equalsMechanics(Season that) {
+        if (this.contractMechanics.size() != that.contractMechanics.size()) {
+            return false;
+        }
+        for (Mechanic mechanic : this.contractMechanics) {
+            if (!(that.contractMechanics.contains(mechanic))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean equalsStrategists(Season that) {
+        if (this.contractStrategists.size() != that.contractStrategists.size()) {
+            return false;
+        }
+        for (Strategist strategist : this.contractStrategists) {
+            if (!(that.contractStrategists.contains(strategist))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
      * Checks if two season classes are the same.
      *
@@ -189,24 +301,13 @@ public class Season {
     public boolean equals(Object other) {
         if (other instanceof Season) {
             Season that = (Season) other;
-
-            if (this.rounds.size() != that.rounds.size()) {
-                return false;
-            }
-            for (Race round : this.rounds) {
-                if (!(that.rounds.contains(round))) {
-                    return false;
-                }
-            }
-            if (this.teams.size() != that.teams.size()) {
-                return false;
-            }
-            for (Team team : this.teams) {
-                if (!(that.teams.contains(team))) {
-                    return false;
-                }
-            }
-            return this.currentRound == that.currentRound;
+            return this.currentRound == that.currentRound
+                    && this.equalsRounds(that)
+                    && this.equalsTeams(that)
+                    && this.equalsAero(that)
+                    && this.equalsDrivers(that)
+                    && this.equalsMechanics(that)
+                    && this.equalsStrategists(that);
         }
         return false;
     }
