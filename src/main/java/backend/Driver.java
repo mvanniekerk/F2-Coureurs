@@ -18,9 +18,9 @@ public class Driver extends Staff {
      * @param strategyInsight  the strategy insight of the driver (0-100)
      * @param championLastYear true if the driver was the champion last year
      */
-    public Driver(String name, int salary, int speed, int raceCraft, int strategyInsight,
-                  boolean championLastYear) {
-        super(name, salary);
+    public Driver(String name, int salary, int buyoutClause, int speed, int raceCraft,
+                  int strategyInsight, boolean championLastYear) {
+        super(name, salary, buyoutClause);
 
         this.speed = speed;
         this.raceCraft = raceCraft;
