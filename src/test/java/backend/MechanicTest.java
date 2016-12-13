@@ -14,9 +14,9 @@ public class MechanicTest {
 
     @Before
     public void setUp() {
-        mechanic = new Mechanic("Steve Matchett", 100000, 50, 50, 50);
-        sameMechanic = new Mechanic("Steve Matchett", 100000, 50, 50, 50);
-        otherMechanic = new Mechanic("Bill Murray", 120000, 80, 40, 40);
+        mechanic = new Mechanic("Steve Matchett", 100000, 1000000, 50, 50, 50);
+        sameMechanic = new Mechanic("Steve Matchett", 100000, 1000000, 50, 50, 50);
+        otherMechanic = new Mechanic("Bill Murray", 120000, 1000000, 80, 40, 40);
     }
 
     @Test

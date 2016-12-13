@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<Pane id="new-team-ovverview" stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8">
+<Pane id="new-team-overview" stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8">
     <!-- settings-quit -->
     <Button id="red" layoutY="925" layoutX="1300" text="Cancel" />
     <Button id="green" layoutY="925" layoutX="1580" text="Save" />

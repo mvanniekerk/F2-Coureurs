@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<Pane id="your-result" stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8">
+    <!-- your result/full result switch -->
+    <Button id="red" layoutY="700" layoutX="1300" text="Your result" />
+    <Button layoutY="700" layoutX="1580" text="Full result" />
+    <Button id="green" layoutY="850" layoutX="1580" text="Continue" />
+
+    <!-- Your team -->
+    <Pane layoutX="80" layoutY="100" prefHeight="460" prefWidth="530" styleClass="block">
+        <Label layoutX="30" layoutY="40" styleClass="title" text="Your team"/>
+        <ImageView fitHeight="100" fitWidth="100" layoutX="375" layoutY="40">
+            <Image url="@../media/icons/team.png"/>
+        </ImageView>
+
+        <!--Driver 1-->
+        <ImageView fitHeight="100" fitWidth="100" layoutX="30" layoutY="130">
+            <Image url="@../media/icons/driver1.png"/>
+        </ImageView>
+        <Label layoutX="130" layoutY="160" styleClass="content" text="Driver 1" />
+        <Label layoutX="460" layoutY="160" styleClass="content" text="0" />
+
+        <!--Driver 2 -->
+        <ImageView fitHeight="100" fitWidth="100" layoutX="30" layoutY="230">
+            <Image url="@../media/icons/driver2.png"/>
+        </ImageView>
+        <Label layoutX="130" layoutY="260" styleClass="content" text="Driver 2" />
+        <Label layoutX="460" layoutY="260" styleClass="content" text="0" />
+
+        <!--Total -->
+        <Label layoutX="30" layoutY="370" styleClass="content" text="Total" />
+        <Label layoutX="460" layoutY="370" styleClass="content" text="0" />
+    </Pane>
+
+    <!-- Your team -->
+    <Pane layoutX="800" layoutY="100" prefHeight="460" prefWidth="590" styleClass="block">
+        <Label layoutX="30" layoutY="40" styleClass="title" text="Money"/>
+        <ImageView fitHeight="100" fitWidth="100" layoutX="450" layoutY="40">
+            <Image url="@../media/icons/eurosign.png"/>
+        </ImageView>
+
+        <!--Driver 1-->
+        <Label layoutX="30" layoutY="160" styleClass="content" text="Money earned" />
+        <Label layoutX="510" layoutY="160" styleClass="content" text="0" />
+
+        <!--Driver 2 -->
+        <Label layoutX="30" layoutY="260" styleClass="content" text="Salary team" />
+        <Label layoutX="330" layoutY="260" styleClass="content" text="-400,000" />
+
+        <!--Total -->
+        <Label layoutX="30" layoutY="370" styleClass="content" text="Total" />
+        <Label layoutX="330" layoutY="370" styleClass="content" text="-400,000" />
+    </Pane>
+
+
+
+</Pane>

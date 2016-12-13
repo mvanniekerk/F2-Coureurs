@@ -15,9 +15,9 @@ public class  AerodynamicistTest {
 
     @Before
     public void setUp() {
-        aerodynamicist = new Aerodynamicist("Dan Fallows", 700000);
-        sameAero = new Aerodynamicist("Dan Fallows", 700000);
-        otherAero = new Aerodynamicist("Peter Prodromou", 80000);
+        aerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 1000000);
+        sameAero = new Aerodynamicist("Dan Fallows", 700000, 1000000);
+        otherAero = new Aerodynamicist("Peter Prodromou", 80000, 1000000);
     }
 
     @Test
