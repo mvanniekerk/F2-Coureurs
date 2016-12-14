@@ -37,8 +37,8 @@ public class TeamTest {
                 engine, aerodynamicist, mechanic, strategist);
         otherTeam = new Team("name", "manager", 2000000,
                 otherEngine, aerodynamicist2, mechanic2, strategist2);
-        team.addDriver(driver);
-        team.addDriver(driver2);
+        team.setFirstDriver(driver);
+        team.setSecondDriver(driver2);
     }
 
     @Test
@@ -172,11 +172,6 @@ public class TeamTest {
         assertFalse(team.contains(driver3));
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testDriver() {
-        team.addDriver(driver);
-    }
-
     @Test
     public void getFirstDriverTest() {
         assertEquals(driver, team.getFirstDriver());
@@ -185,6 +180,38 @@ public class TeamTest {
     @Test
     public void getSecondDriverTest() {
         assertEquals(driver2, team.getSecondDriver());
+    }
+
+    @Test
+    public void setFirstDriverTest() {
+        Team sameTeam = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        sameTeam.setFirstDriver(driver);
+        assertEquals(driver, sameTeam.getFirstDriver());
+    }
+
+    @Test
+    public void setFirstDriverDifferent() {
+        Team sameTeam = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        sameTeam.setFirstDriver(driver);
+        sameTeam.setFirstDriver(driver2);
+        assertNotEquals(driver, sameTeam.getFirstDriver());
+    }
+
+    @Test
+    public void setSecondDriverTest() {
+        Team sameTeam = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        sameTeam.setFirstDriver(driver);
+        sameTeam.setSecondDriver(driver2);
+        assertEquals(driver2, sameTeam.getSecondDriver());
+    }
+
+    @Test
+    public void setSecondDriverDifferent() {
+        Team sameTeam = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        sameTeam.setFirstDriver(driver);
+        sameTeam.setSecondDriver(driver2);
+        sameTeam.setSecondDriver(driver3);
+        assertNotEquals(driver2, sameTeam.getSecondDriver());
     }
 
     @Test
@@ -201,16 +228,16 @@ public class TeamTest {
     @Test
     public void testEquals_same() {
         Team sameTeam = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
-        sameTeam.addDriver(driver);
-        sameTeam.addDriver(driver2);
+        sameTeam.setFirstDriver(driver);
+        sameTeam.setSecondDriver(driver2);
         assertTrue(team.equals(sameTeam));
     }
 
     @Test
     public void testEquals_other() {
         otherTeam = new Team("name", "manager", 2000000, otherEngine, aerodynamicist2, mechanic2, strategist2);
-        otherTeam.addDriver(driver2);
-        otherTeam.addDriver(driver3);
+        otherTeam.setFirstDriver(driver2);
+        otherTeam.setSecondDriver(driver3);
         assertFalse(team.equals(otherTeam));
     }
 

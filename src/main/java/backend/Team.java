@@ -270,16 +270,28 @@ public class Team {
     }
 
     /**
-     * Aad a driver to the list.
+     * Sets the first Driver.
      *
-     * @param driver the driver to compare with
-     * @throws IllegalArgumentException if list contains driver
+     * @param driver the new Driver
      */
-    public void addDriver(Driver driver) {
-        if (drivers.contains(driver)) {
-            throw new IllegalArgumentException("This driver is already in the list");
-        } else {
+    public void setFirstDriver(Driver driver) {
+        if (drivers.size() == 0) {
             drivers.add(driver);
+        } else {
+            drivers.set(0, driver);
+        }
+    }
+
+    /**
+     * Sets the second Driver.
+     *
+     * @param driver the new Driver
+     */
+    public void setSecondDriver(Driver driver) {
+        if (drivers.size() <= 1) {
+            drivers.add(driver);
+        } else {
+            drivers.set(1, driver);
         }
     }
 
