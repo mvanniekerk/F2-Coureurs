@@ -2,6 +2,9 @@ package backend;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Locale;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -217,7 +220,13 @@ public class TeamTest {
     @Test
     public void getBudgetStringTest() {
         //TODO: Change for different locales
-        assertEquals("€ 2.500.000,00", team.getBudgetString());
+        if (Locale.getDefault().toLanguageTag().equals("nl_NL")) {
+            assertEquals("€ 2.500.000,00", team.getBudgetString());
+        } else if (Locale.getDefault().toLanguageTag().equals("nl_NL")) {
+            assertEquals("$2,500,000.00", team.getBudgetString());
+        } else {
+            assertTrue(true);
+        }
     }
 
     @Test
