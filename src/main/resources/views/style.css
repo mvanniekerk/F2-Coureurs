@@ -70,7 +70,7 @@ Button#green {
     -fx-background-position: center center;
 }
 
-#home{
+#home, #current-staff{
     -fx-background-image: url("../media/backgrounds/home.jpg");
 }
 
