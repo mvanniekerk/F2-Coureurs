@@ -44,7 +44,7 @@ Label {
     -fx-background-color: transparent;
 }
 
-.table-view* {
+.table-view * {
     -fx-background-color: transparent;
     -fx-alignment: center-left;
 }
