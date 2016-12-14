@@ -3,16 +3,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import frontend.ExitButton?>
-<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      stylesheets="@style.css" id="prepare-race" fx:controller="frontend.controllers.RaceController"
+<?import main.java.frontend.HomeButton?>
+<?import main.java.frontend.EditTeamButton?>
+<?import main.java.frontend.ChampionshipStandingsButton?>
+<?import main.java.frontend.ExitButton?>
+
+<Pane xmlns="http://javafx.com/javafx/8"
+      stylesheets="@style.css" id="prepare-race"
       maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
       prefWidth="1920.0">
 
        <!-- Bottom menu-->
-       <Button layoutX="80" layoutY="915" text="Home" />
-       <Button layoutX="335" layoutY="915" text="Edit Team" />
-       <Button layoutX="588" layoutY="915" text="Standings" />
+       <HomeButton layoutX="80" layoutY="915" text="Home" />
+       <EditTeamButton layoutX="335" layoutY="915" text="Edit Team" />
+       <ChampionshipStandingsButton layoutX="588" layoutY="915" text="Standings" />
        <Button id="red" layoutX="842" layoutY="915" text="Prepare Race" />
 
        <!-- Team block-->
@@ -79,7 +83,7 @@
     </Pane>
 
     <!-- Start race -->
-    <Button fx:id="startRace" onAction="#startRace" layoutX="1320" layoutY="550" prefHeight="220" prefWidth="530" styleClass="start-race" text="Start Race"/>
+    <!--<Button fx:id="startRace" onAction="#startRace" layoutX="1320" layoutY="550" prefHeight="220" prefWidth="530" styleClass="start-race" text="Start Race"/>-->
 
     <!-- settings-quit -->
     <Button styleClass="settings-quit" layoutY="925" layoutX="1470" text="Settings" />

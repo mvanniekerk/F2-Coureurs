@@ -1,4 +1,4 @@
-package frontend.controllers;
+package main.java.frontend.controllers;
 
 import backend.GameEngine;
 import backend.Season;
