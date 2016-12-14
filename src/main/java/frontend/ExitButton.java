@@ -1,4 +1,4 @@
-package frontend;
+package main.java.frontend;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

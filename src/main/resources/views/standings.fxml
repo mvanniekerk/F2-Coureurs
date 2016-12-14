@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
 <?scenebuilder-stylesheet style.css?>
 
-<?import frontend.ExitButton?>
-<Pane id="standings" xmlns="http://javafx.com/javafx/8"
-      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@style.css" >
+<?import javafx.scene.image.Image?>
+
+<?import main.java.frontend.HomeButton?>
+<?import main.java.frontend.EditTeamButton?>
+<?import main.java.frontend.PrepareRaceButton?>
+
+<Pane xmlns="http://javafx.com/javafx/8"
+      id="standings" maxHeight="-Infinity"
+      maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
+      prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
 
     <!-- Bottom menu-->
-    <Button layoutX="80" layoutY="915" text="Home" />
-    <Button layoutX="335" layoutY="915" text="Edit Team" />
+    <HomeButton layoutX="80" layoutY="915" text="Home" />
+    <EditTeamButton layoutX="335" layoutY="915" text="Edit Team" />
     <Button id="red" layoutX="588" layoutY="915" text="Standings" />
-    <Button layoutX="842" layoutY="915" text="Prepare Race" />
+    <PrepareRaceButton layoutX="842" layoutY="915" text="Prepare Race" />
 
-    <!-- settings-quit -->
-    <Button styleClass="settings-quit" layoutY="925" layoutX="1470" text="Settings" />
-    <ExitButton styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
-
-    <!-- Driver standings block-->
+     <!--Driver standings block-->
     <Pane layoutX="80" layoutY="67" prefHeight="790" prefWidth="810" styleClass="block">
         <Label layoutX="60" layoutY="15" styleClass="title" text="Driver Standings" />
         <ImageView fitHeight="100" fitWidth="100" layoutX="680" layoutY="15">
