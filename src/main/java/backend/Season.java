@@ -83,7 +83,7 @@ public class Season {
     }
 
     /**
-     * Gets the team that the player controls/
+     * Gets the team that the player controls.
      *
      * @return one of the teams
      */

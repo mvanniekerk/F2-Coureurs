@@ -11,8 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.util.Random;
-
 public class HomeController {
 
     @FXML
@@ -39,9 +37,18 @@ public class HomeController {
     @FXML
     private Label mechanicName;
 
+    @FXML
+    private Label nextCircuit;
+
+    @FXML
+    private Label currentBudget;
+
     private Season season;
 
 
+    /**
+     * Initialize the home screen with the correct values.
+     */
     @FXML
     public void initialize() {
         season = GameEngine.getInstance().getSeason();
@@ -54,6 +61,8 @@ public class HomeController {
         strategistName.setText(playerTeam.getStrategist().getName());
         aerodynamicistName.setText(playerTeam.getAerodynamicist().getName());
         mechanicName.setText(playerTeam.getMechanic().getName());
+        nextCircuit.setText(season.getCurrentRound().getTrackName());
+        currentBudget.setText(playerTeam.getBudgetString());
 
     }
 

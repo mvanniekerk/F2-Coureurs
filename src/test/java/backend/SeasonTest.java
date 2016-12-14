@@ -118,7 +118,7 @@ public class SeasonTest {
 
     @Test
     public void getPlayerControlledTeamTest() {
-        assertEquals(1, 2);
+        assertEquals(team, season.getPlayerControlledTeam());
     }
     @Test
     public void equalsSame() {

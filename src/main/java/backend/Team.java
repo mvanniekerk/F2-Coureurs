@@ -1,7 +1,9 @@
 package backend;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Team {
     private String name;
@@ -87,6 +89,16 @@ public class Team {
      */
     public int getBudget() {
         return budget;
+    }
+
+    /**
+     * Gets a string representation of the budget.
+     *
+     * @return string of the budget
+     */
+    public String getBudgetString() {
+        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return euroFormat.format(budget);
     }
 
     /**
@@ -289,6 +301,18 @@ public class Team {
         return drivers.get(1);
     }
 
+    private boolean driversEquals(Team that) {
+        if (this.drivers.size() != that.drivers.size()) {
+            return false;
+        }
+        for (Driver driver : this.drivers) {
+            if (!that.drivers.contains(driver)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
      * Report on whether or not the object is equal to team.
      *
@@ -311,11 +335,9 @@ public class Team {
             boolean boAerodynamicist = getAerodynamicist().equals(team.getAerodynamicist());
             boolean boMechanic = getMechanic().equals(team.getMechanic());
             boolean boStrategist = getStrategist().equals(team.getStrategist());
-            boolean boDriver1 = getFirstDriver().equals(team.getFirstDriver());
-            boolean boDriver2 = getSecondDriver().equals(team.getSecondDriver());
             return boPointAll && boPointThis && boPointAll && boWinAll && boWinThis
                     && boBudget && boName && boManager && boEngine && boAerodynamicist
-                    && boMechanic && boStrategist && boDriver1 && boDriver2;
+                    && boMechanic && boStrategist && driversEquals(team);
         }
         return false;
     }

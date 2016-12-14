@@ -179,12 +179,18 @@ public class TeamTest {
 
     @Test
     public void getFirstDriverTest() {
-        assertEquals(1, 2);
+        assertEquals(driver, team.getFirstDriver());
     }
 
     @Test
     public void getSecondDriverTest() {
-        assertEquals(1, 2);
+        assertEquals(driver2, team.getSecondDriver());
+    }
+
+    @Test
+    public void getBudgetStringTest() {
+        //TODO: Change for different locales
+        assertEquals("€ 2.500.000,00", team.getBudgetString());
     }
 
     @Test

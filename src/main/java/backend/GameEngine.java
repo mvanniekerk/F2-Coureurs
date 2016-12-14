@@ -13,6 +13,11 @@ public class GameEngine {
 
     }
 
+    /**
+     * Gets the GameEngine singleton. If a GameEngine does not exist, getInstance creates one.
+     *
+     * @return the GameEngine singleton
+     */
     public static GameEngine getInstance() {
         if (instance == null) {
             instance = new GameEngine();
