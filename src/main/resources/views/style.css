@@ -87,7 +87,7 @@ Button#green {
 	-fx-background-image: url("../media/backgrounds/race-result.jpg");
 }
 
-#new_game, #load_game, #new-team, #new-team-overview{
+#new-game, #load-game, #new-team, #new-team-overview{
     -fx-background-image: url("../media/backgrounds/pre-home.jpg");
 }
 
