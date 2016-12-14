@@ -66,7 +66,7 @@
     <Pane layoutX="1300" layoutY="350" prefHeight="380" prefWidth="500" styleClass="block">
         <Label layoutX="30" layoutY="-30" styleClass="option"  text="Nico Rosberg" />
 
-        <HBox spacing="-60" layoutX="30" layoutY="100" styleClass="content">
+        <HBox spacing="-100" layoutX="30" layoutY="100" styleClass="content">
             <VBox spacing="-25" alignment="BASELINE_LEFT">
                 <Label text="Salary:" />
                 <Label text="Speed:" />
