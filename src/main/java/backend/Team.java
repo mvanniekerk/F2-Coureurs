@@ -272,12 +272,21 @@ public class Team {
     }
 
     /**
-     * Get the list of drivers.
+     * Get the first driver.
      *
-     * @return the list of drivers
+     * @return the first driver
      */
-    public List<Driver> getDrivers() {
-        return drivers;
+    public Driver getFirstDriver() {
+        return drivers.get(0);
+    }
+
+    /**
+     * Get the second driver.
+     *
+     * @return the second driver
+     */
+    public Driver getSecondDriver() {
+        return drivers.get(1);
     }
 
     /**
@@ -302,10 +311,11 @@ public class Team {
             boolean boAerodynamicist = getAerodynamicist().equals(team.getAerodynamicist());
             boolean boMechanic = getMechanic().equals(team.getMechanic());
             boolean boStrategist = getStrategist().equals(team.getStrategist());
-            boolean boDrivers = getDrivers().equals(team.getDrivers());
+            boolean boDriver1 = getFirstDriver().equals(team.getFirstDriver());
+            boolean boDriver2 = getSecondDriver().equals(team.getSecondDriver());
             return boPointAll && boPointThis && boPointAll && boWinAll && boWinThis
                     && boBudget && boName && boManager && boEngine && boAerodynamicist
-                    && boMechanic && boStrategist && boDrivers;
+                    && boMechanic && boStrategist && boDriver1 && boDriver2;
         }
         return false;
     }

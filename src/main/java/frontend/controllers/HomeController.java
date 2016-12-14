@@ -1,5 +1,6 @@
 package frontend.controllers;
 
+import backend.GameEngine;
 import backend.Season;
 import backend.Team;
 import javafx.event.ActionEvent;
@@ -10,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.io.InputStream;
 import java.util.Random;
 
 public class HomeController {
@@ -19,23 +19,41 @@ public class HomeController {
     private Button buttonPrepareRace;
 
     @FXML
-    private Button quitGame;
+    private Label teamName;
 
     @FXML
-    private Label teamName;
+    private Label engineName;
+
+    @FXML
+    private Label firstDriverName;
+
+    @FXML
+    private Label secondDriverName;
+
+    @FXML
+    private Label strategistName;
+
+    @FXML
+    private Label aerodynamicistName;
+
+    @FXML
+    private Label mechanicName;
+
+    private Season season;
 
 
     @FXML
     public void initialize() {
-        ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        InputStream seasonStart = loader.getResourceAsStream("seasonStart.json");
-        Season season = Season.readFromJsonFile(seasonStart);
+        season = GameEngine.getInstance().getSeason();
 
-        int random = new Random().nextInt(season.getTeams().size());
-        Team winningTeam = season.getTeams().get(random);
-
-        teamName.setText(winningTeam.getName());
-
+        Team playerTeam = season.getPlayerControlledTeam();
+        teamName.setText(playerTeam.getName());
+        engineName.setText(playerTeam.getEngine().getName());
+        firstDriverName.setText(playerTeam.getFirstDriver().getName());
+        secondDriverName.setText(playerTeam.getSecondDriver().getName());
+        strategistName.setText(playerTeam.getStrategist().getName());
+        aerodynamicistName.setText(playerTeam.getAerodynamicist().getName());
+        mechanicName.setText(playerTeam.getMechanic().getName());
 
     }
 

@@ -117,6 +117,10 @@ public class SeasonTest {
     }
 
     @Test
+    public void getPlayerControlledTeamTest() {
+        assertEquals(1, 2);
+    }
+    @Test
     public void equalsSame() {
         assertEquals(season, sameSeason);
     }

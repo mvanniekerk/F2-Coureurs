@@ -178,9 +178,13 @@ public class TeamTest {
     }
 
     @Test
-    public void getDrivers() {
-        team.addDriver(driver3);
-        assertThat(team.getDrivers().size(), is(3));
+    public void getFirstDriverTest() {
+        assertEquals(1, 2);
+    }
+
+    @Test
+    public void getSecondDriverTest() {
+        assertEquals(1, 2);
     }
 
     @Test
