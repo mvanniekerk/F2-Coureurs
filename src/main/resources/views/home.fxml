@@ -6,17 +6,22 @@
 <?scenebuilder-stylesheet style.css?>
 
 <?import javafx.scene.image.Image?>
-<?import frontend.ExitButton?>
+<?import main.java.frontend.ExitButton?>
+<?import main.java.frontend.PrepareRaceButton?>
+<?import main.java.frontend.ChampionshipStandingsButton?>
+<?import main.java.frontend.EditTeamButton?>
+
+
 <Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      id="home" fx:controller="frontend.controllers.HomeController" maxHeight="-Infinity"
+      id="home" fx:controller="main.java.frontend.controllers.HomeController" maxHeight="-Infinity"
       maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
       prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
 
        <!-- Bottom menu-->
        <Button id="red" layoutX="80" layoutY="915" text="Home" />
-       <Button fx:id="buttonEditTeam" layoutX="335" layoutY="915" text="Edit Team" onAction="#editTeamAction"/>
-       <Button fx:id="buttonChampionshipStandings" layoutX="588" layoutY="915" text="Standings" onAction="#championshipStandingsAction" />
-       <Button fx:id="buttonPrepareRace" layoutX="842" layoutY="915" text="Prepare Race" onAction="#prepareRaceAction"/>
+       <EditTeamButton layoutX="335" layoutY="915" text="Edit Team"/>
+       <ChampionshipStandingsButton layoutX="588" layoutY="915" text="Standings"/>
+       <PrepareRaceButton layoutX="842" layoutY="915" text="Prepare Race"/>
 
         <!-- settings-quit -->
         <ExitButton styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
