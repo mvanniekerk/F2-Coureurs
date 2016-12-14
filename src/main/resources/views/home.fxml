@@ -6,14 +6,14 @@
 <?scenebuilder-stylesheet style.css?>
 
 <?import javafx.scene.image.Image?>
-<?import main.java.frontend.ExitButton?>
-<?import main.java.frontend.PrepareRaceButton?>
-<?import main.java.frontend.ChampionshipStandingsButton?>
-<?import main.java.frontend.EditTeamButton?>
+<?import frontend.ExitButton?>
+<?import frontend.PrepareRaceButton?>
+<?import frontend.ChampionshipStandingsButton?>
+<?import frontend.EditTeamButton?>
 
 
 <Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      id="home" fx:controller="main.java.frontend.controllers.HomeController" maxHeight="-Infinity"
+      id="home" fx:controller="frontend.controllers.HomeController" maxHeight="-Infinity"
       maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
       prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
 
