@@ -17,7 +17,6 @@ public class DriverTest {
     private Driver insightDifferent;
     private Driver championDiffers;
 
-
     @Before
     public void setUp() {
         driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
@@ -42,7 +41,7 @@ public class DriverTest {
 
     @Test
     public void qualityTest() {
-        assertEquals(0, driver.getQuality());
+        assertEquals(50f, driver.getQuality(), 0.001);
     }
 
     @Test
@@ -104,4 +103,48 @@ public class DriverTest {
         assertNotEquals(this.driver, dr);
     }
 
+    @Test
+    public void setSpeedTest() {
+        Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+        driver.setSpeed(23);
+
+        assertEquals(23, driver.getSpeed());
+    }
+
+    @Test
+    public void getSpeedTest() {
+        Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+
+        assertEquals(50, driver.getSpeed());
+    }
+
+    @Test
+    public void setRaceCraftTest() {
+        Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+        driver.setRaceCraft(23);
+
+        assertEquals(23, driver.getRaceCraft());
+    }
+
+    @Test
+    public void getRaceCraftTest() {
+        Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+
+        assertEquals(50, driver.getRaceCraft());
+    }
+
+    @Test
+    public void setStrategryInsight() {
+        Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+        driver.setStrategyInsight(23);
+
+        assertEquals(23, driver.getStrategyInsight());
+    }
+
+    @Test
+    public void getStrategyInsight() {
+        Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+
+        assertEquals(50, driver.getStrategyInsight());
+    }
 }
