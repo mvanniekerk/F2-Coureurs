@@ -58,7 +58,7 @@ public abstract class Staff {
      *
      * @return int between 0 and 100 of the quality of the staff member
      */
-    public abstract int getQuality();
+    public abstract float getQuality();
 
     /**
      * Implements a equals method that checks all attributes of Staff for equality.
