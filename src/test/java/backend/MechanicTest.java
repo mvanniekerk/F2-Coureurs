@@ -31,7 +31,7 @@ public class MechanicTest {
 
     @Test
     public void qualityTest() {
-        assertEquals(0, mechanic.getQuality());
+        assertEquals(50f, mechanic.getQuality(), 0.001);
     }
 
     @Test
