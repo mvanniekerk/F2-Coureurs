@@ -1,5 +1,7 @@
 package backend;
 
+import java.util.Random;
+
 public class Setup {
     public static final int LOW_RISK = 1;
     public static final int MEDIUM_RISK = 2;
@@ -12,11 +14,30 @@ public class Setup {
      * @throws IllegalArgumentException if risk is not 1, 2 or 3
      */
     public Setup(int risk) {
-        if (risk >= 1 || risk <= 3) {
+        if (risk >= 1 && risk <= 3) {
             this.risk = risk;
         } else {
             throw new IllegalArgumentException();
         }
+    }
+
+    /**
+     * Give back a random risk value based on the setup chosen.
+     * @return the setup risk
+     */
+    public float calculateRisk() {
+        Random random = new Random();
+        float setupRisk;
+
+        if (this.getRisk() == 1) {
+            setupRisk = random.nextFloat() * (0.6f - 0.4f) + 0.4f;
+        } else if (this.getRisk() == 2) {
+            setupRisk = random.nextFloat() * (0.8f - 0.2f) + 0.2f;
+        } else {
+            setupRisk = random.nextFloat() * (1.0f - 0.0f) + 0.0f;
+        }
+
+        return setupRisk;
     }
 
     /**
