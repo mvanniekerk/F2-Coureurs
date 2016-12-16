@@ -1,5 +1,8 @@
 package backend;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public abstract class Staff {
     private String name;
     private int salary;
@@ -59,6 +62,17 @@ public abstract class Staff {
      * @return int between 0 and 100 of the quality of the staff member
      */
     public abstract float getQuality();
+
+    /**
+     * Gets a string representation of the budget.
+     *
+     * @return string of the budget
+     */
+    public String getSalaryString() {
+        // TODO add tests
+        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return euroFormat.format(salary);
+    }
 
     /**
      * Implements a equals method that checks all attributes of Staff for equality.

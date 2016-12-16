@@ -6,7 +6,6 @@ import backend.Team;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import javafx.event.ActionEvent;
@@ -15,8 +14,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class EditTeamController {
-    @FXML private Button cancelButton;
-    @FXML private Button saveButton;
     @FXML private Label budget;
     private Season season;
 
@@ -43,7 +40,7 @@ public class EditTeamController {
         // TODO generalize the save-game name by adding an attribute to Season
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        Stage stage = (Stage) budget.getScene().getWindow();
 
         GameEngine.getInstance().setSeason(Season.load("save1.json"));
         season = GameEngine.getInstance().getSeason();
@@ -62,10 +59,17 @@ public class EditTeamController {
         // TODO generalize the save-game name by adding an attribute to Season
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        Stage stage = (Stage) budget.getScene().getWindow();
 
         season.save("save1.json");
 
+        stage.getScene().setRoot(root);
+    }
+
+    @FXML
+    public void editDriver(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/views/select-team-member.fxml"));
+        Stage stage = (Stage) budget.getScene().getWindow();
         stage.getScene().setRoot(root);
     }
 

@@ -44,7 +44,7 @@
         </graphic>
     </Button>
 
-    <Button styleClass="edit-team" layoutX="80" layoutY="520">
+    <Button onAction="#editDriver" styleClass="edit-team" layoutX="80" layoutY="520">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
                 <Label alignment="CENTER_RIGHT" text="First driver"/>
