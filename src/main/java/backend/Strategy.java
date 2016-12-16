@@ -9,10 +9,10 @@ public class Strategy {
     /**
      * Initializes the strategy. Risk must be 1, 2 or 3.
      * @param risk must be 1, 2 or 3
-     * @throws if risk is not 1, 2 or 3
+     * @throws IllegalArgumentException if risk is not 1, 2 or 3
      */
     public Strategy(int risk) {
-        if (risk == 1 || risk == 2 || risk == 3) {
+        if (risk >= 1 || risk <= 3) {
             this.risk = risk;
         } else {
             throw new IllegalArgumentException();
