@@ -29,9 +29,8 @@ public class Mechanic extends Staff {
      * @return the quality of the mechanic, an int between 0 and 100
      */
     @Override
-    public int getQuality() {
-        //TODO: Decide how to calculate Mechanic quality
-        return 0;
+    public float getQuality() {
+        return (reliability + partFixing + pitstops) / 3f;
     }
 
     /**
