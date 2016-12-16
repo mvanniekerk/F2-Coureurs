@@ -29,6 +29,7 @@ public class Driver extends Staff {
         this.championLastYear = championLastYear;
         this.raceWins = 0;
         this.points = 0;
+        this.score = 0.0f;
     }
 
     /**
