@@ -23,6 +23,15 @@ public class Engine {
     }
 
     /**
+     * Get the quality of the engine.
+     *
+     * @return the quality
+     */
+    public float getQuality() {
+        return (power + drivability + fuelConsumption) / 3f;
+    }
+
+    /**
      * Get the power of the engine.
      *
      * @return the power of the engine
