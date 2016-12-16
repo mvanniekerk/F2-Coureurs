@@ -6,10 +6,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<Pane id="edit-team" stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8">
+<Pane id="edit-team" stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0"
+      fx:controller="frontend.controllers.EditTeamController" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/8">
     <!-- settings-quit -->
-    <Button id="red" layoutY="925" layoutX="1300" text="Cancel" />
-    <Button id="green" layoutY="925" layoutX="1580" text="Save" />
+    <Button fx:id="cancelButton" onAction="#cancel" id="red" layoutY="925" layoutX="1300" text="Cancel" />
+    <Button fx:id="saveButton" onAction="#save" id="green" layoutY="925" layoutX="1580" text="Save" />
 
     <!-- Edit team -->
     <Pane layoutX="80" layoutY="125" prefHeight="220" prefWidth="530" styleClass="block">
@@ -23,7 +25,7 @@
     <!-- Budget -->
     <Pane layoutX="700" layoutY="125" prefHeight="220" prefWidth="530" styleClass="block">
         <Label layoutX="30" layoutY="40" styleClass="title" text="Budget"/>
-        <Label layoutX="30" id="currentBudget" layoutY="120" styleClass="content" text="€ 200,000,000"/>
+        <Label fx:id="budget" layoutX="30" id="currentBudget" layoutY="120" styleClass="content" text="€ 200,000,000"/>
         <ImageView fitHeight="75" fitWidth="75" layoutX="375" layoutY="40">
             <Image url="@../media/icons/eurosign.png"/>
         </ImageView>

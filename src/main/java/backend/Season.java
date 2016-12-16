@@ -4,10 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -197,6 +194,22 @@ public class Season {
         return readFromJsonFile(seasonStart);
     }
 
+    /**
+     * Loads a file from the save directory.
+     *
+     * @param saveName the name of the save
+     * @throws IllegalArgumentException throws if the filename does not exist
+     * @return the season equal to the file
+     */
+    public static Season load(String saveName) {
+        try {
+            FileInputStream loadFile = new FileInputStream("saves/" + saveName);
+            return readFromJsonFile(loadFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("File does not exist");
+        }
+    }
 
     /**
      * Writes json to a file.
@@ -328,7 +341,7 @@ public class Season {
      * @throws IOException If the file or directory does not exist
      */
     public static void main(String[] args) throws IOException {
-        Season season = Season.loadNewGameFromSeasonStart();
+        Season season = Season.load("save1.json");
         season.save("save1.json");
     }
 }

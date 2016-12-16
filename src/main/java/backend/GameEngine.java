@@ -28,4 +28,12 @@ public class GameEngine {
     public Season getSeason() {
         return season;
     }
+
+    /**
+     * Sets the season.
+     * @param season the season you want to set
+     */
+    public void setSeason(Season season) {
+        this.season = season;
+    }
 }
