@@ -14,7 +14,6 @@ public class Engine {
      * @param fuelConsumption the fuelconsumption of the engine in kg/h
      * @param name the name of the engine
      */
-
     public Engine(int power, int drivability, int fuelConsumption, String name) {
         this.power = power;
         this.drivability = drivability;
