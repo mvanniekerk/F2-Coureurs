@@ -7,6 +7,7 @@ public class Driver extends Staff {
     private int raceWins;
     private int points;
     private boolean championLastYear;
+    private float score;
 
     /**
      * Create a new driver.
@@ -116,6 +117,14 @@ public class Driver extends Staff {
      */
     public void setStrategyInsight(int strategyInsight) {
         this.strategyInsight = strategyInsight;
+    }
+
+    public float getScore() {
+        return this.score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
     }
 
     /**

@@ -142,6 +142,14 @@ public class DriverTest {
     }
 
     @Test
+    public void getAndSetScoreTest() {
+        Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+        driver.setScore(23);
+
+        assertEquals(23, driver.getScore(), 0.001);
+    }
+
+    @Test
     public void getStrategyInsight() {
         Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
 
