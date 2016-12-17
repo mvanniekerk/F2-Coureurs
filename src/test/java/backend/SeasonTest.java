@@ -77,13 +77,13 @@ public class SeasonTest {
     }
 
     @Test
-    public void getPointsThisTest() {
+    public void getTeamTest() {
         Team team2 = new Team("F2", "User", 2500000,
                 engine, aerodynamicist, mechanic, strategist);
         team2.setPointsThisSeason(1);
         this.season.addTeam(team2);
 
-        assertEquals(1, this.season.getTeamPoints(1));
+        assertEquals(team2, this.season.getTeam(1));
     }
 
     @Test

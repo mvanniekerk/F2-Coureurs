@@ -84,15 +84,15 @@ public class Season {
     }
 
     /**
-     * Get the desired team.
+     * Gets the desired team.
      *
-     * @param range the range of the team
-     * @return the points of the specific team
+     * @param rank the range of the team
+     * @return the team
      */
-    public int getTeamPoints(int range) {
+    public Team getTeam(int rank) {
         Collections.sort(teams);
 
-        return teams.get(range - 1).getPointsThisSeason();
+        return teams.get(rank - 1);
     }
 
     /**
@@ -127,6 +127,18 @@ public class Season {
      */
     public List<Driver> getContractDrivers() {
         return this.contractDrivers;
+    }
+
+    /**
+     * Gets the desired driver.
+     *
+     * @param rank the range of the driver
+     * @return the driver
+     */
+    public Driver getDriver(int rank) {
+        Collections.sort(contractDrivers);
+
+        return contractDrivers.get(rank - 1);
     }
 
     /**

@@ -332,11 +332,12 @@ public class Team implements Comparable<Team> {
     }
 
     /**
-     * Sort team by its points in this season so far.
+     * Sort teams by its points in this season so far.
      *
      * @param other the team to compare with
      * @return the ascending order
      */
+    @Override
     public int compareTo(Team other) {
         int comparePoints = other.getPointsThisSeason();
 
@@ -365,7 +366,7 @@ public class Team implements Comparable<Team> {
             boolean boAerodynamicist = getAerodynamicist().equals(team.getAerodynamicist());
             boolean boMechanic = getMechanic().equals(team.getMechanic());
             boolean boStrategist = getStrategist().equals(team.getStrategist());
-            return boPointAll && boPointThis && boPointAll && boWinAll && boWinThis
+            return  boPointAll && boPointThis && boWinAll && boWinThis
                     && boBudget && boName && boManager && boEngine && boAerodynamicist
                     && boMechanic && boStrategist && driversEquals(team);
         }
