@@ -86,7 +86,7 @@ public class Season {
     /**
      * Gets the desired team.
      *
-     * @param rank the range of the team
+     * @param rank the rank of the team
      * @return the team
      */
     public Team getTeam(int rank) {
@@ -132,7 +132,7 @@ public class Season {
     /**
      * Gets the desired driver.
      *
-     * @param rank the range of the driver
+     * @param rank the rank of the driver
      * @return the driver
      */
     public Driver getDriver(int rank) {
