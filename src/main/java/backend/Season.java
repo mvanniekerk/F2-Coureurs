@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -80,6 +81,18 @@ public class Season {
      */
     public List<Team> getTeams() {
         return this.teams;
+    }
+
+    /**
+     * Get the desired team.
+     *
+     * @param range the range of the team
+     * @return the points of the specific team
+     */
+    public int getTeamPoints(int range) {
+        Collections.sort(teams);
+
+        return teams.get(range - 1).getPointsThisSeason();
     }
 
     /**

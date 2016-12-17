@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Team {
+public class Team implements Comparable<Team> {
     private String name;
     private String manager;
     private int budget;
@@ -313,6 +313,12 @@ public class Team {
         return drivers.get(1);
     }
 
+    /**
+     * Compare drivers.
+     *
+     * @param that the team to compare with
+     * @return true if they are equal and false otherwise
+     */
     private boolean driversEquals(Team that) {
         if (this.drivers.size() != that.drivers.size()) {
             return false;
@@ -323,6 +329,18 @@ public class Team {
             }
         }
         return true;
+    }
+
+    /**
+     * Sort team by its points in this season so far.
+     *
+     * @param other the team to compare with
+     * @return the ascending order
+     */
+    public int compareTo(Team other) {
+        int comparePoints = other.getPointsThisSeason();
+
+        return comparePoints - this.pointsThisSeason;
     }
 
     /**
