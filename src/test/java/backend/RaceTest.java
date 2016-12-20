@@ -3,8 +3,7 @@ package backend;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class RaceTest {
     private Race race;
@@ -16,6 +15,37 @@ public class RaceTest {
         race = new Race(new Setup(Setup.LOW_RISK), new Strategy(Strategy.HIGH_RISK), "Circuit de Monaco", 8);
         sameRace = new Race(new Setup(Setup.LOW_RISK), new Strategy(Strategy.HIGH_RISK), "Circuit de Monaco", 8);
         otherRace = new Race(new Setup(Setup.MEDIUM_RISK), new Strategy(Strategy.MEDIUM_RISK), "Silverstone Circuit", 2);
+    }
+
+    @Test
+    public void calculatePointsTest() {
+        Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+        Engine engine = new Engine(90, 70, 80, "Ferrari");
+        Mechanic mechanic = new Mechanic("Steve Matchett", 100000, 1000000, 50, 50, 50);
+        Aerodynamicist aerodynamicist =  new Aerodynamicist("Dan Fallows", 700000, 1000000);
+        Strategist strategist = new Strategist("Toto Wolff", 1000000, 10000000);
+        Setup setup = new Setup(Setup.HIGH_RISK);
+        Strategy strategy = new Strategy(Strategy.HIGH_RISK);
+
+        race.calculatePointsOfDriver(driver, engine, mechanic, strategist, aerodynamicist, setup, strategy);
+        float result = driver.getScore();
+
+        float minDriverWeight = driver.getQuality() * 0.5f; // 25
+        float maxDriverWeight = driver.getQuality(); // 50
+        float engineWeight = engine.getQuality(); // 80
+        float carWeight = aerodynamicist.getQuality(); // 50
+        float minSetUpWeight = mechanic.getQuality() * 0.0f; // 0
+        float maxSetUpWeight = mechanic.getQuality() * 1.0f; // 50
+        float minStrategyWeight = strategist.getQuality() * 0.0f; // 0
+        float maxStrategyWeight = strategist.getQuality() * 1.0f; // 78
+
+        float min = 0.2f * (minDriverWeight + engineWeight + carWeight + minSetUpWeight + minStrategyWeight);
+        float max = 0.2f * (maxDriverWeight + engineWeight + carWeight + maxSetUpWeight + maxStrategyWeight);
+
+        System.out.println("Range: [" + min + "," + max + "]");
+        System.out.println("Result: " + result);
+
+        assertTrue(min <= result && result <= max);
     }
 
     @Test

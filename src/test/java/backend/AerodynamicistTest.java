@@ -32,7 +32,7 @@ public class  AerodynamicistTest {
 
     @Test
     public void qualityTest() {
-        assertEquals(0, aerodynamicist.getQuality());
+        assertEquals(50, aerodynamicist.getQuality(), 0.001);
     }
 
     @Test

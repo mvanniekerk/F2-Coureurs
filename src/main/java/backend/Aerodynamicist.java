@@ -18,8 +18,7 @@ public class Aerodynamicist extends Staff {
      * @return the quality of the aerodynamicist, an int between 0 and 100
      */
     @Override
-    public int getQuality() {
-        //TODO: Decide how to calculate Aerodynamicist quality
-        return 0;
+    public float getQuality() {
+        return 50;
     }
 }

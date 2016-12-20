@@ -7,6 +7,7 @@ public class Driver extends Staff {
     private int raceWins;
     private int points;
     private boolean championLastYear;
+    private float score;
 
     /**
      * Create a new driver.
@@ -28,6 +29,7 @@ public class Driver extends Staff {
         this.championLastYear = championLastYear;
         this.raceWins = 0;
         this.points = 0;
+        this.score = 0.0f;
     }
 
     /**
@@ -51,14 +53,89 @@ public class Driver extends Staff {
     }
 
     /**
+     * Get the speed of the driver.
+     *
+     * <p>The value of speed is between 0 and 100.</p>
+     *
+     * @return the speed of the driver
+     */
+    public int getSpeed() {
+        return speed;
+    }
+
+    /**
+     * Set the speed of the driver.
+     *
+     * <p>The value of speed has to be between 0 and 100.</p>
+     *
+     * @param speed the speed of the driver
+     */
+    public void setSpeed(int speed) {
+        if (speed < 0 || speed > 100) {
+            throw new IllegalArgumentException("Speed has to be between 0 and 100");
+        }
+        this.speed = speed;
+    }
+
+    /**
+     * Get the race craft of the driver.
+     *
+     * <p>The value of speed is between 0 and 100.</p>
+     *
+     * @return the race craft
+     */
+    public int getRaceCraft() {
+        return raceCraft;
+    }
+
+    /**
+     * Set the race craft of the driver.
+     *
+     * <p>The value of race craft has to be between 0 and 100.</p>
+     *
+     * @param raceCraft the race craft
+     */
+    public void setRaceCraft(int raceCraft) {
+        this.raceCraft = raceCraft;
+    }
+
+    /**
+     * Get the strategy insight capabilities of the driver.
+     *
+     * <p>The value of speed is between 0 and 100.</p>
+     *
+     * @return the strategy insight of the driver
+     */
+    public int getStrategyInsight() {
+        return strategyInsight;
+    }
+
+    /** Set the strategy insight capabilities of the driver.
+     *
+     * <p>The value of race craft has to be between 0 and 100.</p>
+     *
+     * @param strategyInsight the strategy insight
+     */
+    public void setStrategyInsight(int strategyInsight) {
+        this.strategyInsight = strategyInsight;
+    }
+
+    public float getScore() {
+        return this.score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
+    /**
      * Finds the quality of the driver by combining all its attributes.
      *
      * @return the quality of the driver, an int between 0 and 100
      */
     @Override
-    public int getQuality() {
-        //TODO: Decide how to calculate driver quality
-        return 0;
+    public float getQuality() {
+        return (this.speed + this.raceCraft + this.strategyInsight) / 3f;
     }
 
     /**
