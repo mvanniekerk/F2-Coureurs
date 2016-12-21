@@ -1,16 +1,10 @@
 package frontend.controllers;
 
-import backend.Driver;
 import backend.GameEngine;
-import backend.Race;
 import backend.Season;
-import backend.Setup;
-import backend.Strategy;
 import backend.Team;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
-import java.util.List;
 
 public class HomeController {
     @FXML private Label teamName;
@@ -41,20 +35,5 @@ public class HomeController {
         mechanicName.setText(playerTeam.getMechanic().getName());
         nextCircuit.setText(season.getCurrentRound().getTrackName());
         currentBudget.setText(playerTeam.getBudgetString());
-
-        // Print test race
-        Race race = new Race(
-                new Setup(Setup.HIGH_RISK),
-                new Strategy(Strategy.HIGH_RISK),
-                "Monaco",
-                1
-        );
-        List<Driver> drivers = race.calculateRaceResult();
-
-        for (int i = 0; i < drivers.size(); i++) {
-            System.out.println((i + 1) + " " + drivers.get(i).getName()
-                    + " " + drivers.get(i).getScore());
-        }
     }
-
 }

@@ -57,7 +57,7 @@ Button#red {
     -fx-background-color: rgba(255, 0, 0, 0.59);
 }
 
-Button#green {
+.green {
     -fx-background-color: rgba(0, 255, 0, 0.59);
 }
 
@@ -149,3 +149,17 @@ Button#green {
     -fx-background-color: blue;
 }
 
+#resultsTable {
+	-fx-background-color: rgba(44, 44, 44, 0.59);
+	-fx-pref-height: 950;
+	-fx-pref-width: 1000px;
+}
+
+#resultsTable .column {
+
+}
+
+#resultsTable .table-cell{
+	-fx-text-fill: white;
+	-fx-pref-width: 200;
+}
