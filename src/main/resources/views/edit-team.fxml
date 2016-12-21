@@ -11,7 +11,7 @@
       xmlns="http://javafx.com/javafx/8">
     <!-- settings-quit -->
     <Button onAction="#cancel" id="red" layoutY="925" layoutX="1300" text="Cancel" />
-    <Button onAction="#save" id="green" layoutY="925" layoutX="1580" text="Save" />
+    <Button onAction="#save" styleClass="green" layoutY="925" layoutX="1580" text="Save" />
 
     <!-- Edit team -->
     <Pane layoutX="80" layoutY="125" prefHeight="220" prefWidth="530" styleClass="block">
