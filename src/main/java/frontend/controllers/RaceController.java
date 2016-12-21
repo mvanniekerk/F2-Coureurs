@@ -23,25 +23,30 @@ public class RaceController {
     private Season season;
 
     /**
-     * Initialize the RaceController.
+     * Start the race.
+     *
+     * @param setup the setup of the user
+     * @param strategy the strategy of the user
      */
-    @FXML
-    public void initialize() {
+    public void startRace(Setup setup, Strategy strategy) {
         season = GameEngine.getInstance().getSeason();
 
-        // Print test race
+        // Create new race
         Race race = new Race(
-                new Setup(Setup.HIGH_RISK),
-                new Strategy(Strategy.HIGH_RISK),
+                setup,
+                strategy,
                 "Monaco",
                 1
         );
 
+        // Create list of drivers
         ObservableList<Driver> drivers =
                 FXCollections.observableArrayList(race.calculateRaceResult());
 
+        // Add drivers to the table
         resultsTable.setItems(drivers);
 
+        // Create position column
         TableColumn<Driver, String> positionColumn = new TableColumn<>("#");
         positionColumn.setCellValueFactory(
             new Callback<TableColumn.CellDataFeatures<Driver, String>, ObservableValue<String>>() {
@@ -57,6 +62,7 @@ public class RaceController {
             }
         );
 
+        // Create name column
         TableColumn<Driver, String> nameColumn = new TableColumn<>("Name");
         nameColumn.setCellValueFactory(
             new Callback<TableColumn.CellDataFeatures<Driver, String>, ObservableValue<String>>() {
@@ -70,6 +76,7 @@ public class RaceController {
             }
         );
 
+        // Create score column
         TableColumn<Driver, String> scoreColumn = new TableColumn<>("Score");
         scoreColumn.setCellValueFactory(
             new Callback<TableColumn.CellDataFeatures<Driver, String>,
@@ -84,6 +91,7 @@ public class RaceController {
             }
         );
 
+        // Add columns to the table
         resultsTable.getColumns().addAll(positionColumn, nameColumn, scoreColumn);
     }
 }
