@@ -22,6 +22,8 @@ public class PrepareRaceController {
     @FXML private Button setupMediumRisk;
     @FXML private Button setupHighRisk;
 
+    @FXML private Button startRace;
+
     private Setup userSetup;
     private Strategy userStrategy;
 
@@ -50,6 +52,12 @@ public class PrepareRaceController {
 
         removeSetupStyleClasses();
         button.getStyleClass().add("green");
+
+        if (userSetup != null && userStrategy != null) {
+            startRace.getStyleClass().removeAll("start-race-red");
+            startRace.getStyleClass().add("start-race");
+            return;
+        }
     }
 
     /**
@@ -75,6 +83,13 @@ public class PrepareRaceController {
 
         removeStrategyStyleClasses();
         button.getStyleClass().add("green");
+
+        if (userSetup != null && userStrategy != null) {
+            startRace.getStyleClass().removeAll("start-race-red");
+            startRace.getStyleClass().add("start-race");
+            return;
+        }
+
     }
 
     /**
@@ -105,6 +120,9 @@ public class PrepareRaceController {
     public void startRace(ActionEvent event) throws Exception {
         if (userSetup == null || userStrategy == null) {
             // TODO Create flashing button.
+            Button button = (Button) event.getSource();
+            button.getStyleClass().removeAll("start-race");
+            button.getStyleClass().add("start-race-red");
 
             System.out.println("User setup or strategy is empty. The race cannot start without.");
             return;
