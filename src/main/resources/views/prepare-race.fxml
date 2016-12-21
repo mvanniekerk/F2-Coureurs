@@ -8,10 +8,10 @@
 <?import frontend.ChampionshipStandingsButton?>
 <?import frontend.ExitButton?>
 
-<Pane xmlns="http://javafx.com/javafx/8"
+<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
       stylesheets="@style.css" id="prepare-race"
       maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
-      prefWidth="1920.0">
+      prefWidth="1920.0" fx:controller="frontend.controllers.PrepareRaceController">
 
        <!-- Bottom menu-->
        <HomeButton layoutX="80" layoutY="915" text="Home" />
@@ -60,17 +60,17 @@
     <!-- Risk strategy -->
     <Pane layoutX="700" layoutY="125" prefHeight="400" prefWidth="530" styleClass="block">
         <Label layoutX="30" layoutY="40" styleClass="title" text="Risk strategy"/>
-        <Button id="green" layoutX="30" layoutY="140" text="Low" />
-        <Button layoutX="275" layoutY="140" text="Medium" />
-        <Button layoutX="30" layoutY="270" text="High" />
+        <Button fx:id="strategyLowRisk" layoutX="30" layoutY="140" text="Low" onAction="#changeStrategyAction" />
+        <Button fx:id="strategyMediumRisk" layoutX="275" layoutY="140" text="Medium" onAction="#changeStrategyAction"/>
+        <Button fx:id="strategyHighRisk" layoutX="30" layoutY="270" text="High" onAction="#changeStrategyAction"/>
     </Pane>
 
     <!-- Risk setup -->
     <Pane layoutX="1320" layoutY="125" prefHeight="400" prefWidth="530" styleClass="block">
         <Label layoutX="30" layoutY="40" styleClass="title" text="Risk setup"/>
-        <Button id="green" layoutX="30" layoutY="140" text="Low" />
-        <Button layoutX="275" layoutY="140" text="Medium" />
-        <Button layoutX="30" layoutY="270" text="High" />
+        <Button fx:id="setupLowRisk" layoutX="30" layoutY="140" text="Low" onAction="#changeSetupAction"/>
+        <Button fx:id="setupMediumRisk" layoutX="275" layoutY="140" text="Medium" onAction="#changeSetupAction"/>
+        <Button fx:id="setupHighRisk" layoutX="30" layoutY="270" text="High" onAction="#changeSetupAction"/>
     </Pane>
 
     <!-- Circuit -->
@@ -83,7 +83,7 @@
     </Pane>
 
     <!-- Start race -->
-    <!--<Button fx:id="startRace" onAction="#startRace" layoutX="1320" layoutY="550" prefHeight="220" prefWidth="530" styleClass="start-race" text="Start Race"/>-->
+    <Button onAction="#startRace" layoutX="1320" layoutY="550" prefHeight="220" prefWidth="530" styleClass="start-race" text="Start Race"/>
 
     <!-- settings-quit -->
     <Button styleClass="settings-quit" layoutY="925" layoutX="1470" text="Settings" />
