@@ -103,6 +103,13 @@ public class PrepareRaceController {
      */
     @FXML
     public void startRace(ActionEvent event) throws Exception {
+        if (userSetup == null || userStrategy == null) {
+            // TODO Create flashing button.
+
+            System.out.println("User setup or strategy is empty. The race cannot start without.");
+            return;
+        }
+
         Pane pane = null;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/race-result.fxml"));
