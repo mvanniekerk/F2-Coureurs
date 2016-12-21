@@ -4,9 +4,13 @@ import backend.GameEngine;
 import backend.Season;
 import backend.Staff;
 import backend.Team;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+
+import java.awt.event.ActionEvent;
 
 public class SelectDriverController {
     @FXML private Label driver1Name;
@@ -16,6 +20,11 @@ public class SelectDriverController {
     @FXML private Label driver2Salary;
     @FXML private Label driver2Quality;
     @FXML private Pane playerTable;
+    @FXML private Label newPlayerName;
+    @FXML private Label newSalary;
+    @FXML private Label newQuality;
+    @FXML private Label newTeamName;
+    @FXML private Label newPoints;
     private Season season;
 
     @FXML
@@ -42,7 +51,17 @@ public class SelectDriverController {
 
     private Pane getTeamMemberPane(Staff staffMember, int position) {
         Pane returnPane = new Pane();
-        returnPane.setLayoutY(35 * position );
+        returnPane.setOnMouseClicked(
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        newPlayerName.setText(staffMember.getName());
+                        newQuality.setText(staffMember.getQualityString());
+                        newSalary.setText(staffMember.getSalaryString());
+                        newTeamName.setText("Ferrari");
+                    }
+                });
+                returnPane.setLayoutY(35 * position);
 
         Label nameLabel = new Label(staffMember.getName());
         nameLabel.getStyleClass().add("table-content");

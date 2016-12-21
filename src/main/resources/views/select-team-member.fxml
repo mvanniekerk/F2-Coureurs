@@ -56,7 +56,7 @@
 
     <!--New Driver-->
     <Pane layoutX="1300" layoutY="350" prefHeight="380" prefWidth="500" styleClass="block">
-        <Label layoutX="30" layoutY="-30" styleClass="option" text="Nico Rosberg" />
+        <Label fx:id="newPlayerName" layoutX="30" layoutY="-30" styleClass="option" text="Nico Rosberg" />
 
         <HBox layoutX="30" layoutY="100" spacing="-100" styleClass="content">
             <VBox alignment="BASELINE_LEFT" spacing="-25">
@@ -68,12 +68,12 @@
                 <Label text="Points:" />
             </VBox>
             <VBox alignment="BASELINE_RIGHT" spacing="-25">
-                <Label text="€1,000,000" />
-                <Label text="9" />
+                <Label fx:id="newSalary" text="€1,000,000" />
+                <Label fx:id="newQuality" text="9" />
                 <Label text="9" />
                 <Label text="8" />
-                <Label text="Mercedes" />
-                <Label text="18" />
+                <Label fx:id="newTeamName" text="Mercedes" />
+                <Label fx:id="newPoints" text="18" />
             </VBox>
         </HBox>
     </Pane>
