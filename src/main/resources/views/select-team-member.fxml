@@ -17,7 +17,8 @@
       stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
 
     <!-- settings-quit -->
-    <Button id="green" layoutX="1580" layoutY="925" text="Edit Team" />
+    <Button onAction="#confirm" id="green" layoutX="1580" layoutY="925" text="Confirm" />
+    <Button onAction="#cancel" id="red" layoutY="925" layoutX="1300" text="Cancel" />
 
     <!-- Select new team member-->
     <Pane layoutX="120" layoutY="80" prefHeight="200" prefWidth="550" styleClass="block">

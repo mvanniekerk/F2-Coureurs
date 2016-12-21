@@ -142,6 +142,22 @@ public class Season {
         return returnList;
     }
 
+    public void removeDriverFromTeam(Driver driver) {
+        // TODO add tests
+        for (Team team : teams) {
+            if (team.getFirstDriver().equals(driver)) {
+                Driver firstContractDriver = contractDrivers.remove(0);
+                team.setFirstDriver(firstContractDriver);
+                return;
+            }
+            if (team.getSecondDriver().equals(driver)) {
+                Driver firstContractDriver = contractDrivers.remove(0);
+                team.setSecondDriver(firstContractDriver);
+                return;
+            }
+        }
+    }
+
     /**
      * Converts the current Season class to a json object.
      *

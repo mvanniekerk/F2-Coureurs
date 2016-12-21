@@ -1,14 +1,18 @@
 package frontend.controllers;
 
-import backend.GameEngine;
-import backend.Season;
-import backend.Staff;
-import backend.Team;
+import backend.*;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class SelectDriverController {
     @FXML private Label driver1Name;
@@ -24,6 +28,8 @@ public class SelectDriverController {
     @FXML private Label newTeamName;
     @FXML private Label newBuyoutClause;
     private Season season;
+    private Staff newStaffMember;
+    private int staffMemberToRemove;
 
     @FXML
     public void initialize() {
@@ -49,6 +55,26 @@ public class SelectDriverController {
         }
     }
 
+    @FXML
+    public void confirm(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
+        Stage stage = (Stage) driver1Name.getScene().getWindow();
+
+        season.removeDriverFromTeam((Driver) newStaffMember);
+        season.getContractDrivers().add(season.getPlayerControlledTeam().getFirstDriver());
+        season.getPlayerControlledTeam().setFirstDriver((Driver) newStaffMember);
+
+        stage.getScene().setRoot(root);
+    }
+
+    @FXML
+    public void cancel(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
+        Stage stage = (Stage) driver1Name.getScene().getWindow();
+
+        stage.getScene().setRoot(root);
+    }
+
     private Pane getTeamMemberPane(Staff staffMember, int position) {
         Pane returnPane = new Pane();
         returnPane.setOnMouseClicked(
@@ -60,6 +86,7 @@ public class SelectDriverController {
                         newSalary.setText(staffMember.getSalaryString());
                         newBuyoutClause.setText(staffMember.getBuyoutlauseString());
                         newTeamName.setText("Ferrari");
+                        newStaffMember = staffMember;
                     }
                 });
                 returnPane.setLayoutY(35 * position);

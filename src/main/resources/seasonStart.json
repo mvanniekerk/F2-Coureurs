@@ -830,5 +830,18 @@
         }
       ]
     }
+  ],
+  "contractDrivers": [
+     {
+      "speed": 50,
+      "raceCraft": 50,
+      "strategyInsight": 60,
+      "raceWins": 0,
+      "points": 0,
+      "championLastYear": false,
+      "name": "Some Guy",
+      "salary": 710000,
+      "buyoutClause": 600000
+    }
   ]
 }
