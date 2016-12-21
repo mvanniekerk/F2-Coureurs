@@ -61,11 +61,10 @@ public class SelectDriverController {
      */
     @FXML
     public void confirm(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
-        Stage stage = (Stage) driver1Name.getScene().getWindow();
-
         season.transferDriver1((Driver) newStaffMember);
 
+        Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
+        Stage stage = (Stage) driver1Name.getScene().getWindow();
         stage.getScene().setRoot(root);
     }
 
