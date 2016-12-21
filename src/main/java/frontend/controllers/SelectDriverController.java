@@ -1,7 +1,10 @@
 package frontend.controllers;
 
-import backend.*;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import backend.Driver;
+import backend.GameEngine;
+import backend.Season;
+import backend.Staff;
+import backend.Team;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -27,6 +30,9 @@ public class SelectDriverController {
     private Season season;
     private Staff newStaffMember;
 
+    /**
+     * Initialises the controller with text.
+     */
     @FXML
     public void initialize() {
         season = GameEngine.getInstance().getSeason();
@@ -47,18 +53,28 @@ public class SelectDriverController {
         }
     }
 
+    /**
+     * Confirm the changes and go to the edit team screen.
+     *
+     * @param event don't use it
+     * @throws IOException throws if the fxml file can not be found
+     */
     @FXML
     public void confirm(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
         Stage stage = (Stage) driver1Name.getScene().getWindow();
 
-        season.removeDriverFromTeam((Driver) newStaffMember);
-        season.getContractDrivers().add(season.getPlayerControlledTeam().getFirstDriver());
-        season.getPlayerControlledTeam().setFirstDriver((Driver) newStaffMember);
+        season.transferDriver1((Driver) newStaffMember);
 
         stage.getScene().setRoot(root);
     }
 
+    /**
+     * Throws away the changes and goes to the edit-team screen.
+     *
+     * @param event not using it
+     * @throws IOException throws if the fxml file does not exist
+     */
     @FXML
     public void cancel(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
@@ -81,7 +97,7 @@ public class SelectDriverController {
                         newStaffMember = staffMember;
                     }
                 });
-                returnPane.setLayoutY(35 * position);
+        returnPane.setLayoutY(35 * position);
 
         Label nameLabel = new Label(staffMember.getName());
         nameLabel.getStyleClass().add("table-content");
