@@ -53,7 +53,7 @@ Button#red {
     -fx-background-color: rgba(255, 0, 0, 0.59);
 }
 
-Button#green {
+.green {
     -fx-background-color: rgba(0, 255, 0, 0.59);
 }
 
