@@ -54,4 +54,11 @@ public class  AerodynamicistTest {
     public void equalsOtherObject() {
         assertNotEquals(aerodynamicist, new String());
     }
+
+    @Test
+    public void getQualityStringTest() {
+        System.out.println(aerodynamicist.getQuality());
+        assertEquals(aerodynamicist.getQualityString(), "★★");
+    }
+
 }

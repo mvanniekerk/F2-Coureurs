@@ -1,5 +1,8 @@
 package backend;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public abstract class Staff {
     private String name;
     private int salary;
@@ -59,6 +62,49 @@ public abstract class Staff {
      * @return int between 0 and 100 of the quality of the staff member
      */
     public abstract float getQuality();
+
+    /**
+     * Gets a string representation of the budget.
+     *
+     * @return string of the budget
+     */
+    public String getSalaryString() {
+        // TODO add tests
+        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return euroFormat.format(salary);
+    }
+
+    /**
+     * Gets the buyout clause.
+     *
+     * @return the buyout clause
+     */
+    public int getBuyoutClause() {
+        // TODO add tests
+        return buyoutClause;
+    }
+
+
+    /**
+     * Gets a human readable string of the buyout clause.
+     *
+     * @return buyout clause string
+     */
+    public String getBuyoutClauseString() {
+        // TODO add tests
+        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return euroFormat.format(buyoutClause);
+    }
+
+    /**
+     * Gets the quality as a human readable string (of stars).
+     *
+     * @return 1 to 5 stars
+     */
+    public String getQualityString() {
+        int numStars = (int) getQuality() / 20;
+        return new String(new char[numStars]).replace("\0", "★");
+    }
 
     /**
      * Implements a equals method that checks all attributes of Staff for equality.

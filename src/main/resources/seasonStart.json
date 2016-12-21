@@ -219,18 +219,21 @@
       },
       "aerodynamicist": {
         "name": "Cyril Abiteboul",
-        "salary": 300000
+        "salary": 300000,
+        "buyoutClause": 30
       },
       "mechanic": {
         "reliability": 60,
         "partFixing": 40,
         "pitstops": 0,
         "name": "Phil Irving",
-        "salary": 180000
+        "salary": 180000,
+        "buyoutClause": 40
       },
       "strategist": {
         "name": "Neil Martin",
-        "salary": 180000
+        "salary": 180000,
+        "buyoutClause": 50
       },
       "drivers": [
         {
@@ -241,7 +244,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Sebastian Vettel",
-          "salary": 1000000
+          "salary": 1000000,
+          "buyoutClause": 60
         },
         {
           "speed": 90,
@@ -251,7 +255,8 @@
           "points": 0,
           "championLastYear": true,
           "name": "Nico Rosberg",
-          "salary": 1200000
+          "salary": 1200000,
+          "buyoutClause": 70
         }
       ]
     },
@@ -271,18 +276,21 @@
       },
       "aerodynamicist": {
         "name": "Mario Almondo",
-        "salary": 300000
+        "salary": 300000,
+        "buyoutClause": 300
       },
       "mechanic": {
         "reliability": 80,
         "partFixing": 70,
         "pitstops": 0,
         "name": "Ossi Oikarinen",
-        "salary": 300000
+        "salary": 300000,
+        "buyoutClause": 400
       },
       "strategist": {
         "name": "Inaki Rueda",
-        "salary": 300000
+        "salary": 300000,
+        "buyoutClause": 500
       },
       "drivers": [
         {
@@ -293,7 +301,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Kimi Raikkonen",
-          "salary": 1000000
+          "salary": 1000000,
+          "buyoutClause": 600
         },
         {
           "speed": 70,
@@ -303,7 +312,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Sergio Perez",
-          "salary": 790000
+          "salary": 790000,
+          "buyoutClause": 800
         }
       ]
     },
@@ -323,18 +333,21 @@
       },
       "aerodynamicist": {
         "name": "Luca Baldisserri",
-        "salary": 250000
+        "salary": 250000,
+        "buyoutClause": 3000
       },
       "mechanic": {
         "reliability": 70,
         "partFixing": 80,
         "pitstops": 0,
         "name": "Patrick Head",
-        "salary": 240000
+        "salary": 240000,
+        "buyoutClause": 4000
       },
       "strategist": {
         "name": "James Vowles",
-        "salary": 260000
+        "salary": 260000,
+        "buyoutClause": 5000
       },
       "drivers": [
         {
@@ -345,7 +358,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Esteban Ocon",
-          "salary": 740000
+          "salary": 740000,
+          "buyoutClause": 6000
         },
         {
           "speed": 70,
@@ -355,7 +369,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Romain Grosjean",
-          "salary": 900000
+          "salary": 900000,
+          "buyoutClause": 7000
         }
       ]
     },
@@ -375,18 +390,21 @@
       },
       "aerodynamicist": {
         "name": "Jo Bauer",
-        "salary": 230000
+        "salary": 230000,
+        "buyoutClause": 30000
       },
       "mechanic": {
         "reliability": 70,
         "partFixing": 70,
         "pitstops": 0,
         "name": "Owen Maddock",
-        "salary": 220000
+        "salary": 220000,
+        "buyoutClause": 40000
       },
       "strategist": {
         "name": "Will Courtenay",
-        "salary": 240000
+        "salary": 240000,
+        "buyoutClause": 50000
       },
       "drivers": [
         {
@@ -397,7 +415,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Kevin Magnussen",
-          "salary": 800000
+          "salary": 800000,
+          "buyoutClause": 60000
         },
         {
           "speed": 70,
@@ -407,7 +426,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Fernando Alonso",
-          "salary": 850000
+          "salary": 850000,
+          "buyoutClause": 70000
         }
       ]
     },
@@ -427,18 +447,21 @@
       },
       "aerodynamicist": {
         "name": "Eric Boullier",
-        "salary": 280000
+        "salary": 280000,
+        "buyoutClause": 700000
       },
       "mechanic": {
         "reliability": 80,
         "partFixing": 80,
         "pitstops": 0,
         "name": "George Ryton",
-        "salary": 290000
+        "salary": 290000,
+        "buyoutClause": 700000
       },
       "strategist": {
         "name": "Adrian Newey",
-        "salary": 280000
+        "salary": 280000,
+        "buyoutClause": 500000
       },
       "drivers": [
         {
@@ -449,7 +472,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Stoffel Vandoorne",
-          "salary": 700000
+          "salary": 700000,
+          "buyoutClause": 300000
         },
         {
           "speed": 80,
@@ -459,7 +483,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Lewis Hamilton",
-          "salary": 1000000
+          "salary": 1000000,
+          "buyoutClause": 400000
         }
       ]
     },
@@ -479,18 +504,21 @@
       },
       "aerodynamicist": {
         "name": "Peter Elleray",
-        "salary": 180000
+        "salary": 180000,
+        "buyoutClause": 4000000
       },
       "mechanic": {
         "reliability": 80,
         "partFixing": 90,
         "pitstops": 0,
         "name": "Dino Toso",
-        "salary": 300000
+        "salary": 300000,
+        "buyoutClause": 5000000
       },
       "strategist": {
         "name": "Cecil Schumacher",
-        "salary": 210000
+        "salary": 210000,
+        "buyoutClause": 5000000
       },
       "drivers": [
         {
@@ -501,7 +529,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Nick Cassidy",
-          "salary": 720000
+          "salary": 720000,
+          "buyoutClause": 6000000
         },
         {
           "speed": 50,
@@ -511,7 +540,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Mickel Jensen",
-          "salary": 690000
+          "salary": 690000,
+          "buyoutClause": 7000000
         }
       ]
     },
@@ -531,18 +561,21 @@
       },
       "aerodynamicist": {
         "name": "Alf Francis",
-        "salary": 310000
+        "salary": 310000,
+        "buyoutClause": 4000000
       },
       "mechanic": {
         "reliability": 60,
         "partFixing": 50,
         "pitstops": 0,
         "name": "Giuseppe Merosi",
-        "salary": 220000
+        "salary": 220000,
+        "buyoutClause": 3000000
       },
       "strategist": {
         "name": "Gustav Brunner",
-        "salary": 250000
+        "salary": 250000,
+        "buyoutClause": 1000000
       },
       "drivers": [
         {
@@ -553,7 +586,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Daniel Ricciardo",
-          "salary": 900000
+          "salary": 900000,
+          "buyoutClause": 3000000
         },
         {
           "speed": 90,
@@ -563,7 +597,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Max Verstappen",
-          "salary": 1100000
+          "salary": 1100000,
+          "buyoutClause": 8000000
         }
       ]
     },
@@ -583,18 +618,21 @@
       },
       "aerodynamicist": {
         "name": "Tim Goss",
-        "salary": 220000
+        "salary": 220000,
+        "buyoutClause": 2000000
       },
       "mechanic": {
         "reliability": 50,
         "partFixing": 40,
         "pitstops": 0,
         "name": "Richard Divila",
-        "salary": 170000
+        "salary": 170000,
+        "buyoutClause": 20000
       },
       "strategist": {
         "name": "Carlo Chiti",
-        "salary": 230000
+        "salary": 230000,
+        "buyoutClause": 40000
       },
       "drivers": [
         {
@@ -605,7 +643,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Nico Hulkenberg",
-          "salary": 800000
+          "salary": 800000,
+          "buyoutClause": 40000
         },
         {
           "speed": 70,
@@ -615,7 +654,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Jolyon Palmer",
-          "salary": 830000
+          "salary": 830000,
+          "buyoutClause": 80000
         }
       ]
     },
@@ -635,18 +675,21 @@
       },
       "aerodynamicist": {
         "name": "Mario Illien",
-        "salary": 270000
+        "salary": 270000,
+        "buyoutClause": 500000
       },
       "mechanic": {
         "reliability": 60,
         "partFixing": 70,
         "pitstops": 0,
         "name": "Mike Gascoyne",
-        "salary": 250000
+        "salary": 250000,
+        "buyoutClause": 50000
       },
       "strategist": {
         "name": "John Iley",
-        "salary": 190000
+        "salary": 190000,
+        "buyoutClause": 60000
       },
       "drivers": [
         {
@@ -657,7 +700,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Marcus Ericsson",
-          "salary": 750000
+          "salary": 750000,
+          "buyoutClause": 80000
         },
         {
           "speed": 60,
@@ -667,7 +711,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "George Russell",
-          "salary": 710000
+          "salary": 710000,
+          "buyoutClause": 90000
         }
       ]
     },
@@ -687,18 +732,21 @@
       },
       "aerodynamicist": {
         "name": "Mario Illien",
-        "salary": 270000
+        "salary": 270000,
+        "buyoutClause": 80000
       },
       "mechanic": {
         "reliability": 70,
         "partFixing": 70,
         "pitstops": 0,
         "name": "Peter Podromou",
-        "salary": 250000
+        "salary": 250000,
+        "buyoutClause": 7000000
       },
       "strategist": {
         "name": "Gordon Coppuck",
-        "salary": 280000
+        "salary": 280000,
+        "buyoutClause": 1000000
       },
       "drivers": [
         {
@@ -709,7 +757,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Carlos Sainz",
-          "salary": 730000
+          "salary": 730000,
+          "buyoutClause": 70000
         },
         {
           "speed": 70,
@@ -719,7 +768,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Daniil Kvjat",
-          "salary": 780000
+          "salary": 780000,
+          "buyoutClause": 700000
         }
       ]
     },
@@ -739,18 +789,21 @@
       },
       "aerodynamicist": {
         "name": "John Judd",
-        "salary": 240000
+        "salary": 240000,
+        "buyoutClause": 700000
       },
       "mechanic": {
         "reliability": 80,
         "partFixing": 70,
         "pitstops": 0,
         "name": "Harvey Postlethwaite",
-        "salary": 260000
+        "salary": 260000,
+        "buyoutClause": 600000
       },
       "strategist": {
         "name": "Mauro Forghieri",
-        "salary": 290000
+        "salary": 290000,
+        "buyoutClause": 500000
       },
       "drivers": [
         {
@@ -761,7 +814,8 @@
           "points": 0,
           "championLastYear": false,
           "name": "Valtteri Bottas",
-          "salary": 820000
+          "salary": 820000,
+          "buyoutClause": 600000
         },
         {
           "speed": 50,
@@ -771,9 +825,23 @@
           "points": 0,
           "championLastYear": false,
           "name": "Lance Stroll",
-          "salary": 710000
+          "salary": 710000,
+          "buyoutClause": 600000
         }
       ]
+    }
+  ],
+  "contractDrivers": [
+     {
+      "speed": 50,
+      "raceCraft": 50,
+      "strategyInsight": 60,
+      "raceWins": 0,
+      "points": 0,
+      "championLastYear": false,
+      "name": "Some Guy",
+      "salary": 710000,
+      "buyoutClause": 600000
     }
   ]
 }

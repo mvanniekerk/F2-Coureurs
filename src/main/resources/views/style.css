@@ -38,15 +38,19 @@ Label {
     -fx-font-size: 45;
 }
 
-.table-view {
-    -fx-font-size: 20;
-    -fx-alignment: center-left;
-    -fx-background-color: transparent;
+.table-content {
+    -fx-font-size: 30;
 }
 
-.table-view * {
-    -fx-background-color: transparent;
+.table-header {
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+}
+
+.table-view {
+    -fx-font-size: 30;
     -fx-alignment: center-left;
+    -fx-background-color: transparent;
 }
 
 Button#red {

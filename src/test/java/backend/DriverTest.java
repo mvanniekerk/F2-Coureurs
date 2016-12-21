@@ -97,6 +97,12 @@ public class DriverTest {
     }
 
     @Test
+    public void getQualityStringTest() {
+        System.out.println(driver.getQuality());
+        assertEquals(driver.getQualityString(), "★★");
+    }
+
+    @Test
     public void pointsDiffers() {
         Driver dr= new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
         dr.setPoints(1);
