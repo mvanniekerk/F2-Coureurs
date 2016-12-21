@@ -129,6 +129,19 @@ public class Season {
         return this.contractStrategists;
     }
 
+    public List<Driver> getAllNonPlayerControlledDrivers() {
+        // TODO Add tests
+        List<Driver> returnList = new ArrayList<>();
+        returnList.addAll(contractDrivers);
+        for (Team team : teams) {
+            if (!team.equals(getPlayerControlledTeam())) {
+                returnList.add(team.getFirstDriver());
+                returnList.add(team.getSecondDriver());
+            }
+        }
+        return returnList;
+    }
+
     /**
      * Converts the current Season class to a json object.
      *

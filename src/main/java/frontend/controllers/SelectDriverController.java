@@ -29,12 +29,20 @@ public class SelectDriverController {
         driver2Name.setText(playerTeam.getSecondDriver().getName());
         driver2Salary.setText(playerTeam.getSecondDriver().getSalaryString());
 
-        playerTable.getChildren().add(getTeamMemberPane(playerTeam.getFirstDriver(), 1));
+        setAllPotentialTeamMembers();
+    }
+
+    private void setAllPotentialTeamMembers() {
+        int increment = 1;
+        for (Staff staff : season.getAllNonPlayerControlledDrivers().subList(0,15)) {
+            playerTable.getChildren().add(getTeamMemberPane(staff, increment));
+            increment++;
+        }
     }
 
     private Pane getTeamMemberPane(Staff staffMember, int position) {
         Pane returnPane = new Pane();
-        returnPane.setLayoutY(200 * position );
+        returnPane.setLayoutY(35 * position );
 
         Label nameLabel = new Label(staffMember.getName());
         nameLabel.getStyleClass().add("table-content");
