@@ -35,7 +35,7 @@
             <Label text="Salary:" />
             <Label layoutY="55" text="Quality:" />
         </Pane>
-        <Pane layoutX="250" layoutY="100" style="-fx-alignment: right;" styleClass="content">
+        <Pane layoutX="200" layoutY="100" style="-fx-alignment: right;" styleClass="content">
             <Label fx:id="driver1Salary" text="€8,000" />
             <Label fx:id="driver1Quality" layoutY="55" text="★★★★★" />
         </Pane>
@@ -48,7 +48,7 @@
             <Label text="Salary:" />
             <Label layoutY="55" text="Quality:" />
         </Pane>
-        <Pane layoutX="250" layoutY="100" style="-fx-alignment: right;" styleClass="content">
+        <Pane layoutX="200" layoutY="100" style="-fx-alignment: right;" styleClass="content">
             <Label fx:id="driver2Salary" text="€8,000" />
             <Label fx:id="driver2Quality" layoutY="55" text="★★★★★" />
         </Pane>
@@ -56,26 +56,19 @@
 
     <!--New Driver-->
     <Pane layoutX="1300" layoutY="350" prefHeight="380" prefWidth="500" styleClass="block">
-        <Label fx:id="newPlayerName" layoutX="30" layoutY="-30" styleClass="option" text="Nico Rosberg" />
-
-        <HBox layoutX="30" layoutY="100" spacing="-100" styleClass="content">
-            <VBox alignment="BASELINE_LEFT" spacing="-25">
-                <Label text="Salary:" />
-                <Label text="Speed:" />
-                <Label text="Racecraft:" />
-                <Label text="Strategy insight:" />
-                <Label text="Current:" />
-                <Label text="Points:" />
-            </VBox>
-            <VBox alignment="BASELINE_RIGHT" spacing="-25">
-                <Label fx:id="newSalary" text="€1,000,000" />
-                <Label fx:id="newQuality" text="9" />
-                <Label text="9" />
-                <Label text="8" />
-                <Label fx:id="newTeamName" text="Mercedes" />
-                <Label fx:id="newPoints" text="18" />
-            </VBox>
-        </HBox>
+        <Label fx:id="newPlayerName" layoutX="30" layoutY="-30" styleClass="option" text="New Driver" />
+        <Pane layoutX="30" layoutY="100" styleClass="content">
+            <Label text="Salary:" />
+            <Label layoutY="55" text="buyout" />
+            <Label layoutY="110" text="quality:" />
+            <Label layoutY="165" text="team" />
+        </Pane>
+        <Pane layoutX="200" layoutY="100" style="-fx-alignment: right;" styleClass="content">
+            <Label fx:id="newSalary" />
+            <Label fx:id="newBuyoutClause" layoutY="55" />
+            <Label fx:id="newQuality" layoutY="110" />
+            <Label fx:id="newTeamName" layoutY="165" />
+        </Pane>
     </Pane>
 
     <!--Driver table-->

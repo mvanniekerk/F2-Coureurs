@@ -10,8 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
-import java.awt.event.ActionEvent;
-
 public class SelectDriverController {
     @FXML private Label driver1Name;
     @FXML private Label driver1Salary;
@@ -24,7 +22,7 @@ public class SelectDriverController {
     @FXML private Label newSalary;
     @FXML private Label newQuality;
     @FXML private Label newTeamName;
-    @FXML private Label newPoints;
+    @FXML private Label newBuyoutClause;
     private Season season;
 
     @FXML
@@ -34,9 +32,11 @@ public class SelectDriverController {
 
         driver1Name.setText(playerTeam.getFirstDriver().getName());
         driver1Salary.setText(playerTeam.getFirstDriver().getSalaryString());
+        driver1Quality.setText(playerTeam.getFirstDriver().getQualityString());
 
         driver2Name.setText(playerTeam.getSecondDriver().getName());
         driver2Salary.setText(playerTeam.getSecondDriver().getSalaryString());
+        driver2Quality.setText(playerTeam.getFirstDriver().getQualityString());
 
         setAllPotentialTeamMembers();
     }
@@ -58,6 +58,7 @@ public class SelectDriverController {
                         newPlayerName.setText(staffMember.getName());
                         newQuality.setText(staffMember.getQualityString());
                         newSalary.setText(staffMember.getSalaryString());
+                        newBuyoutClause.setText(staffMember.getBuyoutlauseString());
                         newTeamName.setText("Ferrari");
                     }
                 });
