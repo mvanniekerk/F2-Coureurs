@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'BentonSans Regular';
-    src: url("../fonts/benton-sans-regular.otf");
+	font-family: 'BentonSans Regular';
+	src: url("../fonts/benton-sans-regular.otf");
 }
 
 Button, ExitButton, PrepareRaceButton, EditTeamButton, HomeButton, ChampionshipStandingsButton {
@@ -17,55 +17,51 @@ Button, ExitButton, PrepareRaceButton, EditTeamButton, HomeButton, ChampionshipS
 }
 
 .edit-team{
-    -fx-pref-height: 115;
-    -fx-pref-width: 530;
-    -fx-font-size: 42;
-    -fx-alignment: center-right;
-    contentDisplay: "RIGHT";
+	-fx-pref-height: 115;
+	-fx-pref-width: 530;
+	-fx-font-size: 42;
+	-fx-alignment: center-right;
+	contentDisplay: "RIGHT";
 }
 
 Label {
-    -fx-text-fill: white;
+	-fx-text-fill: white;
 }
 
 
 
 .title{
-    -fx-font-size: 64;
+	-fx-font-size: 64;
 }
 
 .content{
-    -fx-font-size: 45;
-}
-
-.table-content {
-    -fx-font-size: 30;
-}
-
-.table-header {
-    -fx-font-size: 30;
-    -fx-font-weight: bold;
+	-fx-font-size: 45;
 }
 
 .table-view {
-    -fx-font-size: 30;
-    -fx-alignment: center-left;
-    -fx-background-color: transparent;
+	-fx-font-size: 20;
+	-fx-alignment: center-left;
+	-fx-background-color: transparent;
+}
+
+.table-view * {
+	-fx-background-color: transparent;
+	-fx-alignment: center-left;
 }
 
 Button#red {
-    -fx-background-color: rgba(255, 0, 0, 0.59);
+	-fx-background-color: rgba(255, 0, 0, 0.59);
 }
 
 .green {
-    -fx-background-color: rgba(0, 255, 0, 0.59);
+	-fx-background-color: rgba(0, 255, 0, 0.59);
 }
 
 .start-race {
-    -fx-background-color: rgba(0, 255, 0, 0.59);
-    -fx-pref-height: 220;
-    -fx-pref-width: 530;
-    -fx-font-size: 50;
+	-fx-background-color: rgba(0, 255, 0, 0.59);
+	-fx-pref-height: 220;
+	-fx-pref-width: 530;
+	-fx-font-size: 50;
 }
 
 .start-race-red{
@@ -76,22 +72,22 @@ Button#red {
 }
 
 .settings-quit {
-    -fx-pref-height: 100;
-    -fx-pref-width: 180;
+	-fx-pref-height: 100;
+	-fx-pref-width: 180;
 }
 
 .pane{
-    -fx-background-repeat: stretch;
-    -fx-background-size: 1920 1080;
-    -fx-background-position: center center;
+	-fx-background-repeat: stretch;
+	-fx-background-size: 1920 1080;
+	-fx-background-position: center center;
 }
 
 #home, #current-staff{
-    -fx-background-image: url("../media/backgrounds/home.jpg");
+	-fx-background-image: url("../media/backgrounds/home.jpg");
 }
 
 #prepare-race {
-    -fx-background-image: url("../media/backgrounds/race-preset.jpg");
+	-fx-background-image: url("../media/backgrounds/race-preset.jpg");
 }
 
 #race-result, #your-result {
@@ -99,61 +95,61 @@ Button#red {
 }
 
 #new-game, #load-game, #new-team, #new-team-overview{
-    -fx-background-image: url("../media/backgrounds/pre-home.jpg");
+	-fx-background-image: url("../media/backgrounds/pre-home.jpg");
 }
 
 #welcome {
-    -fx-background-image: url("../media/icons/logo.png");
+	-fx-background-image: url("../media/icons/logo.png");
 }
 
 #newgame-existing {
-    -fx-background-image: url("../media/backgrounds/pre-home.jpg");
+	-fx-background-image: url("../media/backgrounds/pre-home.jpg");
 }
 
 #edit-team, #select-driver {
-    -fx-background-image: url("../media/backgrounds/edit-team.jpg");
+	-fx-background-image: url("../media/backgrounds/edit-team.jpg");
 }
 
 #standings {
-    -fx-background-image: url("../media/backgrounds/standings.jpg");
+	-fx-background-image: url("../media/backgrounds/standings.jpg");
 }
 
 .standing {
-    -fx-font-size: 30;
+	-fx-font-size: 30;
 }
 
 .option {
-    -fx-padding: none;
-    -fx-font-size: 58;
-    -fx-pref-width: 530;
-    -fx-pref-height: 200;
+	-fx-padding: none;
+	-fx-font-size: 58;
+	-fx-pref-width: 530;
+	-fx-pref-height: 200;
 }
 
 .leftside {
-    -fx-padding: 0 250px 0 0;
-    -fx-font-size: 58;
-    -fx-pref-width: 530;
-    -fx-pref-height: 200;
+	-fx-padding: 0 250px 0 0;
+	-fx-font-size: 58;
+	-fx-pref-width: 530;
+	-fx-pref-height: 200;
 }
 
 .block{
-    -fx-background-color: rgba(95, 95, 95, 0.59);
-    -fx-border-color: #95989a;
-    -fx-border-width: 1;
+	-fx-background-color: rgba(95, 95, 95, 0.59);
+	-fx-border-color: #95989a;
+	-fx-border-width: 1;
 }
 
 .team-container {
-    -fx-background-color: rgba(255, 255, 255, 0.59);
-    -fx-pref-height: 235;
-    -fx-pref-width: 275;
+	-fx-background-color: rgba(255, 255, 255, 0.59);
+	-fx-pref-height: 235;
+	-fx-pref-width: 275;
 }
 
 .team-container-text {
-    -fx-font-size: 30;
+	-fx-font-size: 30;
 }
 
 #teambutton{
-    -fx-background-color: blue;
+	-fx-background-color: blue;
 }
 
 #resultsTable {
