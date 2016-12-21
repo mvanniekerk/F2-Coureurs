@@ -91,7 +91,7 @@ public class SelectDriverController {
                         newPlayerName.setText(staffMember.getName());
                         newQuality.setText(staffMember.getQualityString());
                         newSalary.setText(staffMember.getSalaryString());
-                        newBuyoutClause.setText(staffMember.getBuyoutlauseString());
+                        newBuyoutClause.setText(staffMember.getBuyoutClauseString());
                         newTeamName.setText("Ferrari");
                         newStaffMember = staffMember;
                     }
@@ -113,7 +113,7 @@ public class SelectDriverController {
         salaryLabel.setLayoutX(440);
         returnPane.getChildren().add(salaryLabel);
 
-        Label buyoutClauseLabel = new Label(staffMember.getBuyoutlauseString());
+        Label buyoutClauseLabel = new Label(staffMember.getBuyoutClauseString());
         buyoutClauseLabel.getStyleClass().add("table-content");
         buyoutClauseLabel.setLayoutX(660);
         returnPane.getChildren().add(buyoutClauseLabel);

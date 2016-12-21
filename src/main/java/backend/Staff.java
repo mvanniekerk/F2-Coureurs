@@ -74,17 +74,33 @@ public abstract class Staff {
         return euroFormat.format(salary);
     }
 
+    /**
+     * Gets the buyout clause.
+     *
+     * @return the buyout clause
+     */
     public int getBuyoutClause() {
         // TODO add tests
         return buyoutClause;
     }
 
-    public String getBuyoutlauseString() {
+
+    /**
+     * Gets a human readable string of the buyout clause.
+     *
+     * @return buyout clause string
+     */
+    public String getBuyoutClauseString() {
         // TODO add tests
         NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
         return euroFormat.format(buyoutClause);
     }
 
+    /**
+     * Gets the quality as a human readable string (of stars).
+     *
+     * @return 1 to 5 stars
+     */
     public String getQualityString() {
         int numStars = (int) getQuality() / 20;
         return new String(new char[numStars]).replace("\0", "★");
