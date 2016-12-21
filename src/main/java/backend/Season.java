@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -133,6 +134,60 @@ public class Season {
     }
 
     /**
+     * Gets all the drivers that are not controlled by the player.
+     *
+     * @return a list of drivers
+     */
+    public List<Driver> getAllNonPlayerControlledDrivers() {
+        // TODO Add tests
+        List<Driver> returnList = new ArrayList<>();
+        returnList.addAll(contractDrivers);
+        for (Team team : teams) {
+            if (!team.equals(getPlayerControlledTeam())) {
+                returnList.add(team.getFirstDriver());
+                returnList.add(team.getSecondDriver());
+            }
+        }
+        return returnList;
+    }
+
+    /**
+     * Remove a driver from the team he is in.
+     *
+     * @param driver driver to remove
+     */
+    public void removeDriverFromTeam(Driver driver) {
+        // TODO add tests
+        for (Team team : teams) {
+            if (team.getFirstDriver().equals(driver)) {
+                Driver firstContractDriver = contractDrivers.remove(0);
+                team.setFirstDriver(firstContractDriver);
+                return;
+            }
+            if (team.getSecondDriver().equals(driver)) {
+                Driver firstContractDriver = contractDrivers.remove(0);
+                team.setSecondDriver(firstContractDriver);
+                return;
+            }
+        }
+    }
+
+    /**
+     * Transfers a driver to your team.
+     *
+     * @param driver driver to transfer
+     */
+    public void transferDriver1(Driver driver) {
+        // TODO Add tests
+        // TODO generalize???
+        removeDriverFromTeam(driver);
+        contractDrivers.add(getPlayerControlledTeam().getFirstDriver());
+        getPlayerControlledTeam().setFirstDriver(driver);
+        int budget = getPlayerControlledTeam().getBudget() - driver.getBuyoutClause();
+        getPlayerControlledTeam().setBudget(budget);
+    }
+
+    /**
      * Converts the current Season class to a json object.
      *
      * @return string containing a json representation of the current season
@@ -197,6 +252,22 @@ public class Season {
         return readFromJsonFile(seasonStart);
     }
 
+    /**
+     * Loads a file from the save directory.
+     *
+     * @param saveName the name of the save
+     * @return the season equal to the file
+     * @throws IllegalArgumentException throws if the filename does not exist
+     */
+    public static Season load(String saveName) {
+        try {
+            FileInputStream loadFile = new FileInputStream("saves/" + saveName);
+            return readFromJsonFile(loadFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("File does not exist");
+        }
+    }
 
     /**
      * Writes json to a file.
@@ -328,7 +399,7 @@ public class Season {
      * @throws IOException If the file or directory does not exist
      */
     public static void main(String[] args) throws IOException {
-        Season season = Season.loadNewGameFromSeasonStart();
+        Season season = Season.load("save1.json");
         season.save("save1.json");
     }
 }
