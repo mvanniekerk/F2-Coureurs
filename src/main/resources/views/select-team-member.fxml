@@ -87,10 +87,10 @@
 
         <Pane fx:id="playerTable" layoutX="30" layoutY="110" prefHeight="560" prefWidth="1080" styleClass="table-view" >
             <Label prefWidth="220" styleClass="table-content" text="Name" />
-            <Label prefWidth="220" layoutX="220" styleClass="table-content" text="Current team" />
-            <Label prefWidth="220" layoutX="440" styleClass="table-content" text="Salary" />
-            <Label prefWidth="220" layoutX="660" styleClass="table-content" text="Buyout clause" />
-            <Label prefWidth="220" layoutX="880" styleClass="table-content" text="Ability" />
+            <Label prefWidth="220" layoutX="220" styleClass="table-header" text="Current team" />
+            <Label prefWidth="220" layoutX="440" styleClass="table-header" text="Salary" />
+            <Label prefWidth="220" layoutX="660" styleClass="table-header" text="Buyout clause" />
+            <Label prefWidth="220" layoutX="880" styleClass="table-header" text="Ability" />
         </Pane>
     </Pane>
 </Pane>

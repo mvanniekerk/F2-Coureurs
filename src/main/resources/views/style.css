@@ -40,6 +40,10 @@ Label {
 
 .table-content {
     -fx-font-size: 30;
+}
+
+.table-header {
+    -fx-font-size: 30;
     -fx-font-weight: bold;
 }
 

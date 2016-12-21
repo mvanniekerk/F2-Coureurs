@@ -74,6 +74,22 @@ public abstract class Staff {
         return euroFormat.format(salary);
     }
 
+    public int getBuyoutClause() {
+        // TODO add tests
+        return buyoutClause;
+    }
+
+    public String getBuyoutlauseString() {
+        // TODO add tests
+        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return euroFormat.format(buyoutClause);
+    }
+
+    public String getQualityString() {
+        int numStars = (int) getQuality() / 20;
+        return new String(new char[numStars]).replace("\0", "★");
+    }
+
     /**
      * Implements a equals method that checks all attributes of Staff for equality.
      *

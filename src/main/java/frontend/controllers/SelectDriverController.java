@@ -28,17 +28,39 @@ public class SelectDriverController {
 
         driver2Name.setText(playerTeam.getSecondDriver().getName());
         driver2Salary.setText(playerTeam.getSecondDriver().getSalaryString());
+
+        playerTable.getChildren().add(getTeamMemberPane(playerTeam.getFirstDriver(), 1));
     }
 
-    private Pane getTeamMemberPane(Staff staffMember) {
+    private Pane getTeamMemberPane(Staff staffMember, int position) {
         Pane returnPane = new Pane();
-        returnPane.setLayoutY(200);
+        returnPane.setLayoutY(200 * position );
+
         Label nameLabel = new Label(staffMember.getName());
         nameLabel.getStyleClass().add("table-content");
         returnPane.getChildren().add(nameLabel);
+
         // TODO set current team
         Label currentTeamLabel = new Label("Ferrari");
         currentTeamLabel.getStyleClass().add("table-content");
-        currentTeamLabel.get
+        currentTeamLabel.setLayoutX(220);
+        returnPane.getChildren().add(currentTeamLabel);
+
+        Label salaryLabel = new Label(staffMember.getSalaryString());
+        salaryLabel.getStyleClass().add("table-content");
+        salaryLabel.setLayoutX(440);
+        returnPane.getChildren().add(salaryLabel);
+
+        Label buyoutClauseLabel = new Label(staffMember.getBuyoutlauseString());
+        buyoutClauseLabel.getStyleClass().add("table-content");
+        buyoutClauseLabel.setLayoutX(660);
+        returnPane.getChildren().add(buyoutClauseLabel);
+
+        Label abilityLabel = new Label(staffMember.getQualityString());
+        abilityLabel.getStyleClass().add("tabel-content");
+        abilityLabel.setLayoutX(880);
+        returnPane.getChildren().add(abilityLabel);
+
+        return returnPane;
     }
 }
