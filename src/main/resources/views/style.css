@@ -68,6 +68,13 @@ Button#red {
     -fx-font-size: 50;
 }
 
+.start-race-red{
+    -fx-background-color: rgba(255, 0, 0, 0.59);
+    -fx-pref-height: 220;
+    -fx-pref-width: 530;
+    -fx-font-size: 50;
+}
+
 .settings-quit {
     -fx-pref-height: 100;
     -fx-pref-width: 180;
