@@ -42,19 +42,6 @@
         </Pane>
     </Pane>
 
-    <!--Current driver2-->
-    <Pane layoutX="1300" layoutY="20" prefHeight="250" prefWidth="500" styleClass="block">
-        <Label fx:id="driver2Name" layoutX="30" layoutY="-30" styleClass="option" text="Driver 2" />
-        <Pane layoutX="30" layoutY="100" styleClass="content">
-            <Label text="Salary:" />
-            <Label layoutY="55" text="Quality:" />
-        </Pane>
-        <Pane layoutX="200" layoutY="100" style="-fx-alignment: right;" styleClass="content">
-            <Label fx:id="driver2Salary" text="€8,000" />
-            <Label fx:id="driver2Quality" layoutY="55" text="★★★★★" />
-        </Pane>
-    </Pane>
-
     <!--New Driver-->
     <Pane layoutX="1300" layoutY="350" prefHeight="380" prefWidth="500" styleClass="block">
         <Label fx:id="newPlayerName" layoutX="30" layoutY="-30" styleClass="option" text="New Driver" />

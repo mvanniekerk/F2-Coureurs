@@ -18,9 +18,6 @@ public class SelectDriverController {
     @FXML private Label driver1Name;
     @FXML private Label driver1Salary;
     @FXML private Label driver1Quality;
-    @FXML private Label driver2Name;
-    @FXML private Label driver2Salary;
-    @FXML private Label driver2Quality;
     @FXML private Pane playerTable;
     @FXML private Label newPlayerName;
     @FXML private Label newSalary;
@@ -29,7 +26,6 @@ public class SelectDriverController {
     @FXML private Label newBuyoutClause;
     private Season season;
     private Staff newStaffMember;
-    private int staffMemberToRemove;
 
     @FXML
     public void initialize() {
@@ -39,10 +35,6 @@ public class SelectDriverController {
         driver1Name.setText(playerTeam.getFirstDriver().getName());
         driver1Salary.setText(playerTeam.getFirstDriver().getSalaryString());
         driver1Quality.setText(playerTeam.getFirstDriver().getQualityString());
-
-        driver2Name.setText(playerTeam.getSecondDriver().getName());
-        driver2Salary.setText(playerTeam.getSecondDriver().getSalaryString());
-        driver2Quality.setText(playerTeam.getFirstDriver().getQualityString());
 
         setAllPotentialTeamMembers();
     }
