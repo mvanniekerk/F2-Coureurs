@@ -1,6 +1,5 @@
 package frontend.controllers;
 
-import backend.Driver;
 import backend.GameEngine;
 import backend.Season;
 import backend.Staff;

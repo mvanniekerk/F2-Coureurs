@@ -189,7 +189,6 @@ public class Season {
      * @return a list of drivers
      */
     public List<Driver> getAllNonPlayerControlledDrivers() {
-        // TODO Add tests
         List<Driver> returnList = new ArrayList<>();
         returnList.addAll(contractDrivers);
         for (Team team : teams) {
@@ -214,7 +213,6 @@ public class Season {
      * @param team The team to transfer the staff member to
      */
     public void transfer(Staff staffMember, Team team) {
-        // TODO test
         Team oldTeam = getTeamByMember(staffMember);
         int buyoutClause = staffMember.getBuyoutClause(this);
 
@@ -232,6 +230,7 @@ public class Season {
                 oldTeam.swapStaffMember(contractStrategists.remove(0));
             }
         } else {
+            // The new staff member was not in a team
             // Make sure the old staff member is not still in a contract list
             contractAerodynamicists.remove(staffMember);
             contractDrivers.remove(staffMember);

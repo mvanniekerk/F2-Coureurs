@@ -181,6 +181,87 @@ public class SeasonTest {
     }
 
     @Test
+    public void playerControlledDrivers() {
+        ArrayList<Driver> driverList = new ArrayList<>();
+        driverList.add(driver3);
+        driverList.add(driver4);
+        driverList.add(driver5);
+        assertEquals(driverList, season.getAllNonPlayerControlledDrivers());
+    }
+
+    @Test
+    public void transferDriverBudget() {
+        season.transfer(driver4, team);
+        assertEquals(2499000, team.getBudget());
+    }
+
+    @Test
+    public void transferDriverBudget2() {
+        season.transfer(driver4, team);
+        assertEquals(2501000, team2.getBudget());
+    }
+
+    @Test
+    public void transferDriverRemove() {
+        season.transfer(driver4, team);
+        assertFalse(team.getFirstDriver().equals(driver));
+    }
+
+    @Test
+    public void transferDriverAdd() {
+        season.transfer(driver4, team);
+        assertTrue(team.getFirstDriver().equals(driver4));
+    }
+
+    @Test
+    public void transferDriverOldTeam() {
+        season.transfer(driver4, team);
+        assertFalse(team2.getFirstDriver().equals(driver4));
+    }
+
+    @Test
+    public void transferDriverOldTeam2() {
+        season.transfer(driver4, team);
+        assertTrue(team2.getFirstDriver().equals(driver3));
+    }
+
+    @Test
+    public void transferDriverContract() {
+        season.transfer(driver4, team);
+        assertFalse(season.getContractDrivers().contains(driver3));
+    }
+
+    @Test
+    public void transferDriverContract2() {
+        season.transfer(driver4, team);
+        assertTrue(season.getContractDrivers().contains(driver));
+    }
+
+    @Test
+    public void transferContractStrat() {
+        season.transfer(strategist3, team);
+        assertEquals(2500000, team.getBudget());
+    }
+
+    @Test
+    public void transferContractStrat2() {
+        season.transfer(strategist3, team);
+        assertFalse(season.getContractStrategists().contains(strategist3));
+    }
+
+    @Test
+    public void transferContractStrat3() {
+        season.transfer(strategist3, team);
+        assertTrue(season.getContractStrategists().contains(strategist));
+    }
+
+    @Test
+    public void transferContractStrat4() {
+        season.transfer(strategist3, team);
+        assertEquals(team.getStrategist(), strategist3);
+    }
+
+    @Test
     public void getContractString() {
         Driver d = new Driver("dne", 0,0,0,0,0, false);
         assertEquals("contract", season.getTeamNameByMember(d));
