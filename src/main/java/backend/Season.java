@@ -108,7 +108,6 @@ public class Season {
      * @return TeamName if the staffMember is in a team, contract otherwise
      */
     public String getTeamNameByMember(Staff staffMember) {
-        // TODO test
         for (Team team : teams) {
             if (team.contains(staffMember)) {
                 return team.getName();
@@ -173,7 +172,6 @@ public class Season {
      * @param staffMember the staff member to add to a contract list.
      */
     public void addContractStaffMember(Staff staffMember) {
-        // TODO test
         if (staffMember instanceof Aerodynamicist) {
             contractAerodynamicists.add((Aerodynamicist) staffMember);
         } else if (staffMember instanceof Driver) {
@@ -222,6 +220,8 @@ public class Season {
 
         // Remove the new staff member from its old team
         if (oldTeam != null) {
+            // If the new staff member was in a team,
+            // add a new contract worker to the team
             if (staffMember instanceof Aerodynamicist) {
                 oldTeam.swapStaffMember(contractAerodynamicists.remove(0));
             } else if (staffMember instanceof Driver) {
@@ -232,6 +232,7 @@ public class Season {
                 oldTeam.swapStaffMember(contractStrategists.remove(0));
             }
         } else {
+            // Make sure the old staff member is not still in a contract list
             contractAerodynamicists.remove(staffMember);
             contractDrivers.remove(staffMember);
             contractMechanics.remove(staffMember);

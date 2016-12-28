@@ -12,32 +12,38 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class SeasonTest {
     private Season simpleSeason;
     private Season season;
     private Season sameSeason;
     private Season otherSeason;
-    private String jsonString;
     private String jsonStringSpaces;
     private Team team;
+    private Team team2;
     private Driver driver;
     private Driver driver2;
     private Driver driver3;
+    private Driver driver4;
+    private Driver driver5;
     private Aerodynamicist aerodynamicist;
+    private Aerodynamicist aerodynamicist2;
+    private Aerodynamicist aerodynamicist3;
     private Mechanic mechanic;
+    private Mechanic mechanic2;
+    private Mechanic mechanic3;
     private Strategist strategist;
+    private Strategist strategist2;
+    private Strategist strategist3;
     private Engine engine;
     private Race race;
+    private String simple;
 
     @Before
     public void setUp() {
         driver = new Driver("Kimi Raikkonen", 16, 100,50, 50, 50, false);
         driver2 = new Driver("Lewis Hamilton", 18, 100,58, 52, 40, true);
-        driver3 = new Driver("Kimi Raikkonen", 16, 100, 58, 52, 40, true);
         aerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 100);
         mechanic = new Mechanic("Steve Matchett", 100000, 100, 50, 50, 50);
         strategist = new Strategist("Anonyme", 1000000, 10000000);
@@ -47,22 +53,49 @@ public class SeasonTest {
         team.setFirstDriver(driver);
         team.setSecondDriver(driver2);
 
+
+        driver4 = new Driver("Kimi", 16, 1000,50, 50, 50, false);
+        driver5 = new Driver("Lewis", 18, 1000,58, 52, 40, true);
+        aerodynamicist2 = new Aerodynamicist("Dan", 700000, 100);
+        mechanic2 = new Mechanic("Steve", 100000, 100, 50, 50, 50);
+        strategist2 = new Strategist("Anon", 1000000, 10000000);
+        team2 = new Team("F3", "Not me", 2500000,
+                engine, aerodynamicist2, mechanic2, strategist2);
+        team2.setFirstDriver(driver4);
+        team2.setSecondDriver(driver5);
+
         this.simpleSeason = new Season();
         this.season = new Season();
         this.sameSeason = new Season();
         this.otherSeason = new Season();
 
+        driver3 = new Driver("Kim", 16, 100, 58, 52, 40, true);
+        aerodynamicist3 = new Aerodynamicist("Dan Brown", 700000, 100);
+        mechanic3 = new Mechanic("Steve Jobs", 100000, 100, 50, 50, 50);
+        strategist3 = new Strategist("Anon the hacker", 1000000, 10000000);
+
         this.season.addTeam(team);
+        this.season.addTeam(team2);
+        this.season.addContractStaffMember(driver3);
+        this.season.addContractStaffMember(aerodynamicist3);
+        this.season.addContractStaffMember(mechanic3);
+        this.season.addContractStaffMember(strategist3);
+
         this.otherSeason.addTeam(team);
         this.sameSeason.addTeam(team);
+        this.sameSeason.addTeam(team2);
+        this.sameSeason.addContractStaffMember(driver3);
+        this.sameSeason.addContractStaffMember(aerodynamicist3);
+        this.sameSeason.addContractStaffMember(mechanic3);
+        this.sameSeason.addContractStaffMember(strategist3);
 
         race = new Race(new Setup(Setup.LOW_RISK), new Strategy(Strategy.HIGH_RISK), "Circuit de Monaco", 8);
         this.season.addRace(race);
         this.sameSeason.addRace(race);
         this.otherSeason.addRace(race);
 
+        simple = "{\"currentRound\":0,\"rounds\":[],\"teams\":[],\"contractAerodynamicists\":[],\"contractDrivers\":[],\"contractMechanics\":[],\"contractStrategists\":[]}";
         otherSeason.setCurrentRound(5);
-        this.jsonString = "{\"currentRound\":0,\"rounds\":[{\"userSetup\":{\"risk\":1},\"userStrategy\":{\"risk\":3},\"trackName\":\"Circuit de Monaco\",\"roundInChampionship\":8}],\"teams\":[{\"name\":\"F2\",\"manager\":\"User\",\"budget\":2500000,\"pointsAlltime\":0,\"pointsThisSeason\":0,\"winsAlltime\":0,\"winsThisSeason\":0,\"engine\":{\"power\":900,\"drivability\":70,\"fuelConsumption\":80,\"name\":\"Mercedes\"},\"aerodynamicist\":{\"name\":\"Dan Fallows\",\"salary\":700000,\"buyoutClause\":100},\"mechanic\":{\"reliability\":50,\"partFixing\":50,\"pitstops\":50,\"name\":\"Steve Matchett\",\"salary\":100000,\"buyoutClause\":100},\"strategist\":{\"name\":\"Anonyme\",\"salary\":1000000,\"buyoutClause\":10000000},\"drivers\":[{\"speed\":50,\"raceCraft\":50,\"strategyInsight\":50,\"raceWins\":0,\"points\":0,\"championLastYear\":false,\"score\":0.0,\"name\":\"Kimi Raikkonen\",\"salary\":16,\"buyoutClause\":100},{\"speed\":58,\"raceCraft\":52,\"strategyInsight\":40,\"raceWins\":0,\"points\":0,\"championLastYear\":true,\"score\":0.0,\"name\":\"Lewis Hamilton\",\"salary\":18,\"buyoutClause\":100}]}],\"contractAerodynamicists\":[],\"contractDrivers\":[],\"contractMechanics\":[],\"contractStrategists\":[]}";
         this.jsonStringSpaces = "{\n\"currentRound\":0,\n\"rounds\":[\n{\"userSetup\":{\"risk\":1},\"userStrategy\":{\"risk\":3},\"trackName\":\"Circuit de Monaco\",\"roundInChampionship\":8}],\"teams\":[{\"name\":\"F2\",\"manager\":\"User\",\"budget\":2500000,\"pointsAlltime\":0,\"pointsThisSeason\":0,\"winsAlltime\":0,\"winsThisSeason\":0,\"engine\":{\"power\":900,\"drivability\":70,\"fuelConsumption\":80,\"name\":\"Mercedes\"},\"aerodynamicist\":{\"name\":\"Dan Fallows\",\"salary\":700000},\"mechanic\":{\"reliability\":50,\"partFixing\":50,\"pitstops\":50,\"name\":\"Steve Matchett\",\"salary\":100000},\"strategist\":{\"name\":\"Anonyme\",\"salary\":1000000},\"drivers\":[{\"speed\":50,\"raceCraft\":50,\"strategyInsight\":50,\"raceWins\":0,\"points\":0,\"championLastYear\":false,\"name\":\"Kimi Raikkonen\",\"salary\":16},{\"speed\":58,\"raceCraft\":52,\"strategyInsight\":40,\"raceWins\":0,\"points\":0,\"championLastYear\":true,\"name\":\"Lewis Hamilton\",\"salary\":18}]}]}";
     }
 
@@ -115,7 +148,36 @@ public class SeasonTest {
 
     @Test
     public void getTeamNameByMemberTest() {
-        assertEquals(team.getName(), season.getTeamNameByMember(driver));
+        assertEquals("F2", season.getTeamNameByMember(driver));
+    }
+
+    @Test
+    public void getTeamNameByMemberFail() {
+        assertEquals("contract", season.getTeamNameByMember(driver3));
+    }
+
+    @Test
+    public void addContractAero() {
+        season.addContractStaffMember(aerodynamicist);
+        assertTrue(season.getContractAerodynamicists().contains(aerodynamicist));
+    }
+
+    @Test
+    public void addContractDriver() {
+        season.addContractStaffMember(driver);
+        assertTrue(season.getContractDrivers().contains(driver));
+    }
+
+    @Test
+    public void addContractMechanic() {
+        season.addContractStaffMember(mechanic);
+        assertTrue(season.getContractMechanics().contains(mechanic));
+    }
+
+    @Test
+    public void addContractStrat() {
+        season.addContractStaffMember(strategist);
+        assertTrue(season.getContractStrategists().contains(strategist));
     }
 
     @Test
@@ -136,28 +198,37 @@ public class SeasonTest {
 
     @Test
     public void getContractAeroTest() {
-        assertEquals(new ArrayList<Aerodynamicist>(), season.getContractAerodynamicists());
+        ArrayList<Aerodynamicist> list = new ArrayList<>();
+        list.add(aerodynamicist3);
+        assertEquals(list, season.getContractAerodynamicists());
     }
 
     @Test
     public void getContractDrivers() {
-        assertEquals(new ArrayList<Driver>(), season.getContractDrivers());
+        ArrayList<Driver> list = new ArrayList<>();
+        list.add(driver3);
+        assertEquals(list, season.getContractDrivers());
     }
 
     @Test
     public void getContractMechanics() {
-        assertEquals(new ArrayList<Mechanic>(), season.getContractMechanics());
+        ArrayList<Mechanic> list = new ArrayList<>();
+        list.add(mechanic3);
+        assertEquals(list, season.getContractMechanics());
     }
 
     @Test
     public void getContractStrategists() {
-        assertEquals(new ArrayList<Strategist>(), season.getContractStrategists());
+        ArrayList<Strategist> list = new ArrayList<>();
+        list.add(strategist3);
+        assertEquals(list, season.getContractStrategists());
     }
 
     @Test
     public void getPlayerControlledTeamTest() {
         assertEquals(team, season.getPlayerControlledTeam());
     }
+
     @Test
     public void equalsSame() {
         assertEquals(season, sameSeason);
@@ -175,7 +246,7 @@ public class SeasonTest {
 
     @Test
     public void toJsonTest() {
-        assertEquals(jsonString, season.toJson());
+        assertEquals(simple, simpleSeason.toJson());
     }
 
     @Test
@@ -186,7 +257,7 @@ public class SeasonTest {
 
     @Test
     public void fromJsonTest() {
-        assertEquals(season, Season.fromJson(jsonString));
+        assertEquals(simpleSeason, Season.fromJson(simple));
     }
 
     @Test
@@ -202,9 +273,9 @@ public class SeasonTest {
 
     @Test
     public void readFromJsonFileTest() throws IOException {
-        InputStream is = new ByteArrayInputStream(jsonString.getBytes(StandardCharsets.UTF_8));
+        InputStream is = new ByteArrayInputStream(simple.getBytes(StandardCharsets.UTF_8));
 
-        assertEquals(season, Season.readFromJsonFile(is));
+        assertEquals(simpleSeason, Season.readFromJsonFile(is));
     }
 
     @Test
