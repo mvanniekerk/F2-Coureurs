@@ -84,6 +84,23 @@ public class Season {
     }
 
     /**
+     * Gets the team that the staff member is in.
+     * If the staff member is not in a team, return null.
+     *
+     * @param staffMember subclass of Staff
+     * @return Team or null
+     */
+    public Team getTeamByMember(Staff staffMember) {
+        // TODO add tests
+        for (Team team : teams) {
+            if (team.contains(staffMember)) {
+                return team;
+            }
+        }
+        return null;
+    }
+
+    /**
      * Gets the team name that a staffMember is in.
      * If the staffMember is not in a team, return the string "contract".
      *
@@ -151,6 +168,24 @@ public class Season {
     }
 
     /**
+     * Sets a staff member as a staff member that is open to a contract.
+     *
+     * @param staffMember the staff member to add to a contract list.
+     */
+    public void addContractStaffMember(Staff staffMember) {
+        // TODO test
+        if (staffMember instanceof Aerodynamicist) {
+            contractAerodynamicists.add((Aerodynamicist) staffMember);
+        } else if (staffMember instanceof Driver) {
+            contractDrivers.add((Driver) staffMember);
+        } else if (staffMember instanceof Mechanic) {
+            contractMechanics.add((Mechanic) staffMember);
+        } else {
+            contractStrategists.add((Strategist) staffMember);
+        }
+    }
+
+    /**
      * Gets all the drivers that are not controlled by the player.
      *
      * @return a list of drivers
@@ -169,39 +204,49 @@ public class Season {
     }
 
     /**
-     * Remove a driver from the team he is in.
+     * Transfers a staff member from one team to another.
+     * staffMember first gets removed from the team it is in.
+     * If the staffMember is not in a team, it gets removed from the contract lists.
+     * Now the staffMember gets add to the new team.
+     * The old staffMember from that team gets added to the contract list.
+     * Money gets deducted from the new team and added to the old team,
+     * equal to the buyout clause of the staff member.
      *
-     * @param driver driver to remove
+     * @param staffMember The new staff member
+     * @param team The team to transfer the staff member to
      */
-    public void removeDriverFromTeam(Driver driver) {
-        // TODO add tests
-        for (Team team : teams) {
-            if (team.getFirstDriver().equals(driver)) {
-                Driver firstContractDriver = contractDrivers.remove(0);
-                team.setFirstDriver(firstContractDriver);
-                return;
-            }
-            if (team.getSecondDriver().equals(driver)) {
-                Driver firstContractDriver = contractDrivers.remove(0);
-                team.setSecondDriver(firstContractDriver);
-                return;
-            }
-        }
-    }
+    public void transfer(Staff staffMember, Team team) {
+        // TODO test
+        Team oldTeam = getTeamByMember(staffMember);
+        int buyoutClause = staffMember.getBuyoutClause(this);
 
-    /**
-     * Transfers a driver to your team.
-     *
-     * @param driver driver to transfer
-     */
-    public void transferDriver1(Driver driver) {
-        // TODO Add tests
-        // TODO generalize???
-        removeDriverFromTeam(driver);
-        contractDrivers.add(getPlayerControlledTeam().getFirstDriver());
-        getPlayerControlledTeam().setFirstDriver(driver);
-        int budget = getPlayerControlledTeam().getBudget() - driver.getBuyoutClause();
-        getPlayerControlledTeam().setBudget(budget);
+        // Remove the new staff member from its old team
+        if (oldTeam != null) {
+            if (staffMember instanceof Aerodynamicist) {
+                oldTeam.swapStaffMember(contractAerodynamicists.remove(0));
+            } else if (staffMember instanceof Driver) {
+                oldTeam.swapStaffMember(contractDrivers.remove(0));
+            } else if (staffMember instanceof Mechanic) {
+                oldTeam.swapStaffMember(contractMechanics.remove(0));
+            } else {
+                oldTeam.swapStaffMember(contractStrategists.remove(0));
+            }
+        } else {
+            contractAerodynamicists.remove(staffMember);
+            contractDrivers.remove(staffMember);
+            contractMechanics.remove(staffMember);
+            contractStrategists.remove(staffMember);
+        }
+        // add the staff member to the new team
+        Staff oldStaffMember = team.swapStaffMember(staffMember);
+        // add the old staff member to the contract list
+        addContractStaffMember(oldStaffMember);
+        // subtract the buyout clause from the budget
+        team.setBudget(team.getBudget() - buyoutClause);
+        // add the buyout clause to the budget of the old team
+        if (oldTeam != null) {
+            oldTeam.setBudget(oldTeam.getBudget() + buyoutClause);
+        }
     }
 
     /**

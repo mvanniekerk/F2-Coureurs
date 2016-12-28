@@ -79,21 +79,23 @@ public abstract class Staff {
      *
      * @return the buyout clause
      */
-    public int getBuyoutClause() {
+    public int getBuyoutClause(Season season) {
         // TODO add tests
+        if (season.getTeamNameByMember(this).equals("contract")) {
+            return 0;
+        }
         return buyoutClause;
     }
-
 
     /**
      * Gets a human readable string of the buyout clause.
      *
      * @return buyout clause string
      */
-    public String getBuyoutClauseString() {
+    public String getBuyoutClauseString(Season season) {
         // TODO add tests
         NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
-        return euroFormat.format(buyoutClause);
+        return euroFormat.format(getBuyoutClause(season));
     }
 
     /**

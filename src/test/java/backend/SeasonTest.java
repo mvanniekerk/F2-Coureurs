@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 public class SeasonTest {
     private Season simpleSeason;
@@ -25,6 +26,7 @@ public class SeasonTest {
     private Team team;
     private Driver driver;
     private Driver driver2;
+    private Driver driver3;
     private Aerodynamicist aerodynamicist;
     private Mechanic mechanic;
     private Strategist strategist;
@@ -35,6 +37,7 @@ public class SeasonTest {
     public void setUp() {
         driver = new Driver("Kimi Raikkonen", 16, 100,50, 50, 50, false);
         driver2 = new Driver("Lewis Hamilton", 18, 100,58, 52, 40, true);
+        driver3 = new Driver("Kimi Raikkonen", 16, 100, 58, 52, 40, true);
         aerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 100);
         mechanic = new Mechanic("Steve Matchett", 100000, 100, 50, 50, 50);
         strategist = new Strategist("Anonyme", 1000000, 10000000);
@@ -84,6 +87,30 @@ public class SeasonTest {
         exceptSeason.setCurrentRound(1);
         expectedException.expect(IllegalArgumentException.class);
         exceptSeason.getCurrentRound();
+    }
+
+    @Test
+    public void addAeroToContract() {
+        season.addContractStaffMember(aerodynamicist);
+        assertTrue(season.getContractAerodynamicists().contains(aerodynamicist));
+    }
+
+    @Test
+    public void addDriverToContract() {
+        season.addContractStaffMember(driver);
+        assertTrue(season.getContractDrivers().contains(driver));
+    }
+
+    @Test
+    public void addMechanicToContract() {
+        season.addContractStaffMember(mechanic);
+        assertTrue(season.getContractMechanics().contains(mechanic));
+    }
+
+    @Test
+    public void addStratToContract() {
+        season.addContractStaffMember(strategist);
+        assertTrue(season.getContractStrategists().contains(strategist));
     }
 
     @Test
@@ -191,4 +218,5 @@ public class SeasonTest {
     public void equalsOtherObject() {
         assertNotEquals(season, new String());
     }
+
 }

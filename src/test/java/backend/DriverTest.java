@@ -16,6 +16,12 @@ public class DriverTest {
     private Driver raceCraftDifferent;
     private Driver insightDifferent;
     private Driver championDiffers;
+    private Aerodynamicist aerodynamicist;
+    private Mechanic mechanic;
+    private Strategist strategist;
+    private Engine engine;
+    private Team team;
+    private Season season;
 
     @Before
     public void setUp() {
@@ -27,6 +33,19 @@ public class DriverTest {
         insightDifferent = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 51, false);
         championDiffers = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, true);
         otherDriver = new Driver("Kimi Raikkonen", 16, 100, 58, 52, 40, true);
+
+        aerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 1000000);
+        mechanic = new Mechanic("Steve Matchett", 100000, 1000000, 50, 50, 50);
+        strategist = new Strategist("Anonyme", 1000000, 1000000);
+        engine = new Engine(900, 70, 80, "Mercedes");
+        team = new Team("F2", "User", 2500000,
+                engine, aerodynamicist, mechanic, strategist);
+        team.setFirstDriver(driver);
+        team.setSecondDriver(otherDriver);
+
+        season = new Season();
+        season.addTeam(team);
+
     }
 
     @Test
@@ -98,8 +117,17 @@ public class DriverTest {
 
     @Test
     public void getQualityStringTest() {
-        System.out.println(driver.getQuality());
         assertEquals(driver.getQualityString(), "★★");
+    }
+
+    @Test
+    public void getBuyoutTest() {
+        assertEquals(100, driver.getBuyoutClause(season));
+    }
+
+    @Test
+    public void getZeroBuyoutTest() {
+        assertEquals(0, salaryDifferent.getBuyoutClause(season));
     }
 
     @Test

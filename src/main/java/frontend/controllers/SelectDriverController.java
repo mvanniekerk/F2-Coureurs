@@ -61,7 +61,7 @@ public class SelectDriverController {
      */
     @FXML
     public void confirm(ActionEvent event) throws IOException {
-        season.transferDriver1((Driver) newStaffMember);
+        season.transfer(newStaffMember, season.getPlayerControlledTeam());
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
         Stage stage = (Stage) driver1Name.getScene().getWindow();
@@ -90,7 +90,7 @@ public class SelectDriverController {
                 newPlayerName.setText(staffMember.getName());
                 newQuality.setText(staffMember.getQualityString());
                 newSalary.setText(staffMember.getSalaryString());
-                newBuyoutClause.setText(staffMember.getBuyoutClauseString());
+                newBuyoutClause.setText(staffMember.getBuyoutClauseString(season));
                 newTeamName.setText(season.getTeamNameByMember(staffMember));
                 newStaffMember = staffMember;
             }
@@ -111,7 +111,7 @@ public class SelectDriverController {
         salaryLabel.setLayoutX(440);
         returnPane.getChildren().add(salaryLabel);
 
-        Label buyoutClauseLabel = new Label(staffMember.getBuyoutClauseString());
+        Label buyoutClauseLabel = new Label(staffMember.getBuyoutClauseString(season));
         buyoutClauseLabel.getStyleClass().add("table-content");
         buyoutClauseLabel.setLayoutX(660);
         returnPane.getChildren().add(buyoutClauseLabel);

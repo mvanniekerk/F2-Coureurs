@@ -272,6 +272,37 @@ public class Team {
     }
 
     /**
+     * Swaps the staffMember in the argument for the existing staffmember.
+     * Returns the old staff member.
+     *
+     * @param staffMember The new staff member in the team
+     * @return the old staff member
+     */
+    public Staff swapStaffMember(Staff staffMember) {
+        if (staffMember instanceof Aerodynamicist) {
+            Aerodynamicist newAero = (Aerodynamicist) staffMember;
+            Aerodynamicist oldAero = aerodynamicist;
+            setAerodynamicist(newAero);
+            return oldAero;
+        } else if (staffMember instanceof Driver) {
+            Driver newDriver = (Driver) staffMember;
+            Driver oldDriver = getFirstDriver();
+            setFirstDriver(newDriver);
+            return oldDriver;
+        } else if (staffMember instanceof Mechanic) {
+            Mechanic newMechanic = (Mechanic) staffMember;
+            Mechanic oldMechanic = mechanic;
+            setMechanic(newMechanic);
+            return oldMechanic;
+        } else {
+            Strategist newStrategist = (Strategist) staffMember;
+            Strategist oldStrategist = strategist;
+            setStrategist(newStrategist);
+            return oldStrategist;
+        }
+    }
+
+    /**
      * Sets the first Driver.
      *
      * @param driver the new Driver

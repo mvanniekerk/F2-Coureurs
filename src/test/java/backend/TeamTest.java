@@ -307,4 +307,48 @@ public class TeamTest {
         Team diffEngine = new Team("F2", "User", 2500000, otherEngine, aerodynamicist, mechanic, strategist);
         assertNotEquals(diffEngine, team);
     }
+
+    @Test
+    public void swapDriverReturn() {
+        assertEquals(driver, team.swapStaffMember(driver3));
+    }
+
+    @Test
+    public void swapDriverTest() {
+        team.swapStaffMember(driver3);
+        assertEquals(driver3, team.getFirstDriver());
+    }
+
+    @Test
+    public void swapAeroReturn() {
+        assertEquals(aerodynamicist, team.swapStaffMember(aerodynamicist2));
+    }
+
+    @Test
+    public void swapAeroTest() {
+        team.swapStaffMember(aerodynamicist2);
+        assertEquals(aerodynamicist2, team.getAerodynamicist());
+    }
+
+    @Test
+    public void swapMechanicReturn() {
+        assertEquals(mechanic, team.swapStaffMember(mechanic2));
+    }
+
+    @Test
+    public void swapMechanicTest() {
+        team.swapStaffMember(mechanic2);
+        assertEquals(mechanic2, team.getMechanic());
+    }
+
+    @Test
+    public void swapStrategistReturn() {
+        assertEquals(strategist, team.swapStaffMember(strategist2));
+    }
+
+    @Test
+    public void swapStrategistTest() {
+        team.swapStaffMember(strategist2);
+        assertEquals(strategist2, team.getStrategist());
+    }
 }
