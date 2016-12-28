@@ -174,6 +174,35 @@ public class TeamTest {
     public void contains_false() {
         assertFalse(team.contains(driver3));
     }
+    @Test
+    public void containsAero() {
+        assertTrue(team.contains(aerodynamicist));
+    }
+
+    @Test
+    public void notContainsAero() {
+        assertFalse(team.contains(aerodynamicist2));
+    }
+
+    @Test
+    public void containsMechanic() {
+        assertTrue(team.contains(mechanic));
+    }
+
+    @Test
+    public void notContainsMechanic() {
+        assertFalse(team.contains(mechanic2));
+    }
+
+    @Test
+    public void containsStrategist() {
+        assertTrue(team.contains(strategist));
+    }
+
+    @Test
+    public void notContainsStrategist() {
+        assertFalse(team.contains(strategist2));
+    }
 
     @Test
     public void getFirstDriverTest() {

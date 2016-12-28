@@ -255,18 +255,20 @@ public class Team {
     }
 
     /**
-     * Report on whether the list contains driver.
+     * Report on whether the list contains a staff member.
      *
-     * @param driver the driver to compare with
-     * @return true if driver is in drivers and false otherwise
+     * @param staffMember the staff member to compare with
+     * @return true if the staff member is in the team and false otherwise
      */
-    public boolean contains(Driver driver) {
-        for (Driver item : drivers) {
-            if (item.equals(driver)) {
+    public boolean contains(Staff staffMember) {
+        for (Driver driver: drivers) {
+            if (driver.equals(staffMember)) {
                 return true;
             }
         }
-        return false;
+        return aerodynamicist.equals(staffMember)
+            || mechanic.equals(staffMember)
+            || strategist.equals(staffMember);
     }
 
     /**

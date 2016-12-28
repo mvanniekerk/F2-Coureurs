@@ -84,26 +84,24 @@ public class SelectDriverController {
 
     private Pane getTeamMemberPane(Staff staffMember, int position) {
         Pane returnPane = new Pane();
-        returnPane.setOnMouseClicked(
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        newPlayerName.setText(staffMember.getName());
-                        newQuality.setText(staffMember.getQualityString());
-                        newSalary.setText(staffMember.getSalaryString());
-                        newBuyoutClause.setText(staffMember.getBuyoutClauseString());
-                        newTeamName.setText("Ferrari");
-                        newStaffMember = staffMember;
-                    }
-                });
+        returnPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                newPlayerName.setText(staffMember.getName());
+                newQuality.setText(staffMember.getQualityString());
+                newSalary.setText(staffMember.getSalaryString());
+                newBuyoutClause.setText(staffMember.getBuyoutClauseString());
+                newTeamName.setText(season.getTeamNameByMember(staffMember));
+                newStaffMember = staffMember;
+            }
+        });
         returnPane.setLayoutY(35 * position);
 
         Label nameLabel = new Label(staffMember.getName());
         nameLabel.getStyleClass().add("table-content");
         returnPane.getChildren().add(nameLabel);
 
-        // TODO set current team
-        Label currentTeamLabel = new Label("Ferrari");
+        Label currentTeamLabel = new Label(season.getTeamNameByMember(staffMember));
         currentTeamLabel.getStyleClass().add("table-content");
         currentTeamLabel.setLayoutX(220);
         returnPane.getChildren().add(currentTeamLabel);

@@ -84,6 +84,23 @@ public class Season {
     }
 
     /**
+     * Gets the team name that a staffMember is in.
+     * If the staffMember is not in a team, return the string "contract".
+     *
+     * @param staffMember subclass of Staff
+     * @return TeamName if the staffMember is in a team, contract otherwise
+     */
+    public String getTeamNameByMember(Staff staffMember) {
+        // TODO test
+        for (Team team : teams) {
+            if (team.contains(staffMember)) {
+                return team.getName();
+            }
+        }
+        return "contract";
+    }
+
+    /**
      * Gets the team that the player controls.
      *
      * @return one of the teams

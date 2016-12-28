@@ -87,6 +87,17 @@ public class SeasonTest {
     }
 
     @Test
+    public void getTeamNameByMemberTest() {
+        assertEquals(team.getName(), season.getTeamNameByMember(driver));
+    }
+
+    @Test
+    public void getContractString() {
+        Driver d = new Driver("dne", 0,0,0,0,0, false);
+        assertEquals("contract", season.getTeamNameByMember(d));
+    }
+
+    @Test
     public void roundIntTest() {
         assertEquals(0, season.getRoundInt());
     }
