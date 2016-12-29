@@ -186,7 +186,7 @@ public class SeasonTest {
         driverList.add(driver3);
         driverList.add(driver4);
         driverList.add(driver5);
-        assertEquals(driverList, season.getAllNonPlayerControlledDrivers());
+        assertEquals(driverList, season.getAllNonPlayerControlledStaff());
     }
 
     @Test

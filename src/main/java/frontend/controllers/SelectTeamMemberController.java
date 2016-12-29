@@ -1,8 +1,12 @@
 package frontend.controllers;
 
+import backend.Aerodynamicist;
+import backend.Driver;
 import backend.GameEngine;
+import backend.Mechanic;
 import backend.Season;
 import backend.Staff;
+import backend.Strategist;
 import backend.Team;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,11 +19,13 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class SelectTeamMemberController {
-    @FXML private Label driver1Name;
-    @FXML private Label driver1Salary;
-    @FXML private Label driver1Quality;
+    @FXML private Label teamMateName;
+    @FXML private Label teamMateSalary;
+    @FXML private Label teamMateQuality;
     @FXML private Pane playerTable;
     @FXML private Label newPlayerName;
     @FXML private Label newSalary;
@@ -30,23 +36,58 @@ public class SelectTeamMemberController {
     @FXML private Pane tableBox;
     private Season season;
     private Staff newStaffMember;
+    private List<Staff> newStaff;
 
     /**
      * Initialises the controller.
      */
-    public void load() {
+    public void load(String type) {
         season = GameEngine.getInstance().getSeason();
         Team playerTeam = season.getPlayerControlledTeam();
+        newStaff = season.getAllNonPlayerControlledStaff();
 
-        driver1Name.setText(playerTeam.getFirstDriver().getName());
-        driver1Salary.setText(playerTeam.getFirstDriver().getSalaryString());
-        driver1Quality.setText(playerTeam.getFirstDriver().getQualityString());
+        if (type.equals("driver1")) {
+            teamMateName.setText(playerTeam.getFirstDriver().getName());
+            teamMateSalary.setText(playerTeam.getFirstDriver().getSalaryString());
+            teamMateQuality.setText(playerTeam.getFirstDriver().getQualityString());
+            newStaff = newStaff.stream()
+                    .filter((Staff staff) -> staff instanceof Driver)
+                    .collect(Collectors.toList());
+        } else if (type.equals("driver2")) {
+            teamMateName.setText(playerTeam.getSecondDriver().getName());
+            teamMateSalary.setText(playerTeam.getSecondDriver().getSalaryString());
+            teamMateQuality.setText(playerTeam.getSecondDriver().getQualityString());
+            newStaff = newStaff.stream()
+                    .filter((Staff staff) -> staff instanceof Driver)
+                    .collect(Collectors.toList());
+        } else if (type.equals("aerodynamicist")) {
+            teamMateName.setText(playerTeam.getAerodynamicist().getName());
+            teamMateSalary.setText(playerTeam.getAerodynamicist().getSalaryString());
+            teamMateQuality.setText(playerTeam.getAerodynamicist().getQualityString());
+            newStaff = newStaff.stream()
+                    .filter((Staff staff) -> staff instanceof Aerodynamicist)
+                    .collect(Collectors.toList());
+        } else if (type.equals("mechanic")) {
+            teamMateName.setText(playerTeam.getMechanic().getName());
+            teamMateSalary.setText(playerTeam.getMechanic().getSalaryString());
+            teamMateQuality.setText(playerTeam.getMechanic().getQualityString());
+            newStaff = newStaff.stream()
+                    .filter((Staff staff) -> staff instanceof Mechanic)
+                    .collect(Collectors.toList());
+        } else {
+            teamMateName.setText(playerTeam.getStrategist().getName());
+            teamMateSalary.setText(playerTeam.getStrategist().getSalaryString());
+            teamMateQuality.setText(playerTeam.getStrategist().getQualityString());
+            newStaff = newStaff.stream()
+                    .filter((Staff staff) -> staff instanceof Strategist)
+                    .collect(Collectors.toList());
+        }
 
         // scrollBar seems to misbehave when put inside the fxml file
         // Probably because the listener gets added after initialization?
         scrollBar = new ScrollBar();
         scrollBar.setMin(0);
-        scrollBar.setMax(season.getAllNonPlayerControlledDrivers().size() - 15);
+        scrollBar.setMax(newStaff.size() - 15);
         scrollBar.setUnitIncrement(1);
         scrollBar.setValue(0);
         scrollBar.setOrientation(Orientation.VERTICAL);
@@ -55,7 +96,7 @@ public class SelectTeamMemberController {
         scrollBar.setLayoutY(140);
         scrollBar.valueProperty().addListener((observable, oldValue, newValue) -> {
             setAllPotentialTeamMembers(newValue.intValue());
-            });
+        });
         tableBox.getChildren().add(scrollBar);
         setAllPotentialTeamMembers(0);
     }
@@ -63,7 +104,11 @@ public class SelectTeamMemberController {
     private void setAllPotentialTeamMembers(int position) {
         playerTable.getChildren().clear();
         int increment = 0;
-        for (Staff staff : season.getAllNonPlayerControlledDrivers().subList(position,position + 15)) {
+        int maxSize = position + 15;
+        if (newStaff.size() < 15) {
+            maxSize = newStaff.size();
+        }
+        for (Staff staff : newStaff.subList(position, maxSize)) {
             playerTable.getChildren().add(getTeamMemberPane(staff, increment));
             increment++;
         }
@@ -80,7 +125,7 @@ public class SelectTeamMemberController {
         season.transfer(newStaffMember, season.getPlayerControlledTeam());
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
-        Stage stage = (Stage) driver1Name.getScene().getWindow();
+        Stage stage = (Stage) teamMateName.getScene().getWindow();
         stage.getScene().setRoot(root);
     }
 
@@ -93,7 +138,7 @@ public class SelectTeamMemberController {
     @FXML
     public void cancel(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
-        Stage stage = (Stage) driver1Name.getScene().getWindow();
+        Stage stage = (Stage) teamMateName.getScene().getWindow();
 
         stage.getScene().setRoot(root);
     }
@@ -101,13 +146,13 @@ public class SelectTeamMemberController {
     private Pane getTeamMemberPane(Staff staffMember, int position) {
         Pane returnPane = new Pane();
         returnPane.setOnMouseClicked((event) -> {
-                newPlayerName.setText(staffMember.getName());
-                newQuality.setText(staffMember.getQualityString());
-                newSalary.setText(staffMember.getSalaryString());
-                newBuyoutClause.setText(staffMember.getBuyoutClauseString(season));
-                newTeamName.setText(season.getTeamNameByMember(staffMember));
-                newStaffMember = staffMember;
-            });
+            newPlayerName.setText(staffMember.getName());
+            newQuality.setText(staffMember.getQualityString());
+            newSalary.setText(staffMember.getSalaryString());
+            newBuyoutClause.setText(staffMember.getBuyoutClauseString(season));
+            newTeamName.setText(season.getTeamNameByMember(staffMember));
+            newStaffMember = staffMember;
+        });
         returnPane.setLayoutY(35 * position);
 
         Label nameLabel = new Label(staffMember.getName());

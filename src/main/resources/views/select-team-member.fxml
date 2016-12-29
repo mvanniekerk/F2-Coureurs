@@ -27,14 +27,14 @@
 
     <!--Current driver1-->
     <Pane layoutX="770" layoutY="20" prefHeight="250" prefWidth="500" styleClass="block">
-        <Label fx:id="driver1Name" layoutX="30" layoutY="-30" styleClass="option" text="Kevin Magnussen" />
+        <Label fx:id="teamMateName" layoutX="30" layoutY="-30" styleClass="option" text="Kevin Magnussen" />
         <Pane layoutX="30" layoutY="100" styleClass="content">
             <Label text="Salary:" />
             <Label layoutY="55" text="Quality:" />
         </Pane>
         <Pane layoutX="200" layoutY="100" style="-fx-alignment: right;" styleClass="content">
-            <Label fx:id="driver1Salary" text="€8,000" />
-            <Label fx:id="driver1Quality" layoutY="55" text="★★★★★" />
+            <Label fx:id="teamMateSalary" text="€8,000" />
+            <Label fx:id="teamMateQuality" layoutY="55" text="★★★★★" />
         </Pane>
     </Pane>
 

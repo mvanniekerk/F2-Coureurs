@@ -184,17 +184,23 @@ public class Season {
     }
 
     /**
-     * Gets all the drivers that are not controlled by the player.
+     * Gets all the staff that is not in the players team.
      *
-     * @return a list of drivers
+     * @return a list of staff
      */
-    public List<Staff> getAllNonPlayerControlledDrivers() {
+    public List<Staff> getAllNonPlayerControlledStaff() {
         List<Staff> returnList = new ArrayList<>();
         returnList.addAll(contractDrivers);
+        returnList.addAll(contractAerodynamicists);
+        returnList.addAll(contractMechanics);
+        returnList.addAll(contractStrategists);
         for (Team team : teams) {
             if (!team.equals(getPlayerControlledTeam())) {
                 returnList.add(team.getFirstDriver());
                 returnList.add(team.getSecondDriver());
+                returnList.add(team.getAerodynamicist());
+                returnList.add(team.getMechanic());
+                returnList.add(team.getStrategist());
             }
         }
         return returnList;
