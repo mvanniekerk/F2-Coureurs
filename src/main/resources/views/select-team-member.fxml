@@ -5,7 +5,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.control.ScrollBar?>
 
 <Pane id="select-driver" maxHeight="-Infinity" maxWidth="-Infinity"
       minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0"
@@ -17,7 +16,7 @@
     <Button onAction="#cancel" id="red" layoutY="925" layoutX="1300" text="Cancel" />
 
     <!-- Select new team member-->
-    <Pane layoutX="120" layoutY="80" prefHeight="200" prefWidth="550" styleClass="block">
+    <Pane layoutX="120" layoutY="60" prefHeight="220" prefWidth="550" styleClass="block">
         <Label layoutX="30" layoutY="20" styleClass="title" text="Edit team" />
         <Label layoutX="30" layoutY="120" styleClass="content" text="Select new team member" />
         <ImageView fitHeight="100" fitWidth="100" layoutX="400" layoutY="20">
@@ -26,7 +25,7 @@
     </Pane>
 
     <!--Current driver1-->
-    <Pane layoutX="770" layoutY="20" prefHeight="250" prefWidth="500" styleClass="block">
+    <Pane layoutX="770" layoutY="60" prefHeight="220" prefWidth="500" styleClass="block">
         <Label fx:id="teamMateName" layoutX="30" layoutY="-30" styleClass="option" text="Kevin Magnussen" />
         <Pane layoutX="30" layoutY="100" styleClass="content">
             <Label text="Salary:" />
@@ -53,6 +52,15 @@
             <Label fx:id="newQuality" layoutY="110" />
             <Label fx:id="newTeamName" layoutY="165" />
         </Pane>
+    </Pane>
+
+    <!-- Budget -->
+    <Pane layoutX="1300" layoutY="60" prefHeight="220" prefWidth="500" styleClass="block">
+        <Label layoutX="30" layoutY="40" styleClass="title" text="Budget"/>
+        <Label fx:id="budget" layoutX="30" id="currentBudget" layoutY="120" styleClass="content" />
+        <ImageView fitHeight="75" fitWidth="75" layoutX="375" layoutY="40">
+            <Image url="@../media/icons/eurosign.png"/>
+        </ImageView>
     </Pane>
 
     <!--Driver table-->

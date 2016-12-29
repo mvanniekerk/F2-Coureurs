@@ -15,6 +15,7 @@ import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -34,6 +35,7 @@ public class SelectTeamMemberController {
     @FXML private Label newBuyoutClause;
     @FXML private ScrollBar scrollBar;
     @FXML private Pane tableBox;
+    @FXML private Label budget;
     private Season season;
     private Staff newStaffMember;
     private List<Staff> newStaff;
@@ -46,6 +48,7 @@ public class SelectTeamMemberController {
         season = GameEngine.getInstance().getSeason();
         Team playerTeam = season.getPlayerControlledTeam();
         newStaff = season.getAllNonPlayerControlledStaff();
+        budget.setText(playerTeam.getBudgetString());
 
         if (type.equals("driver1")) {
             teamMateName.setText(playerTeam.getFirstDriver().getName());
@@ -96,11 +99,21 @@ public class SelectTeamMemberController {
         scrollBar.setPrefHeight(530);
         scrollBar.setLayoutX(1020);
         scrollBar.setLayoutY(140);
+        // update the list on scroll change
         scrollBar.valueProperty().addListener((observable, oldValue, newValue) -> {
             setAllPotentialTeamMembers(newValue.intValue());
         });
         tableBox.getChildren().add(scrollBar);
         setAllPotentialTeamMembers(0);
+
+        // enable scrolling
+        playerTable.setOnScroll((ScrollEvent event) -> {
+            double newValue = scrollBar.getValue() - event.getDeltaY() / 50;
+            if (newValue < 0 || newValue > scrollBar.getMax()) {
+                return;
+            }
+            scrollBar.setValue(newValue);
+        });
     }
 
     private void setAllPotentialTeamMembers(int position) {
@@ -152,6 +165,8 @@ public class SelectTeamMemberController {
     private Pane getTeamMemberPane(Staff staffMember, int position) {
         Pane returnPane = new Pane();
         returnPane.setOnMouseClicked((event) -> {
+            budget.setText(season.getPlayerControlledTeam()
+                    .getBudgetString(staffMember.getBuyoutClause(season)));
             newPlayerName.setText(staffMember.getName());
             newQuality.setText(staffMember.getQualityString());
             newSalary.setText(staffMember.getSalaryString());

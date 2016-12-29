@@ -261,6 +261,20 @@ public class TeamTest {
     }
 
     @Test
+    public void getBudgetStringTest2() {
+        //TODO: Change for different locales
+        String locale = Locale.getDefault().toLanguageTag();
+        if (locale.equals("nl-NL")) {
+            assertEquals("€ 2.000.000,00", team.getBudgetString(500000));
+        } else if (locale.equals("en-US")) {
+            assertEquals("$2,000,000.00", team.getBudgetString(500000));
+        } else {
+            System.out.println("Untested locale :" + locale + " giving " + team.getBudgetString(500000));
+            assertTrue(true);
+        }
+    }
+
+    @Test
     public void testEquals_self() {
         assertTrue(team.equals(team));
     }

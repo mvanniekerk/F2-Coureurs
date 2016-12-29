@@ -92,13 +92,23 @@ public class Team {
     }
 
     /**
+     * Gets a string representation of the budget minus the subtract amount.
+     *
+     * @param subtract the amount to subtract
+     * @return a string of the budget
+     */
+    public String getBudgetString(int subtract) {
+        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return euroFormat.format(budget - subtract);
+    }
+
+    /**
      * Gets a string representation of the budget.
      *
      * @return string of the budget
      */
     public String getBudgetString() {
-        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
-        return euroFormat.format(budget);
+        return getBudgetString(0);
     }
 
     /**
