@@ -51,12 +51,11 @@ public class EditTeamController {
     @FXML
     public void cancel(ActionEvent event) throws IOException {
         // TODO generalize the save-game name by adding an attribute to Season
+        GameEngine.getInstance().setSeason(Season.load("save1.json"));
+        season = GameEngine.getInstance().getSeason();
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
         Stage stage = (Stage) budget.getScene().getWindow();
-
-        GameEngine.getInstance().setSeason(Season.load("save1.json"));
-        season = GameEngine.getInstance().getSeason();
 
         stage.getScene().setRoot(root);
     }
@@ -70,11 +69,11 @@ public class EditTeamController {
     @FXML
     public void save(ActionEvent event) throws IOException {
         // TODO generalize the save-game name by adding an attribute to Season
+        season.save("save1.json");
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
         Stage stage = (Stage) budget.getScene().getWindow();
 
-        season.save("save1.json");
 
         stage.getScene().setRoot(root);
     }

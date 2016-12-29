@@ -461,7 +461,7 @@ public class Season {
      * @throws IOException If the file or directory does not exist
      */
     public static void main(String[] args) throws IOException {
-        Season season = Season.load("save1.json");
+        Season season = Season.loadNewGameFromSeasonStart();
         season.save("save1.json");
     }
 }
