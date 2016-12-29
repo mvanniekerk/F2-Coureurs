@@ -185,10 +185,17 @@ public class Season {
      *
      * @param staffMember The new staff member
      * @param team The team to transfer the staff member to
+     * @param replaceSecondDriver true if the second driver needs to be replaced
      */
-    public void transfer(Staff staffMember, Team team) {
+    public void transfer(Staff staffMember, Team team, boolean replaceSecondDriver) {
         Team oldTeam = staffMember.getTeam(this);
         int buyoutClause = staffMember.getBuyoutClause(this);
+        // subtract the buyout clause from the budget
+        team.setBudget(team.getBudget() - buyoutClause);
+        // add the buyout clause to the budget of the old team
+        if (oldTeam != null) {
+            oldTeam.setBudget(oldTeam.getBudget() + buyoutClause);
+        }
 
         // Remove the new staff member from its old team
         if (oldTeam != null) {
@@ -209,22 +216,37 @@ public class Season {
             }
         } else {
             // The new staff member was not in a team
-            // Make sure the old staff member is not still in a contract list
+            // Make sure the new staff member is not still in a contract list
             contractAerodynamicists.remove(staffMember);
             contractDrivers.remove(staffMember);
             contractMechanics.remove(staffMember);
             contractStrategists.remove(staffMember);
         }
-        // add the staff member to the new team
-        Staff oldStaffMember = team.swapStaffMember(staffMember);
+        // add the new staff member to the team
+        Staff oldStaffMember;
+        if (replaceSecondDriver) {
+            oldStaffMember = team.swapSecondDriver((Driver) staffMember);
+        } else {
+            oldStaffMember = team.swapStaffMember(staffMember);
+        }
         // add the old staff member to the contract list
         addContractStaffMember(oldStaffMember);
-        // subtract the buyout clause from the budget
-        team.setBudget(team.getBudget() - buyoutClause);
-        // add the buyout clause to the budget of the old team
-        if (oldTeam != null) {
-            oldTeam.setBudget(oldTeam.getBudget() + buyoutClause);
-        }
+    }
+
+    /**
+     * Transfers a staff member from one team to another.
+     * staffMember first gets removed from the team it is in.
+     * If the staffMember is not in a team, it gets removed from the contract lists.
+     * Now the staffMember gets add to the new team.
+     * The old staffMember from that team gets added to the contract list.
+     * Money gets deducted from the new team and added to the old team,
+     * equal to the buyout clause of the staff member.
+     *
+     * @param staffMember The new staff member
+     * @param team The team to transfer the staff member to
+     */
+    public void transfer(Staff staffMember, Team team) {
+        transfer(staffMember, team, false);
     }
 
     /**

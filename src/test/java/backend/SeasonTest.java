@@ -240,6 +240,24 @@ public class SeasonTest {
     }
 
     @Test
+    public void replaceSecondDriver() {
+        season.transfer(driver5, team, true);
+        assertEquals(team.getFirstDriver(), driver);
+    }
+
+    @Test
+    public void replaceSecondDriver2() {
+        season.transfer(driver5, team, true);
+        assertEquals(team.getSecondDriver(), driver5);
+    }
+
+    @Test
+    public void replaceSecondDriver3() {
+        season.transfer(driver5, team, true);
+        assertTrue(season.getContractDrivers().contains(driver2));
+    }
+
+    @Test
     public void transferDriverContract() {
         season.transfer(driver4, team);
         assertFalse(season.getContractDrivers().contains(driver3));

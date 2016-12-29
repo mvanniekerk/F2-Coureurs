@@ -37,6 +37,7 @@ public class SelectTeamMemberController {
     private Season season;
     private Staff newStaffMember;
     private List<Staff> newStaff;
+    private boolean replaceSecondDriver = false;
 
     /**
      * Initialises the controller.
@@ -54,6 +55,7 @@ public class SelectTeamMemberController {
                     .filter((Staff staff) -> staff instanceof Driver)
                     .collect(Collectors.toList());
         } else if (type.equals("driver2")) {
+            replaceSecondDriver = true;
             teamMateName.setText(playerTeam.getSecondDriver().getName());
             teamMateSalary.setText(playerTeam.getSecondDriver().getSalaryString());
             teamMateQuality.setText(playerTeam.getSecondDriver().getQualityString());
@@ -122,7 +124,11 @@ public class SelectTeamMemberController {
      */
     @FXML
     public void confirm(ActionEvent event) throws IOException {
-        season.transfer(newStaffMember, season.getPlayerControlledTeam());
+        if (replaceSecondDriver) {
+            season.transfer(newStaffMember, season.getPlayerControlledTeam(), replaceSecondDriver);
+        } else {
+            season.transfer(newStaffMember, season.getPlayerControlledTeam());
+        }
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
         Stage stage = (Stage) teamMateName.getScene().getWindow();
