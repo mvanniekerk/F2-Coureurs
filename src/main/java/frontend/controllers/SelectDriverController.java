@@ -5,16 +5,17 @@ import backend.Season;
 import backend.Staff;
 import backend.Team;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.ScrollBar;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class SelectDriverController {
     @FXML private Label driver1Name;
@@ -26,8 +27,11 @@ public class SelectDriverController {
     @FXML private Label newQuality;
     @FXML private Label newTeamName;
     @FXML private Label newBuyoutClause;
+    @FXML private ScrollBar scrollBar;
+    @FXML private Pane tableBox;
     private Season season;
     private Staff newStaffMember;
+    private List<Staff> buyable;
 
     /**
      * Initialises the controller with text.
@@ -41,12 +45,31 @@ public class SelectDriverController {
         driver1Salary.setText(playerTeam.getFirstDriver().getSalaryString());
         driver1Quality.setText(playerTeam.getFirstDriver().getQualityString());
 
-        setAllPotentialTeamMembers();
+        buyable = season.getAllNonPlayerControlledDrivers();
+
+        // scrollBar seems to misbehave when put inside the fxml file
+        // Probably because the listener gets added after initialization?
+        scrollBar = new ScrollBar();
+        scrollBar.setMin(0);
+        scrollBar.setMax(buyable.size() - 15);
+        scrollBar.setUnitIncrement(1);
+        scrollBar.setValue(0);
+        scrollBar.setOrientation(Orientation.VERTICAL);
+        scrollBar.setPrefHeight(530);
+        scrollBar.setLayoutX(1020);
+        scrollBar.setLayoutY(140);
+        scrollBar.valueProperty().addListener((observable, oldValue, newValue) -> {
+            setAllPotentialTeamMembers(newValue.intValue());
+            System.out.println(newValue.intValue());
+            });
+        tableBox.getChildren().add(scrollBar);
+        setAllPotentialTeamMembers(0);
     }
 
-    private void setAllPotentialTeamMembers() {
+    private void setAllPotentialTeamMembers(int position) {
+        playerTable.getChildren().clear();
         int increment = 1;
-        for (Staff staff : season.getAllNonPlayerControlledDrivers().subList(0,15)) {
+        for (Staff staff : buyable.subList(position,position + 15)) {
             playerTable.getChildren().add(getTeamMemberPane(staff, increment));
             increment++;
         }
@@ -83,17 +106,14 @@ public class SelectDriverController {
 
     private Pane getTeamMemberPane(Staff staffMember, int position) {
         Pane returnPane = new Pane();
-        returnPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
+        returnPane.setOnMouseClicked((event) -> {
                 newPlayerName.setText(staffMember.getName());
                 newQuality.setText(staffMember.getQualityString());
                 newSalary.setText(staffMember.getSalaryString());
                 newBuyoutClause.setText(staffMember.getBuyoutClauseString(season));
                 newTeamName.setText(season.getTeamNameByMember(staffMember));
                 newStaffMember = staffMember;
-            }
-        });
+            });
         returnPane.setLayoutY(35 * position);
 
         Label nameLabel = new Label(staffMember.getName());

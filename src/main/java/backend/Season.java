@@ -188,8 +188,8 @@ public class Season {
      *
      * @return a list of drivers
      */
-    public List<Driver> getAllNonPlayerControlledDrivers() {
-        List<Driver> returnList = new ArrayList<>();
+    public List<Staff> getAllNonPlayerControlledDrivers() {
+        List<Staff> returnList = new ArrayList<>();
         returnList.addAll(contractDrivers);
         for (Team team : teams) {
             if (!team.equals(getPlayerControlledTeam())) {

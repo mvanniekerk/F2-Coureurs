@@ -2,14 +2,10 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollBar?>
 
 <Pane id="select-driver" maxHeight="-Infinity" maxWidth="-Infinity"
       minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0"
@@ -60,7 +56,7 @@
     </Pane>
 
     <!--Driver table-->
-    <Pane layoutX="120" layoutY="350" prefHeight="690" prefWidth="1150" styleClass="block">
+    <Pane fx:id="tableBox" layoutX="120" layoutY="350" prefHeight="690" prefWidth="1150" styleClass="block">
         <Label layoutX="30" layoutY="20" styleClass="title" text="Drivers" />
         <ImageView fitHeight="100" fitWidth="100" layoutX="1000" layoutY="20">
             <Image url="@../media/icons/driver.png" />
