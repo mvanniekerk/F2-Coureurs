@@ -83,38 +83,6 @@ public class Season {
         return this.teams;
     }
 
-    /**
-     * Gets the team that the staff member is in.
-     * If the staff member is not in a team, return null.
-     *
-     * @param staffMember subclass of Staff
-     * @return Team or null
-     */
-    public Team getTeamByMember(Staff staffMember) {
-        // TODO add tests
-        for (Team team : teams) {
-            if (team.contains(staffMember)) {
-                return team;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Gets the team name that a staffMember is in.
-     * If the staffMember is not in a team, return the string "contract".
-     *
-     * @param staffMember subclass of Staff
-     * @return TeamName if the staffMember is in a team, contract otherwise
-     */
-    public String getTeamNameByMember(Staff staffMember) {
-        for (Team team : teams) {
-            if (team.contains(staffMember)) {
-                return team.getName();
-            }
-        }
-        return "contract";
-    }
 
     /**
      * Gets the team that the player controls.
@@ -219,7 +187,7 @@ public class Season {
      * @param team The team to transfer the staff member to
      */
     public void transfer(Staff staffMember, Team team) {
-        Team oldTeam = getTeamByMember(staffMember);
+        Team oldTeam = staffMember.getTeam(this);
         int buyoutClause = staffMember.getBuyoutClause(this);
 
         // Remove the new staff member from its old team
@@ -229,7 +197,11 @@ public class Season {
             if (staffMember instanceof Aerodynamicist) {
                 oldTeam.swapStaffMember(contractAerodynamicists.remove(0));
             } else if (staffMember instanceof Driver) {
-                oldTeam.swapStaffMember(contractDrivers.remove(0));
+                if (((Driver) staffMember).isSecondDriver(this)) {
+                    oldTeam.swapSecondDriver(contractDrivers.remove(0));
+                } else {
+                    oldTeam.swapStaffMember(contractDrivers.remove(0));
+                }
             } else if (staffMember instanceof Mechanic) {
                 oldTeam.swapStaffMember(contractMechanics.remove(0));
             } else {

@@ -150,7 +150,7 @@ public class SelectTeamMemberController {
             newQuality.setText(staffMember.getQualityString());
             newSalary.setText(staffMember.getSalaryString());
             newBuyoutClause.setText(staffMember.getBuyoutClauseString(season));
-            newTeamName.setText(season.getTeamNameByMember(staffMember));
+            newTeamName.setText(staffMember.getTeamName(season));
             newStaffMember = staffMember;
         });
         returnPane.setLayoutY(35 * position);
@@ -159,7 +159,7 @@ public class SelectTeamMemberController {
         nameLabel.getStyleClass().add("table-content");
         returnPane.getChildren().add(nameLabel);
 
-        Label currentTeamLabel = new Label(season.getTeamNameByMember(staffMember));
+        Label currentTeamLabel = new Label(staffMember.getTeamName(season));
         currentTeamLabel.getStyleClass().add("table-content");
         currentTeamLabel.setLayoutX(220);
         returnPane.getChildren().add(currentTeamLabel);

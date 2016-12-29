@@ -320,6 +320,17 @@ public class TeamTest {
     }
 
     @Test
+    public void swapSecondDriverReturn() {
+        assertEquals(driver2, team.swapSecondDriver(driver3));
+    }
+
+    @Test
+    public void swapSecondDriverTest() {
+        team.swapSecondDriver(driver3);
+        assertEquals(driver3, team.getSecondDriver());
+    }
+
+    @Test
     public void swapAeroReturn() {
         assertEquals(aerodynamicist, team.swapStaffMember(aerodynamicist2));
     }

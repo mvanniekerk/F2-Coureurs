@@ -81,10 +81,43 @@ public abstract class Staff {
      */
     public int getBuyoutClause(Season season) {
         // TODO add tests
-        if (season.getTeamNameByMember(this).equals("contract")) {
+        if (getTeam(season) == null) {
             return 0;
         }
         return buyoutClause;
+    }
+
+    /**
+     * Gets the team that the staff member is in.
+     * If the staff member is not in a team, return null.
+     *
+     * @param season the season the staff member is in
+     * @return Team or null
+     */
+    public Team getTeam(Season season) {
+        // TODO add tests
+        for (Team team : season.getTeams()) {
+            if (team.contains(this)) {
+                return team;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Gets the team name that a staff member is in.
+     * If the staffMember is not in a team, return the string "contract".
+     *
+     * @param season the season the staff member is in
+     * @return TeamName if the staffMember is in a team, contract otherwise
+     */
+    public String getTeamName(Season season) {
+        for (Team team : season.getTeams()) {
+            if (team.contains(this)) {
+                return team.getName();
+            }
+        }
+        return "contract";
     }
 
     /**

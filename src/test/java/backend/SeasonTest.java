@@ -147,16 +147,6 @@ public class SeasonTest {
     }
 
     @Test
-    public void getTeamNameByMemberTest() {
-        assertEquals("F2", season.getTeamNameByMember(driver));
-    }
-
-    @Test
-    public void getTeamNameByMemberFail() {
-        assertEquals("contract", season.getTeamNameByMember(driver3));
-    }
-
-    @Test
     public void addContractAero() {
         season.addContractStaffMember(aerodynamicist);
         assertTrue(season.getContractAerodynamicists().contains(aerodynamicist));
@@ -182,10 +172,16 @@ public class SeasonTest {
 
     @Test
     public void playerControlledDrivers() {
-        ArrayList<Driver> driverList = new ArrayList<>();
+        ArrayList<Staff> driverList = new ArrayList<>();
         driverList.add(driver3);
+        driverList.add(aerodynamicist3);
+        driverList.add(mechanic3);
+        driverList.add(strategist3);
         driverList.add(driver4);
         driverList.add(driver5);
+        driverList.add(aerodynamicist2);
+        driverList.add(mechanic2);
+        driverList.add(strategist2);
         assertEquals(driverList, season.getAllNonPlayerControlledStaff());
     }
 
@@ -220,9 +216,27 @@ public class SeasonTest {
     }
 
     @Test
+    public void transferDriverOldTeam3() {
+        season.transfer(driver4, team);
+        assertEquals(team2.getSecondDriver(), driver5);
+    }
+
+    @Test
     public void transferDriverOldTeam2() {
         season.transfer(driver4, team);
         assertTrue(team2.getFirstDriver().equals(driver3));
+    }
+
+    @Test
+    public void transferSecondDriver() {
+        season.transfer(driver5, team);
+        assertEquals(team2.getFirstDriver(), driver4);
+    }
+
+    @Test
+    public void transferSecondDriver2() {
+        season.transfer(driver5, team);
+        assertEquals(team2.getSecondDriver(), driver3);
     }
 
     @Test
@@ -259,12 +273,6 @@ public class SeasonTest {
     public void transferContractStrat4() {
         season.transfer(strategist3, team);
         assertEquals(team.getStrategist(), strategist3);
-    }
-
-    @Test
-    public void getContractString() {
-        Driver d = new Driver("dne", 0,0,0,0,0, false);
-        assertEquals("contract", season.getTeamNameByMember(d));
     }
 
     @Test

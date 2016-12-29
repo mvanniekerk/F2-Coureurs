@@ -3,8 +3,7 @@ package backend;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class DriverTest {
 
@@ -128,6 +127,41 @@ public class DriverTest {
     @Test
     public void getZeroBuyoutTest() {
         assertEquals(0, salaryDifferent.getBuyoutClause(season));
+    }
+
+    @Test
+    public void getTeam() {
+        assertEquals(team, driver.getTeam(season));
+    }
+
+    @Test
+    public void getTeamFail() {
+        assertEquals(null, salaryDifferent.getTeam(season));
+    }
+
+    @Test
+    public void getTeamName() {
+        assertEquals("F2", driver.getTeamName(season));
+    }
+
+    @Test
+    public void getTeamNameFail() {
+        assertEquals("contract", salaryDifferent.getTeamName(season));
+    }
+
+    @Test
+    public void isSecondDriver() {
+        assertTrue(otherDriver.isSecondDriver(season));
+    }
+
+    @Test
+    public void isSecondDriverFalse() {
+        assertFalse(driver.isSecondDriver(season));
+    }
+
+    @Test
+    public void isSecondDriverFail() {
+        assertFalse(salaryDifferent.isSecondDriver(season));
     }
 
     @Test

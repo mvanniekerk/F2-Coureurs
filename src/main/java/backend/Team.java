@@ -303,6 +303,18 @@ public class Team {
     }
 
     /**
+     * Swaps the driver in the argument to for the existing driver.
+     *
+     * @param driver the new driver
+     * @return the old driver
+     */
+    public Driver swapSecondDriver(Driver driver) {
+        Driver oldDriver = getSecondDriver();
+        setSecondDriver(driver);
+        return oldDriver;
+    }
+
+    /**
      * Sets the first Driver.
      *
      * @param driver the new Driver
