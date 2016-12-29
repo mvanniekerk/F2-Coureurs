@@ -9,7 +9,7 @@
 
 <Pane id="select-driver" maxHeight="-Infinity" maxWidth="-Infinity"
       minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0"
-      fx:controller="frontend.controllers.SelectDriverController"
+      fx:controller="frontend.controllers.SelectTeamMemberController"
       stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
 
     <!-- settings-quit -->
@@ -62,12 +62,15 @@
             <Image url="@../media/icons/driver.png" />
         </ImageView>
 
-        <Pane fx:id="playerTable" layoutX="30" layoutY="110" prefHeight="560" prefWidth="1080" styleClass="table-view" >
+        <!-- table header -->
+        <Pane layoutX="30" layoutY="110" prefHeight="40" styleClass="table-view" style="-fx-font-weight: bold">
             <Label prefWidth="220" styleClass="table-header" text="Name" />
             <Label prefWidth="220" layoutX="220" styleClass="table-header" text="Current team" />
             <Label prefWidth="220" layoutX="440" styleClass="table-header" text="Salary" />
             <Label prefWidth="220" layoutX="660" styleClass="table-header" text="Buyout clause" />
             <Label prefWidth="220" layoutX="880" styleClass="table-header" text="Ability" />
         </Pane>
+
+        <Pane fx:id="playerTable" layoutX="30" layoutY="150" prefHeight="520" prefWidth="1080" styleClass="table-view" />
     </Pane>
 </Pane>

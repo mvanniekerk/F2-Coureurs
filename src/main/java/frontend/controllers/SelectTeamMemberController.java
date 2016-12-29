@@ -15,9 +15,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
 
-public class SelectDriverController {
+public class SelectTeamMemberController {
     @FXML private Label driver1Name;
     @FXML private Label driver1Salary;
     @FXML private Label driver1Quality;
@@ -31,13 +30,11 @@ public class SelectDriverController {
     @FXML private Pane tableBox;
     private Season season;
     private Staff newStaffMember;
-    private List<Staff> buyable;
 
     /**
-     * Initialises the controller with text.
+     * Initialises the controller.
      */
-    @FXML
-    public void initialize() {
+    public void load() {
         season = GameEngine.getInstance().getSeason();
         Team playerTeam = season.getPlayerControlledTeam();
 
@@ -45,13 +42,11 @@ public class SelectDriverController {
         driver1Salary.setText(playerTeam.getFirstDriver().getSalaryString());
         driver1Quality.setText(playerTeam.getFirstDriver().getQualityString());
 
-        buyable = season.getAllNonPlayerControlledDrivers();
-
         // scrollBar seems to misbehave when put inside the fxml file
         // Probably because the listener gets added after initialization?
         scrollBar = new ScrollBar();
         scrollBar.setMin(0);
-        scrollBar.setMax(buyable.size() - 15);
+        scrollBar.setMax(season.getAllNonPlayerControlledDrivers().size() - 15);
         scrollBar.setUnitIncrement(1);
         scrollBar.setValue(0);
         scrollBar.setOrientation(Orientation.VERTICAL);
@@ -60,7 +55,6 @@ public class SelectDriverController {
         scrollBar.setLayoutY(140);
         scrollBar.valueProperty().addListener((observable, oldValue, newValue) -> {
             setAllPotentialTeamMembers(newValue.intValue());
-            System.out.println(newValue.intValue());
             });
         tableBox.getChildren().add(scrollBar);
         setAllPotentialTeamMembers(0);
@@ -68,8 +62,8 @@ public class SelectDriverController {
 
     private void setAllPotentialTeamMembers(int position) {
         playerTable.getChildren().clear();
-        int increment = 1;
-        for (Staff staff : buyable.subList(position,position + 15)) {
+        int increment = 0;
+        for (Staff staff : season.getAllNonPlayerControlledDrivers().subList(position,position + 15)) {
             playerTable.getChildren().add(getTeamMemberPane(staff, increment));
             increment++;
         }

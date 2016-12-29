@@ -87,7 +87,11 @@ public class EditTeamController {
      */
     @FXML
     public void editDriver(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/views/select-team-member.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/select-team-member.fxml"));
+        Parent root = (Parent) loader.load();
+        SelectTeamMemberController controller = loader.getController();
+        controller.load();
+
         Stage stage = (Stage) budget.getScene().getWindow();
         stage.getScene().setRoot(root);
     }
