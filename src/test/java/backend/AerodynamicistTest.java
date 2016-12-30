@@ -61,4 +61,9 @@ public class  AerodynamicistTest {
         assertEquals(aerodynamicist.getQualityString(), "★★");
     }
 
+    @Test
+    public void getJobDescription() {
+        assertEquals("aerodynamicist", aerodynamicist.getJobTitle());
+    }
+
 }

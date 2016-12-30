@@ -25,6 +25,12 @@ public class MechanicTest {
     }
 
     @Test
+    public void getJobDescription() {
+        assertEquals("mechanic", mechanic.getJobTitle());
+    }
+
+
+    @Test
     public void constructorTest_salary() {
         assertEquals(100000, mechanic.getSalary());
     }

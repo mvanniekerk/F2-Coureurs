@@ -153,6 +153,10 @@ public class Driver extends Staff {
         return false;
     }
 
+    public String getJobTitle() {
+        return "driver";
+    }
+
     /**
      * Checks for equality between the object and its attributes.
      *

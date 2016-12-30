@@ -29,6 +29,8 @@ public abstract class Staff {
         return name;
     }
 
+    public abstract String getJobTitle();
+
     /**
      * Set the name of the staff member.
      *

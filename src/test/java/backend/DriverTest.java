@@ -160,6 +160,11 @@ public class DriverTest {
     }
 
     @Test
+    public void getJobDescription() {
+        assertEquals("driver", driver.getJobTitle());
+    }
+
+    @Test
     public void isSecondDriverFail() {
         assertFalse(salaryDifferent.isSecondDriver(season));
     }

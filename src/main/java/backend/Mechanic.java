@@ -33,6 +33,10 @@ public class Mechanic extends Staff {
         return (reliability + partFixing + pitstops) / 3f;
     }
 
+    public String getJobTitle() {
+        return "mechanic";
+    }
+
     /**
      * Checks for equality between the object and its attributes.
      *

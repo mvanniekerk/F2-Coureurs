@@ -1,5 +1,7 @@
 package frontend.controllers;
 
+import backend.GameEngine;
+import backend.Season;
 import backend.Staff;
 import backend.Team;
 import javafx.fxml.FXML;
@@ -9,18 +11,17 @@ public class TransferOfferController {
     @FXML private Label teamName;
     @FXML private Label personToTransfer;
     @FXML private Label priceLabel;
-    Team team;
-    Staff transferCandidate;
-    int price;
+    private Team team;
+    private Staff transferCandidate;
+    private Season season;
 
-    public void load(Team team, Staff transferCandidate, int price) {
+    public void load(Team team, Staff transferCandidate) {
+        season = GameEngine.getInstance().getSeason();
         this.team = team;
         this.transferCandidate = transferCandidate;
-        this.price = price;
 
         teamName.setText(team.getName() + " would like to buy");
-        personToTransfer.setText(transferCandidate.getClass().toString() + " " + transferCandidate.getName());
-        priceLabel.setText(String.valueOf(price));
-
+        personToTransfer.setText(transferCandidate.getJobTitle() + " " + transferCandidate.getName());
+        priceLabel.setText("for " + transferCandidate.getBuyoutClauseString(season));
     }
 }

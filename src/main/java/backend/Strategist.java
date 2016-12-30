@@ -12,6 +12,10 @@ public class Strategist extends Staff {
         super(name, salary, buyoutClause);
     }
 
+    public String getJobTitle() {
+        return "strategist";
+    }
+
     /**
      * Finds the quality of the strategist by combining all its attributes.
      *
