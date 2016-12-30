@@ -25,20 +25,32 @@ public class SeasonTest {
     private Driver driver;
     private Driver driver2;
     private Driver driver3;
+    private Driver samedriver3;
     private Driver driver4;
     private Driver driver5;
     private Aerodynamicist aerodynamicist;
     private Aerodynamicist aerodynamicist2;
     private Aerodynamicist aerodynamicist3;
+    private Aerodynamicist sameaerodynamicist3;
     private Mechanic mechanic;
     private Mechanic mechanic2;
     private Mechanic mechanic3;
+    private Mechanic samemechanic3;
     private Strategist strategist;
     private Strategist strategist2;
     private Strategist strategist3;
+    private Strategist samestrategist3;
     private Engine engine;
     private Race race;
+    private Race samerace;
     private String simple;
+    private Driver samedriver;
+    private Aerodynamicist sameaerodynamicist;
+    private Driver samedriver2;
+    private Mechanic samemechanic;
+    private Strategist samestrategist;
+    private Engine sameengine;
+    private Team sameteam;
 
     @Before
     public void setUp() {
@@ -52,6 +64,18 @@ public class SeasonTest {
                 engine, aerodynamicist, mechanic, strategist);
         team.setFirstDriver(driver);
         team.setSecondDriver(driver2);
+
+        samedriver = new Driver("Kimi Raikkonen", 16, 100,50, 50, 50, false);
+        samedriver2 = new Driver("Lewis Hamilton", 18, 100,58, 52, 40, true);
+        sameaerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 100);
+        samemechanic = new Mechanic("Steve Matchett", 100000, 100, 50, 50, 50);
+        samestrategist = new Strategist("Anonyme", 1000000, 10000000);
+        sameengine = new Engine(900, 70, 80, "Mercedes");
+        sameteam = new Team("F2", "User", 2500000,
+                engine, aerodynamicist, mechanic, strategist);
+        sameteam.setFirstDriver(samedriver);
+        sameteam.setSecondDriver(samedriver2);
+
 
 
         driver4 = new Driver("Kimi", 16, 1000,50, 50, 50, false);
@@ -69,6 +93,11 @@ public class SeasonTest {
         this.sameSeason = new Season();
         this.otherSeason = new Season();
 
+        samedriver3 = new Driver("Kim", 16, 100, 58, 52, 40, true);
+        sameaerodynamicist3 = new Aerodynamicist("Dan Brown", 700000, 100);
+        samemechanic3 = new Mechanic("Steve Jobs", 100000, 100, 50, 50, 50);
+        samestrategist3 = new Strategist("Anon the hacker", 1000000, 10000000);
+
         driver3 = new Driver("Kim", 16, 100, 58, 52, 40, true);
         aerodynamicist3 = new Aerodynamicist("Dan Brown", 700000, 100);
         mechanic3 = new Mechanic("Steve Jobs", 100000, 100, 50, 50, 50);
@@ -82,16 +111,17 @@ public class SeasonTest {
         this.season.addContractStaffMember(strategist3);
 
         this.otherSeason.addTeam(team);
-        this.sameSeason.addTeam(team);
+        this.sameSeason.addTeam(sameteam);
         this.sameSeason.addTeam(team2);
-        this.sameSeason.addContractStaffMember(driver3);
-        this.sameSeason.addContractStaffMember(aerodynamicist3);
-        this.sameSeason.addContractStaffMember(mechanic3);
-        this.sameSeason.addContractStaffMember(strategist3);
+        this.sameSeason.addContractStaffMember(samedriver3);
+        this.sameSeason.addContractStaffMember(sameaerodynamicist3);
+        this.sameSeason.addContractStaffMember(samemechanic3);
+        this.sameSeason.addContractStaffMember(samestrategist3);
 
         race = new Race(new Setup(Setup.LOW_RISK), new Strategy(Strategy.HIGH_RISK), "Circuit de Monaco", 8);
+        samerace = new Race(new Setup(Setup.LOW_RISK), new Strategy(Strategy.HIGH_RISK), "Circuit de Monaco", 8);
         this.season.addRace(race);
-        this.sameSeason.addRace(race);
+        this.sameSeason.addRace(samerace);
         this.otherSeason.addRace(race);
 
         simple = "{\"currentRound\":0,\"rounds\":[],\"teams\":[],\"contractAerodynamicists\":[],\"contractDrivers\":[],\"contractMechanics\":[],\"contractStrategists\":[]}";
@@ -294,6 +324,60 @@ public class SeasonTest {
     }
 
     @Test
+    public void transferTeamStrat() {
+        season.transfer(strategist2, team);
+        assertEquals(strategist2, team.getStrategist());
+    }
+
+    @Test
+    public void transferTeamStrat2() {
+        season.transfer(strategist2, team);
+        assertEquals(strategist3, team2.getStrategist());
+    }
+
+    @Test
+    public void transferTeamStrat3() {
+        season.transfer(strategist2, team);
+        assertTrue(season.getContractStrategists().contains(strategist));
+    }
+
+    @Test
+    public void transferTeamMechanic() {
+        season.transfer(mechanic2, team);
+        assertEquals(mechanic2, team.getMechanic());
+    }
+
+    @Test
+    public void transferTeamMechanic2() {
+        season.transfer(mechanic2, team);
+        assertEquals(mechanic3, team2.getMechanic());
+    }
+
+    @Test
+    public void transferTeamMechanic3() {
+        season.transfer(mechanic2, team);
+        assertTrue(season.getContractMechanics().contains(mechanic));
+    }
+
+    @Test
+    public void transferTeamAero() {
+        season.transfer(aerodynamicist2, team);
+        assertEquals(aerodynamicist2, team.getAerodynamicist());
+    }
+
+    @Test
+    public void transferTeamAero2() {
+        season.transfer(aerodynamicist2, team);
+        assertEquals(aerodynamicist3, team2.getAerodynamicist());
+    }
+
+    @Test
+    public void transferTeamAero3() {
+        season.transfer(aerodynamicist2, team);
+        assertTrue(season.getContractAerodynamicists().contains(aerodynamicist));
+    }
+
+    @Test
     public void roundIntTest() {
         assertEquals(0, season.getRoundInt());
     }
@@ -397,4 +481,74 @@ public class SeasonTest {
         assertNotEquals(season, new String());
     }
 
+    @Test
+    public void equalsDiffNumRounds() {
+        sameSeason.setRounds(new ArrayList<>());
+        assertNotEquals(season, sameSeason);
+    }
+
+    @Test
+    public void setRound() {
+        sameSeason.setRounds(new ArrayList<>());
+        assertEquals(new ArrayList<Race>(), sameSeason.getRounds());
+    }
+
+    @Test
+    public void equalsDiffNumDrivers() {
+        sameSeason.addContractStaffMember(driver);
+        assertNotEquals(sameSeason, season);
+    }
+
+    @Test
+    public void equalsDiffNumAero() {
+        sameSeason.addContractStaffMember(aerodynamicist);
+        assertNotEquals(sameSeason, season);
+    }
+
+    @Test
+    public void equalsDiffNumMech() {
+        sameSeason.addContractStaffMember(mechanic);
+        assertNotEquals(sameSeason, season);
+    }
+
+    @Test
+    public void equalsDiffNumStrat() {
+        sameSeason.addContractStaffMember(strategist);
+        assertNotEquals(sameSeason, season);
+    }
+
+    @Test
+    public void equalsDiffDriver() {
+        samedriver3.setPoints(200);
+        assertNotEquals(sameSeason, season);
+    }
+
+    @Test
+    public void equalsDiffMech() {
+        samemechanic3.setSalary(31);
+        assertNotEquals(sameSeason, season);
+    }
+
+    @Test
+    public void equalsDiffAero() {
+        sameaerodynamicist3.setSalary(31);
+        assertNotEquals(sameSeason, season);
+    }
+
+    @Test
+    public void equalsDiffStrat() {
+        samestrategist3.setSalary(13);
+        assertNotEquals(sameSeason, season);
+    }
+
+    @Test
+    public void equalsDiffTeams() {
+        sameteam.setBudget(1);
+        assertNotEquals(sameSeason, season);
+    }
+
+    @Test
+    public void equalsDiffRace() {
+        // TODO no set methods in race
+    }
 }

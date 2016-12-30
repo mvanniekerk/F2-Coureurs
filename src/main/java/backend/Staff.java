@@ -89,6 +89,10 @@ public abstract class Staff {
         return buyoutClause;
     }
 
+    public void setBuyoutClause(int buyoutClause) {
+        this.buyoutClause = buyoutClause;
+    }
+
     /**
      * Gets the team that the staff member is in.
      * If the staff member is not in a team, return null.

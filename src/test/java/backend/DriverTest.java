@@ -3,6 +3,8 @@ package backend;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Locale;
+
 import static org.junit.Assert.*;
 
 public class DriverTest {
@@ -108,6 +110,12 @@ public class DriverTest {
     }
 
     @Test
+    public void buyoutDiffers() {
+        sameDriver.setBuyoutClause(120);
+        assertNotEquals(driver, sameDriver);
+    }
+
+    @Test
     public void raceWinsDiffers() {
         Driver dr = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
         dr.setRaceWins(1);
@@ -167,6 +175,46 @@ public class DriverTest {
     @Test
     public void isSecondDriverFail() {
         assertFalse(salaryDifferent.isSecondDriver(season));
+    }
+
+    @Test
+    public void setName() {
+        driver.setName("something");
+        assertEquals("something", driver.getName());
+    }
+
+    @Test
+    public void setSalary() {
+        driver.setSalary(2345);
+        assertEquals(2345, driver.getSalary());
+    }
+
+    @Test
+    public void getSalaryString() {
+        //TODO: Change for different locales
+        String locale = Locale.getDefault().toLanguageTag();
+        if (locale.equals("nl-NL")) {
+            assertEquals("€ 16,00", driver.getSalaryString());
+        } else if (locale.equals("en-US")) {
+            assertEquals("$16.00", driver.getSalaryString());
+        } else {
+            System.out.println("Untested locale :" + locale + " giving " + driver.getSalaryString());
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void getBuyoutString() {
+        //TODO: Change for different locales
+        String locale = Locale.getDefault().toLanguageTag();
+        if (locale.equals("nl-NL")) {
+            assertEquals("€ 100,00", driver.getBuyoutClauseString(season));
+        } else if (locale.equals("en-US")) {
+            assertEquals("$100.00", driver.getBuyoutClauseString(season));
+        } else {
+            System.out.println("Untested locale :" + locale + " giving " + driver.getBuyoutClause(season));
+            assertTrue(true);
+        }
     }
 
     @Test

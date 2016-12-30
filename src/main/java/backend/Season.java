@@ -66,6 +66,24 @@ public class Season {
     }
 
     /**
+     * Gets the rounds as a list.
+     *
+     * @return rounds
+     */
+    public List<Race> getRounds() {
+        return rounds;
+    }
+
+    /**
+     * Sets the rounds.
+     *
+     * @param rounds new rounds
+     */
+    public void setRounds(List<Race> rounds) {
+        this.rounds = rounds;
+    }
+
+    /**
      * Adds a team to the season.
      *
      * @param team the team to add
