@@ -380,6 +380,23 @@ public class Team {
         return true;
     }
 
+    private boolean metaDataEquals(Team that) {
+        return that.pointsAlltime == this.pointsAlltime
+            && that.pointsThisSeason == this.pointsThisSeason
+            && that.winsAlltime == this.winsAlltime
+            && that.winsThisSeason == this.winsThisSeason
+            && that.budget == this.budget
+            && that.name.equals(this.name);
+    }
+
+    private boolean staffEquals(Team that) {
+        return that.manager.equals(this.manager)
+            && that.engine.equals(this.engine)
+            && that.aerodynamicist.equals(this.aerodynamicist)
+            && that.mechanic.equals(this.mechanic)
+            && that.strategist.equals(this.strategist);
+    }
+
     /**
      * Report on whether or not the object is equal to team.
      *
@@ -388,23 +405,11 @@ public class Team {
      */
     @Override
     public boolean equals(Object other) {
-        //TODO: Reduce complexity
         if (other instanceof Team) {
             Team team = (Team) other;
-            boolean boPointAll = getPointsAlltime() == team.getPointsAlltime();
-            boolean boPointThis = getPointsThisSeason() == team.getPointsThisSeason();
-            boolean boWinAll = getWinsAlltime() == team.getWinsAlltime();
-            boolean boWinThis = getWinsThisSeason() == team.getWinsThisSeason();
-            boolean boBudget = getBudget() == team.getBudget();
-            boolean boName = getName().equals(team.getName());
-            boolean boManager = getManager().equals(team.getManager());
-            boolean boEngine = getEngine().equals(team.getEngine());
-            boolean boAerodynamicist = getAerodynamicist().equals(team.getAerodynamicist());
-            boolean boMechanic = getMechanic().equals(team.getMechanic());
-            boolean boStrategist = getStrategist().equals(team.getStrategist());
-            return boPointAll && boPointThis && boPointAll && boWinAll && boWinThis
-                    && boBudget && boName && boManager && boEngine && boAerodynamicist
-                    && boMechanic && boStrategist && driversEquals(team);
+            return metaDataEquals(team)
+                && staffEquals(team)
+                && driversEquals(team);
         }
         return false;
     }

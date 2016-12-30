@@ -323,6 +323,34 @@ public class TeamTest {
     }
 
     @Test
+    public void diffSeasonPoints() {
+        Team diffPoints = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        diffPoints.setPointsThisSeason(2);
+        assertNotEquals(diffPoints, team);
+    }
+
+    @Test
+    public void diffAllPoints() {
+        Team diffPoints = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        diffPoints.setPointsAlltime(2);
+        assertNotEquals(diffPoints, team);
+    }
+
+    @Test
+    public void diffAllWins() {
+        Team diffPoints = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        diffPoints.setWinsAlltime(2);
+        assertNotEquals(diffPoints, team);
+    }
+
+    @Test
+    public void diffThisWins() {
+        Team diffPoints = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        diffPoints.setWinThisSeason(2);
+        assertNotEquals(diffPoints, team);
+    }
+
+    @Test
     public void swapDriverReturn() {
         assertEquals(driver, team.swapStaffMember(driver3));
     }
