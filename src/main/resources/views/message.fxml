@@ -18,8 +18,8 @@
 
     <!-- Budget -->
     <!-- settings-quit -->
-    <Button id="red" layoutY="570" layoutX="560" style="-fx-pref-width: 380" text="Refuse" />
-    <Button styleClass="green" layoutY="570" layoutX="980" style="-fx-pref-width: 380" text="Accept" />
+    <Button onAction="#refuse" id="red" layoutY="570" layoutX="560" style="-fx-pref-width: 380" text="Refuse" />
+    <Button onAction="#accept" styleClass="green" layoutY="570" layoutX="980" style="-fx-pref-width: 380" text="Accept" />
 
 
 </Pane>

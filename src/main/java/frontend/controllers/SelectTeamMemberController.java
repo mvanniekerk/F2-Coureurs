@@ -109,7 +109,7 @@ public class SelectTeamMemberController {
         // enable scrolling
         playerTable.setOnScroll((ScrollEvent event) -> {
             double newValue = scrollBar.getValue() - event.getDeltaY() / 50;
-            if (newValue < 0 || newValue > scrollBar.getMax()) {
+            if (newValue < 0 || newValue > scrollBar.getMax() + 1) {
                 return;
             }
             scrollBar.setValue(newValue);
