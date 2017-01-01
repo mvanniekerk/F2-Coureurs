@@ -9,9 +9,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Season {
     private int currentRound;
@@ -101,6 +100,20 @@ public class Season {
         return this.teams;
     }
 
+
+    /**
+     * Gets all the engines in the season.
+     *
+     * @return the engines
+     */
+    public List<Engine> getNonPayerEngines() {
+        // TODO test
+        return teams.stream()
+                .map(Team::getEngine)
+                .distinct()
+                .filter((en) -> en.equals(getPlayerControlledTeam().getEngine()))
+                .collect(Collectors.toList());
+    }
 
     /**
      * Gets the team that the player controls.

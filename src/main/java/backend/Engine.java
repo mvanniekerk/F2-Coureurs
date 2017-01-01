@@ -31,6 +31,17 @@ public class Engine {
     }
 
     /**
+     * Gets the quality as a human readable string (of stars).
+     *
+     * @return 1 to 5 stars
+     */
+    public String getQualityString() {
+        // TODO test
+        int numStars = (int) getQuality() / 20;
+        return new String(new char[numStars]).replace("\0", "★");
+    }
+
+    /**
      * Get the power of the engine.
      *
      * @return the power of the engine
