@@ -142,15 +142,17 @@ public class SelectTeamMemberController {
      */
     @FXML
     public void confirm(ActionEvent event) throws IOException {
-        if (replaceSecondDriver) {
-            season.transfer(newStaffMember, season.getPlayerControlledTeam(), replaceSecondDriver);
-        } else {
-            season.transfer(newStaffMember, season.getPlayerControlledTeam());
-        }
+        if (newStaffMember != null) {
+            if (replaceSecondDriver) {
+                season.transfer(newStaffMember, season.getPlayerControlledTeam(), replaceSecondDriver);
+            } else {
+                season.transfer(newStaffMember, season.getPlayerControlledTeam());
+            }
 
-        Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
-        Stage stage = (Stage) teamMateName.getScene().getWindow();
-        stage.getScene().setRoot(root);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
+            Stage stage = (Stage) teamMateName.getScene().getWindow();
+            stage.getScene().setRoot(root);
+        }
     }
 
     /**

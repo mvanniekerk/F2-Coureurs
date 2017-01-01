@@ -106,12 +106,12 @@ public class Season {
      *
      * @return the engines
      */
-    public List<Engine> getNonPayerEngines() {
+    public List<Engine> getNonPlayerEngines() {
         // TODO test
         return teams.stream()
                 .map(Team::getEngine)
                 .distinct()
-                .filter((en) -> en.equals(getPlayerControlledTeam().getEngine()))
+                .filter((en) -> !en.equals(getPlayerControlledTeam().getEngine()))
                 .collect(Collectors.toList());
     }
 

@@ -3,6 +3,7 @@ package frontend.controllers;
 import backend.GameEngine;
 import backend.Season;
 import backend.Team;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -168,5 +169,10 @@ public class EditTeamController {
         stage.getScene().setRoot(root);
     }
 
-
+    @FXML
+    public void editEngine(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/views/select-engine.fxml"));
+        Stage stage = (Stage) budget.getScene().getWindow();
+        stage.getScene().setRoot(root);
+    }
 }

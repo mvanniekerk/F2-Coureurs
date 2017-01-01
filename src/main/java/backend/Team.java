@@ -211,6 +211,16 @@ public class Team {
     }
 
     /**
+     * Changes the engine in game.
+     *
+     * @param engine the new engine
+     */
+    public void changeEngine(Engine engine) {
+        this.engine = engine;
+        budget = budget - 20000000; // static for now
+    }
+
+    /**
      * Get the aerodynamicist.
      *
      * @return the aerodynamicist

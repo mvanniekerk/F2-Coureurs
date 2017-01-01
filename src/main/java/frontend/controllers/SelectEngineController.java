@@ -5,13 +5,17 @@ import backend.GameEngine;
 import backend.Season;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class SelectEngineController {
     private Season season;
+    private Engine newEngine;
     @FXML private Label engineName;
     @FXML private Label engineQuality;
     @FXML private Label newEngineName;
@@ -30,7 +34,7 @@ public class SelectEngineController {
 
         engineTable.getChildren().clear();
         int inc = 0;
-        for (Engine engine : season.getNonPayerEngines()) {
+        for (Engine engine : season.getNonPlayerEngines()) {
             engineTable.getChildren().add(getEnginePane(engine, inc));
             inc++;
         }
@@ -43,6 +47,8 @@ public class SelectEngineController {
             newEngineName.setText(engine.getName());
             newPrice.setText("$ 2,000,000.00");
             newQuality.setText(engine.getQualityString());
+            budget.setText(season.getPlayerControlledTeam().getBudgetString(2000000));
+            newEngine = engine;
         });
         returnPane.setLayoutY(35 * position);
 
@@ -65,11 +71,18 @@ public class SelectEngineController {
 
     @FXML
     public void confirm(ActionEvent event) throws IOException {
-
+        if (newEngine != null) {
+            season.getPlayerControlledTeam().changeEngine(newEngine);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
+            Stage stage = (Stage) budget.getScene().getWindow();
+            stage.getScene().setRoot(root);
+        }
     }
 
     @FXML
     public void cancel(ActionEvent event) throws IOException {
-
+        Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
+        Stage stage = (Stage) budget.getScene().getWindow();
+        stage.getScene().setRoot(root);
     }
 }

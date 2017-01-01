@@ -32,7 +32,7 @@
     </Pane>
 
     <!-- Buttons -->
-    <Button styleClass="edit-team" layoutX="80" layoutY="380">
+    <Button onAction="#editEngine" styleClass="edit-team" layoutX="80" layoutY="380">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
                 <Label fx:id="engine" alignment="CENTER_RIGHT" text="Engine"/>
