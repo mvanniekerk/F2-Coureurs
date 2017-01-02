@@ -41,6 +41,7 @@ public class SeasonTest {
     private Strategist strategist3;
     private Strategist samestrategist3;
     private Engine engine;
+    private Engine otherEngine;
     private Race race;
     private Race samerace;
     private String simple;
@@ -59,7 +60,8 @@ public class SeasonTest {
         aerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 100);
         mechanic = new Mechanic("Steve Matchett", 100000, 100, 50, 50, 50);
         strategist = new Strategist("Anonyme", 1000000, 10000000);
-        engine = new Engine(900, 70, 80, "Mercedes");
+        engine = new Engine(90, 70, 80, "Mercedes");
+        otherEngine = new Engine(90, 60, 80, "Ferrari");
         team = new Team("F2", "User", 2500000,
                 engine, aerodynamicist, mechanic, strategist);
         team.setFirstDriver(driver);
@@ -84,7 +86,7 @@ public class SeasonTest {
         mechanic2 = new Mechanic("Steve", 100000, 100, 50, 50, 50);
         strategist2 = new Strategist("Anon", 1000000, 10000000);
         team2 = new Team("F3", "Not me", 2500000,
-                engine, aerodynamicist2, mechanic2, strategist2);
+                otherEngine, aerodynamicist2, mechanic2, strategist2);
         team2.setFirstDriver(driver4);
         team2.setSecondDriver(driver5);
 
@@ -551,4 +553,20 @@ public class SeasonTest {
     public void equalsDiffRace() {
         // TODO no set methods in race
     }
+
+    @Test
+    public void nonPlayerEngines() {
+        ArrayList<Engine> engineList = new ArrayList<>();
+        engineList.add(otherEngine);
+        assertEquals(engineList, season.getNonPlayerEngines());
+    }
+
+    @Test
+    public void nonPlayerEngines2() {
+        ArrayList<Engine> engineList = new ArrayList<>();
+        season.getTeams().get(1).setEngine(engine);
+        assertEquals(engineList, season.getNonPlayerEngines());
+    }
+
+
 }

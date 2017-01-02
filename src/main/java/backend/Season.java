@@ -9,7 +9,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Season {
@@ -107,11 +109,10 @@ public class Season {
      * @return the engines
      */
     public List<Engine> getNonPlayerEngines() {
-        // TODO test
         return teams.stream()
                 .map(Team::getEngine)
+                .filter((Engine en) -> !getPlayerControlledTeam().getEngine().equals(en))
                 .distinct()
-                .filter((en) -> !en.equals(getPlayerControlledTeam().getEngine()))
                 .collect(Collectors.toList());
     }
 
@@ -493,6 +494,11 @@ public class Season {
      */
     public static void main(String[] args) throws IOException {
         Season season = Season.loadNewGameFromSeasonStart();
+        List<Engine> engines = season.getNonPlayerEngines();
+        for (Engine engine : engines) {
+            System.out.println(engine.getName());
+        }
         season.save("save1.json");
+
     }
 }

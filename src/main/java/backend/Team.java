@@ -217,7 +217,7 @@ public class Team {
      */
     public void changeEngine(Engine engine) {
         this.engine = engine;
-        budget = budget - 20000000; // static for now
+        budget -= engine.getPrice();
     }
 
     /**

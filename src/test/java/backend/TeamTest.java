@@ -247,6 +247,19 @@ public class TeamTest {
     }
 
     @Test
+    public void changeEnginePriceTest() {
+        team.changeEngine(otherEngine);
+        assertEquals(500000, team.getBudget());
+    }
+
+    @Test
+    public void changeEngineEngineTest() {
+        team.changeEngine(otherEngine);
+        assertEquals(otherEngine, team.getEngine());
+    }
+
+
+    @Test
     public void getBudgetStringTest() {
         //TODO: Change for different locales
         String locale = Locale.getDefault().toLanguageTag();
