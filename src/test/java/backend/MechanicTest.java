@@ -59,4 +59,15 @@ public class MechanicTest {
     public void equalsOtherObject() {
         assertNotEquals(mechanic, new String());
     }
+
+    @Test
+    public void reliabilityDiffers() {
+        Mechanic almostMechanic = new Mechanic("Steve Matchett", 100000, 1000000, 40, 50, 50);
+        assertNotEquals(mechanic, almostMechanic);
+    }
+
+    @Test
+    public void equalsnull() {
+        assertNotEquals(null, mechanic);
+    }
 }

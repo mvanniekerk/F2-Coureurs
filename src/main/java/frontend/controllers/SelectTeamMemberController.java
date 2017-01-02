@@ -144,7 +144,8 @@ public class SelectTeamMemberController {
     public void confirm(ActionEvent event) throws IOException {
         if (newStaffMember != null) {
             if (replaceSecondDriver) {
-                season.transfer(newStaffMember, season.getPlayerControlledTeam(), replaceSecondDriver);
+                season.transfer(newStaffMember,
+                        season.getPlayerControlledTeam(), replaceSecondDriver);
             } else {
                 season.transfer(newStaffMember, season.getPlayerControlledTeam());
             }

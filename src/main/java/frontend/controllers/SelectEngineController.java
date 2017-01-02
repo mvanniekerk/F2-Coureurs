@@ -25,7 +25,9 @@ public class SelectEngineController {
     @FXML private Pane engineTable;
 
 
-
+    /**
+     * Initializes the engine controller.
+     */
     @FXML
     public void initialize() {
         season = GameEngine.getInstance().getSeason();
@@ -69,6 +71,12 @@ public class SelectEngineController {
         return returnPane;
     }
 
+    /**
+     * Saves the engine and deducts the money from the budget.
+     * After that, it loads the edit team screen.
+     * @param event not using it
+     * @throws IOException not throwing it
+     */
     @FXML
     public void confirm(ActionEvent event) throws IOException {
         if (newEngine != null) {
@@ -79,6 +87,12 @@ public class SelectEngineController {
         }
     }
 
+    /**
+     * Cancels the transaction and loads the previous screen.
+     *
+     * @param event not using it
+     * @throws IOException not throwing it
+     */
     @FXML
     public void cancel(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
