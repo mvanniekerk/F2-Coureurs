@@ -32,7 +32,7 @@
     </Pane>
 
     <!-- Buttons -->
-    <Button styleClass="edit-team" layoutX="80" layoutY="380">
+    <Button onAction="#editEngine" styleClass="edit-team" layoutX="80" layoutY="380">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
                 <Label fx:id="engine" alignment="CENTER_RIGHT" text="Engine"/>
@@ -56,7 +56,7 @@
         </graphic>
     </Button>
 
-    <Button styleClass="edit-team" layoutX="80" layoutY="660">
+    <Button onAction="#editDriver2" styleClass="edit-team" layoutX="80" layoutY="660">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
                 <Label fx:id="secondDriver" alignment="CENTER_RIGHT" text="Second Driver"/>
@@ -68,7 +68,7 @@
         </graphic>
     </Button>
 
-    <Button styleClass="edit-team" layoutX="700" layoutY="380">
+    <Button onAction="#editStrategist" styleClass="edit-team" layoutX="700" layoutY="380">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
                 <Label fx:id="strategist" alignment="CENTER_RIGHT" text="Strategist"/>
@@ -80,7 +80,7 @@
         </graphic>
     </Button>
 
-    <Button styleClass="edit-team" layoutX="700" layoutY="520">
+    <Button onAction="#editAerodynamiscist" styleClass="edit-team" layoutX="700" layoutY="520">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
                 <Label fx:id="aerodynamicist" alignment="CENTER_RIGHT" text="Aerodynamicist"/>
@@ -92,7 +92,7 @@
         </graphic>
     </Button>
 
-    <Button styleClass="edit-team" layoutX="700" layoutY="660">
+    <Button onAction="#editMechanic" styleClass="edit-team" layoutX="700" layoutY="660">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
                 <Label fx:id="mechanic" alignment="CENTER_RIGHT" text="Mechanic"/>

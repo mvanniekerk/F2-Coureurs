@@ -51,12 +51,11 @@ public class EditTeamController {
     @FXML
     public void cancel(ActionEvent event) throws IOException {
         // TODO generalize the save-game name by adding an attribute to Season
+        GameEngine.getInstance().setSeason(Season.load("save1.json"));
+        season = GameEngine.getInstance().getSeason();
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
         Stage stage = (Stage) budget.getScene().getWindow();
-
-        GameEngine.getInstance().setSeason(Season.load("save1.json"));
-        season = GameEngine.getInstance().getSeason();
 
         stage.getScene().setRoot(root);
     }
@@ -70,11 +69,11 @@ public class EditTeamController {
     @FXML
     public void save(ActionEvent event) throws IOException {
         // TODO generalize the save-game name by adding an attribute to Season
+        season.save("save1.json");
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
         Stage stage = (Stage) budget.getScene().getWindow();
 
-        season.save("save1.json");
 
         stage.getScene().setRoot(root);
     }
@@ -87,10 +86,98 @@ public class EditTeamController {
      */
     @FXML
     public void editDriver(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/views/select-team-member.fxml"));
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/views/select-team-member.fxml"));
+        Parent root = (Parent) loader.load();
+        SelectTeamMemberController controller = loader.getController();
+        controller.load("driver1");
+
         Stage stage = (Stage) budget.getScene().getWindow();
         stage.getScene().setRoot(root);
     }
 
+    /**
+     * Button handler goes to the select team member.
+     *
+     * @param event don't use it
+     * @throws IOException throws if the fxml file can not be found
+     */
+    @FXML
+    public void editAerodynamiscist(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/views/select-team-member.fxml"));
+        Parent root = (Parent) loader.load();
+        SelectTeamMemberController controller = loader.getController();
+        controller.load("aerodynamicist");
 
+        Stage stage = (Stage) budget.getScene().getWindow();
+        stage.getScene().setRoot(root);
+    }
+
+    /**
+     * Button handler goes to the select team member.
+     *
+     * @param event don't use it
+     * @throws IOException throws if the fxml file can not be found
+     */
+    @FXML
+    public void editMechanic(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/views/select-team-member.fxml"));
+        Parent root = (Parent) loader.load();
+        SelectTeamMemberController controller = loader.getController();
+        controller.load("mechanic");
+
+        Stage stage = (Stage) budget.getScene().getWindow();
+        stage.getScene().setRoot(root);
+    }
+
+    /**
+     * Button handler goes to the select team member.
+     *
+     * @param event don't use it
+     * @throws IOException throws if the fxml file can not be found
+     */
+    @FXML
+    public void editStrategist(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/views/select-team-member.fxml"));
+        Parent root = (Parent) loader.load();
+        SelectTeamMemberController controller = loader.getController();
+        controller.load("strategist");
+
+        Stage stage = (Stage) budget.getScene().getWindow();
+        stage.getScene().setRoot(root);
+    }
+
+    /**
+     * Button handler goes to the select team member.
+     *
+     * @param event don't use it
+     * @throws IOException throws if the fxml file can not be found
+     */
+    @FXML
+    public void editDriver2(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/views/select-team-member.fxml"));
+        Parent root = (Parent) loader.load();
+        SelectTeamMemberController controller = loader.getController();
+        controller.load("driver2");
+
+        Stage stage = (Stage) budget.getScene().getWindow();
+        stage.getScene().setRoot(root);
+    }
+
+    /**
+     * loads the edit engine screen.
+     *
+     * @param event not using it
+     * @throws IOException not throwing it
+     */
+    @FXML
+    public void editEngine(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/views/select-engine.fxml"));
+        Stage stage = (Stage) budget.getScene().getWindow();
+        stage.getScene().setRoot(root);
+    }
 }

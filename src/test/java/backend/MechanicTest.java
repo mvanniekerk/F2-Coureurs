@@ -25,6 +25,12 @@ public class MechanicTest {
     }
 
     @Test
+    public void getJobDescription() {
+        assertEquals("mechanic", mechanic.getJobTitle());
+    }
+
+
+    @Test
     public void constructorTest_salary() {
         assertEquals(100000, mechanic.getSalary());
     }
@@ -52,5 +58,16 @@ public class MechanicTest {
     @Test
     public void equalsOtherObject() {
         assertNotEquals(mechanic, new String());
+    }
+
+    @Test
+    public void reliabilityDiffers() {
+        Mechanic almostMechanic = new Mechanic("Steve Matchett", 100000, 1000000, 40, 50, 50);
+        assertNotEquals(mechanic, almostMechanic);
+    }
+
+    @Test
+    public void equalsnull() {
+        assertNotEquals(null, mechanic);
     }
 }

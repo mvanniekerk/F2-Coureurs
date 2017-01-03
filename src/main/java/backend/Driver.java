@@ -139,6 +139,25 @@ public class Driver extends Staff {
     }
 
     /**
+     * Finds out if a driver is the second driver of a team.
+     * returns false if the driver is not in a team.
+     *
+     * @param season the season
+     * @return true if the driver is a second driver, false otherwise
+     */
+    public boolean isSecondDriver(Season season) {
+        Team team = getTeam(season);
+        if (team != null) {
+            return equals(team.getSecondDriver());
+        }
+        return false;
+    }
+
+    public String getJobTitle() {
+        return "driver";
+    }
+
+    /**
      * Checks for equality between the object and its attributes.
      *
      * @param other object to check against

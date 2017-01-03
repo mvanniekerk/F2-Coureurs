@@ -29,6 +29,8 @@ public abstract class Staff {
         return name;
     }
 
+    public abstract String getJobTitle();
+
     /**
      * Set the name of the staff member.
      *
@@ -79,21 +81,60 @@ public abstract class Staff {
      *
      * @return the buyout clause
      */
-    public int getBuyoutClause() {
+    public int getBuyoutClause(Season season) {
         // TODO add tests
+        if (getTeam(season) == null) {
+            return 0;
+        }
         return buyoutClause;
     }
 
+    public void setBuyoutClause(int buyoutClause) {
+        this.buyoutClause = buyoutClause;
+    }
+
+    /**
+     * Gets the team that the staff member is in.
+     * If the staff member is not in a team, return null.
+     *
+     * @param season the season the staff member is in
+     * @return Team or null
+     */
+    public Team getTeam(Season season) {
+        // TODO add tests
+        for (Team team : season.getTeams()) {
+            if (team.contains(this)) {
+                return team;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Gets the team name that a staff member is in.
+     * If the staffMember is not in a team, return the string "contract".
+     *
+     * @param season the season the staff member is in
+     * @return TeamName if the staffMember is in a team, contract otherwise
+     */
+    public String getTeamName(Season season) {
+        for (Team team : season.getTeams()) {
+            if (team.contains(this)) {
+                return team.getName();
+            }
+        }
+        return "contract";
+    }
 
     /**
      * Gets a human readable string of the buyout clause.
      *
      * @return buyout clause string
      */
-    public String getBuyoutClauseString() {
+    public String getBuyoutClauseString(Season season) {
         // TODO add tests
         NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
-        return euroFormat.format(buyoutClause);
+        return euroFormat.format(getBuyoutClause(season));
     }
 
     /**

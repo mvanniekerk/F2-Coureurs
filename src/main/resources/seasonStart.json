@@ -843,5 +843,29 @@
       "salary": 710000,
       "buyoutClause": 600000
     }
+  ],
+  "contractAerodynamicists": [
+    {
+      "name": "John With The Short Behindname",
+      "salary": 240000,
+      "buyoutClause": 700000
+    }
+  ],
+  "contractMechanics": [
+    {
+      "reliability": 80,
+      "partFixing": 70,
+      "pitstops": 0,
+      "name": "Just Harvey",
+      "salary": 260000,
+      "buyoutClause": 600000
+    }
+  ],
+  "contractStrategists": [
+    {
+      "name": "Mauro the Strategist",
+      "salary": 290000,
+      "buyoutClause": 500000
+    }
   ]
 }

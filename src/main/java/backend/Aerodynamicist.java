@@ -12,6 +12,10 @@ public class Aerodynamicist extends Staff {
         super(name, salary, buyoutClause);
     }
 
+    public String getJobTitle() {
+        return "aerodynamicist";
+    }
+
     /**
      * Finds the quality of the aerodynamicist by combining all its attributes.
      *

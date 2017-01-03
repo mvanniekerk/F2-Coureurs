@@ -174,6 +174,35 @@ public class TeamTest {
     public void contains_false() {
         assertFalse(team.contains(driver3));
     }
+    @Test
+    public void containsAero() {
+        assertTrue(team.contains(aerodynamicist));
+    }
+
+    @Test
+    public void notContainsAero() {
+        assertFalse(team.contains(aerodynamicist2));
+    }
+
+    @Test
+    public void containsMechanic() {
+        assertTrue(team.contains(mechanic));
+    }
+
+    @Test
+    public void notContainsMechanic() {
+        assertFalse(team.contains(mechanic2));
+    }
+
+    @Test
+    public void containsStrategist() {
+        assertTrue(team.contains(strategist));
+    }
+
+    @Test
+    public void notContainsStrategist() {
+        assertFalse(team.contains(strategist2));
+    }
 
     @Test
     public void getFirstDriverTest() {
@@ -218,6 +247,19 @@ public class TeamTest {
     }
 
     @Test
+    public void changeEnginePriceTest() {
+        team.changeEngine(otherEngine);
+        assertEquals(500000, team.getBudget());
+    }
+
+    @Test
+    public void changeEngineEngineTest() {
+        team.changeEngine(otherEngine);
+        assertEquals(otherEngine, team.getEngine());
+    }
+
+
+    @Test
     public void getBudgetStringTest() {
         //TODO: Change for different locales
         String locale = Locale.getDefault().toLanguageTag();
@@ -227,6 +269,20 @@ public class TeamTest {
             assertEquals("$2,500,000.00", team.getBudgetString());
         } else {
             System.out.println("Untested locale :" + locale + " giving " + team.getBudgetString());
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void getBudgetStringTest2() {
+        //TODO: Change for different locales
+        String locale = Locale.getDefault().toLanguageTag();
+        if (locale.equals("nl-NL")) {
+            assertEquals("€ 2.000.000,00", team.getBudgetString(500000));
+        } else if (locale.equals("en-US")) {
+            assertEquals("$2,000,000.00", team.getBudgetString(500000));
+        } else {
+            System.out.println("Untested locale :" + locale + " giving " + team.getBudgetString(500000));
             assertTrue(true);
         }
     }
@@ -277,5 +333,88 @@ public class TeamTest {
     public void diffEngine() {
         Team diffEngine = new Team("F2", "User", 2500000, otherEngine, aerodynamicist, mechanic, strategist);
         assertNotEquals(diffEngine, team);
+    }
+
+    @Test
+    public void diffSeasonPoints() {
+        Team diffPoints = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        diffPoints.setPointsThisSeason(2);
+        assertNotEquals(diffPoints, team);
+    }
+
+    @Test
+    public void diffAllPoints() {
+        Team diffPoints = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        diffPoints.setPointsAlltime(2);
+        assertNotEquals(diffPoints, team);
+    }
+
+    @Test
+    public void diffAllWins() {
+        Team diffPoints = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        diffPoints.setWinsAlltime(2);
+        assertNotEquals(diffPoints, team);
+    }
+
+    @Test
+    public void diffThisWins() {
+        Team diffPoints = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        diffPoints.setWinThisSeason(2);
+        assertNotEquals(diffPoints, team);
+    }
+
+    @Test
+    public void swapDriverReturn() {
+        assertEquals(driver, team.swapStaffMember(driver3));
+    }
+
+    @Test
+    public void swapDriverTest() {
+        team.swapStaffMember(driver3);
+        assertEquals(driver3, team.getFirstDriver());
+    }
+
+    @Test
+    public void swapSecondDriverReturn() {
+        assertEquals(driver2, team.swapSecondDriver(driver3));
+    }
+
+    @Test
+    public void swapSecondDriverTest() {
+        team.swapSecondDriver(driver3);
+        assertEquals(driver3, team.getSecondDriver());
+    }
+
+    @Test
+    public void swapAeroReturn() {
+        assertEquals(aerodynamicist, team.swapStaffMember(aerodynamicist2));
+    }
+
+    @Test
+    public void swapAeroTest() {
+        team.swapStaffMember(aerodynamicist2);
+        assertEquals(aerodynamicist2, team.getAerodynamicist());
+    }
+
+    @Test
+    public void swapMechanicReturn() {
+        assertEquals(mechanic, team.swapStaffMember(mechanic2));
+    }
+
+    @Test
+    public void swapMechanicTest() {
+        team.swapStaffMember(mechanic2);
+        assertEquals(mechanic2, team.getMechanic());
+    }
+
+    @Test
+    public void swapStrategistReturn() {
+        assertEquals(strategist, team.swapStaffMember(strategist2));
+    }
+
+    @Test
+    public void swapStrategistTest() {
+        team.swapStaffMember(strategist2);
+        assertEquals(strategist2, team.getStrategist());
     }
 }

@@ -48,6 +48,16 @@ public class EngineTest {
     }
 
     @Test
+    public void getPriceTest() {
+        assertEquals(2000000, engine.getPrice());
+    }
+
+    @Test
+    public void getQualityString() {
+        assertEquals("★★★", qualityEngine.getQualityString());
+    }
+
+    @Test
     public void getQualityTest() {
         assertEquals(61.666f, qualityEngine.getQuality(), 0.001);
     }
@@ -90,5 +100,17 @@ public class EngineTest {
     @Test
     public void equalsOtherObject() {
         assertNotEquals(engine, new String());
+    }
+
+    @Test
+    public void mercedesEquals() {
+        Engine engine1 = new Engine(80, 90, 50, "Mercedes");
+        Engine engine2 = new Engine(80, 90, 50, "Mercedes");
+        assertEquals(engine1, engine2);
+    }
+
+    @Test
+    public void hashcode() {
+        assertEquals(-413857432, engine.hashCode());
     }
 }
