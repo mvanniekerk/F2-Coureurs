@@ -122,6 +122,7 @@ public class Season {
      *
      * @param rank the rank of the team
      * @return the team
+     *
      */
     public Team getTeam(int rank) {
         Collections.sort(teams);
@@ -170,9 +171,14 @@ public class Season {
      * @return the driver
      */
     public Driver getDriver(int rank) {
-        Collections.sort(contractDrivers);
+        List<Driver> driver = new ArrayList<>();
+        for (Team items : teams) {
+            driver.add(items.getFirstDriver());
+            driver.add(items.getSecondDriver());
+        }
+        Collections.sort(driver);
 
-        return contractDrivers.get(rank - 1);
+        return driver.get(rank - 1);
     }
 
     /**

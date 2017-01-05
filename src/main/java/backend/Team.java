@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Team {
+public class Team implements Comparable<Team> {
     private String name;
     private String manager;
     private int budget;
-    private int pointsAlltime;
+    private int pointsAllTime;
     private int pointsThisSeason;
-    private int winsAlltime;
+    private int winsAllTime;
     private int winsThisSeason;
     private Engine engine;
     private Aerodynamicist aerodynamicist;
@@ -39,9 +39,9 @@ public class Team {
         this.aerodynamicist = aerodynamicist;
         this.mechanic = mechanic;
         this.strategist = strategist;
-        this.pointsAlltime = 0;
+        this.pointsAllTime = 0;
         this.pointsThisSeason = 0;
-        this.winsAlltime = 0;
+        this.winsAllTime = 0;
         this.winsThisSeason = 0;
         drivers = new ArrayList<Driver>();
     }
@@ -125,17 +125,17 @@ public class Team {
      *
      * @return the total amount pf points until now
      */
-    public int getPointsAlltime() {
-        return pointsAlltime;
+    public int getPointsAllTime() {
+        return pointsAllTime;
     }
 
     /**
      * Set the total amount of points until now.
      *
-     * @param pointsAlltime the total amount of points in this season
+     * @param pointsAllTime the total amount of points in this season
      */
-    public void setPointsAlltime(int pointsAlltime) {
-        this.pointsAlltime = pointsAlltime;
+    public void setPointsAllTime(int pointsAllTime) {
+        this.pointsAllTime = pointsAllTime;
     }
 
     /**
@@ -161,17 +161,17 @@ public class Team {
      *
      * @return the total amount of wins until now
      */
-    public int getWinsAlltime() {
-        return winsAlltime;
+    public int getWinsAllTime() {
+        return winsAllTime;
     }
 
     /**
      * Set the total amount of wins until now.
      *
-     * @winAllTime the value you want tot change
+     * @param winAllTime the value you want tot change
      */
-    public void setWinsAlltime(int winAllTime) {
-        this.winsAlltime = winAllTime;
+    public void setWinsAllTime(int winAllTime) {
+        this.winsAllTime = winAllTime;
     }
 
     /**
@@ -391,9 +391,9 @@ public class Team {
     }
 
     private boolean metaDataEquals(Team that) {
-        return that.pointsAlltime == this.pointsAlltime
+        return that.pointsAllTime == this.pointsAllTime
             && that.pointsThisSeason == this.pointsThisSeason
-            && that.winsAlltime == this.winsAlltime
+            && that.winsAllTime == this.winsAllTime
             && that.winsThisSeason == this.winsThisSeason
             && that.budget == this.budget
             && that.name.equals(this.name);
@@ -422,5 +422,19 @@ public class Team {
                 && driversEquals(team);
         }
         return false;
+    }
+
+    /**
+     * Compares this object with the specified object for order.
+     *
+     * @param other the object to be compared
+     * @return a negative integer, zero, or a positive integer as this object is less than,
+     *         equal to, or greater than the specified object
+     */
+    @Override
+    public int compareTo(Team other) {
+        int comparePoints = other.pointsThisSeason;
+
+        return comparePoints - this.pointsThisSeason;
     }
 }
