@@ -428,6 +428,14 @@ public class SeasonTest {
     }
 
     @Test
+    public void getDriverTest() {
+        driver.setPoints(10);
+        driver2.setPoints(15);
+        driver4.setPoints(25);
+        assertEquals(driver4, season.getDriver(1));
+    }
+
+    @Test
     public void getPlayerControlledTeamTest() {
         assertEquals(team, season.getPlayerControlledTeam());
     }

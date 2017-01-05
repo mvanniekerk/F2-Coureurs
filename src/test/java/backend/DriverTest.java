@@ -225,6 +225,15 @@ public class DriverTest {
     }
 
     @Test
+    public void getPointsTest() {
+        assertEquals(0, driver.getPoints());
+    }
+
+    @Test (expected=IllegalArgumentException.class)
+    public void setSpeedException() {
+        driver.setSpeed(101);
+    }
+    @Test
     public void setSpeedTest() {
         Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
         driver.setSpeed(23);
@@ -275,5 +284,10 @@ public class DriverTest {
         Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
 
         assertEquals(50, driver.getStrategyInsight());
+    }
+
+    @Test
+    public void comparaToTest() {
+        assertEquals(0, driver.compareTo(otherDriver));
     }
 }
