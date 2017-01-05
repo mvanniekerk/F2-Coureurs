@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Team implements Comparable<Team> {
+public class Team {
     private String name;
     private String manager;
     private int budget;
@@ -92,13 +92,23 @@ public class Team implements Comparable<Team> {
     }
 
     /**
+     * Gets a string representation of the budget minus the subtract amount.
+     *
+     * @param subtract the amount to subtract
+     * @return a string of the budget
+     */
+    public String getBudgetString(int subtract) {
+        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return euroFormat.format(budget - subtract);
+    }
+
+    /**
      * Gets a string representation of the budget.
      *
      * @return string of the budget
      */
     public String getBudgetString() {
-        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
-        return euroFormat.format(budget);
+        return getBudgetString(0);
     }
 
     /**
@@ -201,6 +211,16 @@ public class Team implements Comparable<Team> {
     }
 
     /**
+     * Changes the engine in game.
+     *
+     * @param engine the new engine
+     */
+    public void changeEngine(Engine engine) {
+        this.engine = engine;
+        budget -= engine.getPrice();
+    }
+
+    /**
      * Get the aerodynamicist.
      *
      * @return the aerodynamicist
@@ -255,18 +275,63 @@ public class Team implements Comparable<Team> {
     }
 
     /**
-     * Report on whether the list contains driver.
+     * Report on whether the list contains a staff member.
      *
-     * @param driver the driver to compare with
-     * @return true if driver is in drivers and false otherwise
+     * @param staffMember the staff member to compare with
+     * @return true if the staff member is in the team and false otherwise
      */
-    public boolean contains(Driver driver) {
-        for (Driver item : drivers) {
-            if (item.equals(driver)) {
+    public boolean contains(Staff staffMember) {
+        for (Driver driver: drivers) {
+            if (driver.equals(staffMember)) {
                 return true;
             }
         }
-        return false;
+        return aerodynamicist.equals(staffMember)
+            || mechanic.equals(staffMember)
+            || strategist.equals(staffMember);
+    }
+
+    /**
+     * Swaps the staffMember in the argument for the existing staffmember.
+     * Returns the old staff member.
+     *
+     * @param staffMember The new staff member in the team
+     * @return the old staff member
+     */
+    public Staff swapStaffMember(Staff staffMember) {
+        if (staffMember instanceof Aerodynamicist) {
+            Aerodynamicist newAero = (Aerodynamicist) staffMember;
+            Aerodynamicist oldAero = aerodynamicist;
+            setAerodynamicist(newAero);
+            return oldAero;
+        } else if (staffMember instanceof Driver) {
+            Driver newDriver = (Driver) staffMember;
+            Driver oldDriver = getFirstDriver();
+            setFirstDriver(newDriver);
+            return oldDriver;
+        } else if (staffMember instanceof Mechanic) {
+            Mechanic newMechanic = (Mechanic) staffMember;
+            Mechanic oldMechanic = mechanic;
+            setMechanic(newMechanic);
+            return oldMechanic;
+        } else {
+            Strategist newStrategist = (Strategist) staffMember;
+            Strategist oldStrategist = strategist;
+            setStrategist(newStrategist);
+            return oldStrategist;
+        }
+    }
+
+    /**
+     * Swaps the driver in the argument to for the existing driver.
+     *
+     * @param driver the new driver
+     * @return the old driver
+     */
+    public Driver swapSecondDriver(Driver driver) {
+        Driver oldDriver = getSecondDriver();
+        setSecondDriver(driver);
+        return oldDriver;
     }
 
     /**
@@ -313,12 +378,6 @@ public class Team implements Comparable<Team> {
         return drivers.get(1);
     }
 
-    /**
-     * Compare drivers.
-     *
-     * @param that the team to compare with
-     * @return true if they are equal and false otherwise
-     */
     private boolean driversEquals(Team that) {
         if (this.drivers.size() != that.drivers.size()) {
             return false;
@@ -331,17 +390,21 @@ public class Team implements Comparable<Team> {
         return true;
     }
 
-    /**
-     * Sort teams by its points in this season so far.
-     *
-     * @param other the team to compare with
-     * @return the ascending order
-     */
-    @Override
-    public int compareTo(Team other) {
-        int comparePoints = other.getPointsThisSeason();
+    private boolean metaDataEquals(Team that) {
+        return that.pointsAlltime == this.pointsAlltime
+            && that.pointsThisSeason == this.pointsThisSeason
+            && that.winsAlltime == this.winsAlltime
+            && that.winsThisSeason == this.winsThisSeason
+            && that.budget == this.budget
+            && that.name.equals(this.name);
+    }
 
-        return comparePoints - this.pointsThisSeason;
+    private boolean staffEquals(Team that) {
+        return that.manager.equals(this.manager)
+            && that.engine.equals(this.engine)
+            && that.aerodynamicist.equals(this.aerodynamicist)
+            && that.mechanic.equals(this.mechanic)
+            && that.strategist.equals(this.strategist);
     }
 
     /**
@@ -352,23 +415,11 @@ public class Team implements Comparable<Team> {
      */
     @Override
     public boolean equals(Object other) {
-        //TODO: Reduce complexity
         if (other instanceof Team) {
             Team team = (Team) other;
-            boolean boPointAll = getPointsAlltime() == team.getPointsAlltime();
-            boolean boPointThis = getPointsThisSeason() == team.getPointsThisSeason();
-            boolean boWinAll = getWinsAlltime() == team.getWinsAlltime();
-            boolean boWinThis = getWinsThisSeason() == team.getWinsThisSeason();
-            boolean boBudget = getBudget() == team.getBudget();
-            boolean boName = getName().equals(team.getName());
-            boolean boManager = getManager().equals(team.getManager());
-            boolean boEngine = getEngine().equals(team.getEngine());
-            boolean boAerodynamicist = getAerodynamicist().equals(team.getAerodynamicist());
-            boolean boMechanic = getMechanic().equals(team.getMechanic());
-            boolean boStrategist = getStrategist().equals(team.getStrategist());
-            return  boPointAll && boPointThis && boWinAll && boWinThis
-                    && boBudget && boName && boManager && boEngine && boAerodynamicist
-                    && boMechanic && boStrategist && driversEquals(team);
+            return metaDataEquals(team)
+                && staffEquals(team)
+                && driversEquals(team);
         }
         return false;
     }

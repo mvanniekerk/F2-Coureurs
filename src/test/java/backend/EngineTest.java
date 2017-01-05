@@ -9,12 +9,14 @@ public class EngineTest {
     private Engine engine;
     private Engine sameEngine;
     private Engine otherEngine;
+    private Engine qualityEngine;
 
     @Before
     public void setUp() {
         engine = new Engine(900, 70, 80, "Mercedes");
         sameEngine = new Engine(900, 70, 80, "Mercedes");
         otherEngine = new Engine (700, 50,100, "Honda");
+        qualityEngine = new Engine(81, 92, 12, "Ferrari");
     }
 
     @Test
@@ -43,6 +45,21 @@ public class EngineTest {
         Engine eng = new Engine(900, 70, 80, "Ferrari");
         eng.setName("Mercedes");
         assertEquals(engine, eng);
+    }
+
+    @Test
+    public void getPriceTest() {
+        assertEquals(2000000, engine.getPrice());
+    }
+
+    @Test
+    public void getQualityString() {
+        assertEquals("★★★", qualityEngine.getQualityString());
+    }
+
+    @Test
+    public void getQualityTest() {
+        assertEquals(61.666f, qualityEngine.getQuality(), 0.001);
     }
 
     @Test
@@ -83,5 +100,17 @@ public class EngineTest {
     @Test
     public void equalsOtherObject() {
         assertNotEquals(engine, new String());
+    }
+
+    @Test
+    public void mercedesEquals() {
+        Engine engine1 = new Engine(80, 90, 50, "Mercedes");
+        Engine engine2 = new Engine(80, 90, 50, "Mercedes");
+        assertEquals(engine1, engine2);
+    }
+
+    @Test
+    public void hashcode() {
+        assertEquals(-413857432, engine.hashCode());
     }
 }

@@ -6,10 +6,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<Pane id="edit-team" stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8">
+<Pane id="edit-team" stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0"
+      fx:controller="frontend.controllers.EditTeamController" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/8">
     <!-- settings-quit -->
-    <Button id="red" layoutY="925" layoutX="1300" text="Cancel" />
-    <Button id="green" layoutY="925" layoutX="1580" text="Save" />
+    <Button onAction="#cancel" id="red" layoutY="925" layoutX="1300" text="Cancel" />
+    <Button onAction="#save" styleClass="green" layoutY="925" layoutX="1580" text="Save" />
 
     <!-- Edit team -->
     <Pane layoutX="80" layoutY="125" prefHeight="220" prefWidth="530" styleClass="block">
@@ -23,17 +25,17 @@
     <!-- Budget -->
     <Pane layoutX="700" layoutY="125" prefHeight="220" prefWidth="530" styleClass="block">
         <Label layoutX="30" layoutY="40" styleClass="title" text="Budget"/>
-        <Label layoutX="30" id="currentBudget" layoutY="120" styleClass="content" text="€ 200,000,000"/>
+        <Label fx:id="budget" layoutX="30" id="currentBudget" layoutY="120" styleClass="content" />
         <ImageView fitHeight="75" fitWidth="75" layoutX="375" layoutY="40">
             <Image url="@../media/icons/eurosign.png"/>
         </ImageView>
     </Pane>
 
     <!-- Buttons -->
-    <Button styleClass="edit-team" layoutX="80" layoutY="380">
+    <Button onAction="#editEngine" styleClass="edit-team" layoutX="80" layoutY="380">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
-                <Label alignment="CENTER_RIGHT" text="Engine"/>
+                <Label fx:id="engine" alignment="CENTER_RIGHT" text="Engine"/>
                 <Pane HBox.hgrow="ALWAYS" />
                 <ImageView fitHeight="75" fitWidth="75">
                     <Image url="@../media/icons/engine.png" />
@@ -42,10 +44,10 @@
         </graphic>
     </Button>
 
-    <Button styleClass="edit-team" layoutX="80" layoutY="520">
+    <Button onAction="#editDriver" styleClass="edit-team" layoutX="80" layoutY="520">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
-                <Label alignment="CENTER_RIGHT" text="First driver"/>
+                <Label fx:id="firstDriver" alignment="CENTER_RIGHT" text="First driver"/>
                 <Pane HBox.hgrow="ALWAYS" />
                 <ImageView fitHeight="75" fitWidth="75">
                     <Image url="@../media/icons/driver1.png" />
@@ -54,10 +56,10 @@
         </graphic>
     </Button>
 
-    <Button styleClass="edit-team" layoutX="80" layoutY="660">
+    <Button onAction="#editDriver2" styleClass="edit-team" layoutX="80" layoutY="660">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
-                <Label alignment="CENTER_RIGHT" text="Second Driver"/>
+                <Label fx:id="secondDriver" alignment="CENTER_RIGHT" text="Second Driver"/>
                 <Pane HBox.hgrow="ALWAYS" />
                 <ImageView fitHeight="75" fitWidth="75">
                     <Image url="@../media/icons/driver2.png" />
@@ -66,10 +68,10 @@
         </graphic>
     </Button>
 
-    <Button styleClass="edit-team" layoutX="700" layoutY="380">
+    <Button onAction="#editStrategist" styleClass="edit-team" layoutX="700" layoutY="380">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
-                <Label alignment="CENTER_RIGHT" text="Strategist"/>
+                <Label fx:id="strategist" alignment="CENTER_RIGHT" text="Strategist"/>
                 <Pane HBox.hgrow="ALWAYS" />
                 <ImageView fitHeight="75" fitWidth="75">
                     <Image url="@../media/icons/strategist.png" />
@@ -78,10 +80,10 @@
         </graphic>
     </Button>
 
-    <Button styleClass="edit-team" layoutX="700" layoutY="520">
+    <Button onAction="#editAerodynamiscist" styleClass="edit-team" layoutX="700" layoutY="520">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
-                <Label alignment="CENTER_RIGHT" text="Aerodynamicist"/>
+                <Label fx:id="aerodynamicist" alignment="CENTER_RIGHT" text="Aerodynamicist"/>
                 <Pane HBox.hgrow="ALWAYS" />
                 <ImageView fitHeight="75" fitWidth="75">
                     <Image url="@../media/icons/aero.png" />
@@ -90,10 +92,10 @@
         </graphic>
     </Button>
 
-    <Button styleClass="edit-team" layoutX="700" layoutY="660">
+    <Button onAction="#editMechanic" styleClass="edit-team" layoutX="700" layoutY="660">
         <graphic>
             <HBox alignment="CENTER" mouseTransparent="true">
-                <Label alignment="CENTER_RIGHT" text="Mechanic"/>
+                <Label fx:id="mechanic" alignment="CENTER_RIGHT" text="Mechanic"/>
                 <Pane HBox.hgrow="ALWAYS" />
                 <ImageView fitHeight="75" fitWidth="75">
                     <Image url="@../media/icons/mechanic.png" />

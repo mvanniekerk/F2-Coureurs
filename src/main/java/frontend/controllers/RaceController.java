@@ -2,62 +2,96 @@ package frontend.controllers;
 
 import backend.Driver;
 import backend.GameEngine;
+import backend.Race;
 import backend.Season;
-import backend.Team;
-import javafx.event.ActionEvent;
+import backend.Setup;
+import backend.Strategy;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-
-import java.io.InputStream;
-import java.util.Random;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.util.Callback;
 
 public class RaceController {
 
     @FXML
-    private Button startRace;
-
-    @FXML
-    private Label winningDriverLabel;
+    private TableView<Driver> resultsTable;
 
     private Season season;
-
-    @FXML
-    public void initialize() {
-        season = GameEngine.getInstance().getSeason();
-    }
 
     /**
      * Start the race.
      *
-     * @param event the event that called this method
-     * @throws Exception if view is not found
+     * @param setup the setup of the user
+     * @param strategy the strategy of the user
      */
-    @FXML
-    public void startRace(ActionEvent event) throws Exception {
-        ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        InputStream seasonStart = loader.getResourceAsStream("seasonStart.json");
-        Season season = Season.readFromJsonFile(seasonStart);
+    public void startRace(Setup setup, Strategy strategy) {
+        season = GameEngine.getInstance().getSeason();
 
-        // Select random team
-        int random = new Random().nextInt(season.getTeams().size());
-        Team winningTeam = season.getTeams().get(random);
+        // Create new race
+        Race race = new Race(
+                setup,
+                strategy,
+                "Monaco",
+                1
+        );
 
-        // Select first driver from the winning team
-        Driver winningDriver = winningTeam.getSecondDriver();
+        // Create list of drivers
+        ObservableList<Driver> drivers =
+                FXCollections.observableArrayList(race.calculateRaceResult());
 
-        Parent root = FXMLLoader.load(getClass().getResource("/views/race-result.fxml"));
-        Stage stage = (Stage)startRace.getScene().getWindow();
+        // Add drivers to the table
+        resultsTable.setItems(drivers);
 
-        stage.getScene().setRoot(root);
+        // Create position column
+        TableColumn<Driver, String> positionColumn = new TableColumn<>("#");
+        positionColumn.setCellValueFactory(
+            new Callback<TableColumn.CellDataFeatures<Driver, String>, ObservableValue<String>>() {
 
-        // Get label and set it to the winning driver
-        winningDriverLabel = (Label) stage.getScene().lookup("#winningDriverLabel");
-        winningDriverLabel.setText("Race winner: " + winningDriver.getName());
-        winningDriverLabel.setTextFill(Color.BLACK);
+                @Override
+                public ObservableValue<String> call(
+                    TableColumn.CellDataFeatures<Driver, String> driverObject
+                ) {
+                    return new SimpleStringProperty(
+                        (resultsTable.getItems().indexOf(driverObject.getValue()) + 1) + ""
+                    );
+                }
+            }
+        );
+
+        // Create name column
+        TableColumn<Driver, String> nameColumn = new TableColumn<>("Name");
+        nameColumn.setCellValueFactory(
+            new Callback<TableColumn.CellDataFeatures<Driver, String>, ObservableValue<String>>() {
+
+                @Override
+                public ObservableValue<String> call(
+                    TableColumn.CellDataFeatures<Driver, String> driverObject
+                ) {
+                    return new SimpleStringProperty(driverObject.getValue().getName());
+                }
+            }
+        );
+
+        // Create score column
+        TableColumn<Driver, String> scoreColumn = new TableColumn<>("Score");
+        scoreColumn.setCellValueFactory(
+            new Callback<TableColumn.CellDataFeatures<Driver, String>,
+                    ObservableValue<String>>() {
+
+                @Override
+                public ObservableValue<String> call(
+                    TableColumn.CellDataFeatures<Driver, String> driverObject
+                ) {
+                    return new SimpleStringProperty("" + driverObject.getValue().getScore());
+                }
+            }
+        );
+
+        // Add columns to the table
+        resultsTable.getColumns().addAll(positionColumn, nameColumn, scoreColumn);
     }
 }

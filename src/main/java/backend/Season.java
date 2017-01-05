@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Season {
     private int currentRound;
@@ -66,6 +68,24 @@ public class Season {
     }
 
     /**
+     * Gets the rounds as a list.
+     *
+     * @return rounds
+     */
+    public List<Race> getRounds() {
+        return rounds;
+    }
+
+    /**
+     * Sets the rounds.
+     *
+     * @param rounds new rounds
+     */
+    public void setRounds(List<Race> rounds) {
+        this.rounds = rounds;
+    }
+
+    /**
      * Adds a team to the season.
      *
      * @param team the team to add
@@ -81,6 +101,20 @@ public class Season {
      */
     public List<Team> getTeams() {
         return this.teams;
+    }
+
+
+    /**
+     * Gets all the engines in the season.
+     *
+     * @return the engines
+     */
+    public List<Engine> getNonPlayerEngines() {
+        return teams.stream()
+                .map(Team::getEngine)
+                .filter((Engine en) -> !getPlayerControlledTeam().getEngine().equals(en))
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     /**
@@ -158,6 +192,121 @@ public class Season {
     }
 
     /**
+     * Sets a staff member as a staff member that is open to a contract.
+     *
+     * @param staffMember the staff member to add to a contract list.
+     */
+    public void addContractStaffMember(Staff staffMember) {
+        if (staffMember instanceof Aerodynamicist) {
+            contractAerodynamicists.add((Aerodynamicist) staffMember);
+        } else if (staffMember instanceof Driver) {
+            contractDrivers.add((Driver) staffMember);
+        } else if (staffMember instanceof Mechanic) {
+            contractMechanics.add((Mechanic) staffMember);
+        } else {
+            contractStrategists.add((Strategist) staffMember);
+        }
+    }
+
+    /**
+     * Gets all the staff that is not in the players team.
+     *
+     * @return a list of staff
+     */
+    public List<Staff> getAllNonPlayerControlledStaff() {
+        List<Staff> returnList = new ArrayList<>();
+        returnList.addAll(contractDrivers);
+        returnList.addAll(contractAerodynamicists);
+        returnList.addAll(contractMechanics);
+        returnList.addAll(contractStrategists);
+        for (Team team : teams) {
+            if (!team.equals(getPlayerControlledTeam())) {
+                returnList.add(team.getFirstDriver());
+                returnList.add(team.getSecondDriver());
+                returnList.add(team.getAerodynamicist());
+                returnList.add(team.getMechanic());
+                returnList.add(team.getStrategist());
+            }
+        }
+        return returnList;
+    }
+
+    /**
+     * Transfers a staff member from one team to another.
+     * staffMember first gets removed from the team it is in.
+     * If the staffMember is not in a team, it gets removed from the contract lists.
+     * Now the staffMember gets add to the new team.
+     * The old staffMember from that team gets added to the contract list.
+     * Money gets deducted from the new team and added to the old team,
+     * equal to the buyout clause of the staff member.
+     *
+     * @param staffMember The new staff member
+     * @param team The team to transfer the staff member to
+     * @param replaceSecondDriver true if the second driver needs to be replaced
+     */
+    public void transfer(Staff staffMember, Team team, boolean replaceSecondDriver) {
+        Team oldTeam = staffMember.getTeam(this);
+        int buyoutClause = staffMember.getBuyoutClause(this);
+        // subtract the buyout clause from the budget
+        team.setBudget(team.getBudget() - buyoutClause);
+        // add the buyout clause to the budget of the old team
+        if (oldTeam != null) {
+            oldTeam.setBudget(oldTeam.getBudget() + buyoutClause);
+        }
+
+        // Remove the new staff member from its old team
+        if (oldTeam != null) {
+            // If the new staff member was in a team,
+            // add a new contract worker to the team
+            if (staffMember instanceof Aerodynamicist) {
+                oldTeam.swapStaffMember(contractAerodynamicists.remove(0));
+            } else if (staffMember instanceof Driver) {
+                if (((Driver) staffMember).isSecondDriver(this)) {
+                    oldTeam.swapSecondDriver(contractDrivers.remove(0));
+                } else {
+                    oldTeam.swapStaffMember(contractDrivers.remove(0));
+                }
+            } else if (staffMember instanceof Mechanic) {
+                oldTeam.swapStaffMember(contractMechanics.remove(0));
+            } else {
+                oldTeam.swapStaffMember(contractStrategists.remove(0));
+            }
+        } else {
+            // The new staff member was not in a team
+            // Make sure the new staff member is not still in a contract list
+            contractAerodynamicists.remove(staffMember);
+            contractDrivers.remove(staffMember);
+            contractMechanics.remove(staffMember);
+            contractStrategists.remove(staffMember);
+        }
+        // add the new staff member to the team
+        Staff oldStaffMember;
+        if (replaceSecondDriver) {
+            oldStaffMember = team.swapSecondDriver((Driver) staffMember);
+        } else {
+            oldStaffMember = team.swapStaffMember(staffMember);
+        }
+        // add the old staff member to the contract list
+        addContractStaffMember(oldStaffMember);
+    }
+
+    /**
+     * Transfers a staff member from one team to another.
+     * staffMember first gets removed from the team it is in.
+     * If the staffMember is not in a team, it gets removed from the contract lists.
+     * Now the staffMember gets add to the new team.
+     * The old staffMember from that team gets added to the contract list.
+     * Money gets deducted from the new team and added to the old team,
+     * equal to the buyout clause of the staff member.
+     *
+     * @param staffMember The new staff member
+     * @param team The team to transfer the staff member to
+     */
+    public void transfer(Staff staffMember, Team team) {
+        transfer(staffMember, team, false);
+    }
+
+    /**
      * Converts the current Season class to a json object.
      *
      * @return string containing a json representation of the current season
@@ -222,6 +371,22 @@ public class Season {
         return readFromJsonFile(seasonStart);
     }
 
+    /**
+     * Loads a file from the save directory.
+     *
+     * @param saveName the name of the save
+     * @return the season equal to the file
+     * @throws IllegalArgumentException throws if the filename does not exist
+     */
+    public static Season load(String saveName) {
+        try {
+            FileInputStream loadFile = new FileInputStream("saves/" + saveName);
+            return readFromJsonFile(loadFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("File does not exist");
+        }
+    }
 
     /**
      * Writes json to a file.
@@ -354,6 +519,11 @@ public class Season {
      */
     public static void main(String[] args) throws IOException {
         Season season = Season.loadNewGameFromSeasonStart();
+        List<Engine> engines = season.getNonPlayerEngines();
+        for (Engine engine : engines) {
+            System.out.println(engine.getName());
+        }
         season.save("save1.json");
+
     }
 }

@@ -1,5 +1,8 @@
 package backend;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public abstract class Staff {
     private String name;
     private int salary;
@@ -25,6 +28,8 @@ public abstract class Staff {
     public String getName() {
         return name;
     }
+
+    public abstract String getJobTitle();
 
     /**
      * Set the name of the staff member.
@@ -58,7 +63,89 @@ public abstract class Staff {
      *
      * @return int between 0 and 100 of the quality of the staff member
      */
-    public abstract int getQuality();
+    public abstract float getQuality();
+
+    /**
+     * Gets a string representation of the budget.
+     *
+     * @return string of the budget
+     */
+    public String getSalaryString() {
+        // TODO add tests
+        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return euroFormat.format(salary);
+    }
+
+    /**
+     * Gets the buyout clause.
+     *
+     * @return the buyout clause
+     */
+    public int getBuyoutClause(Season season) {
+        // TODO add tests
+        if (getTeam(season) == null) {
+            return 0;
+        }
+        return buyoutClause;
+    }
+
+    public void setBuyoutClause(int buyoutClause) {
+        this.buyoutClause = buyoutClause;
+    }
+
+    /**
+     * Gets the team that the staff member is in.
+     * If the staff member is not in a team, return null.
+     *
+     * @param season the season the staff member is in
+     * @return Team or null
+     */
+    public Team getTeam(Season season) {
+        // TODO add tests
+        for (Team team : season.getTeams()) {
+            if (team.contains(this)) {
+                return team;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Gets the team name that a staff member is in.
+     * If the staffMember is not in a team, return the string "contract".
+     *
+     * @param season the season the staff member is in
+     * @return TeamName if the staffMember is in a team, contract otherwise
+     */
+    public String getTeamName(Season season) {
+        for (Team team : season.getTeams()) {
+            if (team.contains(this)) {
+                return team.getName();
+            }
+        }
+        return "contract";
+    }
+
+    /**
+     * Gets a human readable string of the buyout clause.
+     *
+     * @return buyout clause string
+     */
+    public String getBuyoutClauseString(Season season) {
+        // TODO add tests
+        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return euroFormat.format(getBuyoutClause(season));
+    }
+
+    /**
+     * Gets the quality as a human readable string (of stars).
+     *
+     * @return 1 to 5 stars
+     */
+    public String getQualityString() {
+        int numStars = (int) getQuality() / 20;
+        return new String(new char[numStars]).replace("\0", "★");
+    }
 
     /**
      * Implements a equals method that checks all attributes of Staff for equality.

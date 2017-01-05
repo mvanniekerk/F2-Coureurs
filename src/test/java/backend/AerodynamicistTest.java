@@ -32,7 +32,7 @@ public class  AerodynamicistTest {
 
     @Test
     public void qualityTest() {
-        assertEquals(0, aerodynamicist.getQuality());
+        assertEquals(50, aerodynamicist.getQuality(), 0.001);
     }
 
     @Test
@@ -54,4 +54,16 @@ public class  AerodynamicistTest {
     public void equalsOtherObject() {
         assertNotEquals(aerodynamicist, new String());
     }
+
+    @Test
+    public void getQualityStringTest() {
+        System.out.println(aerodynamicist.getQuality());
+        assertEquals(aerodynamicist.getQualityString(), "★★");
+    }
+
+    @Test
+    public void getJobDescription() {
+        assertEquals("aerodynamicist", aerodynamicist.getJobTitle());
+    }
+
 }

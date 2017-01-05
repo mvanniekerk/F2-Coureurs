@@ -20,6 +20,11 @@ public class StrategistTest {
     }
 
     @Test
+    public void getJobDescription() {
+        assertEquals("strategist", strategist.getJobTitle());
+    }
+
+    @Test
     public void constructorTestname () {
         assertEquals("Anonyme", strategist.getName());
     }
@@ -31,7 +36,7 @@ public class StrategistTest {
 
     @Test
     public void qualityTest() {
-        assertEquals(0, strategist.getQuality());
+        assertEquals(78, strategist.getQuality(), 0.001);
     }
 
     @Test
