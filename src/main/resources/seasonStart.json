@@ -204,7 +204,7 @@
   ],
   "teams": [
     {
-      "name": "Scuderia Ferrari",
+      "name": "Ferrari",
       "manager": "Maurizio Arrivabene",
       "budget": 10000000,
       "pointsAlltime": 0,
@@ -261,7 +261,7 @@
       ]
     },
     {
-      "name": "Sahara Force India F1 Team",
+      "name": "Force India",
       "manager": "Vijay Mallya",
       "budget": 50000000,
       "pointsAlltime": 0,
@@ -318,7 +318,7 @@
       ]
     },
     {
-      "name": "Haas F1 Team",
+      "name": "Haas",
       "manager": "Guenther Steiner",
       "budget": 80000000,
       "pointsAlltime": 0,
@@ -375,7 +375,7 @@
       ]
     },
     {
-      "name": "McLaren Honda Formula 1 Team",
+      "name": "McLaren",
       "manager": "Eric Boullier",
       "budget": 70000000,
       "pointsAlltime": 0,
@@ -432,7 +432,7 @@
       ]
     },
     {
-      "name": "Mercedes AMG Petronas Formula One Team",
+      "name": "Mercedes",
       "manager": "Toto Wolff",
       "budget": 25000000,
       "pointsAlltime": 0,
@@ -489,7 +489,7 @@
       ]
     },
     {
-      "name": "Manor Racing MRT",
+      "name": "Manor",
       "manager": "Dave Ryan",
       "budget": 50000000,
       "pointsAlltime": 0,
@@ -546,7 +546,7 @@
       ]
     },
     {
-      "name": "Red Bull Racing",
+      "name": "Red Bull",
       "manager": "Christian Horner",
       "budget": 30000000,
       "pointsAlltime": 0,
@@ -603,7 +603,7 @@
       ]
     },
     {
-      "name": "Renault Sport Formula One Team",
+      "name": "Renault",
       "manager": "Frédéric Vasseur",
       "budget": 50000000,
       "pointsAlltime": 0,
@@ -660,7 +660,7 @@
       ]
     },
     {
-      "name": "Sauber F1 Team",
+      "name": "Sauber",
       "manager": "Monisha Kaltenborn",
       "budget": 70000000,
       "pointsAlltime": 0,
@@ -717,7 +717,7 @@
       ]
     },
     {
-      "name": "Scuderia Toro Rosso",
+      "name": "Toro Rosso",
       "manager": "Franz Tost",
       "budget": 70000000,
       "pointsAlltime": 0,
@@ -774,7 +774,7 @@
       ]
     },
     {
-      "name": "Williams Martini Racing",
+      "name": "Williams",
       "manager": "Frank Williams",
       "budget": 50000000,
       "pointsAlltime": 0,

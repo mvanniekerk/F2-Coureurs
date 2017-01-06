@@ -3,9 +3,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.control.TableView?>
 <?import frontend.ExitButton?>
+<?import frontend.HomeButton?>
 <Pane id="race-result" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.RaceController">
 
     <TableView fx:id="resultsTable"/>
 
+    <HomeButton styleClass="settings-quit" layoutY="800" layoutX="1670" text="Continue"/>
     <ExitButton styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
 </Pane>

@@ -1,6 +1,5 @@
 package frontend.controllers;
 
-
 import backend.GameEngine;
 import backend.Season;
 import javafx.fxml.FXML;
