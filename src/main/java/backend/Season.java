@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -117,6 +118,19 @@ public class Season {
     }
 
     /**
+     * Gets the desired team.
+     *
+     * @param rank the rank of the team
+     * @return the team
+     *
+     */
+    public Team getTeam(int rank) {
+        Collections.sort(teams);
+
+        return teams.get(rank - 1);
+    }
+
+    /**
      * Gets the team that the player controls.
      *
      * @return one of the teams
@@ -148,6 +162,23 @@ public class Season {
      */
     public List<Driver> getContractDrivers() {
         return this.contractDrivers;
+    }
+
+    /**
+     * Gets the desired driver.
+     *
+     * @param rank the rank of the driver
+     * @return the driver
+     */
+    public Driver getDriver(int rank) {
+        List<Driver> driver = new ArrayList<>();
+        for (Team items : teams) {
+            driver.add(items.getFirstDriver());
+            driver.add(items.getSecondDriver());
+        }
+        Collections.sort(driver);
+
+        return driver.get(rank - 1);
     }
 
     /**

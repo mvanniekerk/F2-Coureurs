@@ -79,6 +79,9 @@ public class RaceTest {
     }
 
     @Test
+    public void equalsNull() { assertNotEquals(race, null); }
+
+    @Test
     public void equalsSameAttr() {
         assertEquals(race, sameRace);
     }

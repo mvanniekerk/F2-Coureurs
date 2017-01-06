@@ -145,6 +145,16 @@ public class SeasonTest {
     }
 
     @Test
+    public void getTeamTest() {
+        Team team2 = new Team("F2", "User", 2500000,
+                engine, aerodynamicist, mechanic, strategist);
+        team2.setPointsThisSeason(1);
+        this.season.addTeam(team2);
+
+        assertEquals(team2, this.season.getTeam(1));
+    }
+
+    @Test
     public void getCurrentRoundException() {
         Season exceptSeason = new Season();
         exceptSeason.addRace(race);
@@ -415,6 +425,14 @@ public class SeasonTest {
         ArrayList<Strategist> list = new ArrayList<>();
         list.add(strategist3);
         assertEquals(list, season.getContractStrategists());
+    }
+
+    @Test
+    public void getDriverTest() {
+        driver.setPoints(10);
+        driver2.setPoints(15);
+        driver4.setPoints(25);
+        assertEquals(driver4, season.getDriver(1));
     }
 
     @Test

@@ -14,8 +14,8 @@
     </Pane>
 
     <!-- Four options-->
-    <Button layoutX="250" layoutY="440" styleClass="leftside" text="Game A"/>
-    <Button layoutX="1143" layoutY="440" styleClass="leftside" text="Game B"/>
-    <Button layoutX="250" layoutY="700" styleClass="leftside" text="Game C"/>
-    <Button layoutX="1143" layoutY="700" styleClass="leftside" text="Game D"/>
+    <Button layoutX="250" layoutY="440" styleClass="select-game" text="Game A"/>
+    <Button layoutX="1143" layoutY="440" styleClass="select-game" text="Game B"/>
+    <Button layoutX="250" layoutY="700" styleClass="select-game" text="Game C"/>
+    <Button layoutX="1143" layoutY="700" styleClass="select-game" text="Game D"/>
 </Pane>

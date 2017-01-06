@@ -78,14 +78,14 @@ public class TeamTest {
     }
 
     @Test
-    public void getPointsAlltime() {
-        assertEquals(0, team.getPointsAlltime());
+    public void getPointsAllTime() {
+        assertEquals(0, team.getPointsAllTime());
     }
 
     @Test
     public void setPointsAlltime() {
-        otherTeam.setPointsAlltime(3);
-        assertEquals(3, otherTeam.getPointsAlltime());
+        otherTeam.setPointsAllTime(3);
+        assertEquals(3, otherTeam.getPointsAllTime());
     }
 
     @Test
@@ -101,13 +101,13 @@ public class TeamTest {
 
     @Test
     public void getWinsAllTime() {
-        assertEquals(0, team.getWinsAlltime());
+        assertEquals(0, team.getWinsAllTime());
     }
 
     @Test
     public void setWinsAllTime() {
-        otherTeam.setWinsAlltime(3);
-        assertEquals(3, otherTeam.getWinsAlltime());
+        otherTeam.setWinsAllTime(3);
+        assertEquals(3, otherTeam.getWinsAllTime());
     }
 
     @Test
@@ -345,14 +345,14 @@ public class TeamTest {
     @Test
     public void diffAllPoints() {
         Team diffPoints = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
-        diffPoints.setPointsAlltime(2);
+        diffPoints.setPointsAllTime(2);
         assertNotEquals(diffPoints, team);
     }
 
     @Test
     public void diffAllWins() {
         Team diffPoints = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
-        diffPoints.setWinsAlltime(2);
+        diffPoints.setWinsAllTime(2);
         assertNotEquals(diffPoints, team);
     }
 

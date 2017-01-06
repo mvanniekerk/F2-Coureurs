@@ -11,8 +11,9 @@
 <?import frontend.EditTeamButton?>
 <?import frontend.PrepareRaceButton?>
 
-<Pane xmlns="http://javafx.com/javafx/8"
-      id="standings" maxHeight="-Infinity"
+<?import frontend.ExitButton?>
+<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      id="standings" fx:controller="frontend.controllers.StandingsController"
       maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
       prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
 
@@ -22,18 +23,17 @@
     <Button id="red" layoutX="588" layoutY="915" text="Standings" />
     <PrepareRaceButton layoutX="842" layoutY="915" text="Prepare Race" />
 
-     <!--Driver standings block-->
-    <Pane layoutX="80" layoutY="67" prefHeight="790" prefWidth="810" styleClass="block">
+    <!-- settings-quit -->
+    <ExitButton styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
+
+    <!--Driver standings block-->
+    <Pane layoutX="80" layoutY="67" prefHeight="810" prefWidth="810" styleClass="block">
         <Label layoutX="60" layoutY="15" styleClass="title" text="Driver Standings" />
         <ImageView fitHeight="100" fitWidth="100" layoutX="680" layoutY="15">
             <Image url="@../media/icons/driver.png" />
         </ImageView>
 
-        <Pane layoutX="60" layoutY="110">
-            <Label styleClass="standing"  text="Lewis Hamilton" />
-            <Label styleClass="standing" layoutX="270" text="Mercedes" />
-            <Label styleClass="standing" layoutX="580" text="25" />
-        </Pane>
+        <Pane fx:id="driverTable" styleClass="team-container-text" layoutX="60" layoutY="80" />
     </Pane>
 
     <!-- Team standings block-->
@@ -42,10 +42,8 @@
         <ImageView fitHeight="180" fitWidth="180" layoutX="630" layoutY="-30">
             <Image url="@../media/icons/aero.png" />
         </ImageView>
-        <Pane layoutX="60" layoutY="110">
-            <Label styleClass="standing" text="Mercedes AMG Petronas" />
-            <Label styleClass="standing" layoutX="580" text="43" />
-        </Pane>
+
+        <Pane fx:id="teamTable" styleClass="team-container-text" layoutX="60" layoutY="80" />
     </Pane>
 
 </Pane>

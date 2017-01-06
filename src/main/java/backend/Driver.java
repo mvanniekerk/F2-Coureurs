@@ -1,6 +1,6 @@
 package backend;
 
-public class Driver extends Staff {
+public class Driver extends Staff implements Comparable<Driver> {
     private int speed;
     private int raceCraft;
     private int strategyInsight;
@@ -50,6 +50,15 @@ public class Driver extends Staff {
     public void setPoints(int points) {
         //TODO: Enforce between 0 and 100
         this.points = points;
+    }
+
+    /**
+     * Get the total points of the driver.
+     *
+     * @return the total points earned in this season so far
+     */
+    public int getPoints() {
+        return this.points;
     }
 
     /**
@@ -178,5 +187,19 @@ public class Driver extends Staff {
         } else {
             return false;
         }
+    }
+
+    /**
+     * Compares this object with the specified object for order.
+     *
+     * @param other the object to be compared
+     * @return a negative integer, zero, or a positive integer as this object is less than,
+     *         equal to, or greater than the specified object
+     */
+    @Override
+    public int compareTo(Driver other) {
+        int comparePoints = other.points;
+
+        return comparePoints - this.points;
     }
 }
