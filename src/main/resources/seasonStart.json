@@ -530,7 +530,7 @@
           "championLastYear": false,
           "name": "Pascal Wehrlein",
           "salary": 500000,
-          "buyoutClause": 6000000
+          "buyoutClause": 2000000
         },
         {
           "speed": 71,
@@ -541,7 +541,7 @@
           "championLastYear": false,
           "name": "Esteban Ocon",
           "salary": 500000,
-          "buyoutClause": 7000000
+          "buyoutClause": 2000000
         }
       ]
     },
@@ -644,7 +644,7 @@
           "championLastYear": false,
           "name": "Kevin Magnussen",
           "salary": 1000000,
-          "buyoutClause": 40000
+          "buyoutClause": 4000000
         },
         {
           "speed": 70,
@@ -655,7 +655,7 @@
           "championLastYear": false,
           "name": "Jolyon Palmer",
           "salary": 750000,
-          "buyoutClause": 80000
+          "buyoutClause": 3000000
         }
       ]
     },
@@ -701,7 +701,7 @@
           "championLastYear": false,
           "name": "Marcus Ericsson",
           "salary": 750000,
-          "buyoutClause": 80000
+          "buyoutClause": 3000000
         },
         {
           "speed": 70,
@@ -712,7 +712,7 @@
           "championLastYear": false,
           "name": "Felipe Nasr",
           "salary": 750000,
-          "buyoutClause": 90000
+          "buyoutClause": 3000000
         }
       ]
     },
@@ -758,7 +758,7 @@
           "championLastYear": false,
           "name": "Carlos Sainz",
           "salary": 2000000,
-          "buyoutClause": 70000
+          "buyoutClause": 8000000
         },
         {
           "speed": 70,
@@ -769,7 +769,7 @@
           "championLastYear": false,
           "name": "Daniil Kvyat",
           "salary": 1000000,
-          "buyoutClause": 700000
+          "buyoutClause": 4000000
         }
       ]
     },
@@ -815,7 +815,7 @@
           "championLastYear": false,
           "name": "Valtteri Bottas",
           "salary": 2000000,
-          "buyoutClause": 600000
+          "buyoutClause": 8000000
         },
         {
           "speed": 80,
@@ -826,7 +826,7 @@
           "championLastYear": false,
           "name": "Felipe Massa",
           "salary": 1500000,
-          "buyoutClause": 600000
+          "buyoutClause": 3000000
         }
       ]
     }
