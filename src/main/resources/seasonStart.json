@@ -253,7 +253,7 @@
           "strategyInsight": 80,
           "raceWins": 0,
           "points": 0,
-          "championLastYear": true,
+          "championLastYear": false,
           "name": "Kimi Raikkonen",
           "salary": 3000000,
           "buyoutClause": 12000000
@@ -470,7 +470,7 @@
           "strategyInsight": 85,
           "raceWins": 0,
           "points": 0,
-          "championLastYear": false,
+          "championLastYear": true,
           "name": "Lewis Hamilton",
           "salary": 4000000,
           "buyoutClause": 16000000
