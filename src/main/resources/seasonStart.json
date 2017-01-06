@@ -237,25 +237,25 @@
       },
       "drivers": [
         {
-          "speed": 80,
-          "raceCraft": 70,
+          "speed": 90,
+          "raceCraft": 90,
           "strategyInsight": 80,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
           "name": "Sebastian Vettel",
-          "salary": 1000000,
+          "salary": 4000000,
           "buyoutClause": 60
         },
         {
-          "speed": 90,
-          "raceCraft": 80,
-          "strategyInsight": 90,
+          "speed": 85,
+          "raceCraft": 85,
+          "strategyInsight": 80,
           "raceWins": 0,
           "points": 0,
           "championLastYear": true,
           "name": "Kimi Raikkonen",
-          "salary": 1200000,
+          "salary": 3000000,
           "buyoutClause": 70
         }
       ]
@@ -301,7 +301,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Sergio Perez",
-          "salary": 1000000,
+          "salary": 2000000,
           "buyoutClause": 600
         },
         {
@@ -312,7 +312,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Nico Hulkenberg",
-          "salary": 790000,
+          "salary": 1500000,
           "buyoutClause": 800
         }
       ]
@@ -358,7 +358,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Romain Grosjean",
-          "salary": 740000,
+          "salary": 1500000,
           "buyoutClause": 6000
         },
         {
@@ -369,7 +369,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Esteban Gutierrez",
-          "salary": 900000,
+          "salary": 500000,
           "buyoutClause": 7000
         }
       ]
@@ -415,7 +415,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Fernando Alonso",
-          "salary": 800000,
+          "salary": 4000000,
           "buyoutClause": 60000
         },
         {
@@ -426,7 +426,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Jenson Button",
-          "salary": 850000,
+          "salary": 3000000,
           "buyoutClause": 70000
         }
       ]
@@ -465,26 +465,26 @@
       },
       "drivers": [
         {
-          "speed": 50,
-          "raceCraft": 60,
-          "strategyInsight": 50,
+          "speed": 95,
+          "raceCraft": 95,
+          "strategyInsight": 85,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
           "name": "Lewis Hamilton",
-          "salary": 700000,
-          "buyoutClause": 300000
+          "salary": 4000000,
+          "buyoutClause": 1000000
         },
         {
-          "speed": 80,
+          "speed": 90,
           "raceCraft": 90,
-          "strategyInsight": 80,
+          "strategyInsight": 85,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
           "name": "Nico Rosberg",
-          "salary": 1000000,
-          "buyoutClause": 400000
+          "salary": 4000000,
+          "buyoutClause": 1000000
         }
       ]
     },
@@ -529,7 +529,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Pascal Wehrlein",
-          "salary": 720000,
+          "salary": 500000,
           "buyoutClause": 6000000
         },
         {
@@ -540,7 +540,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Esteban Ocon",
-          "salary": 690000,
+          "salary": 500000,
           "buyoutClause": 7000000
         }
       ]
@@ -586,7 +586,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Daniel Ricciardo",
-          "salary": 900000,
+          "salary": 4000000,
           "buyoutClause": 3000000
         },
         {
@@ -597,7 +597,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Max Verstappen",
-          "salary": 1100000,
+          "salary": 4000000,
           "buyoutClause": 8000000
         }
       ]
@@ -643,7 +643,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Kevin Magnussen",
-          "salary": 800000,
+          "salary": 1000000,
           "buyoutClause": 40000
         },
         {
@@ -654,7 +654,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Jolyon Palmer",
-          "salary": 830000,
+          "salary": 750000,
           "buyoutClause": 80000
         }
       ]
@@ -711,7 +711,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Felipe Nasrs",
-          "salary": 710000,
+          "salary": 750000,
           "buyoutClause": 90000
         }
       ]
@@ -757,7 +757,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Carlos Sainz",
-          "salary": 730000,
+          "salary": 2000000,
           "buyoutClause": 70000
         },
         {
@@ -768,7 +768,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Daniil Kvyat",
-          "salary": 780000,
+          "salary": 1000000,
           "buyoutClause": 700000
         }
       ]
@@ -814,7 +814,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Valtteri Bottas",
-          "salary": 820000,
+          "salary": 2000000,
           "buyoutClause": 600000
         },
         {
@@ -825,7 +825,7 @@
           "points": 0,
           "championLastYear": false,
           "name": "Felipe Massa",
-          "salary": 710000,
+          "salary": 1500000,
           "buyoutClause": 600000
         }
       ]
