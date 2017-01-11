@@ -22,8 +22,8 @@ public class RaceTest {
         Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
         Engine engine = new Engine(90, 70, 80, "Ferrari");
         Mechanic mechanic = new Mechanic("Steve Matchett", 100000, 1000000, 50, 50, 50);
-        Aerodynamicist aerodynamicist =  new Aerodynamicist("Dan Fallows", 700000, 1000000);
-        Strategist strategist = new Strategist("Toto Wolff", 1000000, 10000000);
+        Aerodynamicist aerodynamicist =  new Aerodynamicist("Dan Fallows", 700000, 1000000, 80);
+        Strategist strategist = new Strategist("Toto Wolff", 1000000, 10000000, 80);
         Setup setup = new Setup(Setup.HIGH_RISK);
         Strategy strategy = new Strategy(Strategy.HIGH_RISK);
 

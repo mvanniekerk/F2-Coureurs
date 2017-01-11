@@ -220,7 +220,8 @@
       "aerodynamicist": {
         "name": "Cyril Abiteboul",
         "salary": 300000,
-        "buyoutClause": 30
+        "buyoutClause": 30,
+        "quality" : 80
       },
       "mechanic": {
         "reliability": 60,
@@ -233,7 +234,8 @@
       "strategist": {
         "name": "Neil Martin",
         "salary": 180000,
-        "buyoutClause": 50
+        "buyoutClause": 50,
+        "quality" : 80
       },
       "drivers": [
         {
@@ -277,7 +279,8 @@
       "aerodynamicist": {
         "name": "Mario Almondo",
         "salary": 300000,
-        "buyoutClause": 300
+        "buyoutClause": 300,
+        "quality" : 60
       },
       "mechanic": {
         "reliability": 80,
@@ -290,7 +293,8 @@
       "strategist": {
         "name": "Inaki Rueda",
         "salary": 300000,
-        "buyoutClause": 500
+        "buyoutClause": 500,
+        "quality" : 60
       },
       "drivers": [
         {
@@ -334,7 +338,8 @@
       "aerodynamicist": {
         "name": "Luca Baldisserri",
         "salary": 250000,
-        "buyoutClause": 3000
+        "buyoutClause": 3000,
+        "quality" : 60
       },
       "mechanic": {
         "reliability": 70,
@@ -347,7 +352,8 @@
       "strategist": {
         "name": "James Vowles",
         "salary": 260000,
-        "buyoutClause": 5000
+        "buyoutClause": 5000,
+        "quality" : 60
       },
       "drivers": [
         {
@@ -391,7 +397,8 @@
       "aerodynamicist": {
         "name": "Jo Bauer",
         "salary": 230000,
-        "buyoutClause": 30000
+        "buyoutClause": 30000,
+        "quality" : 60
       },
       "mechanic": {
         "reliability": 70,
@@ -404,7 +411,8 @@
       "strategist": {
         "name": "Will Courtenay",
         "salary": 240000,
-        "buyoutClause": 50000
+        "buyoutClause": 50000,
+        "quality" : 100
       },
       "drivers": [
         {
@@ -448,7 +456,8 @@
       "aerodynamicist": {
         "name": "Eric Boullier",
         "salary": 280000,
-        "buyoutClause": 700000
+        "buyoutClause": 700000,
+        "quality" : 90
       },
       "mechanic": {
         "reliability": 80,
@@ -461,7 +470,8 @@
       "strategist": {
         "name": "Adrian Newey",
         "salary": 280000,
-        "buyoutClause": 500000
+        "buyoutClause": 500000,
+        "quality" : 90
       },
       "drivers": [
         {
@@ -505,7 +515,8 @@
       "aerodynamicist": {
         "name": "Peter Elleray",
         "salary": 180000,
-        "buyoutClause": 4000000
+        "buyoutClause": 4000000,
+        "quality" : 50
       },
       "mechanic": {
         "reliability": 80,
@@ -518,7 +529,8 @@
       "strategist": {
         "name": "Cecil Schumacher",
         "salary": 210000,
-        "buyoutClause": 5000000
+        "buyoutClause": 5000000,
+        "quality" : 50
       },
       "drivers": [
         {
@@ -562,7 +574,8 @@
       "aerodynamicist": {
         "name": "Alf Francis",
         "salary": 310000,
-        "buyoutClause": 4000000
+        "buyoutClause": 4000000,
+        "quality" : 85
       },
       "mechanic": {
         "reliability": 60,
@@ -575,7 +588,8 @@
       "strategist": {
         "name": "Gustav Brunner",
         "salary": 250000,
-        "buyoutClause": 1000000
+        "buyoutClause": 1000000,
+        "quality" : 85
       },
       "drivers": [
         {
@@ -619,7 +633,8 @@
       "aerodynamicist": {
         "name": "Tim Goss",
         "salary": 220000,
-        "buyoutClause": 2000000
+        "buyoutClause": 2000000,
+        "quality" : 70
       },
       "mechanic": {
         "reliability": 50,
@@ -632,7 +647,8 @@
       "strategist": {
         "name": "Carlo Chiti",
         "salary": 230000,
-        "buyoutClause": 40000
+        "buyoutClause": 40000,
+        "quality" : 70
       },
       "drivers": [
         {
@@ -676,7 +692,8 @@
       "aerodynamicist": {
         "name": "Mario Illien",
         "salary": 270000,
-        "buyoutClause": 500000
+        "buyoutClause": 500000,
+        "quality" : 30
       },
       "mechanic": {
         "reliability": 60,
@@ -689,7 +706,8 @@
       "strategist": {
         "name": "John Iley",
         "salary": 190000,
-        "buyoutClause": 60000
+        "buyoutClause": 60000,
+        "quality" : 30
       },
       "drivers": [
         {
@@ -733,7 +751,8 @@
       "aerodynamicist": {
         "name": "Mario Illien",
         "salary": 270000,
-        "buyoutClause": 80000
+        "buyoutClause": 80000,
+        "quality" : 40
       },
       "mechanic": {
         "reliability": 70,
@@ -746,7 +765,8 @@
       "strategist": {
         "name": "Gordon Coppuck",
         "salary": 280000,
-        "buyoutClause": 1000000
+        "buyoutClause": 1000000,
+        "quality" : 40
       },
       "drivers": [
         {
@@ -790,7 +810,8 @@
       "aerodynamicist": {
         "name": "John Judd",
         "salary": 240000,
-        "buyoutClause": 700000
+        "buyoutClause": 700000,
+        "quality" : 60
       },
       "mechanic": {
         "reliability": 80,
@@ -803,7 +824,8 @@
       "strategist": {
         "name": "Mauro Forghieri",
         "salary": 290000,
-        "buyoutClause": 500000
+        "buyoutClause": 500000,
+        "quality" : 60
       },
       "drivers": [
         {
@@ -848,7 +870,8 @@
     {
       "name": "John With The Short Behindname",
       "salary": 240000,
-      "buyoutClause": 700000
+      "buyoutClause": 700000,
+      "quality" : 100
     }
   ],
   "contractMechanics": [
@@ -865,7 +888,8 @@
     {
       "name": "Mauro the Strategist",
       "salary": 290000,
-      "buyoutClause": 500000
+      "buyoutClause": 500000,
+      "quality" : 100
     }
   ]
 }

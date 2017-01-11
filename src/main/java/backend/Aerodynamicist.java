@@ -1,6 +1,7 @@
 package backend;
 
 public class Aerodynamicist extends Staff {
+    private int quality;
 
     /**
      *  Create a new Aerodynamicist.
@@ -8,8 +9,9 @@ public class Aerodynamicist extends Staff {
      *  @param name the name of the staff member
      *  @param salary the salary per race
      */
-    public Aerodynamicist(String name, int salary, int buyoutClause) {
+    public Aerodynamicist(String name, int salary, int buyoutClause, int quality) {
         super(name, salary, buyoutClause);
+        this.quality = quality;
     }
 
     public String getJobTitle() {
@@ -23,6 +25,6 @@ public class Aerodynamicist extends Staff {
      */
     @Override
     public float getQuality() {
-        return 50;
+        return quality;
     }
 }

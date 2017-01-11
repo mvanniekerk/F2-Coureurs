@@ -48,7 +48,10 @@ public class HomeController {
         currentBudget.setText(playerTeam.getBudgetString());
         mediaView.setFitHeight(1080);
         mediaView.setFitWidth(1920);
+        mediaPlayer.setMute(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+
+
 
 
         // REMOVE NEXT LINE IF NOT IN DEBUG MODE

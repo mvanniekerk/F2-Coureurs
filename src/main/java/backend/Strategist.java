@@ -1,6 +1,7 @@
 package backend;
 
 public class Strategist extends Staff {
+    private int quality;
 
     /**
      *  Create a new strategist.
@@ -8,8 +9,10 @@ public class Strategist extends Staff {
      *  @param name the name of the staff member
      *  @param salary the salary per race
      */
-    public Strategist(String name, int salary, int buyoutClause) {
+    public Strategist(String name, int salary, int buyoutClause, int quality) {
         super(name, salary, buyoutClause);
+        this.quality = quality;
+
     }
 
     public String getJobTitle() {
@@ -23,6 +26,6 @@ public class Strategist extends Staff {
      */
     @Override
     public float getQuality() {
-        return 78;
+        return quality;
     }
 }
