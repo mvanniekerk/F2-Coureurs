@@ -343,6 +343,24 @@ public class TeamTest {
     }
 
     @Test
+    public void diffAerodynamicist() {
+        Team diffAero = new Team("name", "manager", 2000000, otherEngine, aerodynamicist, mechanic2, strategist2);
+        assertNotEquals(diffAero, otherTeam);
+    }
+
+    @Test
+    public void diffMechanic() {
+        Team diffMac = new Team("name", "manager", 2000000, otherEngine, aerodynamicist2, mechanic, strategist2);
+        assertNotEquals(diffMac, otherTeam);
+    }
+
+    @Test
+    public void diffStrategist() {
+        Team diffStra = new Team("name", "manager", 2000000, otherEngine, aerodynamicist2, mechanic2, strategist);
+        assertNotEquals(diffStra, otherTeam);
+    }
+
+    @Test
     public void diffAllPoints() {
         Team diffPoints = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
         diffPoints.setPointsAllTime(2);
@@ -361,6 +379,21 @@ public class TeamTest {
         Team diffPoints = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
         diffPoints.setWinThisSeason(2);
         assertNotEquals(diffPoints, team);
+    }
+
+    @Test
+    public void diffSizeDriverTest() {
+        Team diffDriver = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        diffDriver.setFirstDriver(driver3);
+        assertNotEquals(diffDriver, team);
+    }
+
+    @Test
+    public void sameSizeDriverTest() {
+        Team diffDriver = new Team("F2", "User", 2500000, engine, aerodynamicist, mechanic, strategist);
+        diffDriver.setFirstDriver(driver);
+        diffDriver.setSecondDriver(driver3);
+        assertNotEquals(diffDriver, team);
     }
 
     @Test

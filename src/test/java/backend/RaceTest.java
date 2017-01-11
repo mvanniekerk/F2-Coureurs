@@ -90,4 +90,22 @@ public class RaceTest {
     public void equalsOtherObject() {
         assertNotEquals(race, new String());
     }
+
+    @Test
+    public void diffSetupTest() {
+        Race diffSetup = new Race(new Setup(Setup.HIGH_RISK), new Strategy(Strategy.HIGH_RISK), "Circuit de Monaco", 8);
+        assertNotEquals(diffSetup, race);
+    }
+
+    @Test
+    public void diffStrategyTest() {
+        Race diffStrategy = new Race(new Setup(Setup.LOW_RISK), new Strategy(Strategy.LOW_RISK), "Circuit de Monaco", 8);
+        assertNotEquals(diffStrategy, race);
+    }
+
+    @Test
+    public void diffTrackNameTest() {
+        Race diffTrack = new Race(new Setup(Setup.LOW_RISK), new Strategy(Strategy.HIGH_RISK), "Silverstone Circuit", 8);
+        assertNotEquals(diffTrack, race);
+    }
 }
