@@ -1,6 +1,11 @@
 package frontend.controllers;
 
-import backend.*;
+import backend.GameEngine;
+import backend.Season;
+import backend.Setup;
+import backend.Strategy;
+import backend.Team;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
