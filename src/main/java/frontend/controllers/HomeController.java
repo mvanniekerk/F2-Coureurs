@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,6 +25,8 @@ public class HomeController {
     @FXML private Label mechanicName;
     @FXML private Label nextCircuit;
     @FXML private Label currentBudget;
+    @FXML private MediaView mediaView;
+    @FXML private MediaPlayer mediaPlayer;
     private Season season;
 
     /**
@@ -42,6 +46,10 @@ public class HomeController {
         mechanicName.setText(playerTeam.getMechanic().getName());
         nextCircuit.setText(season.getCurrentRound().getTrackName());
         currentBudget.setText(playerTeam.getBudgetString());
+        mediaView.setFitHeight(1080);
+        mediaView.setFitWidth(1920);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+
 
         // REMOVE NEXT LINE IF NOT IN DEBUG MODE
         transferButtonInit();
