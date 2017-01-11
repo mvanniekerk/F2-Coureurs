@@ -1,18 +1,24 @@
 package frontend.controllers;
 
-import backend.Setup;
-import backend.Strategy;
+import backend.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class PrepareRaceController {
+    @FXML private Label engine;
+    @FXML private Label firstDriver;
+    @FXML private Label secondDriver;
+    @FXML private Label strategist;
+    @FXML private Label aerodynamicist;
+    @FXML private Label mechanic;
 
     @FXML private Button strategyLowRisk;
     @FXML private Button strategyMediumRisk;
@@ -24,9 +30,26 @@ public class PrepareRaceController {
 
     @FXML private Button startRace;
 
+    private Season season;
+
     private Setup userSetup;
     private Strategy userStrategy;
 
+    /**
+     * Initialize the prepare screen with the correct values.
+     */
+    @FXML
+    public void initialize() {
+        season = GameEngine.getInstance().getSeason();
+
+        Team playerTeam = season.getPlayerControlledTeam();
+        engine.setText(playerTeam.getEngine().getName());
+        firstDriver.setText(playerTeam.getFirstDriver().getName());
+        secondDriver.setText(playerTeam.getSecondDriver().getName());
+        strategist.setText(playerTeam.getStrategist().getName());
+        aerodynamicist.setText(playerTeam.getAerodynamicist().getName());
+        mechanic.setText(playerTeam.getMechanic().getName());
+    }
     /**
      * Change setup listener.
      *
