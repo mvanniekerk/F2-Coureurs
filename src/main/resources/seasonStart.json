@@ -8,7 +8,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Albert Park Street Circuit",
+      "trackName": "Australia",
       "roundInChampionship": 1
     },
     {
@@ -18,7 +18,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Shanghai International Circuit",
+      "trackName": "China",
       "roundInChampionship": 2
     },
     {
@@ -28,7 +28,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Bahrain International Circuit",
+      "trackName": "Bahrain",
       "roundInChampionship": 3
     },
     {
@@ -38,7 +38,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Sochi Autodrom",
+      "trackName": "Russia",
       "roundInChampionship": 4
     },
     {
@@ -48,7 +48,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Circuit de Barcelona-Catalunya",
+      "trackName": "Spain",
       "roundInChampionship": 5
     },
     {
@@ -58,7 +58,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Circuit de Monaco",
+      "trackName": "Monaco",
       "roundInChampionship": 6
     },
     {
@@ -68,7 +68,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Circuit Gilles Villeneuve",
+      "trackName": "Canada",
       "roundInChampionship": 7
     },
     {
@@ -78,7 +78,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Baku City Circuit",
+      "trackName": "Azerbaijan",
       "roundInChampionship": 8
     },
     {
@@ -88,7 +88,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Red Bull Ring",
+      "trackName": "Austria",
       "roundInChampionship": 9
     },
     {
@@ -98,7 +98,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Silverstone Circuit",
+      "trackName": "Great Britain",
       "roundInChampionship": 10
     },
     {
@@ -108,7 +108,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Hungaroring",
+      "trackName": "Hungary",
       "roundInChampionship": 11
     },
     {
@@ -118,7 +118,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Circuit Spa-Francorchamps",
+      "trackName": "Belgium",
       "roundInChampionship": 12
     },
     {
@@ -128,7 +128,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Autodromo Nazionale Monza",
+      "trackName": "Italy",
       "roundInChampionship": 13
     },
     {
@@ -138,7 +138,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Marina Bay Street Circuit",
+      "trackName": "Singapore",
       "roundInChampionship": 14
     },
     {
@@ -148,7 +148,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Sepang International Circuit",
+      "trackName": "Malaysia",
       "roundInChampionship": 15
     },
     {
@@ -158,7 +158,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Suzuka International Circuit",
+      "trackName": "Japan",
       "roundInChampionship": 16
     },
     {
@@ -168,7 +168,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Circuit of the Americas",
+      "trackName": "USA",
       "roundInChampionship": 17
     },
     {
@@ -178,7 +178,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Autodromo Hermanos Rodriguez",
+      "trackName": "Mexico",
       "roundInChampionship": 18
     },
     {
@@ -188,7 +188,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Autodromo de Interlagos Jose Carlos Pace",
+      "trackName": "Brazil",
       "roundInChampionship": 19
     },
     {
@@ -198,7 +198,7 @@
       "strategy": {
         "risk": 2
       },
-      "trackName": "Yas Marina Circuit",
+      "trackName": "Abu Dhabi",
       "roundInChampionship": 20
     }
   ],
@@ -237,26 +237,26 @@
       },
       "drivers": [
         {
-          "speed": 80,
-          "raceCraft": 70,
+          "speed": 95,
+          "raceCraft": 90,
           "strategyInsight": 80,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
           "name": "Sebastian Vettel",
-          "salary": 1000000,
-          "buyoutClause": 60
+          "salary": 4000000,
+          "buyoutClause": 16000000
         },
         {
           "speed": 90,
-          "raceCraft": 80,
-          "strategyInsight": 90,
+          "raceCraft": 85,
+          "strategyInsight": 80,
           "raceWins": 0,
           "points": 0,
-          "championLastYear": true,
-          "name": "Nico Rosberg",
-          "salary": 1200000,
-          "buyoutClause": 70
+          "championLastYear": false,
+          "name": "Kimi Raikkonen",
+          "salary": 3000000,
+          "buyoutClause": 12000000
         }
       ]
     },
@@ -294,26 +294,26 @@
       },
       "drivers": [
         {
-          "speed": 70,
+          "speed": 85,
           "raceCraft": 80,
           "strategyInsight": 80,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
-          "name": "Kimi Raikkonen",
-          "salary": 1000000,
-          "buyoutClause": 600
+          "name": "Sergio Perez",
+          "salary": 2000000,
+          "buyoutClause": 8000000
         },
         {
-          "speed": 70,
-          "raceCraft": 70,
-          "strategyInsight": 60,
+          "speed": 80,
+          "raceCraft": 80,
+          "strategyInsight": 80,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
-          "name": "Sergio Perez",
-          "salary": 790000,
-          "buyoutClause": 800
+          "name": "Nico Hulkenberg",
+          "salary": 1500000,
+          "buyoutClause": 6000000
         }
       ]
     },
@@ -351,26 +351,26 @@
       },
       "drivers": [
         {
-          "speed": 50,
-          "raceCraft": 60,
-          "strategyInsight": 70,
-          "raceWins": 0,
-          "points": 0,
-          "championLastYear": false,
-          "name": "Esteban Ocon",
-          "salary": 740000,
-          "buyoutClause": 6000
-        },
-        {
-          "speed": 70,
-          "raceCraft": 80,
-          "strategyInsight": 70,
+          "speed": 75,
+          "raceCraft": 75,
+          "strategyInsight": 75,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
           "name": "Romain Grosjean",
-          "salary": 900000,
-          "buyoutClause": 7000
+          "salary": 1500000,
+          "buyoutClause": 6000000
+        },
+        {
+          "speed": 60,
+          "raceCraft": 60,
+          "strategyInsight": 60,
+          "raceWins": 0,
+          "points": 0,
+          "championLastYear": false,
+          "name": "Esteban Gutierrez",
+          "salary": 500000,
+          "buyoutClause": 2000000
         }
       ]
     },
@@ -408,26 +408,26 @@
       },
       "drivers": [
         {
-          "speed": 70,
-          "raceCraft": 50,
-          "strategyInsight": 70,
-          "raceWins": 0,
-          "points": 0,
-          "championLastYear": false,
-          "name": "Kevin Magnussen",
-          "salary": 800000,
-          "buyoutClause": 60000
-        },
-        {
-          "speed": 70,
-          "raceCraft": 70,
-          "strategyInsight": 60,
+          "speed": 95,
+          "raceCraft": 95,
+          "strategyInsight": 90,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
           "name": "Fernando Alonso",
-          "salary": 850000,
-          "buyoutClause": 70000
+          "salary": 4000000,
+          "buyoutClause": 16000000
+        },
+        {
+          "speed": 85,
+          "raceCraft": 85,
+          "strategyInsight": 85,
+          "raceWins": 0,
+          "points": 0,
+          "championLastYear": false,
+          "name": "Jenson Button",
+          "salary": 3000000,
+          "buyoutClause": 12000000
         }
       ]
     },
@@ -465,26 +465,26 @@
       },
       "drivers": [
         {
-          "speed": 50,
-          "raceCraft": 60,
-          "strategyInsight": 50,
+          "speed": 95,
+          "raceCraft": 95,
+          "strategyInsight": 85,
           "raceWins": 0,
           "points": 0,
-          "championLastYear": false,
-          "name": "Stoffel Vandoorne",
-          "salary": 700000,
-          "buyoutClause": 300000
+          "championLastYear": true,
+          "name": "Lewis Hamilton",
+          "salary": 4000000,
+          "buyoutClause": 16000000
         },
         {
-          "speed": 80,
+          "speed": 90,
           "raceCraft": 90,
-          "strategyInsight": 80,
+          "strategyInsight": 85,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
-          "name": "Lewis Hamilton",
-          "salary": 1000000,
-          "buyoutClause": 400000
+          "name": "Nico Rosberg",
+          "salary": 4000000,
+          "buyoutClause": 16000000
         }
       ]
     },
@@ -522,26 +522,26 @@
       },
       "drivers": [
         {
-          "speed": 60,
-          "raceCraft": 40,
-          "strategyInsight": 60,
+          "speed": 70,
+          "raceCraft": 70,
+          "strategyInsight": 70,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
-          "name": "Nick Cassidy",
-          "salary": 720000,
-          "buyoutClause": 6000000
+          "name": "Pascal Wehrlein",
+          "salary": 500000,
+          "buyoutClause": 2000000
         },
         {
-          "speed": 50,
-          "raceCraft": 50,
-          "strategyInsight": 50,
+          "speed": 71,
+          "raceCraft": 71,
+          "strategyInsight": 70,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
-          "name": "Mickel Jensen",
-          "salary": 690000,
-          "buyoutClause": 7000000
+          "name": "Esteban Ocon",
+          "salary": 500000,
+          "buyoutClause": 2000000
         }
       ]
     },
@@ -579,26 +579,26 @@
       },
       "drivers": [
         {
-          "speed": 80,
-          "raceCraft": 80,
-          "strategyInsight": 70,
+          "speed": 95,
+          "raceCraft": 95,
+          "strategyInsight": 80,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
           "name": "Daniel Ricciardo",
-          "salary": 900000,
-          "buyoutClause": 3000000
+          "salary": 4000000,
+          "buyoutClause": 16000000
         },
         {
-          "speed": 90,
-          "raceCraft": 80,
+          "speed": 92,
+          "raceCraft": 92,
           "strategyInsight": 80,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
           "name": "Max Verstappen",
-          "salary": 1100000,
-          "buyoutClause": 8000000
+          "salary": 4000000,
+          "buyoutClause": 16000000
         }
       ]
     },
@@ -636,26 +636,26 @@
       },
       "drivers": [
         {
-          "speed": 60,
+          "speed": 78,
+          "raceCraft": 77,
+          "strategyInsight": 70,
+          "raceWins": 0,
+          "points": 0,
+          "championLastYear": false,
+          "name": "Kevin Magnussen",
+          "salary": 1000000,
+          "buyoutClause": 4000000
+        },
+        {
+          "speed": 70,
           "raceCraft": 70,
           "strategyInsight": 70,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
-          "name": "Nico Hulkenberg",
-          "salary": 800000,
-          "buyoutClause": 40000
-        },
-        {
-          "speed": 70,
-          "raceCraft": 60,
-          "strategyInsight": 70,
-          "raceWins": 0,
-          "points": 0,
-          "championLastYear": false,
           "name": "Jolyon Palmer",
-          "salary": 830000,
-          "buyoutClause": 80000
+          "salary": 750000,
+          "buyoutClause": 3000000
         }
       ]
     },
@@ -693,26 +693,26 @@
       },
       "drivers": [
         {
-          "speed": 50,
-          "raceCraft": 50,
-          "strategyInsight": 90,
+          "speed": 70,
+          "raceCraft": 70,
+          "strategyInsight": 70,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
           "name": "Marcus Ericsson",
           "salary": 750000,
-          "buyoutClause": 80000
+          "buyoutClause": 3000000
         },
         {
-          "speed": 60,
-          "raceCraft": 50,
-          "strategyInsight": 50,
+          "speed": 70,
+          "raceCraft": 70,
+          "strategyInsight": 70,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
-          "name": "George Russell",
-          "salary": 710000,
-          "buyoutClause": 90000
+          "name": "Felipe Nasr",
+          "salary": 750000,
+          "buyoutClause": 3000000
         }
       ]
     },
@@ -750,26 +750,26 @@
       },
       "drivers": [
         {
-          "speed": 60,
-          "raceCraft": 60,
-          "strategyInsight": 60,
+          "speed": 83,
+          "raceCraft": 83,
+          "strategyInsight": 80,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
           "name": "Carlos Sainz",
-          "salary": 730000,
-          "buyoutClause": 70000
+          "salary": 2000000,
+          "buyoutClause": 8000000
         },
         {
           "speed": 70,
-          "raceCraft": 50,
+          "raceCraft": 70,
           "strategyInsight": 70,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
-          "name": "Daniil Kvjat",
-          "salary": 780000,
-          "buyoutClause": 700000
+          "name": "Daniil Kvyat",
+          "salary": 1000000,
+          "buyoutClause": 4000000
         }
       ]
     },
@@ -807,26 +807,26 @@
       },
       "drivers": [
         {
-          "speed": 70,
-          "raceCraft": 60,
-          "strategyInsight": 50,
+          "speed": 85,
+          "raceCraft": 80,
+          "strategyInsight": 80,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
           "name": "Valtteri Bottas",
-          "salary": 820000,
-          "buyoutClause": 600000
+          "salary": 2000000,
+          "buyoutClause": 8000000
         },
         {
-          "speed": 50,
-          "raceCraft": 50,
-          "strategyInsight": 60,
+          "speed": 80,
+          "raceCraft": 75,
+          "strategyInsight": 75,
           "raceWins": 0,
           "points": 0,
           "championLastYear": false,
-          "name": "Lance Stroll",
-          "salary": 710000,
-          "buyoutClause": 600000
+          "name": "Felipe Massa",
+          "salary": 1500000,
+          "buyoutClause": 3000000
         }
       ]
     }
