@@ -58,7 +58,7 @@ public class HomeController {
                         getClass().getResource("/views/message.fxml"));
                 Parent root;
                 root = loader.load();
-                TransferOfferController controller = loader.getController();
+                frontend.controllers.TransferOfferController controller = loader.getController();
                 controller.load(season.getTeams().get(1),
                         season.getPlayerControlledTeam().getFirstDriver());
                 System.out.println("handlnig event");
