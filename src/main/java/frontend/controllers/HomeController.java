@@ -52,6 +52,8 @@ public class HomeController {
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 
 
+
+
         // REMOVE NEXT LINE IF NOT IN DEBUG MODE
         transferButtonInit();
     }
