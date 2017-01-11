@@ -55,6 +55,7 @@ public class PrepareRaceController {
         aerodynamicist.setText(playerTeam.getAerodynamicist().getName());
         mechanic.setText(playerTeam.getMechanic().getName());
     }
+
     /**
      * Change setup listener.
      *
