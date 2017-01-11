@@ -14,9 +14,9 @@ public class StrategistTest {
 
     @Before
     public void setUp() {
-        strategist = new Strategist("Anonyme", 1000000, 10000000);
-        sameStrategist = new Strategist("Anonyme", 1000000, 10000000);
-        otherStrategist = new Strategist("some guy", 10000, 1000000);
+        strategist = new Strategist("Anonyme", 1000000, 10000000, 80);
+        sameStrategist = new Strategist("Anonyme", 1000000, 10000000, 80);
+        otherStrategist = new Strategist("some guy", 10000, 1000000, 80);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class StrategistTest {
 
     @Test
     public void qualityTest() {
-        assertEquals(78, strategist.getQuality(), 0.001);
+        assertEquals(80, strategist.getQuality(), 0.001);
     }
 
     @Test

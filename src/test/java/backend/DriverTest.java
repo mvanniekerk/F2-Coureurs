@@ -35,9 +35,9 @@ public class DriverTest {
         championDiffers = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, true);
         otherDriver = new Driver("Kimi Raikkonen", 16, 100, 58, 52, 40, true);
 
-        aerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 1000000);
+        aerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 1000000, 80);
         mechanic = new Mechanic("Steve Matchett", 100000, 1000000, 50, 50, 50);
-        strategist = new Strategist("Anonyme", 1000000, 1000000);
+        strategist = new Strategist("Anonyme", 1000000, 1000000, 80);
         engine = new Engine(900, 70, 80, "Mercedes");
         team = new Team("F2", "User", 2500000,
                 engine, aerodynamicist, mechanic, strategist);
