@@ -12,10 +12,25 @@
 <?import frontend.PrepareRaceButton?>
 
 <?import frontend.ExitButton?>
-<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      id="standings" fx:controller="frontend.controllers.StandingsController"
-      maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.media.MediaPlayer?>
+<?import javafx.scene.media.Media?>
+
+<AnchorPane prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="frontend.controllers.StandingsController">
+<Pane id="standings" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
       prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
+
+    <!-- play background video-->
+    <MediaView fx:id="mediaView">
+        <mediaPlayer>
+            <MediaPlayer fx:id="mediaPlayer" autoPlay="true">
+                <media>
+                    <Media source="http://klavier.nl/alex/standings.mp4" />
+                </media>
+            </MediaPlayer>
+        </mediaPlayer>
+    </MediaView>
 
     <!-- Bottom menu-->
     <HomeButton layoutX="80" layoutY="915" text="Home" />
@@ -47,3 +62,4 @@
     </Pane>
 
 </Pane>
+</AnchorPane>

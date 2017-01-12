@@ -5,16 +5,26 @@ import backend.Season;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 
 public class StandingsController {
     private Season season;
     @FXML private Pane teamTable;
     @FXML private Pane driverTable;
+    @FXML private MediaView mediaView;
+    @FXML private MediaPlayer mediaPlayer;
 
     /**
      * Show the champion standings.
      */
     public void initialize() {
+
+        mediaView.setFitHeight(1080);
+        mediaView.setFitWidth(1920);
+        mediaPlayer.setMute(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+
         season = GameEngine.getInstance().getSeason();
 
         teamTable.getChildren().add(setTeamPane());
