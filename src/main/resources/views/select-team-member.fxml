@@ -6,10 +6,26 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
+<?import javafx.scene.media.MediaPlayer?>
+<?import javafx.scene.media.Media?>
+<?import javafx.scene.media.MediaView?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane  fx:controller="frontend.controllers.SelectTeamMemberController" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
 <Pane id="select-driver" maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0"
-      fx:controller="frontend.controllers.SelectTeamMemberController"
-      stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css">
+
+    <!-- play background video-->
+    <MediaView fx:id="mediaView">
+        <mediaPlayer>
+            <MediaPlayer fx:id="mediaPlayer" autoPlay="true">
+                <media>
+                    <Media source="http://klavier.nl/alex/edit-team.mp4" />
+                </media>
+            </MediaPlayer>
+        </mediaPlayer>
+    </MediaView>
 
     <!-- settings-quit -->
     <Button onAction="#confirm" styleClass="green" layoutX="1580" layoutY="925" text="Confirm" />
@@ -82,3 +98,4 @@
         <Pane fx:id="playerTable" layoutX="30" layoutY="150" prefHeight="520" prefWidth="1080" styleClass="table-view" />
     </Pane>
 </Pane>
+</AnchorPane>

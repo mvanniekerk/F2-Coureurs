@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,6 +23,8 @@ public class EditTeamController {
     @FXML private Label aerodynamicist;
     @FXML private Label mechanic;
     @FXML private Label engine;
+    @FXML private MediaView mediaView;
+    @FXML private MediaPlayer mediaPlayer;
 
     private Season season;
 
@@ -39,6 +43,11 @@ public class EditTeamController {
         strategist.setText(playerTeam.getStrategist().getName());
         aerodynamicist.setText(playerTeam.getAerodynamicist().getName());
         mechanic.setText(playerTeam.getMechanic().getName());
+
+        mediaView.setFitHeight(1080);
+        mediaView.setFitWidth(1920);
+        mediaPlayer.setMute(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     }
 
     /**

@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,13 +25,19 @@ public class SelectEngineController {
     @FXML private Label newPrice;
     @FXML private Label budget;
     @FXML private Pane engineTable;
-
+    @FXML private MediaView mediaView;
+    @FXML private MediaPlayer mediaPlayer;
 
     /**
      * Initializes the engine controller.
      */
     @FXML
     public void initialize() {
+        mediaView.setFitHeight(1080);
+        mediaView.setFitWidth(1920);
+        mediaPlayer.setMute(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+
         season = GameEngine.getInstance().getSeason();
         engineName.setText(season.getPlayerControlledTeam().getEngine().getName());
         engineQuality.setText(season.getPlayerControlledTeam().getEngine().getQualityString());
