@@ -12,7 +12,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class HomeController {
@@ -46,13 +45,12 @@ public class HomeController {
         mechanicName.setText(playerTeam.getMechanic().getName());
         nextCircuit.setText(season.getCurrentRound().getTrackName());
         currentBudget.setText(playerTeam.getBudgetString());
+
+
         mediaView.setFitHeight(1080);
         mediaView.setFitWidth(1920);
         mediaPlayer.setMute(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-
-
-
 
         // REMOVE NEXT LINE IF NOT IN DEBUG MODE
         transferButtonInit();

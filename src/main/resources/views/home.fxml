@@ -14,11 +14,10 @@
 <?import javafx.scene.media.MediaPlayer?>
 <?import javafx.scene.media.Media?>
 
-<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      id="home" fx:controller="frontend.controllers.HomeController" maxHeight="-Infinity"
-      maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
-      prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.HomeController" prefHeight="1080" prefWidth="1920">
+<Pane id="home"  maxHeight="1080" maxWidth="1920" minHeight="1080" minWidth="1920" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
 
+        <!-- play background video-->
         <MediaView fx:id="mediaView">
             <mediaPlayer>
                 <MediaPlayer fx:id="mediaPlayer" autoPlay="true">
@@ -79,7 +78,7 @@
         <!-- Circuit -->
         <Pane layoutX="700" layoutY="125" prefHeight="220" prefWidth="530" styleClass="block">
             <Label layoutX="30" layoutY="40" styleClass="title" text="Circuit"/>
-            <Label layoutX="30" fx:id="nextCircuit" layoutY="120" styleClass="content" />
+            <Label layoutX="30" fx:id="nextCircuit" layoutY="120" maxWidth="480" styleClass="content" />
             <ImageView fitHeight="100" fitWidth="100" layoutX="375" layoutY="40" rotate="130">
                 <Image url="@../media/icons/circuit.png"/>
             </ImageView>
@@ -88,10 +87,11 @@
         <!-- Budget -->
         <Pane layoutX="700" layoutY="370" prefHeight="220" prefWidth="530" styleClass="block">
             <Label layoutX="30" layoutY="40" styleClass="title" text="Budget"/>
-            <Label layoutX="30" fx:id="currentBudget" layoutY="120" styleClass="content" />
+            <Label layoutX="30" fx:id="currentBudget" layoutY="120" maxWidth="480" styleClass="content" />
             <ImageView fitHeight="75" fitWidth="75" layoutX="375" layoutY="40">
                 <Image url="@../media/icons/eurosign.png"/>
             </ImageView>
         </Pane>
 
 </Pane>
+</AnchorPane>

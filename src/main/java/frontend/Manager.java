@@ -26,6 +26,8 @@ public class Manager extends Application {
         primaryStage.setFullScreen(true);
         primaryStage.setFullScreenExitHint("");
         primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+
+
         Media media = new Media("http://www.klavier.nl/alex/backgroundmusic.mp3");
         MediaPlayer mp = new MediaPlayer(media);
         mp.setCycleCount(MediaPlayer.INDEFINITE);
