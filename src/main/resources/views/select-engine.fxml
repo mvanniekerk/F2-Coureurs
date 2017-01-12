@@ -83,9 +83,9 @@
 
         <!-- table header -->
         <Pane layoutX="30" layoutY="110" prefHeight="40" styleClass="table-view" style="-fx-font-weight: bold">
-            <Label prefWidth="220" text="Name" />
-            <Label prefWidth="220" layoutX="440" text="Price" />
-            <Label prefWidth="220" layoutX="660" text="Quality" />
+            <Label maxWidth="220" prefWidth="220" text="Name" />
+            <Label maxWidth="220" prefWidth="220" layoutX="440" text="Price" />
+            <Label maxWidth="220" prefWidth="220" layoutX="660" text="Quality" />
         </Pane>
 
         <Pane fx:id="engineTable" layoutX="30" layoutY="150" prefHeight="520" prefWidth="1080" styleClass="table-view" />
