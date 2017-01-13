@@ -6,14 +6,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane id="select-driver" maxHeight="-Infinity" maxWidth="-Infinity"
+<Pane fx:id="selectTeamMember" maxHeight="-Infinity" maxWidth="-Infinity"
       minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0"
       fx:controller="frontend.controllers.SelectTeamMemberController"
       stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
 
     <!-- settings-quit -->
     <Button onAction="#confirm" styleClass="green" layoutX="1580" layoutY="925" text="Confirm" />
-    <Button onAction="#cancel" id="red" layoutY="925" layoutX="1300" text="Cancel" />
+    <Button fx:id="cancelButton" onAction="#cancel" id="red" layoutY="925" layoutX="1300" text="Cancel" />
 
     <!-- Select new team member-->
     <Pane layoutX="120" layoutY="60" prefHeight="220" prefWidth="550" styleClass="block">
