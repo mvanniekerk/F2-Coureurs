@@ -1,4 +1,6 @@
-package backend;
+package frontend;
+
+import backend.Season;
 
 import java.io.FileNotFoundException;
 

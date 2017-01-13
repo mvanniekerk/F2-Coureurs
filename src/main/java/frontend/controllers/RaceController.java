@@ -1,7 +1,7 @@
 package frontend.controllers;
 
 import backend.Driver;
-import backend.GameEngine;
+import frontend.GameEngine;
 import backend.Race;
 import backend.Season;
 import backend.Setup;
