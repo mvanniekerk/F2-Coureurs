@@ -1,5 +1,6 @@
 package frontend;
 
+import backend.GameEngine;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,6 +21,8 @@ public class Manager extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/views/splash.fxml"));
         Scene scene = new Scene(root, 1200, 800);
+
+        new GameEngine.GameEngineBuilder("save1.json").build();
 
         primaryStage.setTitle(TITLE);
         primaryStage.setScene(scene);
