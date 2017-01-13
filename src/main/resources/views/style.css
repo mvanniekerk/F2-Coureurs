@@ -66,6 +66,17 @@ Button#red {
 	-fx-background-color: rgba(0, 255, 0, 0.59);
 }
 
+.scroll-bar {
+	-fx-background-color: transparent;
+	-fx-border-color: #95989a;
+	-fx-border-width: 2;
+	-fx-background-insets: 0;
+	-fx-background-radius: 2em;
+}
+
+.thumb {
+	-fx-background-color: white;
+}
 .start-race {
 	-fx-background-color: rgba(0, 255, 0, 0.59);
 	-fx-pref-height: 220;
