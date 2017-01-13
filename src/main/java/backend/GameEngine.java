@@ -26,6 +26,10 @@ public enum GameEngine {
         return season;
     }
 
+    public String getSaveName() {
+        return saveName;
+    }
+
     /**
      * Sets the season.
      * @param season the season you want to set

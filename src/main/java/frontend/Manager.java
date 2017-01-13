@@ -22,7 +22,8 @@ public class Manager extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/views/splash.fxml"));
         Scene scene = new Scene(root, 1200, 800);
 
-        new GameEngine.GameEngineBuilder("save1.json").build();
+        GameEngine gameEngine = new GameEngine();
+
 
         primaryStage.setTitle(TITLE);
         primaryStage.setScene(scene);
