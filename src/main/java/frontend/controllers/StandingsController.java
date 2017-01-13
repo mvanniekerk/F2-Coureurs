@@ -32,8 +32,8 @@ public class StandingsController {
             teamSLabel.setLayoutY(30 * i);
 
             if (teamNLabel.getText().equals(season.getPlayerControlledTeam().getName())) {
-                teamNLabel.setStyle("-fx-text-fill: red");
-                teamSLabel.setStyle("-fx-text-fill: red");
+                teamNLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
+                teamSLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
             }
             returnPane.getChildren().add(teamNLabel);
             returnPane.getChildren().add(teamSLabel);
@@ -59,9 +59,9 @@ public class StandingsController {
                     season.getPlayerControlledTeam().getFirstDriver().getName())
                     || driverNLabel.getText().equals(
                             season.getPlayerControlledTeam().getSecondDriver().getName())) {
-                driverNLabel.setStyle("-fx-text-fill: red");
-                driverTLabel.setStyle("-fx-text-fill: red");
-                driverPLabel.setStyle("-fx-text-fill: red");
+                driverNLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
+                driverTLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
+                driverPLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
             }
 
             returnPane.getChildren().add(driverNLabel);

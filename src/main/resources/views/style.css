@@ -17,13 +17,8 @@ Button, ExitButton, PrepareRaceButton, EditTeamButton, HomeButton, ChampionshipS
 	-fx-effect: dropshadow(three-pass-box, rgba(44, 44, 44, 0.59), 10, 0, 4, 4);
 }
 
-PrepareRaceButton:hover, EditTeamButton:hover, ChampionshipStandingsButton:hover {
-	-fx-background-color: rgba(255, 0, 0, 0.59);
-	-fx-effect: null;
-}
-
-Button:hover, ExitButton:hover, HomeButton:hover {
-	-fx-effect: null;
+Button:hover, ExitButton:hover, PreparaRaceButton:hover, EditTeamButton:hover,
+HomeButton:hover, ChampionshipStandingsButton:hover {
 	-fx-effect: inherit;
 }
 
