@@ -6,7 +6,7 @@ import backend.Season;
 import backend.Setup;
 import backend.Strategy;
 import backend.Team;
-import frontend.GameEngine;
+import backend.GameEngine;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
