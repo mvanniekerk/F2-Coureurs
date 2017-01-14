@@ -38,10 +38,6 @@ public enum GameEngine {
         this.season = season;
     }
 
-    public static GameEngineBuilder gameEngineBuilder(String saveName) {
-        return new GameEngineBuilder(saveName);
-    }
-
     /**
      * <p>Builds a new GameEngine with a season and saveName.
      * The saveName argument decides what happens:
@@ -58,7 +54,7 @@ public enum GameEngine {
      * </p>
      *
      * <p>Usage:
-     * GameEngine.gameEngineBuilder(save1.json).build();
+     * new GameEngine.GameEngineBuilder(save1.json).build();
      * GameEngine.getSeason();</p>
      *
      */
@@ -66,7 +62,12 @@ public enum GameEngine {
         private final String saveName;
         private Season season;
 
-        GameEngineBuilder(String saveName) {
+        /**
+         * Constructor. saveName is the filename in saves.
+         * A new save will be made if the name does not exist.
+         * @param saveName name of the save
+         */
+        public GameEngineBuilder(String saveName) {
             this.saveName = saveName;
             try {
                 season = Season.load(saveName);
@@ -76,6 +77,9 @@ public enum GameEngine {
             }
         }
 
+        /**
+         * Build the GameEngine. Call this after instantiating the class.
+         */
         public void build() {
             GameEngine.INSTANCE.build(this);
         }
