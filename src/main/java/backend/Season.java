@@ -6,6 +6,7 @@ import com.google.gson.JsonSyntaxException;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -384,14 +385,9 @@ public class Season {
      * @return the season equal to the file
      * @throws IllegalArgumentException throws if the filename does not exist
      */
-    public static Season load(String saveName) {
-        try {
-            FileInputStream loadFile = new FileInputStream("saves/" + saveName);
-            return readFromJsonFile(loadFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new IllegalArgumentException("File does not exist");
-        }
+    public static Season load(String saveName) throws FileNotFoundException {
+        FileInputStream loadFile = new FileInputStream("saves/" + saveName);
+        return readFromJsonFile(loadFile);
     }
 
     /**
@@ -418,10 +414,14 @@ public class Season {
      * @throws IOException throws in special cases,
      *      like if the executable is in a admin only directory.
      */
-    public void save(String saveName) throws IOException {
+    public void save(String saveName) {
         File dir = new File("saves");
         dir.mkdir();
-        writeToJsonFile("saves/" + saveName);
+        try {
+            writeToJsonFile("saves/" + saveName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private boolean equalsRounds(Season that) {
