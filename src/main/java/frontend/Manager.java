@@ -27,7 +27,7 @@ public class Manager extends Application {
         pregame controllers, EG: NewGame and LoadGame.
         @TODO Move to pregame controller
          */
-        new GameEngine.GameEngineBuilder("save1.json").build();
+        GameEngine.gameEngineBuilder("save1.json").build();
 
         primaryStage.setTitle(TITLE);
         primaryStage.setScene(scene);

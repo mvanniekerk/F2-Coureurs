@@ -40,6 +40,10 @@ public enum GameEngine {
         this.season = season;
     }
 
+    public static GameEngineBuilder gameEngineBuilder(String saveName) {
+        return new GameEngineBuilder(saveName);
+    }
+
     /**
      * <p>Builds a new GameEngine with a season and saveName.
      * The saveName argument decides what happens:
@@ -56,7 +60,7 @@ public enum GameEngine {
      * </p>
      *
      * <p>Usage:
-     * new GameEngine.GameEngineBuilder(save1.json).build();
+     * GameEngine.gameEngineBuilder(save1.json).build();
      * GameEngine.getSeason();</p>
      *
      */
