@@ -30,6 +30,16 @@ public class HomeController {
     private Season season;
 
     /**
+     * Initialize the gameEngine if the file name is given.
+     *
+     * @param saveName the name of the json file
+     */
+    @FXML
+    public void initialize(String saveName) {
+        new GameEngine.GameEngineBuilder(saveName).build();
+    }
+
+    /**
      * Initialize the home screen with the correct values.
      */
     @FXML
@@ -72,7 +82,7 @@ public class HomeController {
                 frontend.controllers.TransferOfferController controller = loader.getController();
                 controller.load(season.getTeams().get(1),
                         season.getPlayerControlledTeam().getFirstDriver());
-                System.out.println("handlnig event");
+                System.out.println("handling event");
                 Stage stage = (Stage) teamName.getScene().getWindow();
                 stage.getScene().setRoot(root);
             } catch (IOException e) {

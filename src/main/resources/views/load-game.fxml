@@ -5,17 +5,17 @@
 <?scenebuilder-stylesheet style.css?>
 
 
-<Pane xmlns="http://javafx.com/javafx/8" id="load-game"
-      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
-      prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
+<Pane xmlns="http://javafx.com/javafx/8" id="load-game" styleClass="pane" stylesheets="@style.css"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.LoadGameController"
+      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" >
     <!-- Title-->
     <Pane layoutX="80" layoutY="104" prefHeight="127" prefWidth="530" styleClass="block">
         <Label layoutX="30" layoutY="20" styleClass="title" text="Load Game"/>
     </Pane>
 
     <!-- Four options-->
-    <Button layoutX="250" layoutY="440" styleClass="select-game" text="Game A"/>
-    <Button layoutX="1143" layoutY="440" styleClass="select-game" text="Game B"/>
-    <Button layoutX="250" layoutY="700" styleClass="select-game" text="Game C"/>
-    <Button layoutX="1143" layoutY="700" styleClass="select-game" text="Game D"/>
+    <Button onAction="#gameA" layoutX="250" layoutY="440" styleClass="select-game" text="Game A"/>
+    <Button onAction="#gameB" layoutX="1143" layoutY="440" styleClass="select-game" text="Game B"/>
+    <Button onAction="#gameC" layoutX="250" layoutY="700" styleClass="select-game" text="Game C"/>
+    <Button onAction="#gameD" layoutX="1143" layoutY="700" styleClass="select-game" text="Game D"/>
 </Pane>
