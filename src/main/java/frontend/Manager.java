@@ -21,6 +21,14 @@ public class Manager extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/views/splash.fxml"));
         Scene scene = new Scene(root, 1200, 800);
 
+        /*
+        This line decides the save that the game will be using.
+        When the pregame controllers get added, this line should be moved into the appropriate
+        pregame controllers, EG: NewGame and LoadGame.
+        @TODO Move to pregame controller
+         */
+        new GameEngine.GameEngineBuilder("save1.json").build();
+
         primaryStage.setTitle(TITLE);
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);

@@ -1,8 +1,8 @@
 package frontend.controllers;
 
-import backend.GameEngine;
 import backend.Season;
 import backend.Team;
+import frontend.GameEngine;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +23,7 @@ public class EditTeamController {
     @FXML private Label engine;
 
     private Season season;
+    private String saveName;
 
     /**
      * Sets the budget for the team to the right value.
@@ -31,6 +32,7 @@ public class EditTeamController {
     public void initialize() {
         season = GameEngine.getInstance().getSeason();
         Team playerTeam = season.getPlayerControlledTeam();
+        saveName = GameEngine.getInstance().getSaveName();
 
         budget.setText(playerTeam.getBudgetString());
         engine.setText(playerTeam.getEngine().getName());
@@ -50,8 +52,7 @@ public class EditTeamController {
      */
     @FXML
     public void cancel(ActionEvent event) throws IOException {
-        // TODO generalize the save-game name by adding an attribute to Season
-        GameEngine.getInstance().setSeason(Season.load("save1.json"));
+        GameEngine.getInstance().setSeason(Season.load(saveName));
         season = GameEngine.getInstance().getSeason();
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
@@ -68,8 +69,7 @@ public class EditTeamController {
      */
     @FXML
     public void save(ActionEvent event) throws IOException {
-        // TODO generalize the save-game name by adding an attribute to Season
-        season.save("save1.json");
+        season.save(saveName);
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
         Stage stage = (Stage) budget.getScene().getWindow();
