@@ -25,7 +25,7 @@
     <!-- Budget -->
     <Pane layoutX="700" layoutY="125" prefHeight="220" prefWidth="530" styleClass="block">
         <Label layoutX="30" layoutY="40" styleClass="title" text="Budget"/>
-        <Label fx:id="budget" layoutX="30" id="currentBudget" layoutY="120" styleClass="content" />
+        <Label fx:id="budget" layoutX="30" id="currentBudget" layoutY="120" styleClass="content" text="€ 200,000,000"/>
         <ImageView fitHeight="75" fitWidth="75" layoutX="375" layoutY="40">
             <Image url="@../media/icons/eurosign.png"/>
         </ImageView>
