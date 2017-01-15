@@ -14,25 +14,37 @@ import java.io.IOException;
 
 public class LoadGameController {
     @FXML
-    private Button a;
+    private Button gameA;
     @FXML
-    private Button b;
+    private Button gameB;
     @FXML
-    private Button c;
+    private Button gameC;
     @FXML
-    private Button d;
+    private Button gameD;
+
     private String saveName;
 
+    /**
+     * <p>Constructs Button that loads the load-game screen when clicked.
+     *  Game A is saved in save1.json
+     *  Game B is saved in saveB.json
+     *  Game C is saved in saveC.json
+     *  Game D is saved in saveD.json
+     * </p>
+     *
+     * @param event ActionEvent that the button experienced (presumably a button-press).
+     * @throws IOException throws if the fxml file can not be found
+     */
     public void game(ActionEvent event) throws IOException {
         Button button = (Button) event.getSource();
 
-        if (button == a) {
+        if (button == gameA) {
             saveName = "save1.json";
-        } else if (button == b) {
+        } else if (button == gameB) {
             saveName = "saveB.json";
-        } else if (button == c) {
+        } else if (button == gameC) {
             saveName = "saveC.json";
-        } else if (button == d) {
+        } else if (button == gameD) {
             saveName = "saveD.json";
         }
 

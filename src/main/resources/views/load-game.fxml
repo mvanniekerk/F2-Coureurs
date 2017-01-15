@@ -14,8 +14,8 @@
     </Pane>
 
     <!-- Four options-->
-    <Button onAction="#game" fx:id="a" layoutX="250" layoutY="440" styleClass="select-game" text="Game A"/>
-    <Button onAction="#game" fx:id="b" layoutX="1143" layoutY="440" styleClass="select-game" text="Game B"/>
-    <Button onAction="#game" fx:id="c" layoutX="250" layoutY="700" styleClass="select-game" text="Game C"/>
-    <Button onAction="#game" fx:id="d" layoutX="1143" layoutY="700" styleClass="select-game" text="Game D"/>
+    <Button onAction="#game" fx:id="gameA" layoutX="250" layoutY="440" styleClass="select-game" text="Game A"/>
+    <Button onAction="#game" fx:id="gameB" layoutX="1143" layoutY="440" styleClass="select-game" text="Game B"/>
+    <Button onAction="#game" fx:id="gameC" layoutX="250" layoutY="700" styleClass="select-game" text="Game C"/>
+    <Button onAction="#game" fx:id="gameD" layoutX="1143" layoutY="700" styleClass="select-game" text="Game D"/>
 </Pane>

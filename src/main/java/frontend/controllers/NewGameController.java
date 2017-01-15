@@ -20,19 +20,24 @@ public class NewGameController {
     private File fileD;
 
     /**
-     * Declare the pathname of the files.
+     * <p>Declare the pathname of the files.
+     * For now the game will be forced exist if the 4 json file already exist.
+     * </p>
      */
-    public void initialize () {
+    public void initialize() {
         file = new File("saves/save1.json");
         fileB = new File("saves/saveB.json");
         fileC = new File("saves/saveC.json");
         fileD = new File("saves/saveD.json");
+        while (file.exists() && fileB.exists() && fileC.exists() && fileD.exists()) {
+            System.out.println("You can't create a new game");
+            System.exit(1);
+        }
     }
 
     /**
      * <p>Button handler goes to load a screen to create a new team.
      * A new GameEngine is created if the total json file is less than 4.
-     * For now the game will be forced exist if the 4 json file already exist.
      * </p>
      *
      * @param event ActionEvent that the button experienced (presumably a button-press).
@@ -40,10 +45,7 @@ public class NewGameController {
      */
     @FXML
     public void create(ActionEvent event) throws IOException {
-        if (file.exists() && fileB.exists() && fileC.exists() && fileD.exists()) {
-            System.out.println("You can't create a new game");
-            System.exit(1);
-        } else if (file.exists() && fileB.exists() && fileC.exists()) {
+        if (file.exists() && fileB.exists() && fileC.exists()) {
             new GameEngine.GameEngineBuilder("saveD.json").build();
         } else if (file.exists() && fileB.exists()) {
             new GameEngine.GameEngineBuilder("saveC.json").build();
