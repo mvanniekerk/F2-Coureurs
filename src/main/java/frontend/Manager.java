@@ -6,8 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -35,20 +34,21 @@ public class Manager extends Application {
         primaryStage.setFullScreen(true);
         primaryStage.setFullScreenExitHint("");
         primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-        Media media = new Media("http://www.klavier.nl/alex/backgroundmusic.mp3");
-        MediaPlayer mp = new MediaPlayer(media);
-        mp.setCycleCount(MediaPlayer.INDEFINITE);
-        mp.play();
+
+
+        AudioClip audio = new AudioClip(getClass().getResource("/media/sound/backgroundmusic.mp3").toString());
+        audio.setVolume(0.5f);
+        audio.setCycleCount(AudioClip.INDEFINITE);
+        audio.play();
 
         primaryStage.show();
-
 
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 try {
-                    Parent root = FXMLLoader.load(getClass().getResource("/views/welcome.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
                     Stage stage = (Stage) scene.getWindow();
                     stage.getScene().setRoot(root);
                 } catch (IOException e) {
