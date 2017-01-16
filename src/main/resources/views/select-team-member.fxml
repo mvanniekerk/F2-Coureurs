@@ -6,10 +6,27 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="selectTeamMember" maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0"
-      fx:controller="frontend.controllers.SelectTeamMemberController"
-      stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.media.MediaPlayer?>
+<?import javafx.scene.media.Media?>
+<?import javafx.scene.media.MediaView?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane  fx:controller="frontend.controllers.SelectTeamMemberController" xmlns="http://javafx.com/javafx/8.0.112"
+             xmlns:fx="http://javafx.com/fxml/1">
+<Pane id="select-driver" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css">
+
+    <!-- play background video-->
+    <MediaView fx:id="mediaView">
+        <mediaPlayer>
+            <MediaPlayer fx:id="mediaPlayer" autoPlay="true">
+                <media>
+                    <Media source="http://klavier.nl/alex/edit-team.mp4" />
+                </media>
+            </MediaPlayer>
+        </mediaPlayer>
+    </MediaView>
 
     <!-- settings-quit -->
     <Button onAction="#confirm" styleClass="green" layoutX="1580" layoutY="925" text="Confirm" />
@@ -27,11 +44,11 @@
     <!--Current driver1-->
     <Pane layoutX="770" layoutY="60" prefHeight="220" prefWidth="500" styleClass="block">
         <Label fx:id="teamMateName" layoutX="30" layoutY="-30" styleClass="option" text="Kevin Magnussen" />
-        <Pane layoutX="30" layoutY="100" styleClass="content">
+        <Pane layoutX="30" layoutY="100" maxWidth="170" styleClass="content">
             <Label text="Salary:" />
             <Label layoutY="55" text="Quality:" />
         </Pane>
-        <Pane layoutX="200" layoutY="100" style="-fx-alignment: right;" styleClass="content">
+        <Pane layoutX="200" layoutY="100" maxWidth="280" style="-fx-alignment: right;" styleClass="content">
             <Label fx:id="teamMateSalary" text="€8,000" />
             <Label fx:id="teamMateQuality" layoutY="55" text="★★★★★" />
         </Pane>
@@ -40,13 +57,13 @@
     <!--New team member-->
     <Pane layoutX="1300" layoutY="350" prefHeight="380" prefWidth="500" styleClass="block">
         <Label fx:id="newPlayerName" layoutX="30" layoutY="-30" styleClass="option" text="New Driver" />
-        <Pane layoutX="30" layoutY="100" styleClass="content">
+        <Pane layoutX="30" layoutY="100" maxWidth="170" styleClass="content">
             <Label text="Salary:" />
             <Label layoutY="55" text="buyout:" />
             <Label layoutY="110" text="quality:" />
             <Label layoutY="165" text="team:" />
         </Pane>
-        <Pane layoutX="200" layoutY="100" style="-fx-alignment: right;" styleClass="content">
+        <Pane layoutX="200" layoutY="100" maxWidth="280" style="-fx-alignment: right;" styleClass="content">
             <Label fx:id="newSalary" />
             <Label fx:id="newBuyoutClause" layoutY="55" />
             <Label fx:id="newQuality" layoutY="110" />
@@ -82,3 +99,4 @@
         <Pane fx:id="playerTable" layoutX="30" layoutY="150" prefHeight="520" prefWidth="1080" styleClass="table-view" />
     </Pane>
 </Pane>
+</AnchorPane>

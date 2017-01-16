@@ -18,6 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,6 +39,8 @@ public class SelectTeamMemberController {
     @FXML private ScrollBar scrollBar;
     @FXML private Pane tableBox;
     @FXML private Label budget;
+    @FXML private MediaView mediaView;
+    @FXML private MediaPlayer mediaPlayer;
     @FXML private Button cancelButton;
     @FXML private Pane selectTeamMember;
 
@@ -62,6 +66,11 @@ public class SelectTeamMemberController {
      * Initialises the controller.
      */
     public void load(String type) {
+        mediaView.setFitHeight(1080);
+        mediaView.setFitWidth(1920);
+        mediaPlayer.setMute(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+
         season = GameEngine.getInstance().getSeason();
         Team playerTeam = season.getPlayerControlledTeam();
         newStaff = season.getAllNonPlayerControlledStaff();

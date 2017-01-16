@@ -18,7 +18,7 @@ public class RaceTest {
     }
 
     @Test
-    public void calculatePointsTest() {
+    public void calculatePointsOfDriverTest() {
         Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
         Engine engine = new Engine(90, 70, 80, "Ferrari");
         Mechanic mechanic = new Mechanic("Steve Matchett", 100000, 1000000, 50, 50, 50);
@@ -27,8 +27,7 @@ public class RaceTest {
         Setup setup = new Setup(Setup.HIGH_RISK);
         Strategy strategy = new Strategy(Strategy.HIGH_RISK);
 
-        race.calculatePointsOfDriver(driver, engine, mechanic, strategist, aerodynamicist, setup, strategy);
-        float result = driver.getScore();
+        float result = race.calculatePointsOfDriver(driver, engine, mechanic, strategist, aerodynamicist, setup, strategy);
 
         float minDriverWeight = driver.getQuality() * 0.5f; // 25
         float maxDriverWeight = driver.getQuality(); // 50

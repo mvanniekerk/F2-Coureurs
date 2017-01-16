@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
@@ -26,14 +27,13 @@ public class HomeController {
     @FXML private Label nextCircuit;
     @FXML private Label currentBudget;
     @FXML private MediaView mediaView;
-    @FXML private MediaPlayer mediaPlayer;
     private Season season;
 
     /**
      * Initialize the home screen with the correct values.
      */
     @FXML
-    public void initialize() {
+    public void initialize() throws Exception {
         season = GameEngine.getInstance().getSeason();
 
         Team playerTeam = season.getPlayerControlledTeam();
@@ -46,13 +46,16 @@ public class HomeController {
         mechanicName.setText(playerTeam.getMechanic().getName());
         nextCircuit.setText(season.getCurrentRound().getTrackName());
         currentBudget.setText(playerTeam.getBudgetString());
-        mediaView.setFitHeight(1080);
-        mediaView.setFitWidth(1920);
+
+        Media media = new Media(getClass().getResource("/media/video/australia.mp4").toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setMute(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
 
-
-
+        mediaView.setMediaPlayer(mediaPlayer);
+        mediaView.setFitHeight(1080);
+        mediaView.setFitWidth(1920);
 
         // REMOVE NEXT LINE IF NOT IN DEBUG MODE
         transferButtonInit();
