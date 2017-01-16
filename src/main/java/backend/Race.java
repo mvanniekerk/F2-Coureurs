@@ -82,9 +82,6 @@ public class Race {
         });
 
         return drivers;
-
-        // TODO Update championship standings (team and drivers)
-        // TODO Update team finances
     }
 
     /**
