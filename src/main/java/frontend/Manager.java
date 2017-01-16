@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
@@ -38,16 +39,11 @@ public class Manager extends Application {
         primaryStage.setFullScreenExitHint("");
         primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 
-        try {
-            InputStream inputStream = new FileInputStream(
-                System.getProperty("user.dir") + "/src/main/resources/media/sound/backgroundmusic.wav"
-            );
-            AudioStream audioStream = new AudioStream(inputStream);
 
-            AudioPlayer.player.start(audioStream);
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+        AudioClip audio = new AudioClip(getClass().getResource("/media/sound/backgroundmusic.mp3").toString());
+        audio.setVolume(0.5f);
+        audio.setCycleCount(AudioClip.INDEFINITE);
+        audio.play();
 
         primaryStage.show();
 
