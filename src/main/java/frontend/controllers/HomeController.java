@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class HomeController {
