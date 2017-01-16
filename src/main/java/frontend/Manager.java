@@ -16,6 +16,7 @@ import java.util.TimerTask;
 
 public class Manager extends Application {
     public static final String TITLE = "F1 Manager";
+    public MediaPlayer mp;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -38,7 +39,7 @@ public class Manager extends Application {
 
 
         Media media = new Media("http://www.klavier.nl/alex/backgroundmusic.mp3");
-        MediaPlayer mp = new MediaPlayer(media);
+        mp = new MediaPlayer(media);
         mp.setCycleCount(MediaPlayer.INDEFINITE);
         mp.play();
 
@@ -50,7 +51,7 @@ public class Manager extends Application {
             @Override
             public void run() {
                 try {
-                    Parent root = FXMLLoader.load(getClass().getResource("/views/welcome.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
                     Stage stage = (Stage) scene.getWindow();
                     stage.getScene().setRoot(root);
                 } catch (IOException e) {
