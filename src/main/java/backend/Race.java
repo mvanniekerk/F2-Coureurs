@@ -54,13 +54,11 @@ public class Race {
                 Setup randomSetup = new Setup(random.nextInt(3) + 1);
                 Strategy randomStrategy = new Strategy(random.nextInt(3) + 1);
 
-                calculatePointsOfDriver(driver1, team.getEngine(), team.getMechanic(),
-                        team.getStrategist(), team.getAerodynamicist(), randomSetup,
-                        randomStrategy);
+                driver1.setScore(calculatePointsOfDriver(driver1, team.getEngine(), team.getMechanic(),
+                        team.getStrategist(), team.getAerodynamicist(), randomSetup, randomStrategy));
 
-                calculatePointsOfDriver(driver2, team.getEngine(), team.getMechanic(),
-                        team.getStrategist(), team.getAerodynamicist(), randomSetup,
-                        randomStrategy);
+                driver2.setScore( calculatePointsOfDriver(driver2, team.getEngine(), team.getMechanic(),
+                        team.getStrategist(), team.getAerodynamicist(), randomSetup, randomStrategy));
             }
 
             drivers.add(driver1);
@@ -82,9 +80,6 @@ public class Race {
         });
 
         return drivers;
-
-        // TODO Update championship standings (team and drivers)
-        // TODO Update team finances
     }
 
     /**
@@ -96,7 +91,7 @@ public class Race {
      * @param strategist the strategist of the team
      * @param aerodynamicist the aerodynamicist of the team
      */
-    public void calculatePointsOfDriver(Driver driver, Engine engine, Mechanic mechanic,
+    public float calculatePointsOfDriver(Driver driver, Engine engine, Mechanic mechanic,
                                           Strategist strategist, Aerodynamicist aerodynamicist,
                                           Setup setup, Strategy strategy) {
 
@@ -109,13 +104,11 @@ public class Race {
         float setUpWeight = mechanic.getQuality() * setup.calculateRisk();
         float strategyWeight = strategist.getQuality() * strategy.calculateRisk();
 
-        driver.setScore(0.2f * (driverWeight
+        return 0.2f * (driverWeight
                 + engineWeight
                 + carWeight
                 + setUpWeight
-                + strategyWeight
-            )
-        );
+                + strategyWeight);
     }
 
     /**
