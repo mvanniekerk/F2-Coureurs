@@ -5,7 +5,8 @@
 <?scenebuilder-stylesheet style.css?>
 <?import frontend.ExitButton?>
 
-<Pane xmlns="http://javafx.com/javafx/8" id="welcome"
+<Pane xmlns="http://javafx.com/javafx/8"  xmlns:fx="http://javafx.com/fxml/1"
+      id="welcome" fx:controller="frontend.controllers.WelcomeController"
       maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
       prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
     <!-- Title-->
@@ -14,7 +15,7 @@
     </Pane>
 
     <!-- Three options-->
-    <Button layoutX="80" layoutY="440" styleClass="option" text="Load Game"/>
-    <Button layoutX="700" layoutY="440" styleClass="option" text="New Game"/>
+    <Button onAction="#loadGame" layoutX="80" layoutY="440" styleClass="option" text="Load Game"/>
+    <Button onAction="#newGame" layoutX="700" layoutY="440" styleClass="option" text="New Game"/>
     <ExitButton layoutX="1320" layoutY="440" styleClass="option" text="Quit"/>
 </Pane>

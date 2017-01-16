@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.Glow;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -34,6 +35,9 @@ public class PrepareRaceController {
     @FXML private Button setupHighRisk;
 
     @FXML private Button startRace;
+
+    @FXML private Pane strategy;
+    @FXML private Pane setup;
 
     private Season season;
 
@@ -85,6 +89,7 @@ public class PrepareRaceController {
         if (userSetup != null && userStrategy != null) {
             startRace.getStyleClass().removeAll("start-race-red");
             startRace.getStyleClass().add("start-race");
+            glow(false);
             return;
         }
     }
@@ -116,6 +121,7 @@ public class PrepareRaceController {
         if (userSetup != null && userStrategy != null) {
             startRace.getStyleClass().removeAll("start-race-red");
             startRace.getStyleClass().add("start-race");
+            glow(false);
             return;
         }
 
@@ -140,6 +146,24 @@ public class PrepareRaceController {
     }
 
     /**
+     * Set Glow effect on the risks' pane.
+     *
+     * @param flashing set Glow effect to true or false
+     */
+    private void glow(Boolean flashing) {
+        Glow glow = new Glow();
+        glow.setLevel(0.4);
+
+        if (flashing) {
+            strategy.setEffect(glow);
+            setup.setEffect(glow);
+        } else {
+            strategy.setEffect(null);
+            setup.setEffect(null);
+        }
+    }
+
+    /**
      * Start the race.
      *
      * @param event the event that called this method
@@ -152,6 +176,7 @@ public class PrepareRaceController {
             Button button = (Button) event.getSource();
             button.getStyleClass().removeAll("start-race");
             button.getStyleClass().add("start-race-red");
+            glow(true);
 
             System.out.println("User setup or strategy is empty. The race cannot start without.");
             return;
