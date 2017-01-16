@@ -16,7 +16,6 @@ import java.util.TimerTask;
 
 public class Manager extends Application {
     public static final String TITLE = "F1 Manager";
-    public MediaPlayer mp;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -38,13 +37,12 @@ public class Manager extends Application {
         primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 
 
-        Media media = new Media("http://www.klavier.nl/alex/backgroundmusic.mp3");
-        mp = new MediaPlayer(media);
+        Media media = new Media(getClass().getResource("/media/sound/backgroundmusic.mp3").toURI().toString());
+        MediaPlayer mp = new MediaPlayer(media);
         mp.setCycleCount(MediaPlayer.INDEFINITE);
         mp.play();
 
         primaryStage.show();
-
 
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
