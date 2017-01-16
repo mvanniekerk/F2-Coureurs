@@ -130,6 +130,7 @@ public class RaceController {
 
             Team team = driver.getTeam(GameEngine.getInstance().getSeason());
             team.setPointsThisSeason(team.getPointsThisSeason() + points[i]);
+            team.setBudget(team.getBudget() + points[i] * 2000000);
         }
     }
 }
