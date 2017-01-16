@@ -14,6 +14,20 @@ Button, ExitButton, PrepareRaceButton, EditTeamButton, HomeButton, ChampionshipS
     -fx-wrap-text: true;
     -fx-text-alignment: center;
 	-fx-cursor: hand;
+	-fx-effect: dropshadow(three-pass-box, rgba(44, 44, 44, 0.59), 10, 0, 4, 4);
+}
+
+ExitButton:hover, PreparaRaceButton:hover, EditTeamButton:hover, HomeButton:hover, ChampionshipStandingsButton:hover {
+	-fx-background-color: rgba(255, 0, 0, 0.59);
+	-fx-effect: inherit;
+}
+
+Button:hover {
+	-fx-effect: inherit;
+}
+
+Label {
+	-fx-text-fill: white;
 }
 
 .edit-team{
@@ -23,12 +37,6 @@ Button, ExitButton, PrepareRaceButton, EditTeamButton, HomeButton, ChampionshipS
 	-fx-alignment: center-right;
 	contentDisplay: "RIGHT";
 }
-
-Label {
-	-fx-text-fill: white;
-}
-
-
 
 .title{
 	-fx-font-size: 64;
@@ -57,6 +65,17 @@ Button#red {
 	-fx-background-color: rgba(0, 255, 0, 0.59);
 }
 
+.scroll-bar {
+	-fx-background-color: transparent;
+	-fx-border-color: #95989a;
+	-fx-border-width: 2;
+	-fx-background-insets: 0;
+	-fx-background-radius: 2em;
+}
+
+.thumb {
+	-fx-background-color: white;
+}
 .start-race {
 	-fx-background-color: rgba(0, 255, 0, 0.59);
 	-fx-pref-height: 220;
@@ -115,7 +134,7 @@ Button#red {
 }
 
 .option {
-	-fx-padding: none;
+	-fx-padding: 0;
 	-fx-font-size: 58;
 	-fx-pref-width: 530;
 	-fx-pref-height: 200;

@@ -15,9 +15,9 @@ public class  AerodynamicistTest {
 
     @Before
     public void setUp() {
-        aerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 1000000);
-        sameAero = new Aerodynamicist("Dan Fallows", 700000, 1000000);
-        otherAero = new Aerodynamicist("Peter Prodromou", 80000, 1000000);
+        aerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 1000000, 80);
+        sameAero = new Aerodynamicist("Dan Fallows", 700000, 1000000, 80);
+        otherAero = new Aerodynamicist("Peter Prodromou", 80000, 1000000, 80);
     }
 
     @Test
@@ -32,7 +32,7 @@ public class  AerodynamicistTest {
 
     @Test
     public void qualityTest() {
-        assertEquals(50, aerodynamicist.getQuality(), 0.001);
+        assertEquals(80, aerodynamicist.getQuality(), 0.001);
     }
 
     @Test
@@ -58,7 +58,7 @@ public class  AerodynamicistTest {
     @Test
     public void getQualityStringTest() {
         System.out.println(aerodynamicist.getQuality());
-        assertEquals(aerodynamicist.getQualityString(), "★★");
+        assertEquals(aerodynamicist.getQualityString(), "★★★★");
     }
 
     @Test

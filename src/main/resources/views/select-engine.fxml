@@ -42,7 +42,7 @@
         </ImageView>
     </Pane>
 
-    <!--Current driver1-->
+    <!--Current engine-->
     <Pane layoutX="770" layoutY="60" prefHeight="220" prefWidth="500" styleClass="block">
         <Label fx:id="engineName" layoutX="30" layoutY="-30" styleClass="option" text="Ferrari" />
         <Pane layoutX="30" layoutY="100" styleClass="content">
@@ -53,7 +53,7 @@
         </Pane>
     </Pane>
 
-    <!--New team member-->
+    <!--New engines-->
     <Pane layoutX="1300" layoutY="350" prefHeight="240" prefWidth="500" styleClass="block">
         <Label fx:id="newEngineName" layoutX="30" layoutY="-30" styleClass="option" text="New Engine" />
         <Pane layoutX="30" layoutY="100" styleClass="content">
@@ -75,8 +75,8 @@
         </ImageView>
     </Pane>
 
-    <!--Driver table-->
-    <Pane fx:id="tableBox" layoutX="120" layoutY="350" prefHeight="690" prefWidth="1150" styleClass="block">
+    <!--Engine table-->
+    <Pane layoutX="120" layoutY="350" prefHeight="690" prefWidth="1150" styleClass="block">
         <Label layoutX="30" layoutY="20" styleClass="title" text="Engines" />
         <ImageView fitHeight="100" fitWidth="100" layoutX="1000" layoutY="20">
             <Image url="@../media/icons/driver.png" />

@@ -57,9 +57,9 @@ public class SeasonTest {
     public void setUp() {
         driver = new Driver("Kimi Raikkonen", 16, 100,50, 50, 50, false);
         driver2 = new Driver("Lewis Hamilton", 18, 100,58, 52, 40, true);
-        aerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 100);
+        aerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 100, 80);
         mechanic = new Mechanic("Steve Matchett", 100000, 100, 50, 50, 50);
-        strategist = new Strategist("Anonyme", 1000000, 10000000);
+        strategist = new Strategist("Anonyme", 1000000, 10000000, 80);
         engine = new Engine(90, 70, 80, "Mercedes");
         otherEngine = new Engine(90, 60, 80, "Ferrari");
         team = new Team("F2", "User", 2500000,
@@ -69,9 +69,9 @@ public class SeasonTest {
 
         samedriver = new Driver("Kimi Raikkonen", 16, 100,50, 50, 50, false);
         samedriver2 = new Driver("Lewis Hamilton", 18, 100,58, 52, 40, true);
-        sameaerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 100);
+        sameaerodynamicist = new Aerodynamicist("Dan Fallows", 700000, 100, 80);
         samemechanic = new Mechanic("Steve Matchett", 100000, 100, 50, 50, 50);
-        samestrategist = new Strategist("Anonyme", 1000000, 10000000);
+        samestrategist = new Strategist("Anonyme", 1000000, 10000000, 80);
         sameengine = new Engine(900, 70, 80, "Mercedes");
         sameteam = new Team("F2", "User", 2500000,
                 engine, aerodynamicist, mechanic, strategist);
@@ -82,9 +82,9 @@ public class SeasonTest {
 
         driver4 = new Driver("Kimi", 16, 1000,50, 50, 50, false);
         driver5 = new Driver("Lewis", 18, 1000,58, 52, 40, true);
-        aerodynamicist2 = new Aerodynamicist("Dan", 700000, 100);
+        aerodynamicist2 = new Aerodynamicist("Dan", 700000, 100, 80);
         mechanic2 = new Mechanic("Steve", 100000, 100, 50, 50, 50);
-        strategist2 = new Strategist("Anon", 1000000, 10000000);
+        strategist2 = new Strategist("Anon", 1000000, 10000000, 80);
         team2 = new Team("F3", "Not me", 2500000,
                 otherEngine, aerodynamicist2, mechanic2, strategist2);
         team2.setFirstDriver(driver4);
@@ -96,14 +96,14 @@ public class SeasonTest {
         this.otherSeason = new Season();
 
         samedriver3 = new Driver("Kim", 16, 100, 58, 52, 40, true);
-        sameaerodynamicist3 = new Aerodynamicist("Dan Brown", 700000, 100);
+        sameaerodynamicist3 = new Aerodynamicist("Dan Brown", 700000, 100, 80);
         samemechanic3 = new Mechanic("Steve Jobs", 100000, 100, 50, 50, 50);
-        samestrategist3 = new Strategist("Anon the hacker", 1000000, 10000000);
+        samestrategist3 = new Strategist("Anon the hacker", 1000000, 10000000, 80);
 
         driver3 = new Driver("Kim", 16, 100, 58, 52, 40, true);
-        aerodynamicist3 = new Aerodynamicist("Dan Brown", 700000, 100);
+        aerodynamicist3 = new Aerodynamicist("Dan Brown", 700000, 100, 80);
         mechanic3 = new Mechanic("Steve Jobs", 100000, 100, 50, 50, 50);
-        strategist3 = new Strategist("Anon the hacker", 1000000, 10000000);
+        strategist3 = new Strategist("Anon the hacker", 1000000, 10000000, 80);
 
         this.season.addTeam(team);
         this.season.addTeam(team2);

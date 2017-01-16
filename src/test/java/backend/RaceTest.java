@@ -22,8 +22,8 @@ public class RaceTest {
         Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
         Engine engine = new Engine(90, 70, 80, "Ferrari");
         Mechanic mechanic = new Mechanic("Steve Matchett", 100000, 1000000, 50, 50, 50);
-        Aerodynamicist aerodynamicist =  new Aerodynamicist("Dan Fallows", 700000, 1000000);
-        Strategist strategist = new Strategist("Toto Wolff", 1000000, 10000000);
+        Aerodynamicist aerodynamicist =  new Aerodynamicist("Dan Fallows", 700000, 1000000, 80);
+        Strategist strategist = new Strategist("Toto Wolff", 1000000, 10000000, 80);
         Setup setup = new Setup(Setup.HIGH_RISK);
         Strategy strategy = new Strategy(Strategy.HIGH_RISK);
 
@@ -89,5 +89,23 @@ public class RaceTest {
     @Test
     public void equalsOtherObject() {
         assertNotEquals(race, new String());
+    }
+
+    @Test
+    public void diffSetupTest() {
+        Race diffSetup = new Race(new Setup(Setup.HIGH_RISK), new Strategy(Strategy.HIGH_RISK), "Circuit de Monaco", 8);
+        assertNotEquals(diffSetup, race);
+    }
+
+    @Test
+    public void diffStrategyTest() {
+        Race diffStrategy = new Race(new Setup(Setup.LOW_RISK), new Strategy(Strategy.LOW_RISK), "Circuit de Monaco", 8);
+        assertNotEquals(diffStrategy, race);
+    }
+
+    @Test
+    public void diffTrackNameTest() {
+        Race diffTrack = new Race(new Setup(Setup.LOW_RISK), new Strategy(Strategy.HIGH_RISK), "Silverstone Circuit", 8);
+        assertNotEquals(diffTrack, race);
     }
 }

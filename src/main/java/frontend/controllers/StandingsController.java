@@ -36,12 +36,16 @@ public class StandingsController {
         for (int i = 1; i <= 11; i++) {
             Label teamNLabel = new Label(season.getTeam(i).getName());
             teamNLabel.setLayoutY(30 * i);
-            returnPane.getChildren().add(teamNLabel);
-        }
-        for (int j = 1; j <= 11; j++) {
-            Label teamSLabel = new Label(String.valueOf(season.getTeam(j).getPointsThisSeason()));
+
+            Label teamSLabel = new Label(String.valueOf(season.getTeam(i).getPointsThisSeason()));
             teamSLabel.setLayoutX(580);
-            teamSLabel.setLayoutY(30 * j);
+            teamSLabel.setLayoutY(30 * i);
+
+            if (teamNLabel.getText().equals(season.getPlayerControlledTeam().getName())) {
+                teamNLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
+                teamSLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
+            }
+            returnPane.getChildren().add(teamNLabel);
             returnPane.getChildren().add(teamSLabel);
         }
         return returnPane;
@@ -52,16 +56,26 @@ public class StandingsController {
         for (int i = 1; i <= 22; i++) {
             Label driverNLabel = new Label(season.getDriver(i).getName());
             driverNLabel.setLayoutY(30 * i);
-            returnPane.getChildren().add(driverNLabel);
 
             Label driverTLabel = new Label(season.getDriver(i).getTeamName(season));
             driverTLabel.setLayoutX(250);
             driverTLabel.setLayoutY(30 * i);
-            returnPane.getChildren().add(driverTLabel);
 
             Label driverPLabel = new Label(String.valueOf(season.getDriver(i).getPoints()));
             driverPLabel.setLayoutX(580);
             driverPLabel.setLayoutY(30 * i);
+
+            if (driverNLabel.getText().equals(
+                    season.getPlayerControlledTeam().getFirstDriver().getName())
+                    || driverNLabel.getText().equals(
+                            season.getPlayerControlledTeam().getSecondDriver().getName())) {
+                driverNLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
+                driverTLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
+                driverPLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
+            }
+
+            returnPane.getChildren().add(driverNLabel);
+            returnPane.getChildren().add(driverTLabel);
             returnPane.getChildren().add(driverPLabel);
         }
         return returnPane;

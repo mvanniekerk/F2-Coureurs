@@ -55,12 +55,12 @@ public class TransferOfferController {
         SelectTeamMemberController controller = loader.getController();
         if (transferCandidate.getJobTitle().equals("driver")) {
             if (((Driver) transferCandidate).isSecondDriver(season)) {
-                controller.load("driver2");
+                controller.load("driver2", false);
             } else {
-                controller.load("driver1");
+                controller.load("driver1", false);
             }
         } else {
-            controller.load(transferCandidate.getJobTitle());
+            controller.load(transferCandidate.getJobTitle(), false);
         }
 
         Stage stage = (Stage) teamName.getScene().getWindow();

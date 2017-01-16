@@ -30,7 +30,7 @@
 
     <!-- settings-quit -->
     <Button onAction="#confirm" styleClass="green" layoutX="1580" layoutY="925" text="Confirm" />
-    <Button onAction="#cancel" id="red" layoutY="925" layoutX="1300" text="Cancel" />
+    <Button fx:id="cancelButton" onAction="#cancel" id="red" layoutY="925" layoutX="1300" text="Cancel" />
 
     <!-- Select new team member-->
     <Pane layoutX="120" layoutY="60" prefHeight="220" prefWidth="550" styleClass="block">

@@ -1,18 +1,30 @@
 package frontend.controllers;
 
+import backend.GameEngine;
+import backend.Season;
 import backend.Setup;
 import backend.Strategy;
+import backend.Team;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.effect.Glow;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class PrepareRaceController {
+    @FXML private Label engine;
+    @FXML private Label firstDriver;
+    @FXML private Label secondDriver;
+    @FXML private Label strategist;
+    @FXML private Label aerodynamicist;
+    @FXML private Label mechanic;
 
     @FXML private Button strategyLowRisk;
     @FXML private Button strategyMediumRisk;
@@ -24,8 +36,29 @@ public class PrepareRaceController {
 
     @FXML private Button startRace;
 
+    @FXML private Pane strategy;
+    @FXML private Pane setup;
+
+    private Season season;
+
     private Setup userSetup;
     private Strategy userStrategy;
+
+    /**
+     * Initialize the prepare screen with the correct values.
+     */
+    @FXML
+    public void initialize() {
+        season = GameEngine.getInstance().getSeason();
+
+        Team playerTeam = season.getPlayerControlledTeam();
+        engine.setText(playerTeam.getEngine().getName());
+        firstDriver.setText(playerTeam.getFirstDriver().getName());
+        secondDriver.setText(playerTeam.getSecondDriver().getName());
+        strategist.setText(playerTeam.getStrategist().getName());
+        aerodynamicist.setText(playerTeam.getAerodynamicist().getName());
+        mechanic.setText(playerTeam.getMechanic().getName());
+    }
 
     /**
      * Change setup listener.
@@ -56,6 +89,7 @@ public class PrepareRaceController {
         if (userSetup != null && userStrategy != null) {
             startRace.getStyleClass().removeAll("start-race-red");
             startRace.getStyleClass().add("start-race");
+            glow(false);
             return;
         }
     }
@@ -87,6 +121,7 @@ public class PrepareRaceController {
         if (userSetup != null && userStrategy != null) {
             startRace.getStyleClass().removeAll("start-race-red");
             startRace.getStyleClass().add("start-race");
+            glow(false);
             return;
         }
 
@@ -111,6 +146,24 @@ public class PrepareRaceController {
     }
 
     /**
+     * Set Glow effect on the risks' pane.
+     *
+     * @param flashing set Glow effect to true or false
+     */
+    private void glow(Boolean flashing) {
+        Glow glow = new Glow();
+        glow.setLevel(0.4);
+
+        if (flashing) {
+            strategy.setEffect(glow);
+            setup.setEffect(glow);
+        } else {
+            strategy.setEffect(null);
+            setup.setEffect(null);
+        }
+    }
+
+    /**
      * Start the race.
      *
      * @param event the event that called this method
@@ -123,6 +176,7 @@ public class PrepareRaceController {
             Button button = (Button) event.getSource();
             button.getStyleClass().removeAll("start-race");
             button.getStyleClass().add("start-race-red");
+            glow(true);
 
             System.out.println("User setup or strategy is empty. The race cannot start without.");
             return;

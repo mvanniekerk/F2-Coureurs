@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Orientation;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.input.ScrollEvent;
@@ -40,10 +41,26 @@ public class SelectTeamMemberController {
     @FXML private Label budget;
     @FXML private MediaView mediaView;
     @FXML private MediaPlayer mediaPlayer;
+    @FXML private Button cancelButton;
+    @FXML private Pane selectTeamMember;
+
     private Season season;
     private Staff newStaffMember;
     private List<Staff> newStaff;
     private boolean replaceSecondDriver = false;
+
+    /**
+     * Initializes the controller.
+     *
+     * @param type the type of team member
+     * @param showCancel show the cancel button
+     */
+    public void load(String type, boolean showCancel) {
+        load(type);
+        if (!showCancel) {
+            selectTeamMember.getChildren().remove(cancelButton);
+        }
+    }
 
     /**
      * Initialises the controller.
