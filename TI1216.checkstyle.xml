@@ -22,7 +22,7 @@ Checkstyle configurartion that checks the Google coding conventions (https://goo
         </module>
         <module name="LineLength">
             <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
-            <property name="max" value="100"/>
+            <property name="max" value="140"/>
         </module>
         <module name="AvoidStarImport"/>
         <module name="OneTopLevelClass"/>
@@ -33,7 +33,7 @@ Checkstyle configurartion that checks the Google coding conventions (https://goo
         </module>
         <module name="NeedBraces"/>
         <module name="LeftCurly">
-            <property name="maxLineLength" value="100"/>
+            <property name="maxLineLength" value="140"/>
         </module>
         <module name="RightCurly"/>
         <module name="RightCurly">
