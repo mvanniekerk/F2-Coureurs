@@ -6,11 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -36,11 +38,16 @@ public class Manager extends Application {
         primaryStage.setFullScreenExitHint("");
         primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 
+        try {
+            InputStream inputStream = new FileInputStream(
+                System.getProperty("user.dir") + "/src/main/resources/media/sound/backgroundmusic.wav"
+            );
+            AudioStream audioStream = new AudioStream(inputStream);
 
-        Media media = new Media(getClass().getResource("/media/sound/backgroundmusic.mp3").toURI().toString());
-        MediaPlayer mp = new MediaPlayer(media);
-        mp.setCycleCount(MediaPlayer.INDEFINITE);
-        mp.play();
+            AudioPlayer.player.start(audioStream);
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
 
         primaryStage.show();
 
