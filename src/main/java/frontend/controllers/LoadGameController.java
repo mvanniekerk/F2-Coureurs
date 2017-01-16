@@ -1,5 +1,7 @@
 package frontend.controllers;
 
+import backend.GameEngine;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,8 +23,62 @@ public class LoadGameController {
     private Button gameC;
     @FXML
     private Button gameD;
+    @FXML private Button deleteA;
+    @FXML private Button deleteB;
+    @FXML private Button deleteC;
+    @FXML private Button deleteD;
 
     private String saveName;
+
+    private File fileA;
+    private File fileB;
+    private File fileC;
+    private File fileD;
+
+    /**
+     * If the file exists, the player is able to delete it and start again.
+     */
+    public void initialize() {
+        fileA = new File("saves/saveA.json");
+        fileB = new File("saves/saveB.json");
+        fileC = new File("saves/saveC.json");
+        fileD = new File("saves/saveD.json");
+
+        if (!fileA.exists()) {
+            deleteA.setVisible(false);
+        }
+        if (!fileB.exists()) {
+            deleteB.setVisible(false);
+        }
+        if (!fileC.exists()) {
+            deleteC.setVisible(false);
+        }
+        if (!fileD.exists()) {
+            deleteD.setVisible(false);
+        }
+    }
+
+    /**
+     * Delete the game and refresh the page afterward.
+     *
+     * @param event ActionEvent that the button experienced (presumably a button-press).
+     * @throws IOException throws if the fxml file can not be found
+     */
+    public void deleteGame(ActionEvent event) {
+        Button button = (Button) event.getSource();
+
+        if (button == deleteA) {
+            fileA.delete();
+        } else if (button == deleteB) {
+            fileB.delete();
+        } else if (button == deleteC) {
+            fileC.delete();
+            Application.launch();
+        } else if (button == deleteD) {
+            fileD.delete();
+        }
+        initialize();
+    }
 
     /**
      * <p>Constructs Button that loads the load-game screen when clicked.
@@ -39,7 +95,7 @@ public class LoadGameController {
         Button button = (Button) event.getSource();
 
         if (button == gameA) {
-            saveName = "save1.json";
+            saveName = "saveA.json";
         } else if (button == gameB) {
             saveName = "saveB.json";
         } else if (button == gameC) {
@@ -48,19 +104,13 @@ public class LoadGameController {
             saveName = "saveD.json";
         }
 
-        File file = new File("saves/" + saveName);
-        if (file.exists()) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/home.fxml"));
-            Parent root = loader.load();
-            HomeController controller = loader.getController();
-            controller.initialize(saveName);
+        new GameEngine.GameEngineBuilder(saveName).build();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/home.fxml"));
+        Parent root = loader.load();
 
-            Node source = (Node) event.getSource();
-            Stage stage = (Stage) source.getScene().getWindow();
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
 
-            stage.getScene().setRoot(root);
-        } else {
-            button.setStyle("-fx-background-color: rgba(255, 0, 0, 0.59)");
-        }
+        stage.getScene().setRoot(root);
     }
 }

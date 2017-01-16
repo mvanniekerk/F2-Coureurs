@@ -30,16 +30,6 @@ public class HomeController {
     private Season season;
 
     /**
-     * Initialize the gameEngine if the file name is given.
-     *
-     * @param saveName the name of the json file
-     */
-    @FXML
-    public void initialize(String saveName) {
-        new GameEngine.GameEngineBuilder(saveName).build();
-    }
-
-    /**
      * Initialize the home screen with the correct values.
      */
     @FXML
