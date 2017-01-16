@@ -8,12 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Timer;
 import java.util.TimerTask;
 
