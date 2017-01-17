@@ -160,7 +160,7 @@ public class RaceController {
         Driver winningDriver = drivers.get(0);
         winningDriver.setSalary(winningDriver.getSalary() + (winningDriver.getSalary() / 100));
 
-        if (season.getRoundInt() == season.getRounds().size()) {
+        if (season.getRoundInt() == season.getRounds().size() - 1) {
             // End of season
 
         } else {
