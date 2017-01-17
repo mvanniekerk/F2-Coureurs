@@ -43,11 +43,11 @@ public class Race {
             Driver driver2 = team.getSecondDriver();
 
             if (season.getPlayerControlledTeam().equals(team)) {
-                calculatePointsOfDriver(driver1, team.getEngine(), team.getMechanic(),
-                        team.getStrategist(), team.getAerodynamicist(), userSetup, userStrategy);
+                driver1.setScore(calculatePointsOfDriver(driver1, team.getEngine(), team.getMechanic(),
+                        team.getStrategist(), team.getAerodynamicist(), userSetup, userStrategy));
 
-                calculatePointsOfDriver(driver2, team.getEngine(), team.getMechanic(),
-                        team.getStrategist(), team.getAerodynamicist(), userSetup, userStrategy);
+                driver2.setScore(calculatePointsOfDriver(driver2, team.getEngine(), team.getMechanic(),
+                        team.getStrategist(), team.getAerodynamicist(), userSetup, userStrategy));
             } else {
                 Random random = new Random();
 
