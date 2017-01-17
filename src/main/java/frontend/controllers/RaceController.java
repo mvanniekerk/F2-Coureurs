@@ -152,6 +152,7 @@ public class RaceController {
                     - mechanic.getSalary()
                     - aerodynamicist.getSalary()
                     - strategist.getSalary()
+                    - (team.getEngine().getPrice() / season.getRounds().size())
             );
         }
 
