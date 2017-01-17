@@ -39,6 +39,8 @@ public class PrepareRaceController {
     @FXML private Pane strategy;
     @FXML private Pane setup;
 
+    @FXML private Label nextRace;
+
     private Season season;
 
     private Setup userSetup;
@@ -58,6 +60,7 @@ public class PrepareRaceController {
         strategist.setText(playerTeam.getStrategist().getName());
         aerodynamicist.setText(playerTeam.getAerodynamicist().getName());
         mechanic.setText(playerTeam.getMechanic().getName());
+        nextRace.setText(season.getCurrentRound().getTrackName());
     }
 
     /**

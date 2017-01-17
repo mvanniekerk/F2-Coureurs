@@ -70,7 +70,7 @@
 
         <!-- Circuit -->
         <Pane layoutX="700" layoutY="125" prefHeight="220" prefWidth="530" styleClass="block">
-            <Label layoutX="30" layoutY="40" styleClass="title" text="Circuit"/>
+            <Label layoutX="30" layoutY="40" styleClass="title" text="Next race"/>
             <Label layoutX="30" fx:id="nextCircuit" layoutY="120" maxWidth="480" styleClass="content" />
             <ImageView fitHeight="100" fitWidth="100" layoutX="375" layoutY="40" rotate="130">
                 <Image url="@../media/icons/circuit.png"/>
@@ -85,6 +85,5 @@
                 <Image url="@../media/icons/eurosign.png"/>
             </ImageView>
         </Pane>
-
 </Pane>
 </AnchorPane>
