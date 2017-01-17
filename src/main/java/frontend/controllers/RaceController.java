@@ -1,10 +1,13 @@
 package frontend.controllers;
 
+import backend.Aerodynamicist;
 import backend.Driver;
 import backend.GameEngine;
+import backend.Mechanic;
 import backend.Race;
 import backend.Season;
 import backend.Setup;
+import backend.Strategist;
 import backend.Strategy;
 import backend.Team;
 import javafx.beans.property.SimpleStringProperty;
@@ -124,6 +127,7 @@ public class RaceController {
     public void processResults(List<Driver> drivers) {
         int[] points = {25, 18, 15, 12, 10, 8, 6, 4, 2, 1};
 
+        // Update points for drivers and teams that are in the top 10
         for (int i = 0; i < 10; i++) {
             Driver driver = drivers.get(i);
             driver.setPoints(driver.getPoints() + points[i]);
@@ -133,6 +137,33 @@ public class RaceController {
             team.setBudget(team.getBudget() + points[i] * 2000000);
         }
 
-        season.setCurrentRound(season.getRoundInt() + 1);
+        // Update budget of teams
+        for (Team team : season.getTeams()) {
+            Driver firstDriver = team.getFirstDriver();
+            Driver secondDriver = team.getSecondDriver();
+
+            Mechanic mechanic = team.getMechanic();
+            Aerodynamicist aerodynamicist = team.getAerodynamicist();
+            Strategist strategist = team.getStrategist();
+
+            team.setBudget(team.getBudget()
+                    - firstDriver.getSalary()
+                    - secondDriver.getSalary()
+                    - mechanic.getSalary()
+                    - aerodynamicist.getSalary()
+                    - strategist.getSalary()
+            );
+        }
+
+        // Increase salary of winning driver by 1%
+        Driver winningDriver = drivers.get(0);
+        winningDriver.setSalary(winningDriver.getSalary() + (winningDriver.getSalary() / 100));
+
+        if (season.getRoundInt() == season.getRounds().size()) {
+            // End of season
+
+        } else {
+            season.setCurrentRound(season.getRoundInt() + 1);
+        }
     }
 }
