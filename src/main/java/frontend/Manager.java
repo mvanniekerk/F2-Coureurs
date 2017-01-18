@@ -28,6 +28,7 @@ public class Manager extends Application {
         primaryStage.setFullScreen(true);
         primaryStage.setFullScreenExitHint("");
         primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+        primaryStage.setOnCloseRequest((arg) -> System.exit(0));
 
         File file = new File(System.getProperty("user.dir") + "/src/main/resources/media/sound/backgroundmusic.wav");
         AudioInputStream sound = AudioSystem.getAudioInputStream(file);
