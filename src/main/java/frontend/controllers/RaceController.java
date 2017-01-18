@@ -25,6 +25,8 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class RaceController {
@@ -106,23 +108,28 @@ public class RaceController {
             }
         );
 
-        // Create score column
-        TableColumn<Driver, String> scoreColumn = new TableColumn<>("Score");
-        scoreColumn.setCellValueFactory(
-            new Callback<TableColumn.CellDataFeatures<Driver, String>,
-                    ObservableValue<String>>() {
+        ArrayList<Integer> points = new ArrayList<>(Arrays.asList(25, 18, 15, 12, 10, 8, 6, 4, 2, 1));
+        for (int x = 10; x < 22; x++) {
+            points.add(0);
+        }
 
-                @Override
-                public ObservableValue<String> call(
-                    TableColumn.CellDataFeatures<Driver, String> driverObject
-                ) {
-                    return new SimpleStringProperty("" + driverObject.getValue().getScore());
+        // Create points column
+        TableColumn<Driver, String> pointsColumn = new TableColumn<>("Points");
+        pointsColumn.setCellValueFactory(
+                new Callback<TableColumn.CellDataFeatures<Driver, String>,
+                        ObservableValue<String>>() {
+
+                    @Override
+                    public ObservableValue<String> call(
+                            TableColumn.CellDataFeatures<Driver, String> driverObject
+                    ) {
+                        return new SimpleStringProperty("" + points.get(resultsTable.getItems().indexOf(driverObject.getValue())) + "");
+                    }
                 }
-            }
         );
 
         // Add columns to the table
-        resultsTable.getColumns().addAll(positionColumn, nameColumn, teamColumn, scoreColumn);
+        resultsTable.getColumns().addAll(positionColumn, nameColumn, teamColumn, pointsColumn);
     }
 
     /**
