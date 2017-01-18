@@ -1,7 +1,6 @@
 package frontend.controllers;
 
 import backend.GameEngine;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,7 +72,6 @@ public class LoadGameController {
             fileB.delete();
         } else if (button == deleteC) {
             fileC.delete();
-            Application.launch();
         } else if (button == deleteD) {
             fileD.delete();
         }

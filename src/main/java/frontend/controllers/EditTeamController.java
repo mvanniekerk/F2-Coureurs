@@ -62,7 +62,6 @@ public class EditTeamController {
     @FXML
     public void cancel(ActionEvent event) throws IOException {
         GameEngine.getInstance().setSeason(Season.load(saveName));
-        season = GameEngine.getInstance().getSeason();
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
         Stage stage = (Stage) budget.getScene().getWindow();
