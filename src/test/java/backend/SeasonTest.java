@@ -151,7 +151,7 @@ public class SeasonTest {
         team2.setPointsThisSeason(1);
         this.season.addTeam(team2);
 
-        assertEquals(team2, this.season.getTeam(0));
+        assertEquals(team2, this.season.getTeamByRank(0));
     }
 
     @Test

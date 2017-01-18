@@ -125,10 +125,11 @@ public class Season {
      * @return the team
      *
      */
-    public Team getTeam(int rank) {
-        Collections.sort(teams);
+    public Team getTeamByRank(int rank) {
+        List<Team> teamCopy = new ArrayList<>(teams);
+        Collections.sort(teamCopy);
 
-        return teams.get(rank);
+        return teamCopy.get(rank);
     }
 
     /**
