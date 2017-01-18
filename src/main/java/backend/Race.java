@@ -1,6 +1,5 @@
 package backend;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -25,62 +24,6 @@ public class Race {
         this.userStrategy = strategy;
         this.trackName = trackName;
         this.roundInChampionship = roundInChampionship;
-    }
-
-    /**
-     * Calculate the result of the race.
-     *
-     * @return the sorted list of the drivers determined by the race formula.
-     */
-    public List<Driver> calculateRaceResult(Season season) {
-        List<Team> teams = season.getTeams();
-
-        ArrayList<Driver> drivers = new ArrayList<>();
-
-        for (Team team: teams) {
-            Driver driver1 = team.getFirstDriver();
-            Driver driver2 = team.getSecondDriver();
-
-            if (season.getPlayerControlledTeam().equals(team)) {
-                driver1.setScore(calculatePointsOfDriver(driver1, team.getEngine(), team.getMechanic(),
-                        team.getStrategist(), team.getAerodynamicist(), userSetup, userStrategy));
-
-                driver2.setScore(calculatePointsOfDriver(driver2, team.getEngine(), team.getMechanic(),
-                        team.getStrategist(), team.getAerodynamicist(), userSetup, userStrategy));
-            } else {
-                Random random = new Random();
-
-                // +1 because Setup and Strategy expects a number between 1-3
-                Setup randomSetup = new Setup(random.nextInt(3) + 1);
-                Strategy randomStrategy = new Strategy(random.nextInt(3) + 1);
-
-                driver1.setScore(calculatePointsOfDriver(driver1, team.getEngine(), team.getMechanic(),
-                        team.getStrategist(), team.getAerodynamicist(), randomSetup, randomStrategy));
-
-                driver2.setScore( calculatePointsOfDriver(driver2, team.getEngine(), team.getMechanic(),
-                        team.getStrategist(), team.getAerodynamicist(), randomSetup, randomStrategy));
-            }
-
-            drivers.add(driver1);
-            drivers.add(driver2);
-        }
-
-        // Sort drivers by score
-        drivers.sort((driver1, driver2) -> {
-            float score1 = driver1.getScore();
-            float score2 = driver2.getScore();
-
-            if (score1 < score2) {
-                return 1;
-            }
-            if (score1 > score2) {
-                return -1;
-            }
-            return 0;
-        });
-
-        result = drivers;
-        return result;
     }
 
     /**
@@ -146,6 +89,14 @@ public class Race {
      */
     public int getRoundInChampionship() {
         return roundInChampionship;
+    }
+
+    /** Set the result of the race.
+     *
+     * @param drivers the ordered list of drivers
+     */
+    public void setResult(List<Driver> drivers) {
+        this.result = drivers;
     }
 
     /**
