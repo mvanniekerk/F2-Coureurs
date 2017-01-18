@@ -10,6 +10,7 @@ public class Race {
     private Strategy userStrategy;
     private String trackName;
     private int roundInChampionship;
+    private List<Driver> result;
 
     /**
      * Create a new Race.
@@ -42,11 +43,11 @@ public class Race {
             Driver driver2 = team.getSecondDriver();
 
             if (season.getPlayerControlledTeam().equals(team)) {
-                calculatePointsOfDriver(driver1, team.getEngine(), team.getMechanic(),
-                        team.getStrategist(), team.getAerodynamicist(), userSetup, userStrategy);
+                driver1.setScore(calculatePointsOfDriver(driver1, team.getEngine(), team.getMechanic(),
+                        team.getStrategist(), team.getAerodynamicist(), userSetup, userStrategy));
 
-                calculatePointsOfDriver(driver2, team.getEngine(), team.getMechanic(),
-                        team.getStrategist(), team.getAerodynamicist(), userSetup, userStrategy);
+                driver2.setScore(calculatePointsOfDriver(driver2, team.getEngine(), team.getMechanic(),
+                        team.getStrategist(), team.getAerodynamicist(), userSetup, userStrategy));
             } else {
                 Random random = new Random();
 
@@ -79,7 +80,8 @@ public class Race {
             return 0;
         });
 
-        return drivers;
+        result = drivers;
+        return result;
     }
 
     /**
@@ -145,6 +147,15 @@ public class Race {
      */
     public int getRoundInChampionship() {
         return roundInChampionship;
+    }
+
+    /**
+     * Get result of the race.
+     *
+     * @return the result of the race
+     */
+    public List<Driver> getResult() {
+        return result;
     }
 
     /**

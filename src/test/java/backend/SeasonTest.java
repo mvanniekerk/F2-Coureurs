@@ -151,7 +151,7 @@ public class SeasonTest {
         team2.setPointsThisSeason(1);
         this.season.addTeam(team2);
 
-        assertEquals(team2, this.season.getTeam(1));
+        assertEquals(team2, this.season.getTeam(0));
     }
 
     @Test
@@ -432,7 +432,7 @@ public class SeasonTest {
         driver.setPoints(10);
         driver2.setPoints(15);
         driver4.setPoints(25);
-        assertEquals(driver4, season.getDriver(1));
+        assertEquals(driver4, season.getDriver(0));
     }
 
     @Test

@@ -128,7 +128,7 @@ public class Season {
     public Team getTeam(int rank) {
         Collections.sort(teams);
 
-        return teams.get(rank - 1);
+        return teams.get(rank);
     }
 
     /**
@@ -179,7 +179,7 @@ public class Season {
         }
         Collections.sort(driver);
 
-        return driver.get(rank - 1);
+        return driver.get(rank);
     }
 
     /**

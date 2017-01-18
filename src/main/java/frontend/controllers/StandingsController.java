@@ -33,7 +33,7 @@ public class StandingsController {
 
     private Pane setTeamPane() {
         Pane returnPane = new Pane();
-        for (int i = 1; i <= 11; i++) {
+        for (int i = 0; i <= 10; i++) {
             Label teamNLabel = new Label(season.getTeam(i).getName());
             teamNLabel.setLayoutY(30 * i);
 
@@ -53,7 +53,7 @@ public class StandingsController {
 
     private Pane setDriverPane() {
         Pane returnPane = new Pane();
-        for (int i = 1; i <= 22; i++) {
+        for (int i = 0; i <= 21; i++) {
             Label driverNLabel = new Label(season.getDriver(i).getName());
             driverNLabel.setLayoutY(30 * i);
 
