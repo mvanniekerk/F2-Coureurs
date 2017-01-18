@@ -126,9 +126,10 @@ public class Season {
      *
      */
     public Team getTeamByRank(int rank) {
-        Collections.sort(teams);
+        List<Team> teamCopy = new ArrayList<>(teams);
+        Collections.sort(teamCopy);
 
-        return teams.get(rank);
+        return teamCopy.get(rank);
     }
 
     /**
