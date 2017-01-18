@@ -1,7 +1,6 @@
 package backend;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -33,8 +32,7 @@ public class Race {
      *
      * @return the sorted list of the drivers determined by the race formula.
      */
-    public List<Driver> calculateRaceResult() {
-        Season season = GameEngine.getInstance().getSeason();
+    public List<Driver> calculateRaceResult(Season season) {
         List<Team> teams = season.getTeams();
 
         ArrayList<Driver> drivers = new ArrayList<>();
@@ -68,7 +66,18 @@ public class Race {
         }
 
         // Sort drivers by score
-        Collections.sort(drivers);
+        drivers.sort((driver1, driver2) -> {
+            float score1 = driver1.getScore();
+            float score2 = driver2.getScore();
+
+            if (score1 < score2) {
+                return 1;
+            }
+            if (score1 > score2) {
+                return -1;
+            }
+            return 0;
+        });
 
         result = drivers;
         return result;

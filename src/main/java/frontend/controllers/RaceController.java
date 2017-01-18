@@ -53,7 +53,7 @@ public class RaceController {
 
         // Create list of drivers
         ObservableList<Driver> drivers =
-                FXCollections.observableArrayList(race.calculateRaceResult());
+                FXCollections.observableArrayList(race.calculateRaceResult(season));
 
         // Process the results of the race
         processResults(drivers);
