@@ -5,12 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class Manager extends Application {
     public static final String TITLE = "F1 Manager";
@@ -26,11 +29,13 @@ public class Manager extends Application {
         primaryStage.setFullScreenExitHint("");
         primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 
+        File file = new File(System.getProperty("user.dir") + "/src/main/resources/media/sound/backgroundmusic.wav");
+        AudioInputStream sound = AudioSystem.getAudioInputStream(file);
 
-        AudioClip audio = new AudioClip(getClass().getResource("/media/sound/backgroundmusic.mp3").toString());
-        audio.setVolume(0.5f);
-        audio.setCycleCount(AudioClip.INDEFINITE);
-        audio.play();
+        Clip clip = AudioSystem.getClip();
+        clip.open(sound);
+        clip.loop(Clip.LOOP_CONTINUOUSLY);
+        clip.start();
 
         primaryStage.show();
 
