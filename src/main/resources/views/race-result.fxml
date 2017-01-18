@@ -8,6 +8,6 @@
 
     <TableView fx:id="resultsTable"/>
 
-    <HomeButton styleClass="settings-quit" layoutY="800" layoutX="1670" text="Continue"/>
+    <HomeButton styleClass="settings-quit" layoutY="800" layoutX="1670" fx:id="continueButton" text="Continue"/>
     <ExitButton styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
 </Pane>

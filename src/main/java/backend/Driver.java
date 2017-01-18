@@ -33,6 +33,24 @@ public class Driver extends Staff implements Comparable<Driver> {
     }
 
     /**
+     * Check if the driver has won the championship last year.
+     *
+     * @return true if the driver was the champion
+     */
+    public boolean isChampionLastYear() {
+        return championLastYear;
+    }
+
+    /**
+     * Set whether the driver has won the championship last year.
+     *
+     * @param championLastYear true when the driver is the champion of last year
+     */
+    public void setChampionLastYear(boolean championLastYear) {
+        this.championLastYear = championLastYear;
+    }
+
+    /**
      * set the race wins.
      *
      * @param raceWins must be between 0 and 100
