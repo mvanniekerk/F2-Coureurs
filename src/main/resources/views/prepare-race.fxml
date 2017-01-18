@@ -86,6 +86,5 @@
     <Button onAction="#startRace" fx:id="startRace" layoutX="1320" layoutY="550" prefHeight="220" prefWidth="530" styleClass="start-race" text="Start Race"/>
 
     <!-- settings-quit -->
-    <Button styleClass="settings-quit" layoutY="925" layoutX="1470" text="Settings" />
     <ExitButton styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
 </Pane>
