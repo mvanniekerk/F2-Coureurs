@@ -81,8 +81,6 @@ public class EditTeamController {
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
         Stage stage = (Stage) budget.getScene().getWindow();
-
-
         stage.getScene().setRoot(root);
     }
 

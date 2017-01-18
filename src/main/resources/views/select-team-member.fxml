@@ -14,7 +14,7 @@
 
 <AnchorPane  fx:controller="frontend.controllers.SelectTeamMemberController" xmlns="http://javafx.com/javafx/8.0.112"
              xmlns:fx="http://javafx.com/fxml/1">
-<Pane id="select-driver" maxHeight="-Infinity" maxWidth="-Infinity"
+<Pane fx:id="selectTeamMember" maxHeight="-Infinity" maxWidth="-Infinity"
       minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css">
 
     <!-- play background video-->

@@ -45,9 +45,11 @@ public class SelectTeamMemberController {
     @FXML private Pane selectTeamMember;
 
     private Season season;
+    private String saveName;
     private Staff newStaffMember;
     private List<Staff> newStaff;
     private boolean replaceSecondDriver = false;
+    private boolean showCancel;
 
     /**
      * Initializes the controller.
@@ -60,6 +62,8 @@ public class SelectTeamMemberController {
         if (!showCancel) {
             selectTeamMember.getChildren().remove(cancelButton);
         }
+        this.showCancel = showCancel;
+
     }
 
     /**
@@ -72,6 +76,7 @@ public class SelectTeamMemberController {
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 
         season = GameEngine.getInstance().getSeason();
+        saveName = GameEngine.getInstance().getSaveName();
         Team playerTeam = season.getPlayerControlledTeam();
         newStaff = season.getAllNonPlayerControlledStaff();
         budget.setText(playerTeam.getBudgetString());
@@ -176,9 +181,17 @@ public class SelectTeamMemberController {
                 season.transfer(newStaffMember, season.getPlayerControlledTeam());
             }
 
-            Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
-            Stage stage = (Stage) teamMateName.getScene().getWindow();
-            stage.getScene().setRoot(root);
+            if (showCancel) {
+                Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
+                Stage stage = (Stage) teamMateName.getScene().getWindow();
+                stage.getScene().setRoot(root);
+            } else {
+                season.save(saveName);
+
+                Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
+                Stage stage = (Stage) budget.getScene().getWindow();
+                stage.getScene().setRoot(root);
+            }
         }
     }
 
