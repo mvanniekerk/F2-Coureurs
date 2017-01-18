@@ -5,17 +5,23 @@
 <?scenebuilder-stylesheet style.css?>
 
 
-<Pane xmlns="http://javafx.com/javafx/8" id="load-game"
-      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
-      prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
+<Pane xmlns="http://javafx.com/javafx/8" id="load-game" styleClass="pane" stylesheets="@style.css"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.LoadGameController"
+      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" >
     <!-- Title-->
     <Pane layoutX="80" layoutY="104" prefHeight="127" prefWidth="530" styleClass="block">
-        <Label layoutX="30" layoutY="20" styleClass="title" text="Load Game"/>
+        <Label layoutX="30" layoutY="20" styleClass="title" text="Welcome"/>
     </Pane>
 
     <!-- Four options-->
-    <Button layoutX="250" layoutY="440" styleClass="select-game" text="Game A"/>
-    <Button layoutX="1143" layoutY="440" styleClass="select-game" text="Game B"/>
-    <Button layoutX="250" layoutY="700" styleClass="select-game" text="Game C"/>
-    <Button layoutX="1143" layoutY="700" styleClass="select-game" text="Game D"/>
+    <Button onAction="#game" fx:id="gameA" layoutX="250" layoutY="440" styleClass="select-game" text="Game A"/>
+    <Button onAction="#game" fx:id="gameB" layoutX="1143" layoutY="440" styleClass="select-game" text="Game B"/>
+    <Button onAction="#game" fx:id="gameC" layoutX="250" layoutY="700" styleClass="select-game" text="Game C"/>
+    <Button onAction="#game" fx:id="gameD" layoutX="1143" layoutY="700" styleClass="select-game" text="Game D"/>
+
+    <!-- Four delete options -->
+    <Button onAction="#deleteGame" fx:id="deleteA" layoutX="580" layoutY="505" styleClass="delete" text="Delete"/>
+    <Button onAction="#deleteGame" fx:id="deleteB" layoutX="1470" layoutY="505" styleClass="delete" text="Delete"/>
+    <Button onAction="#deleteGame" fx:id="deleteC" layoutX="580" layoutY="770" styleClass="delete" text="Delete"/>
+    <Button onAction="#deleteGame" fx:id="deleteD" layoutX="1470" layoutY="770" styleClass="delete" text="Delete"/>
 </Pane>

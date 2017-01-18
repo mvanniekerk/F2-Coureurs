@@ -2,6 +2,7 @@ package frontend.controllers;
 
 import backend.GameEngine;
 import backend.Season;
+import backend.Team;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -10,6 +11,7 @@ import javafx.scene.media.MediaView;
 
 public class StandingsController {
     private Season season;
+    private Team playerControlled;
     @FXML private Pane teamTable;
     @FXML private Pane driverTable;
     @FXML private MediaView mediaView;
@@ -26,6 +28,7 @@ public class StandingsController {
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 
         season = GameEngine.getInstance().getSeason();
+        playerControlled = season.getPlayerControlledTeam();
 
         teamTable.getChildren().add(setTeamPane());
         driverTable.getChildren().add(setDriverPane());
@@ -41,7 +44,7 @@ public class StandingsController {
             teamSLabel.setLayoutX(580);
             teamSLabel.setLayoutY(30 * i);
 
-            if (teamNLabel.getText().equals(season.getPlayerControlledTeam().getName())) {
+            if (teamNLabel.getText().equals(playerControlled.getName())) {
                 teamNLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
                 teamSLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
             }
@@ -65,10 +68,8 @@ public class StandingsController {
             driverPLabel.setLayoutX(580);
             driverPLabel.setLayoutY(30 * i);
 
-            if (driverNLabel.getText().equals(
-                    season.getPlayerControlledTeam().getFirstDriver().getName())
-                    || driverNLabel.getText().equals(
-                            season.getPlayerControlledTeam().getSecondDriver().getName())) {
+            if (driverNLabel.getText().equals(playerControlled.getFirstDriver().getName())
+                    || driverNLabel.getText().equals(playerControlled.getSecondDriver().getName())) {
                 driverNLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
                 driverTLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
                 driverPLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");

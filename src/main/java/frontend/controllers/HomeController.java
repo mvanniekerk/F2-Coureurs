@@ -75,7 +75,7 @@ public class HomeController {
                 frontend.controllers.TransferOfferController controller = loader.getController();
                 controller.load(season.getTeams().get(1),
                         season.getPlayerControlledTeam().getFirstDriver());
-                System.out.println("handlnig event");
+                System.out.println("handling event");
                 Stage stage = (Stage) teamName.getScene().getWindow();
                 stage.getScene().setRoot(root);
             } catch (IOException e) {

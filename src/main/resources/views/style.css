@@ -17,7 +17,7 @@ Button, ExitButton, PrepareRaceButton, EditTeamButton, HomeButton, ChampionshipS
 	-fx-effect: dropshadow(three-pass-box, rgba(44, 44, 44, 0.59), 10, 0, 4, 4);
 }
 
-ExitButton:hover, PreparaRaceButton:hover, EditTeamButton:hover, HomeButton:hover, ChampionshipStandingsButton:hover {
+ExitButton:hover, PrepareRaceButton:hover, EditTeamButton:hover, HomeButton:hover, ChampionshipStandingsButton:hover {
 	-fx-background-color: rgba(255, 0, 0, 0.59);
 	-fx-effect: inherit;
 }
@@ -28,6 +28,17 @@ Button:hover {
 
 Label {
 	-fx-text-fill: white;
+}
+
+.delete {
+	-fx-background-color: rgba(255, 0, 0, 0.59);
+	-fx-background-radius: 16.4, 15;
+	-fx-background-insets: -1.4, 0;
+	-fx-pref-height: 40;
+	-fx-pref-width: 160;
+	-fx-border-radius: 15;
+	-fx-border-width: 2;
+	-fx-border-color: dimgrey;
 }
 
 .edit-team{
@@ -113,12 +124,8 @@ Button#red {
 	-fx-background-image: url("../media/backgrounds/race-result.jpg");
 }
 
-#new-game, #load-game, #new-team, #new-team-overview{
+#load-game, #new-team, #new-team-overview{
 	-fx-background-image: url("../media/backgrounds/pre-home.jpg");
-}
-
-#welcome {
-	-fx-background-image: url("../media/icons/logo.png");
 }
 
 #newgame-existing {
