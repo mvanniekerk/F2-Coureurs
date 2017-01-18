@@ -125,7 +125,7 @@ public class Season {
      * @return the team
      *
      */
-    public Team getTeam(int rank) {
+    public Team getTeamByRank(int rank) {
         Collections.sort(teams);
 
         return teams.get(rank);

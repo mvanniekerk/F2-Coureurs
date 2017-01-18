@@ -208,8 +208,8 @@ public class RaceController {
         champion.setSalary(champion.getSalary() + (champion.getSalary() / 10));
 
         // Add 200M championship bonus
-        Team constructurChampion = season.getTeam(0);
-        constructurChampion.setBudget(constructurChampion.getBudget() + 200000000);
+        Team constructorChampion = season.getTeam(0);
+        constructorChampion.setBudget(constructorChampion.getBudget() + 200000000);
 
         // Reset season to first round
         season.setCurrentRound(0);

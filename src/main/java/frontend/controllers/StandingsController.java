@@ -9,6 +9,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class StandingsController {
     private Season season;
     private Team playerControlled;
@@ -36,11 +41,14 @@ public class StandingsController {
 
     private Pane setTeamPane() {
         Pane returnPane = new Pane();
-        for (int i = 0; i <= 10; i++) {
-            Label teamNLabel = new Label(season.getTeam(i).getName());
+        List<Team> teamsCopy = new ArrayList<>(season.getTeams());
+        Collections.sort(teamsCopy);
+        int i = 0;
+        for (Team team : teamsCopy) {
+            Label teamNLabel = new Label(team.getName());
             teamNLabel.setLayoutY(30 * i);
 
-            Label teamSLabel = new Label(String.valueOf(season.getTeam(i).getPointsThisSeason()));
+            Label teamSLabel = new Label(String.valueOf(team.getPointsThisSeason()));
             teamSLabel.setLayoutX(580);
             teamSLabel.setLayoutY(30 * i);
 
@@ -50,6 +58,7 @@ public class StandingsController {
             }
             returnPane.getChildren().add(teamNLabel);
             returnPane.getChildren().add(teamSLabel);
+            i++;
         }
         return returnPane;
     }
