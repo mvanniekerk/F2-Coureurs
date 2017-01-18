@@ -9,19 +9,15 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-
 import java.io.File;
 import java.io.IOException;
 
 public class LoadGameController {
-    @FXML
-    private Button gameA;
-    @FXML
-    private Button gameB;
-    @FXML
-    private Button gameC;
-    @FXML
-    private Button gameD;
+    @FXML private Button gameA;
+    @FXML private Button gameB;
+    @FXML private Button gameC;
+    @FXML private Button gameD;
+
     @FXML private Button deleteA;
     @FXML private Button deleteB;
     @FXML private Button deleteC;
