@@ -1,6 +1,7 @@
 package backend;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -67,18 +68,7 @@ public class Race {
         }
 
         // Sort drivers by score
-        drivers.sort((driver1, driver2) -> {
-            float score1 = driver1.getScore();
-            float score2 = driver2.getScore();
-
-            if (score1 < score2) {
-                return 1;
-            }
-            if (score1 > score2) {
-                return -1;
-            }
-            return 0;
-        });
+        Collections.sort(drivers);
 
         result = drivers;
         return result;
