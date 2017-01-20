@@ -22,6 +22,16 @@ public class Engine {
     }
 
     /**
+     * Create engine with null value.
+     */
+    public Engine() {
+        this.power = 0;
+        this.drivability = 0;
+        this.fuelConsumption = 0;
+        this.name = "";
+    }
+
+    /**
      * Get the quality of the engine.
      *
      * @return the quality

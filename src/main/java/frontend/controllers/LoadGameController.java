@@ -1,6 +1,12 @@
 package frontend.controllers;
 
+import backend.Aerodynamicist;
+import backend.Driver;
+import backend.Engine;
 import backend.GameEngine;
+import backend.Mechanic;
+import backend.Strategist;
+import backend.Team;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -89,6 +95,9 @@ public class LoadGameController {
      *  Game C is saved in saveC.json
      *  Game D is saved in saveD.json
      * </p>
+     * <p>If a new file/game is created, the screen edit-team will be loaded.
+     * The player can then form his team with 200 million € starting budget.
+     * </p>
      *
      * @param event ActionEvent that the button experienced (presumably a button-press).
      * @throws IOException throws if the fxml file can not be found
@@ -106,8 +115,23 @@ public class LoadGameController {
             saveName = "saveD.json";
         }
 
-        new GameEngine.GameEngineBuilder(saveName).build();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/home.fxml"));
+        FXMLLoader loader;
+        if (new File("saves/" + saveName).exists()) {
+            new GameEngine.GameEngineBuilder(saveName).build();
+            loader = new FXMLLoader(getClass().getResource("/views/home.fxml"));
+        } else {
+            new GameEngine.GameEngineBuilder(saveName).build();
+            loader = new FXMLLoader(getClass().getResource("/views/edit-team.fxml"));
+            Team playerTeam = GameEngine.getInstance().getSeason().getPlayerControlledTeam();
+            playerTeam.setFirstDriver(new Driver());
+            playerTeam.setSecondDriver(new Driver());
+            playerTeam.setStrategist(new Strategist());
+            playerTeam.setAerodynamicist(new Aerodynamicist());
+            playerTeam.setMechanic(new Mechanic());
+            playerTeam.setEngine(new Engine());
+            playerTeam.setBudget(200000000);
+        }
+
         Parent root = loader.load();
 
         Node source = (Node) event.getSource();
