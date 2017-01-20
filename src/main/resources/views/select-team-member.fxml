@@ -49,8 +49,8 @@
             <Label layoutY="55" text="Quality:" />
         </Pane>
         <Pane layoutX="200" layoutY="100" maxWidth="280" style="-fx-alignment: right;" styleClass="content">
-            <Label fx:id="teamMateSalary" text="€8,000" />
-            <Label fx:id="teamMateQuality" layoutY="55" text="★★★★★" />
+            <Label fx:id="teamMateSalary" />
+            <Label fx:id="teamMateQuality" layoutY="55" />
         </Pane>
     </Pane>
 

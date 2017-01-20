@@ -85,7 +85,9 @@ public class SelectTeamMemberController {
         switch (type) {
             case "driver1":
                 teamMateName.setText(playerTeam.getFirstDriver().getName());
-                teamMateSalary.setText(playerTeam.getFirstDriver().getSalaryString());
+                if (playerTeam.getFirstDriver().getSalary() != 0) {
+                    teamMateSalary.setText(playerTeam.getFirstDriver().getSalaryString());
+                }
                 teamMateQuality.setText(playerTeam.getFirstDriver().getQualityString());
                 newStaff = newStaff.stream()
                         .filter((Staff staff) -> staff instanceof Driver)
@@ -94,7 +96,9 @@ public class SelectTeamMemberController {
             case "driver2":
                 replaceSecondDriver = true;
                 teamMateName.setText(playerTeam.getSecondDriver().getName());
-                teamMateSalary.setText(playerTeam.getSecondDriver().getSalaryString());
+                if (playerTeam.getSecondDriver().getSalary() != 0) {
+                    teamMateSalary.setText(playerTeam.getSecondDriver().getSalaryString());
+                }
                 teamMateQuality.setText(playerTeam.getSecondDriver().getQualityString());
                 newStaff = newStaff.stream()
                         .filter((Staff staff) -> staff instanceof Driver)
@@ -102,7 +106,9 @@ public class SelectTeamMemberController {
                 break;
             case "aerodynamicist":
                 teamMateName.setText(playerTeam.getAerodynamicist().getName());
-                teamMateSalary.setText(playerTeam.getAerodynamicist().getSalaryString());
+                if (playerTeam.getAerodynamicist().getSalary() != 0) {
+                    teamMateSalary.setText(playerTeam.getAerodynamicist().getSalaryString());
+                }
                 teamMateQuality.setText(playerTeam.getAerodynamicist().getQualityString());
                 newStaff = newStaff.stream()
                         .filter((Staff staff) -> staff instanceof Aerodynamicist)
@@ -110,7 +116,9 @@ public class SelectTeamMemberController {
                 break;
             case "mechanic":
                 teamMateName.setText(playerTeam.getMechanic().getName());
-                teamMateSalary.setText(playerTeam.getMechanic().getSalaryString());
+                if (playerTeam.getMechanic().getSalary() != 0) {
+                    teamMateSalary.setText(playerTeam.getMechanic().getSalaryString());
+                }
                 teamMateQuality.setText(playerTeam.getMechanic().getQualityString());
                 newStaff = newStaff.stream()
                         .filter((Staff staff) -> staff instanceof Mechanic)
@@ -118,7 +126,9 @@ public class SelectTeamMemberController {
                 break;
             default: // strategist
                 teamMateName.setText(playerTeam.getStrategist().getName());
-                teamMateSalary.setText(playerTeam.getStrategist().getSalaryString());
+                if (playerTeam.getStrategist().getSalary() != 0) {
+                    teamMateSalary.setText(playerTeam.getStrategist().getSalaryString());
+                }
                 teamMateQuality.setText(playerTeam.getStrategist().getQualityString());
                 newStaff = newStaff.stream()
                         .filter((Staff staff) -> staff instanceof Strategist)
