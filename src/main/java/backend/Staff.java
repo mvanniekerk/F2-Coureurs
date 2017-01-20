@@ -20,6 +20,12 @@ public abstract class Staff {
         this.buyoutClause = buyoutClause;
     }
 
+    public Staff() {
+        this.name = "";
+        this.salary = 0;
+        this.buyoutClause = 0;
+    }
+
     /**
      * Get the name of the staff member.
      *

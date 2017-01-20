@@ -32,6 +32,17 @@ public class Driver extends Staff implements Comparable<Driver> {
         this.score = 0.0f;
     }
 
+    public Driver() {
+        super();
+        this.speed = 0;
+        this.raceCraft = 0;
+        this.strategyInsight = 0;
+        this.championLastYear = false;
+        this.raceWins = 0;
+        this.points = 0;
+        this.score = 0.0f;
+    }
+
     /**
      * Check if the driver has won the championship last year.
      *

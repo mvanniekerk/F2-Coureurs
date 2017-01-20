@@ -23,6 +23,13 @@ public class Mechanic extends Staff {
         this.pitstops = pitstops;
     }
 
+    public Mechanic() {
+        super();
+        this.reliability = 0;
+        this.partFixing = 0;
+        this.pitstops = 0;
+    }
+
     /**
      * Finds the quality of the mechanic by combining all its attributes.
      *

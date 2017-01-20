@@ -3,6 +3,7 @@ package backend;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -251,8 +252,17 @@ public class Season {
      * @param staffMember The new staff member
      * @param team The team to transfer the staff member to
      * @param replaceSecondDriver true if the second driver needs to be replaced
+     * @param replaceWithNull if replaceWithNull is true, the staffMember gets replaced with a
+     *                        temporary staffMember, that is recognizable as a non-existing
+     *                        staffMember. This flag should be set if the oldTeam is the team
+     *                        of the player, so the player can choose a new staff member.
+     *                        In the frontend, this means that the transfer method should be
+     *                        followed by the select team member screen. If this is not done, the
+     *                        application will fail.
+     *                        If replaceWithNull is false, the staffMember gets replaced by a
+     *                        random contract worker with the same function.
      */
-    public void transfer(Staff staffMember, Team team, boolean replaceSecondDriver) {
+    public void transfer(Staff staffMember, Team team, boolean replaceSecondDriver, boolean replaceWithNull) {
         Team oldTeam = staffMember.getTeam(this);
         int buyoutClause = staffMember.getBuyoutClause(this);
         // subtract the buyout clause from the budget
@@ -264,21 +274,7 @@ public class Season {
 
         // Remove the new staff member from its old team
         if (oldTeam != null) {
-            // If the new staff member was in a team,
-            // add a new contract worker to the team
-            if (staffMember instanceof Aerodynamicist) {
-                oldTeam.swapStaffMember(contractAerodynamicists.remove(0));
-            } else if (staffMember instanceof Driver) {
-                if (((Driver) staffMember).isSecondDriver(this)) {
-                    oldTeam.swapSecondDriver(contractDrivers.remove(0));
-                } else {
-                    oldTeam.swapStaffMember(contractDrivers.remove(0));
-                }
-            } else if (staffMember instanceof Mechanic) {
-                oldTeam.swapStaffMember(contractMechanics.remove(0));
-            } else {
-                oldTeam.swapStaffMember(contractStrategists.remove(0));
-            }
+            replaceOldTeamStaffMember(staffMember, oldTeam, replaceWithNull);
         } else {
             // The new staff member was not in a team
             // Make sure the new staff member is not still in a contract list
@@ -299,6 +295,60 @@ public class Season {
     }
 
     /**
+     * This method performs a critical part of the transfer process.
+     *
+     * @param staffMember this staffMember gets removed from oldTeam
+     * @param oldTeam the Team the staffMember gets removed from
+     * @param replaceWithNull if replaceWithNull is true, the staffMember gets replaced with a
+     *                        temporary staffMember, that is recognizable as a non-existing
+     *                        staffMember. This flag should be set if the oldTeam is the team
+     *                        of the player, so the player can choose a new staff member.
+     *                        In the frontend, this means that the transfer method should be
+     *                        followed by the select team member screen. If this is not done, the
+     *                        application will fail.
+     *                        If replaceWithNull is false, the staffMember gets replaced by a
+     *                        random contract worker with the same function.
+     */
+    private void replaceOldTeamStaffMember(Staff staffMember, Team oldTeam, boolean replaceWithNull) {
+        // If the new staff member was in a team,
+        // add a new contract worker to the team
+        if (staffMember instanceof Aerodynamicist) {
+            if (!replaceWithNull) {
+                oldTeam.swapStaffMember(contractAerodynamicists.remove(0));
+            } else {
+                oldTeam.swapStaffMember(new Aerodynamicist());
+            }
+        } else if (staffMember instanceof Driver) {
+            if (((Driver) staffMember).isSecondDriver(this)) {
+                if (!replaceWithNull) {
+                    oldTeam.swapSecondDriver(contractDrivers.remove(0));
+                } else {
+                    oldTeam.swapSecondDriver(new Driver());
+                }
+            } else {
+                if (!replaceWithNull) {
+                    oldTeam.swapStaffMember(contractDrivers.remove(0));
+                } else {
+                    oldTeam.swapStaffMember(new Driver());
+                }
+            }
+        } else if (staffMember instanceof Mechanic) {
+            if (!replaceWithNull) {
+                oldTeam.swapStaffMember(contractMechanics.remove(0));
+            } else {
+                oldTeam.swapStaffMember(new Mechanic());
+            }
+        } else {
+            if (!replaceWithNull) {
+                oldTeam.swapStaffMember(contractStrategists.remove(0));
+            } else {
+                oldTeam.swapStaffMember(new Strategist());
+            }
+        }
+
+    }
+
+    /**
      * Transfers a staff member from one team to another.
      * staffMember first gets removed from the team it is in.
      * If the staffMember is not in a team, it gets removed from the contract lists.
@@ -309,9 +359,18 @@ public class Season {
      *
      * @param staffMember The new staff member
      * @param team The team to transfer the staff member to
+     * @param replaceWithNull if replaceWithNull is true, the staffMember gets replaced with a
+     *                        temporary staffMember, that is recognizable as a non-existing
+     *                        staffMember. This flag should be set if the oldTeam is the team
+     *                        of the player, so the player can choose a new staff member.
+     *                        In the frontend, this means that the transfer method should be
+     *                        followed by the select team member screen. If this is not done, the
+     *                        application will fail.
+     *                        If replaceWithNull is false, the staffMember gets replaced by a
+     *                        random contract worker with the same function.
      */
-    public void transfer(Staff staffMember, Team team) {
-        transfer(staffMember, team, false);
+    public void transfer(Staff staffMember, Team team, boolean replaceWithNull) {
+        transfer(staffMember, team, false, replaceWithNull);
     }
 
     /**
