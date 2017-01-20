@@ -45,9 +45,11 @@ public class SelectTeamMemberController {
     @FXML private Pane selectTeamMember;
 
     private Season season;
+    private String saveName;
     private Staff newStaffMember;
     private List<Staff> newStaff;
     private boolean replaceSecondDriver = false;
+    private boolean showCancel;
 
     /**
      * Initializes the controller.
@@ -60,6 +62,8 @@ public class SelectTeamMemberController {
         if (!showCancel) {
             selectTeamMember.getChildren().remove(cancelButton);
         }
+        this.showCancel = showCancel;
+
     }
 
     /**
@@ -72,14 +76,18 @@ public class SelectTeamMemberController {
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 
         season = GameEngine.getInstance().getSeason();
+        saveName = GameEngine.getInstance().getSaveName();
         Team playerTeam = season.getPlayerControlledTeam();
         newStaff = season.getAllNonPlayerControlledStaff();
         budget.setText(playerTeam.getBudgetString());
+        this.showCancel = true;
 
         switch (type) {
             case "driver1":
                 teamMateName.setText(playerTeam.getFirstDriver().getName());
-                teamMateSalary.setText(playerTeam.getFirstDriver().getSalaryString());
+                if (playerTeam.getFirstDriver().getSalary() != 0) {
+                    teamMateSalary.setText(playerTeam.getFirstDriver().getSalaryString());
+                }
                 teamMateQuality.setText(playerTeam.getFirstDriver().getQualityString());
                 newStaff = newStaff.stream()
                         .filter((Staff staff) -> staff instanceof Driver)
@@ -88,7 +96,9 @@ public class SelectTeamMemberController {
             case "driver2":
                 replaceSecondDriver = true;
                 teamMateName.setText(playerTeam.getSecondDriver().getName());
-                teamMateSalary.setText(playerTeam.getSecondDriver().getSalaryString());
+                if (playerTeam.getSecondDriver().getSalary() != 0) {
+                    teamMateSalary.setText(playerTeam.getSecondDriver().getSalaryString());
+                }
                 teamMateQuality.setText(playerTeam.getSecondDriver().getQualityString());
                 newStaff = newStaff.stream()
                         .filter((Staff staff) -> staff instanceof Driver)
@@ -96,7 +106,9 @@ public class SelectTeamMemberController {
                 break;
             case "aerodynamicist":
                 teamMateName.setText(playerTeam.getAerodynamicist().getName());
-                teamMateSalary.setText(playerTeam.getAerodynamicist().getSalaryString());
+                if (playerTeam.getAerodynamicist().getSalary() != 0) {
+                    teamMateSalary.setText(playerTeam.getAerodynamicist().getSalaryString());
+                }
                 teamMateQuality.setText(playerTeam.getAerodynamicist().getQualityString());
                 newStaff = newStaff.stream()
                         .filter((Staff staff) -> staff instanceof Aerodynamicist)
@@ -104,7 +116,9 @@ public class SelectTeamMemberController {
                 break;
             case "mechanic":
                 teamMateName.setText(playerTeam.getMechanic().getName());
-                teamMateSalary.setText(playerTeam.getMechanic().getSalaryString());
+                if (playerTeam.getMechanic().getSalary() != 0) {
+                    teamMateSalary.setText(playerTeam.getMechanic().getSalaryString());
+                }
                 teamMateQuality.setText(playerTeam.getMechanic().getQualityString());
                 newStaff = newStaff.stream()
                         .filter((Staff staff) -> staff instanceof Mechanic)
@@ -112,7 +126,9 @@ public class SelectTeamMemberController {
                 break;
             default: // strategist
                 teamMateName.setText(playerTeam.getStrategist().getName());
-                teamMateSalary.setText(playerTeam.getStrategist().getSalaryString());
+                if (playerTeam.getStrategist().getSalary() != 0) {
+                    teamMateSalary.setText(playerTeam.getStrategist().getSalaryString());
+                }
                 teamMateQuality.setText(playerTeam.getStrategist().getQualityString());
                 newStaff = newStaff.stream()
                         .filter((Staff staff) -> staff instanceof Strategist)
@@ -136,7 +152,11 @@ public class SelectTeamMemberController {
         });
         tableBox.getChildren().add(scrollBar);
         setAllPotentialTeamMembers(0);
+        enableScroll();
 
+    }
+
+    private void enableScroll() {
         // enable scrolling
         playerTable.setOnScroll((ScrollEvent event) -> {
             double newValue = scrollBar.getValue() - event.getDeltaY() / 50;
@@ -171,14 +191,22 @@ public class SelectTeamMemberController {
         if (newStaffMember != null) {
             if (replaceSecondDriver) {
                 season.transfer(newStaffMember,
-                        season.getPlayerControlledTeam(), replaceSecondDriver);
+                        season.getPlayerControlledTeam(), replaceSecondDriver, false);
             } else {
                 season.transfer(newStaffMember, season.getPlayerControlledTeam());
             }
 
-            Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
-            Stage stage = (Stage) teamMateName.getScene().getWindow();
-            stage.getScene().setRoot(root);
+            if (showCancel) {
+                Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
+                Stage stage = (Stage) teamMateName.getScene().getWindow();
+                stage.getScene().setRoot(root);
+            } else {
+                season.save(saveName);
+
+                Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
+                Stage stage = (Stage) budget.getScene().getWindow();
+                stage.getScene().setRoot(root);
+            }
         }
     }
 

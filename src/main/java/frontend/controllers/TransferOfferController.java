@@ -47,7 +47,7 @@ public class TransferOfferController {
      */
     @FXML
     public void accept(ActionEvent event) throws IOException {
-        season.transfer(transferCandidate, team);
+        season.transfer(transferCandidate, team, true);
 
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/views/select-team-member.fxml"));

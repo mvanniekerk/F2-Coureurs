@@ -21,6 +21,15 @@ public abstract class Staff {
     }
 
     /**
+     * Empty constructor. Use for "null" StaffMember.
+     */
+    public Staff() {
+        this.name = "";
+        this.salary = 0;
+        this.buyoutClause = 0;
+    }
+
+    /**
      * Get the name of the staff member.
      *
      * @return the name

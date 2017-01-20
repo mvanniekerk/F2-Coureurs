@@ -24,6 +24,16 @@ public class Mechanic extends Staff {
     }
 
     /**
+     * Empty constructor for Mechanic. Use for "null" Mechanic.
+     */
+    public Mechanic() {
+        super();
+        this.reliability = 0;
+        this.partFixing = 0;
+        this.pitstops = 0;
+    }
+
+    /**
      * Finds the quality of the mechanic by combining all its attributes.
      *
      * @return the quality of the mechanic, an int between 0 and 100

@@ -14,6 +14,11 @@ public class Aerodynamicist extends Staff {
         this.quality = quality;
     }
 
+    public Aerodynamicist() {
+        super();
+        this.quality = 0;
+    }
+
     public String getJobTitle() {
         return "aerodynamicist";
     }

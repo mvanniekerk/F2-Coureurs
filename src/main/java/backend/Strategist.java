@@ -12,7 +12,11 @@ public class Strategist extends Staff {
     public Strategist(String name, int salary, int buyoutClause, int quality) {
         super(name, salary, buyoutClause);
         this.quality = quality;
+    }
 
+    public Strategist() {
+        super();
+        this.quality = 0;
     }
 
     public String getJobTitle() {
