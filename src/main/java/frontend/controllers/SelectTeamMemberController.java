@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SelectTeamMemberController {
+    @FXML private Label tableName;
     @FXML private Label teamMateName;
     @FXML private Label teamMateSalary;
     @FXML private Label teamMateQuality;
@@ -105,6 +106,7 @@ public class SelectTeamMemberController {
                         .collect(Collectors.toList());
                 break;
             case "aerodynamicist":
+                tableName.setText("Aerodynamicists");
                 teamMateName.setText(playerTeam.getAerodynamicist().getName());
                 if (playerTeam.getAerodynamicist().getSalary() != 0) {
                     teamMateSalary.setText(playerTeam.getAerodynamicist().getSalaryString());
@@ -115,6 +117,7 @@ public class SelectTeamMemberController {
                         .collect(Collectors.toList());
                 break;
             case "mechanic":
+                tableName.setText("Mechanics");
                 teamMateName.setText(playerTeam.getMechanic().getName());
                 if (playerTeam.getMechanic().getSalary() != 0) {
                     teamMateSalary.setText(playerTeam.getMechanic().getSalaryString());
@@ -125,6 +128,7 @@ public class SelectTeamMemberController {
                         .collect(Collectors.toList());
                 break;
             default: // strategist
+                tableName.setText("Strategists");
                 teamMateName.setText(playerTeam.getStrategist().getName());
                 if (playerTeam.getStrategist().getSalary() != 0) {
                     teamMateSalary.setText(playerTeam.getStrategist().getSalaryString());

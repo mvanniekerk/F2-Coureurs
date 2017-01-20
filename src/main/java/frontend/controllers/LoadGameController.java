@@ -41,15 +41,19 @@ public class LoadGameController {
 
         if (!fileA.exists()) {
             deleteA.setVisible(false);
+            gameA.getStyleClass().add("create");
         }
         if (!fileB.exists()) {
             deleteB.setVisible(false);
+            gameB.getStyleClass().add("create");
         }
         if (!fileC.exists()) {
             deleteC.setVisible(false);
+            gameC.getStyleClass().add("create");
         }
         if (!fileD.exists()) {
             deleteD.setVisible(false);
+            gameD.getStyleClass().add("create");
         }
     }
 
@@ -57,7 +61,6 @@ public class LoadGameController {
      * Delete the game and refresh the page afterward.
      *
      * @param event ActionEvent that the button experienced (presumably a button-press).
-     * @throws IOException throws if the fxml file can not be found
      */
     public void deleteGame(ActionEvent event) {
         Button button = (Button) event.getSource();
