@@ -3,6 +3,9 @@ package backend;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class RaceTest {
@@ -106,5 +109,17 @@ public class RaceTest {
     public void diffTrackNameTest() {
         Race diffTrack = new Race(new Setup(Setup.LOW_RISK), new Strategy(Strategy.HIGH_RISK), "Silverstone Circuit", 8);
         assertNotEquals(diffTrack, race);
+    }
+
+    @Test
+    public void setResultTest() {
+        List<Driver> drivers = new ArrayList<>();
+
+        Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+        drivers.add(driver);
+
+        this.race.setResult(drivers);
+
+        assertEquals(drivers, this.race.getResult());
     }
 }
