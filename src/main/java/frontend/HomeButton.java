@@ -21,6 +21,7 @@ public class HomeButton extends Button {
      *
      */
     public HomeButton() {
+        this.setPickOnBounds(false);
         season = GameEngine.getInstance().getSeason();
         saveName = GameEngine.getInstance().getSaveName();
         season.save(saveName);

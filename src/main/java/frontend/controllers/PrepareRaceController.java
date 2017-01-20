@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.Glow;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -51,8 +52,15 @@ public class PrepareRaceController {
      */
     @FXML
     public void initialize() {
-        season = GameEngine.getInstance().getSeason();
+        strategyLowRisk.setPickOnBounds(false);
+        strategyMediumRisk.setPickOnBounds(false);
+        strategyHighRisk.setPickOnBounds(false);
+        setupLowRisk.setPickOnBounds(false);
+        setupMediumRisk.setPickOnBounds(false);
+        setupHighRisk.setPickOnBounds(false);
+        startRace.setPickOnBounds(false);
 
+        season = GameEngine.getInstance().getSeason();
         Team playerTeam = season.getPlayerControlledTeam();
         engine.setText(playerTeam.getEngine().getName());
         firstDriver.setText(playerTeam.getFirstDriver().getName());

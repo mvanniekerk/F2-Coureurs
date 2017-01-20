@@ -239,6 +239,7 @@ public class RaceController {
     }
 
     private void setupNewSeason() {
+        continueButton.setPickOnBounds(false);
         continueButton.setText("End of season");
         continueButton.setOnAction(event -> {
             Parent root = null;

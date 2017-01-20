@@ -18,6 +18,7 @@ public class ChampionshipStandingsButton extends Button {
      *
      */
     public ChampionshipStandingsButton() {
+        this.setPickOnBounds(false);
         this.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

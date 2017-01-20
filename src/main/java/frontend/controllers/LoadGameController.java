@@ -34,6 +34,11 @@ public class LoadGameController {
      * If the file exists, the player is able to delete it and start again.
      */
     public void initialize() {
+        gameA.setPickOnBounds(false);
+        gameB.setPickOnBounds(false);
+        gameC.setPickOnBounds(false);
+        gameD.setPickOnBounds(false);
+
         fileA = new File("saves/saveA.json");
         fileB = new File("saves/saveB.json");
         fileC = new File("saves/saveC.json");
