@@ -491,7 +491,13 @@ public class Season {
         }
     }
 
-    private boolean equalsRounds(Season that) {
+    /**
+     * Check whether two season classes have the same rounds.
+     *
+     * @param that other season
+     * @return true if the rounds are the same
+     */
+    public boolean equalsRounds(Season that) {
         if (this.rounds.size() != that.rounds.size()) {
             return false;
         }
