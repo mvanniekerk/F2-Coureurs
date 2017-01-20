@@ -152,7 +152,11 @@ public class SelectTeamMemberController {
         });
         tableBox.getChildren().add(scrollBar);
         setAllPotentialTeamMembers(0);
+        enableScroll();
 
+    }
+
+    private void enableScroll() {
         // enable scrolling
         playerTable.setOnScroll((ScrollEvent event) -> {
             double newValue = scrollBar.getValue() - event.getDeltaY() / 50;
