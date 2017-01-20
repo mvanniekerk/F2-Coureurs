@@ -583,20 +583,4 @@ public class Season {
         }
         return false;
     }
-
-    /**
-     * Temporary main. Use this to test the Json write and read functionality.
-     *
-     * @param args Nothing
-     * @throws IOException If the file or directory does not exist
-     */
-    public static void main(String[] args) throws IOException {
-        Season season = Season.loadNewGameFromSeasonStart();
-        List<Engine> engines = season.getNonPlayerEngines();
-        for (Engine engine : engines) {
-            System.out.println(engine.getName());
-        }
-        season.save("save1.json");
-
-    }
 }
