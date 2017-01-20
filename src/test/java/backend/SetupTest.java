@@ -18,13 +18,12 @@ public class SetupTest {
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
-
     @Before
     public void SetUp() {
         setup = new Setup(Setup.LOW_RISK);
         sameSetup = new Setup(Setup.LOW_RISK);
         otherSetup = new Setup(Setup.MEDIUM_RISK);
-        highRisk = new Setup(setup.HIGH_RISK);
+        highRisk = new Setup(Setup.HIGH_RISK);
     }
 
     @Test
@@ -43,14 +42,60 @@ public class SetupTest {
     }
 
     @Test
-    public void riskError() {
+    public void riskLowerError() {
         expectedException.expect(IllegalArgumentException.class);
-        Setup fail = new Setup(4);
+        new Setup(0);
     }
 
     @Test
-    public void riskTest() {
-        assertEquals(Setup.LOW_RISK, setup.getRisk());
+    public void riskHigherError() {
+        expectedException.expect(IllegalArgumentException.class);
+        new Setup(4);
+    }
+
+    @Test
+    public void calculateLowRiskTest() {
+        Setup setup = new Setup(Setup.LOW_RISK);
+
+        float result = setup.calculateRisk();
+
+        float min = 0.4f;
+        float max = 0.6f;
+
+        System.out.println("Range: [" + min + ", " + max + "]");
+        System.out.println("Result: " + result);
+
+        assertTrue(min <= result && result <= max);
+    }
+
+    @Test
+    public void calculateMediumRiskTest() {
+        Setup setup = new Setup(Setup.MEDIUM_RISK);
+
+        float result = setup.calculateRisk();
+
+        float min = 0.2f;
+        float max = 0.8f;
+
+        System.out.println("Range: [" + min + ", " + max + "]");
+        System.out.println("Result: " + result);
+
+        assertTrue(min <= result && result <= max);
+    }
+
+    @Test
+    public void calculateHighRiskTest() {
+        Setup setup = new Setup(Setup.HIGH_RISK);
+
+        float result = setup.calculateRisk();
+
+        float min = 0.0f;
+        float max = 1.0f;
+
+        System.out.println("Range: [" + min + ", " + max + "]");
+        System.out.println("Result: " + result);
+
+        assertTrue(min <= result && result <= max);
     }
 
     @Test
@@ -86,5 +131,10 @@ public class SetupTest {
     @Test
     public void equalsOtherObject() {
         assertNotEquals(setup, new String());
+    }
+
+    @Test
+    public void equalsNullTest() {
+        assertFalse(setup.equals(null));
     }
 }
