@@ -20,6 +20,11 @@ public class MechanicTest {
     }
 
     @Test
+    public void constructorNullReliability() {
+        assertEquals(new Mechanic(), new Mechanic());
+    }
+
+    @Test
     public void constructorTest_name() {
         assertEquals("Steve Matchett", mechanic.getName());
     }

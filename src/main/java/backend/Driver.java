@@ -32,6 +32,9 @@ public class Driver extends Staff implements Comparable<Driver> {
         this.score = 0.0f;
     }
 
+    /**
+     * Empty constructor for Driver. Use for "null" driver.
+     */
     public Driver() {
         super();
         this.speed = 0;

@@ -20,6 +20,9 @@ public abstract class Staff {
         this.buyoutClause = buyoutClause;
     }
 
+    /**
+     * Empty constructor. Use for "null" StaffMember.
+     */
     public Staff() {
         this.name = "";
         this.salary = 0;

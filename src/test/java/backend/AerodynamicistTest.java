@@ -21,6 +21,21 @@ public class  AerodynamicistTest {
     }
 
     @Test
+    public void constructorNullName() {
+        assertEquals("", new Aerodynamicist().getName());
+    }
+
+    @Test
+    public void constructorNullQuality() {
+        assertEquals(0, new Aerodynamicist().getQuality(), 0.001);
+    }
+
+    @Test
+    public void constructorNullSalary() {
+        assertEquals(0, new Aerodynamicist().getSalary());
+    }
+
+    @Test
     public void constructorTest_name() {
         assertEquals("Dan Fallows", aerodynamicist.getName());
     }

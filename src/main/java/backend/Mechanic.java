@@ -23,6 +23,9 @@ public class Mechanic extends Staff {
         this.pitstops = pitstops;
     }
 
+    /**
+     * Empty constructor for Mechanic. Use for "null" Mechanic.
+     */
     public Mechanic() {
         super();
         this.reliability = 0;

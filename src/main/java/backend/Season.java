@@ -3,7 +3,6 @@ package backend;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -297,6 +296,36 @@ public class Season {
         }
     }
 
+
+    /**
+     * Transfers a staff member from one team to another.
+     * staffMember first gets removed from the team it is in.
+     * If the staffMember is not in a team, it gets removed from the contract lists.
+     * Now the staffMember gets add to the new team.
+     * The old staffMember from that team gets added to the contract list.
+     * Money gets deducted from the new team and added to the old team,
+     * equal to the buyout clause of the staff member.
+     *
+     * @param staffMember The new staff member
+     * @param team The team to transfer the staff member to
+     * @param replaceWithNull if replaceWithNull is true, the staffMember gets replaced with a
+     *                        temporary staffMember, that is recognizable as a non-existing
+     *                        staffMember. This flag should be set if the oldTeam is the team
+     *                        of the player, so the player can choose a new staff member.
+     *                        In the frontend, this means that the transfer method should be
+     *                        followed by the select team member screen. If this is not done, the
+     *                        application will fail.
+     *                        If replaceWithNull is false, the staffMember gets replaced by a
+     *                        random contract worker with the same function.
+     */
+    public void transfer(Staff staffMember, Team team, boolean replaceWithNull) {
+        transfer(staffMember, team, false, replaceWithNull);
+    }
+
+    public void transfer(Staff staffMember, Team team) {
+        transfer(staffMember, team, false, false);
+    }
+
     /**
      * This method performs a critical part of the transfer process.
      *
@@ -349,35 +378,6 @@ public class Season {
             }
         }
 
-    }
-
-    /**
-     * Transfers a staff member from one team to another.
-     * staffMember first gets removed from the team it is in.
-     * If the staffMember is not in a team, it gets removed from the contract lists.
-     * Now the staffMember gets add to the new team.
-     * The old staffMember from that team gets added to the contract list.
-     * Money gets deducted from the new team and added to the old team,
-     * equal to the buyout clause of the staff member.
-     *
-     * @param staffMember The new staff member
-     * @param team The team to transfer the staff member to
-     * @param replaceWithNull if replaceWithNull is true, the staffMember gets replaced with a
-     *                        temporary staffMember, that is recognizable as a non-existing
-     *                        staffMember. This flag should be set if the oldTeam is the team
-     *                        of the player, so the player can choose a new staff member.
-     *                        In the frontend, this means that the transfer method should be
-     *                        followed by the select team member screen. If this is not done, the
-     *                        application will fail.
-     *                        If replaceWithNull is false, the staffMember gets replaced by a
-     *                        random contract worker with the same function.
-     */
-    public void transfer(Staff staffMember, Team team, boolean replaceWithNull) {
-        transfer(staffMember, team, false, replaceWithNull);
-    }
-
-    public void transfer(Staff staffMember, Team team) {
-        transfer(staffMember, team, false, false);
     }
 
     /**
