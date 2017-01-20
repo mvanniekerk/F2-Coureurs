@@ -291,7 +291,10 @@ public class Season {
             oldStaffMember = team.swapStaffMember(staffMember);
         }
         // add the old staff member to the contract list
-        addContractStaffMember(oldStaffMember);
+        // if the old staff member is a "null" staff member, delete it from the game
+        if (!oldStaffMember.getName().equals("")) {
+            addContractStaffMember(oldStaffMember);
+        }
     }
 
     /**
@@ -371,6 +374,10 @@ public class Season {
      */
     public void transfer(Staff staffMember, Team team, boolean replaceWithNull) {
         transfer(staffMember, team, false, replaceWithNull);
+    }
+
+    public void transfer(Staff staffMember, Team team) {
+        transfer(staffMember, team, false, false);
     }
 
     /**

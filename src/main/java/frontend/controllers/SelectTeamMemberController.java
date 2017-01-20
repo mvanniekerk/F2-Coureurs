@@ -80,6 +80,7 @@ public class SelectTeamMemberController {
         Team playerTeam = season.getPlayerControlledTeam();
         newStaff = season.getAllNonPlayerControlledStaff();
         budget.setText(playerTeam.getBudgetString());
+        this.showCancel = true;
 
         switch (type) {
             case "driver1":
@@ -176,7 +177,7 @@ public class SelectTeamMemberController {
         if (newStaffMember != null) {
             if (replaceSecondDriver) {
                 season.transfer(newStaffMember,
-                        season.getPlayerControlledTeam(), replaceSecondDriver);
+                        season.getPlayerControlledTeam(), replaceSecondDriver, false);
             } else {
                 season.transfer(newStaffMember, season.getPlayerControlledTeam());
             }
