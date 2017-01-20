@@ -36,6 +36,10 @@ Label {
 	-fx-pref-width: 160;
 }
 
+.create:hover {
+    -fx-background-color: rgba(0, 255, 0, 0.59);
+}
+
 .edit-team{
 	-fx-pref-height: 115;
 	-fx-pref-width: 530;
