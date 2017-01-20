@@ -283,19 +283,19 @@ public class SeasonTest {
 
     @Test
     public void replaceSecondDriver() {
-        season.transfer(driver5, team, true);
+        season.transfer(driver5, team, true, false);
         assertEquals(team.getFirstDriver(), driver);
     }
 
     @Test
     public void replaceSecondDriver2() {
-        season.transfer(driver5, team, true);
+        season.transfer(driver5, team, true, false);
         assertEquals(team.getSecondDriver(), driver5);
     }
 
     @Test
     public void replaceSecondDriver3() {
-        season.transfer(driver5, team, true);
+        season.transfer(driver5, team, true, false);
         assertTrue(season.getContractDrivers().contains(driver2));
     }
 
@@ -387,6 +387,70 @@ public class SeasonTest {
     public void transferTeamAero3() {
         season.transfer(aerodynamicist2, team);
         assertTrue(season.getContractAerodynamicists().contains(aerodynamicist));
+    }
+
+    @Test
+    public void transferToNullDriver22() {
+        season.transfer(driver5, team, true, true);
+        assertEquals(team.getSecondDriver(), driver5);
+    }
+
+    @Test
+    public void transferToNullDriver2() {
+        season.transfer(driver5, team, true, true);
+        assertEquals(team2.getSecondDriver(), new Driver());
+    }
+
+    @Test
+    public void transferToNullStrat() {
+        season.transfer(strategist2, team, true);
+        assertEquals(team2.getStrategist(), new Strategist());
+    }
+
+    @Test
+    public void transferToNullMech() {
+        season.transfer(mechanic2, team, true);
+        assertEquals(team2.getMechanic(), new Mechanic());
+    }
+
+    @Test
+    public void transferToNullAero() {
+        season.transfer(aerodynamicist2, team, true);
+        assertEquals(team2.getAerodynamicist(), new Aerodynamicist());
+
+    }
+
+    @Test
+    public void transferToNullDeletes3() {
+        season.transfer(driver4, team, true);
+        season.transfer(driver4, team2, false);
+        assertFalse(season.getContractDrivers().contains(new Driver()));
+    }
+
+    @Test
+    public void transferToNullDeletes2() {
+        season.transfer(driver4, team, true);
+        season.transfer(driver4, team2, false);
+        assertTrue(team.getFirstDriver().equals(driver3));
+    }
+
+    @Test
+    public void transferToNullDeletes() {
+        season.transfer(driver4, team, true);
+        season.transfer(driver4, team2, false);
+        assertTrue(team2.getFirstDriver().equals(driver4));
+    }
+
+    @Test
+    public void transferToNullFirstTeam() {
+        season.transfer(driver4, team, true);
+        assertTrue(team.getFirstDriver().equals(driver4));
+    }
+
+    @Test
+    public void transferToNull() {
+        season.transfer(driver4, team, true);
+        assertTrue(team2.getFirstDriver().equals(new Driver()));
     }
 
     @Test

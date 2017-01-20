@@ -50,6 +50,36 @@ public class DriverTest {
     }
 
     @Test
+    public void constructorNullChampion() {
+        assertEquals(false, new Driver().isChampionLastYear());
+    }
+
+    @Test
+    public void constructorNullPoints() {
+        assertEquals(0, new Driver().getPoints());
+    }
+
+    @Test
+    public void constructorNullgetScore() {
+        assertEquals(0, new Driver().getScore(), 0.05);
+    }
+
+    @Test
+    public void constructorNullStrat() {
+        assertEquals(0, new Driver().getStrategyInsight());
+    }
+
+    @Test
+    public void constructorNullRaceCraft() {
+        assertEquals(0, new Driver().getRaceCraft());
+    }
+
+    @Test
+    public void constructorNullSpeed() {
+        assertEquals(0, new Driver().getSpeed());
+    }
+
+    @Test
     public void constructorTest_name() {
         assertEquals("Kimi Raikkonen", driver.getName());
     }
