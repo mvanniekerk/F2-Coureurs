@@ -40,9 +40,60 @@ public class StrategyTest {
     }
 
     @Test
-    public void riskError() {
+    public void riskLowerError() {
         expectedException.expect(IllegalArgumentException.class);
-        Strategy fail = new Strategy(4);
+        new Strategy(0);
+    }
+
+    @Test
+    public void riskHigherError() {
+        expectedException.expect(IllegalArgumentException.class);
+        new Strategy(4);
+    }
+
+    @Test
+    public void calculateLowRiskTest() {
+        Strategy strategy = new Strategy(Strategy.LOW_RISK);
+
+        float result = strategy.calculateRisk();
+
+        float min = 0.4f;
+        float max = 0.6f;
+
+        System.out.println("Range: [" + min + ", " + max + "]");
+        System.out.println("Result: " + result);
+
+        assertTrue(min <= result && result <= max);
+    }
+
+    @Test
+    public void calculateMediumRiskTest() {
+        Strategy strategy = new Strategy(Strategy.MEDIUM_RISK);
+
+        float result = strategy.calculateRisk();
+
+        float min = 0.2f;
+        float max = 0.8f;
+
+        System.out.println("Range: [" + min + ", " + max + "]");
+        System.out.println("Result: " + result);
+
+        assertTrue(min <= result && result <= max);
+    }
+
+    @Test
+    public void calculateHighRiskTest() {
+        Strategy strategy = new Strategy(Strategy.HIGH_RISK);
+
+        float result = strategy.calculateRisk();
+
+        float min = 0.0f;
+        float max = 1.0f;
+
+        System.out.println("Range: [" + min + ", " + max + "]");
+        System.out.println("Result: " + result);
+
+        assertTrue(min <= result && result <= max);
     }
 
     @Test
@@ -78,5 +129,10 @@ public class StrategyTest {
     @Test
     public void equalsOtherObject() {
         assertNotEquals(strategy, new String());
+    }
+
+    @Test
+    public void equalsNullTest() {
+        assertFalse(strategy.equals(null));
     }
 }
