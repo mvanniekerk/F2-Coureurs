@@ -572,6 +572,22 @@ public class SeasonTest {
     }
 
     @Test
+    public void equalNumberOfRoundsButDifferentRounds() {
+        ArrayList<Race> races = new ArrayList<>();
+        ArrayList<Race> races2 = new ArrayList<>();
+        Race race = new Race(new Setup(1), new Strategy(1), "Track name", 0);
+        Race race2 = new Race(new Setup(1), new Strategy(1), "Different track name", 1);
+
+        races.add(race);
+        races2.add(race2);
+
+        season.setRounds(races);
+        otherSeason.setRounds(races2);
+
+        assertFalse(season.equalsRounds(otherSeason));
+    }
+
+    @Test
     public void setRound() {
         sameSeason.setRounds(new ArrayList<>());
         assertEquals(new ArrayList<Race>(), sameSeason.getRounds());
