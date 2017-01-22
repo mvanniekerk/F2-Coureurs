@@ -34,9 +34,9 @@ public class Manager extends Application {
         AudioInputStream sound = AudioSystem.getAudioInputStream(file);
 
         Clip clip = AudioSystem.getClip();
-        clip.open(sound);
+        //clip.open(sound);
         clip.loop(Clip.LOOP_CONTINUOUSLY);
-        clip.start();
+        //clip.start();
 
         primaryStage.show();
 
