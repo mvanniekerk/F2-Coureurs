@@ -146,4 +146,6 @@ public class EngineTest {
     public void hashcode() {
         assertEquals(-413857432, engine.hashCode());
     }
+
+    @Test public void constructorNullReliability() { assertNotEquals(engine, new Engine()); }
 }

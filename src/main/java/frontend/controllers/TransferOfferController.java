@@ -52,6 +52,7 @@ public class TransferOfferController {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/views/select-team-member.fxml"));
         Parent root = (Parent) loader.load();
+        root.setPickOnBounds(false);
         SelectTeamMemberController controller = loader.getController();
         if (transferCandidate.getJobTitle().equals("driver")) {
             if (((Driver) transferCandidate).isSecondDriver(season)) {
