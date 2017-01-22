@@ -8,10 +8,15 @@
 <?import frontend.ChampionshipStandingsButton?>
 <?import frontend.ExitButton?>
 
-<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      stylesheets="@style.css" id="prepare-race"
-      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
-      prefWidth="1920.0" fx:controller="frontend.controllers.PrepareRaceController">
+<?import javafx.scene.media.MediaView?>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="frontend.controllers.PrepareRaceController"
+            prefHeight="1080.0" prefWidth="1920.0">
+<Pane stylesheets="@style.css" id="prepare-race" maxWidth="1920" minWidth="1920" maxHeight="1080" minHeight="1080">
+
+        <!-- play background video-->
+        <MediaView fx:id="mediaView">
+        </MediaView>
 
        <!-- Bottom menu-->
        <HomeButton layoutX="80" layoutY="915" text="Home" />
@@ -29,32 +34,32 @@
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="150">
                       <Image url="@../media/icons/engine.png"/>
               </ImageView>
-              <Label fx:id="engine" layoutX="150" layoutY="160" styleClass="content" text="Engine"/>
+              <Label fx:id="engine" layoutX="150" layoutY="160" maxWidth="360" styleClass="content" text="Engine"/>
 
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="225">
                       <Image url="@../media/icons/driver1.png"/>
               </ImageView>
-              <Label fx:id="firstDriver" layoutX="150" layoutY="235" styleClass="content" text="First driver"/>
+              <Label fx:id="firstDriver" layoutX="150" layoutY="235" maxWidth="360" styleClass="content" text="First driver"/>
 
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="300">
                       <Image url="@../media/icons/driver2.png"/>
               </ImageView>
-              <Label fx:id="secondDriver" layoutX="150" layoutY="310" styleClass="content" text="Second driver"/>
+              <Label fx:id="secondDriver" layoutX="150" layoutY="310" maxWidth="360" styleClass="content" text="Second driver"/>
 
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="375">
                       <Image url="@../media/icons/strategist.png"/>
               </ImageView>
-              <Label fx:id="strategist" layoutX="150" layoutY="385" styleClass="content" text="Strategist"/>
+              <Label fx:id="strategist" layoutX="150" layoutY="385" maxWidth="360" styleClass="content" text="Strategist"/>
 
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="450">
                       <Image url="@../media/icons/aero.png"/>
               </ImageView>
-              <Label fx:id="aerodynamicist" layoutX="150" layoutY="460" styleClass="content" text="Aerodynamicist"/>
+              <Label fx:id="aerodynamicist" layoutX="150" layoutY="460" maxWidth="360" styleClass="content" text="Aerodynamicist"/>
 
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="525">
                       <Image url="@../media/icons/mechanic.png"/>
               </ImageView>
-              <Label fx:id="mechanic" layoutX="150" layoutY="535" styleClass="content" text="Mechanic"/>
+              <Label fx:id="mechanic" layoutX="150" layoutY="535" maxWidth="360" styleClass="content" text="Mechanic"/>
        </Pane>
 
     <!-- Risk strategy -->
@@ -88,3 +93,4 @@
     <!-- settings-quit -->
     <ExitButton styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
 </Pane>
+</AnchorPane>
