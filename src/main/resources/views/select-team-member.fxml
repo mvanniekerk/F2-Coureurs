@@ -6,8 +6,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<?import javafx.scene.media.MediaPlayer?>
-<?import javafx.scene.media.Media?>
 <?import javafx.scene.media.MediaView?>
 
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,13 +17,6 @@
 
     <!-- play background video-->
     <MediaView fx:id="mediaView">
-        <mediaPlayer>
-            <MediaPlayer fx:id="mediaPlayer" autoPlay="true">
-                <media>
-                    <Media source="http://klavier.nl/alex/edit-team.mp4" />
-                </media>
-            </MediaPlayer>
-        </mediaPlayer>
     </MediaView>
 
     <!-- settings-quit -->

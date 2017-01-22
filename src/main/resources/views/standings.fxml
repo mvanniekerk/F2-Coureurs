@@ -13,8 +13,6 @@
 
 <?import frontend.ExitButton?>
 <?import javafx.scene.media.MediaView?>
-<?import javafx.scene.media.MediaPlayer?>
-<?import javafx.scene.media.Media?>
 
 <AnchorPane prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="frontend.controllers.StandingsController">
@@ -23,13 +21,6 @@
 
     <!-- play background video-->
     <MediaView fx:id="mediaView">
-        <mediaPlayer>
-            <MediaPlayer fx:id="mediaPlayer" autoPlay="true">
-                <media>
-                    <Media source="http://klavier.nl/alex/standings.mp4" />
-                </media>
-            </MediaPlayer>
-        </mediaPlayer>
     </MediaView>
 
     <!-- Bottom menu-->

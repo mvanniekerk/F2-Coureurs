@@ -46,7 +46,7 @@ public class TransferOfferController {
      * @throws IOException throws if the fxml file does not exist
      */
     @FXML
-    public void accept(ActionEvent event) throws IOException {
+    public void accept(ActionEvent event) throws Exception {
         season.transfer(transferCandidate, team, true);
 
         FXMLLoader loader = new FXMLLoader(

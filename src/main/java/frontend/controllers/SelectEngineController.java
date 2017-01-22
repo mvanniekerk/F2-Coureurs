@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
@@ -26,17 +27,21 @@ public class SelectEngineController {
     @FXML private Label budget;
     @FXML private Pane engineTable;
     @FXML private MediaView mediaView;
-    @FXML private MediaPlayer mediaPlayer;
 
     /**
      * Initializes the engine controller.
      */
     @FXML
-    public void initialize() {
-        mediaView.setFitHeight(1080);
-        mediaView.setFitWidth(1920);
+    public void initialize() throws Exception {
+        Media media = new Media(getClass().getResource("/media/video/edit-team.mp4").toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setMute(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
+
+        mediaView.setMediaPlayer(mediaPlayer);
+        mediaView.setFitHeight(1080);
+        mediaView.setFitWidth(1920);
 
         season = GameEngine.getInstance().getSeason();
         engineName.setText(season.getPlayerControlledTeam().getEngine().getName());

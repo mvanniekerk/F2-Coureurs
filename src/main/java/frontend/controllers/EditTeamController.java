@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
@@ -24,7 +25,6 @@ public class EditTeamController {
     @FXML private Label mechanic;
     @FXML private Label engine;
     @FXML private MediaView mediaView;
-    @FXML private MediaPlayer mediaPlayer;
 
     private Season season;
     private String saveName;
@@ -33,7 +33,7 @@ public class EditTeamController {
      * Sets the budget for the team to the right value.
      */
     @FXML
-    public void initialize() {
+    public void initialize() throws Exception {
         season = GameEngine.getInstance().getSeason();
         Team playerTeam = season.getPlayerControlledTeam();
         saveName = GameEngine.getInstance().getSaveName();
@@ -46,10 +46,15 @@ public class EditTeamController {
         aerodynamicist.setText(playerTeam.getAerodynamicist().getName());
         mechanic.setText(playerTeam.getMechanic().getName());
 
-        mediaView.setFitHeight(1080);
-        mediaView.setFitWidth(1920);
+        Media media = new Media(getClass().getResource("/media/video/edit-team.mp4").toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setMute(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
+
+        mediaView.setMediaPlayer(mediaPlayer);
+        mediaView.setFitHeight(1080);
+        mediaView.setFitWidth(1920);
     }
 
     /**
@@ -91,7 +96,7 @@ public class EditTeamController {
      * @throws IOException throws if the fxml file can not be found
      */
     @FXML
-    public void editDriver(ActionEvent event) throws IOException {
+    public void editDriver(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/views/select-team-member.fxml"));
         Parent root = (Parent) loader.load();
@@ -109,7 +114,7 @@ public class EditTeamController {
      * @throws IOException throws if the fxml file can not be found
      */
     @FXML
-    public void editAerodynamiscist(ActionEvent event) throws IOException {
+    public void editAerodynamiscist(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/views/select-team-member.fxml"));
         Parent root = (Parent) loader.load();
@@ -127,7 +132,7 @@ public class EditTeamController {
      * @throws IOException throws if the fxml file can not be found
      */
     @FXML
-    public void editMechanic(ActionEvent event) throws IOException {
+    public void editMechanic(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/views/select-team-member.fxml"));
         Parent root = (Parent) loader.load();
@@ -145,7 +150,7 @@ public class EditTeamController {
      * @throws IOException throws if the fxml file can not be found
      */
     @FXML
-    public void editStrategist(ActionEvent event) throws IOException {
+    public void editStrategist(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/views/select-team-member.fxml"));
         Parent root = (Parent) loader.load();
@@ -163,7 +168,7 @@ public class EditTeamController {
      * @throws IOException throws if the fxml file can not be found
      */
     @FXML
-    public void editDriver2(ActionEvent event) throws IOException {
+    public void editDriver2(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/views/select-team-member.fxml"));
         Parent root = (Parent) loader.load();
@@ -181,7 +186,7 @@ public class EditTeamController {
      * @throws IOException not throwing it
      */
     @FXML
-    public void editEngine(ActionEvent event) throws IOException {
+    public void editEngine(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/views/select-engine.fxml"));
         Stage stage = (Stage) budget.getScene().getWindow();
         stage.getScene().setRoot(root);
