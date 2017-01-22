@@ -15,6 +15,7 @@ public class ExitButton extends Button {
      *
      */
     public ExitButton() {
+        this.setPickOnBounds(false);
         season = GameEngine.getInstance().getSeason();
         saveName = GameEngine.getInstance().getSaveName();
         season.save(saveName);

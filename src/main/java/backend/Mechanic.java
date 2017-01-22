@@ -55,10 +55,6 @@ public class Mechanic extends Staff {
      */
     @Override
     public boolean equals(Object other) {
-        // using java 7 equals/hashcode generator
-        if (this == other) {
-            return true;
-        }
         if (other == null || getClass() != other.getClass()) {
             return false;
         }

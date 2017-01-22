@@ -18,6 +18,7 @@ public class EditTeamButton extends Button {
      *
      */
     public EditTeamButton() {
+        this.setPickOnBounds(false);
         this.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

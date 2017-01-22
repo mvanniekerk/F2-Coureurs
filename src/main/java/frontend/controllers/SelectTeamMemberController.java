@@ -227,6 +227,7 @@ public class SelectTeamMemberController {
      */
     @FXML
     public void cancel(ActionEvent event) throws IOException {
+        cancelButton.setPickOnBounds(false);
         Parent root = FXMLLoader.load(getClass().getResource("/views/edit-team.fxml"));
         Stage stage = (Stage) teamMateName.getScene().getWindow();
 

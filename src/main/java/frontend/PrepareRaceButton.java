@@ -18,6 +18,7 @@ public class PrepareRaceButton extends Button {
      *
      */
     public PrepareRaceButton() {
+        this.setPickOnBounds(false);
         this.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
