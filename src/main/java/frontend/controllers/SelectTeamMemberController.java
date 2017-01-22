@@ -70,7 +70,7 @@ public class SelectTeamMemberController {
     /**
      * Initialises the controller.
      */
-    public void load(String type) throws Exception{
+    public void load(String type) throws Exception {
         Media media = new Media(getClass().getResource("/media/video/edit-team.mp4").toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setMute(true);

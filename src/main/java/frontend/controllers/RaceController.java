@@ -47,7 +47,7 @@ public class RaceController {
      * @param setup the setup of the user
      * @param strategy the strategy of the user
      */
-    public void startRace(Setup setup, Strategy strategy) throws Exception{
+    public void startRace(Setup setup, Strategy strategy) throws Exception {
         season = GameEngine.getInstance().getSeason();
 
         Media media = new Media(getClass().getResource("/media/video/raceresult.mp4").toURI().toString());
