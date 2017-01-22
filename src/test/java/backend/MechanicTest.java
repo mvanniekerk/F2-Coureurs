@@ -3,8 +3,7 @@ package backend;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class MechanicTest {
 
@@ -33,7 +32,6 @@ public class MechanicTest {
     public void getJobDescription() {
         assertEquals("mechanic", mechanic.getJobTitle());
     }
-
 
     @Test
     public void constructorTest_salary() {
@@ -66,13 +64,49 @@ public class MechanicTest {
     }
 
     @Test
-    public void reliabilityDiffers() {
+    public void reliabilityDiffersTest() {
         Mechanic almostMechanic = new Mechanic("Steve Matchett", 100000, 1000000, 40, 50, 50);
         assertNotEquals(mechanic, almostMechanic);
     }
 
     @Test
+    public void differentReliabilityTest() {
+        Mechanic mechanic = new Mechanic("Steve Matchett", 100000, 1000000, 40, 50, 50);
+        Mechanic sameMechanic = new Mechanic("Steve Matchett", 100000, 1000000, 30, 50, 50);
+
+        assertFalse(mechanic.equals(sameMechanic));
+    }
+
+    @Test
+    public void differentPartFixingTest() {
+        Mechanic mechanic = new Mechanic("Steve Matchett", 100000, 1000000, 40, 50, 50);
+        Mechanic sameMechanic = new Mechanic("Steve Matchett", 100000, 1000000, 40, 40, 50);
+
+        assertFalse(mechanic.equals(sameMechanic));
+    }
+
+    @Test
+    public void differentPitstopsTest() {
+        Mechanic mechanic = new Mechanic("Steve Matchett", 100000, 1000000, 40, 50, 50);
+        Mechanic sameMechanic = new Mechanic("Steve Matchett", 100000, 1000000, 40, 50, 30);
+
+        assertFalse(mechanic.equals(sameMechanic));
+    }
+
+    @Test
+    public void sameMechanicTest() {
+        Mechanic mechanic = new Mechanic("Steve Matchett", 100000, 1000000, 50, 50, 50);
+
+        assertTrue(mechanic.equals(mechanic));
+    }
+
+    @Test
     public void equalsnull() {
         assertNotEquals(null, mechanic);
+    }
+
+    @Test
+    public void equalsNullTest() {
+        assertFalse(mechanic.equals(null));
     }
 }

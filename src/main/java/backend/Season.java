@@ -491,7 +491,13 @@ public class Season {
         }
     }
 
-    private boolean equalsRounds(Season that) {
+    /**
+     * Check whether two season classes have the same rounds.
+     *
+     * @param that other season
+     * @return true if the rounds are the same
+     */
+    public boolean equalsRounds(Season that) {
         if (this.rounds.size() != that.rounds.size()) {
             return false;
         }
@@ -582,21 +588,5 @@ public class Season {
                     && this.equalsStrategists(that);
         }
         return false;
-    }
-
-    /**
-     * Temporary main. Use this to test the Json write and read functionality.
-     *
-     * @param args Nothing
-     * @throws IOException If the file or directory does not exist
-     */
-    public static void main(String[] args) throws IOException {
-        Season season = Season.loadNewGameFromSeasonStart();
-        List<Engine> engines = season.getNonPlayerEngines();
-        for (Engine engine : engines) {
-            System.out.println(engine.getName());
-        }
-        season.save("save1.json");
-
     }
 }

@@ -260,9 +260,15 @@ public class DriverTest {
     }
 
     @Test (expected=IllegalArgumentException.class)
-    public void setSpeedException() {
+    public void setSpeedLowerException() {
+        driver.setSpeed(-1);
+    }
+
+    @Test (expected=IllegalArgumentException.class)
+    public void setSpeedHigherException() {
         driver.setSpeed(101);
     }
+
     @Test
     public void setSpeedTest() {
         Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
@@ -319,5 +325,19 @@ public class DriverTest {
     @Test
     public void comparaToTest() {
         assertEquals(0, driver.compareTo(otherDriver));
+    }
+
+    @Test
+    public void isChampionLastYearTest() {
+        assertEquals(false, driver.isChampionLastYear());
+    }
+
+    @Test
+    public void setChampionLastYearTest() {
+        Driver driver = new Driver("Kimi Raikkonen", 16, 100, 50, 50, 50, false);
+        driver.setChampionLastYear(true);
+
+        assertTrue(driver.isChampionLastYear());
+
     }
 }

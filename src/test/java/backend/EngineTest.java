@@ -110,6 +110,39 @@ public class EngineTest {
     }
 
     @Test
+    public void differentNameTest() {
+        Engine engine1 = new Engine(80, 90, 50, "Mercedes");
+        Engine engine2 = new Engine(80, 90, 50, "Ferrari");
+        assertFalse(engine1.equals(engine2));
+    }
+
+    @Test
+    public void differentPowerTest() {
+        Engine engine1 = new Engine(80, 90, 50, "Mercedes");
+        Engine engine2 = new Engine(30, 90, 50, "Mercedes");
+        assertFalse(engine1.equals(engine2));
+    }
+
+    @Test
+    public void differentDrivabilityTest() {
+        Engine engine1 = new Engine(80, 90, 50, "Mercedes");
+        Engine engine2 = new Engine(80, 80, 50, "Mercedes");
+        assertFalse(engine1.equals(engine2));
+    }
+
+    @Test
+    public void differentFuelConsumptionTest() {
+        Engine engine1 = new Engine(80, 90, 50, "Mercedes");
+        Engine engine2 = new Engine(80, 90, 40, "Mercedes");
+        assertFalse(engine1.equals(engine2));
+    }
+
+    @Test
+    public void equalsNullTest() {
+        assertFalse(engine.equals(null));
+    }
+
+    @Test
     public void hashcode() {
         assertEquals(-413857432, engine.hashCode());
     }

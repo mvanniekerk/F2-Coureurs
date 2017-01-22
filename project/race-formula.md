@@ -1,0 +1,36 @@
+The highest number of points decides the result of the race. The driver with the highest number of points wins the race and so on.
+
+Points are determined by:
+- 0.2 driver
+  - Quality (0-100)
+    - Average
+      - Speed
+      - Race craft
+      - Strategy insight
+    - Risk [0.5-1.0]
+- 0.2 engine
+  - Quality (0-100)
+    - Average
+    - Power / top speed
+    - Drivability
+    - Fuel consumption
+- 0.2 aerodynamicist
+  - Quality (0-100)
+- 0.2 set up
+  - Quality (0-100)
+    - Mechanic
+    - Average
+      - Pit stops
+      - Reliability
+      - Part fixing
+    - Risk
+      - High 0.0-1.0
+      - Medium 0.2-0.8
+      - Low 0.4-0.6
+- 0.2 strategy
+  - Quality (0-100)
+  - Strategist
+  - Risk
+    - High 0.0-1.0
+    - Medium 0.2-0.8
+    - Low 0.4-0.6
