@@ -6,8 +6,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<?import javafx.scene.media.MediaPlayer?>
-<?import javafx.scene.media.Media?>
 <?import javafx.scene.media.MediaView?>
 
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,13 +17,6 @@
 
     <!-- play background video-->
     <MediaView fx:id="mediaView">
-        <mediaPlayer>
-            <MediaPlayer fx:id="mediaPlayer" autoPlay="true">
-                <media>
-                    <Media source="http://klavier.nl/alex/edit-team.mp4" />
-                </media>
-            </MediaPlayer>
-        </mediaPlayer>
     </MediaView>
 
     <!-- settings-quit -->
@@ -42,7 +33,7 @@
     </Pane>
 
     <!--Current driver1-->
-    <Pane layoutX="770" layoutY="60" prefHeight="220" prefWidth="500" styleClass="block">
+    <Pane layoutX="770" layoutY="60" prefHeight="220" prefWidth="510" styleClass="block">
         <Label fx:id="teamMateName" layoutX="30" layoutY="-30" styleClass="option" text="Kevin Magnussen" />
         <Pane layoutX="30" layoutY="100" maxWidth="170" styleClass="content">
             <Label text="Salary:" />
@@ -55,7 +46,7 @@
     </Pane>
 
     <!--New team member-->
-    <Pane layoutX="1300" layoutY="350" prefHeight="380" prefWidth="500" styleClass="block">
+    <Pane layoutX="1300" layoutY="350" prefHeight="380" prefWidth="510" styleClass="block">
         <Label fx:id="newPlayerName" layoutX="30" layoutY="-30" styleClass="option" text="New Member" />
         <Pane layoutX="30" layoutY="100" maxWidth="170" styleClass="content">
             <Label text="Salary:" />
@@ -63,7 +54,7 @@
             <Label layoutY="110" text="quality:" />
             <Label layoutY="165" text="team:" />
         </Pane>
-        <Pane layoutX="200" layoutY="100" maxWidth="280" style="-fx-alignment: right;" styleClass="content">
+        <Pane layoutX="200" layoutY="100" maxWidth="270" style="-fx-alignment: right;" styleClass="content">
             <Label fx:id="newSalary" />
             <Label fx:id="newBuyoutClause" layoutY="55" />
             <Label fx:id="newQuality" layoutY="110" />

@@ -13,8 +13,6 @@
 
 <?import frontend.ExitButton?>
 <?import javafx.scene.media.MediaView?>
-<?import javafx.scene.media.MediaPlayer?>
-<?import javafx.scene.media.Media?>
 
 <AnchorPane prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="frontend.controllers.StandingsController">
@@ -23,13 +21,6 @@
 
     <!-- play background video-->
     <MediaView fx:id="mediaView">
-        <mediaPlayer>
-            <MediaPlayer fx:id="mediaPlayer" autoPlay="true">
-                <media>
-                    <Media source="http://klavier.nl/alex/standings.mp4" />
-                </media>
-            </MediaPlayer>
-        </mediaPlayer>
     </MediaView>
 
     <!-- Bottom menu-->
@@ -48,17 +39,17 @@
             <Image url="@../media/icons/driver.png" />
         </ImageView>
 
-        <Pane fx:id="driverTable" styleClass="team-container-text" layoutX="60" layoutY="80" />
+        <Pane fx:id="driverTable" styleClass="team-container-text" layoutX="60" layoutY="115" />
     </Pane>
 
     <!-- Team standings block-->
     <Pane layoutX="1030" layoutY="67" prefHeight="470" prefWidth="810" styleClass="block">
         <Label layoutX="60" layoutY="15" styleClass="title" text="Team Standings" />
-        <ImageView fitHeight="180" fitWidth="180" layoutX="630" layoutY="-30">
-            <Image url="@../media/icons/aero.png" />
+        <ImageView fitHeight="100" fitWidth="100" layoutX="680" layoutY="15">
+            <Image url="@../media/icons/team.png" />
         </ImageView>
 
-        <Pane fx:id="teamTable" styleClass="team-container-text" layoutX="60" layoutY="80" />
+        <Pane fx:id="teamTable" styleClass="team-container-text" layoutX="60" layoutY="115" />
     </Pane>
 
 </Pane>

@@ -21,6 +21,9 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -34,6 +37,7 @@ public class RaceController {
 
     @FXML private TableView<Driver> resultsTable;
     @FXML private Button continueButton;
+    @FXML private MediaView mediaView;
 
     private Season season;
 
@@ -43,8 +47,19 @@ public class RaceController {
      * @param setup the setup of the user
      * @param strategy the strategy of the user
      */
-    public void startRace(Setup setup, Strategy strategy) {
+    public void startRace(Setup setup, Strategy strategy) throws Exception {
         season = GameEngine.getInstance().getSeason();
+
+        Media media = new Media(getClass().getResource("/media/video/raceresult.mp4").toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setMute(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
+
+        mediaView.setMediaPlayer(mediaPlayer);
+        mediaView.setFitHeight(1080);
+        mediaView.setFitWidth(1920);
+
 
         // Create new race
         Race race = new Race(
@@ -64,8 +79,9 @@ public class RaceController {
         // Add drivers to the table
         resultsTable.setItems(drivers);
 
+
         // Create position column
-        TableColumn<Driver, String> positionColumn = new TableColumn<>("#");
+        TableColumn<Driver, String> positionColumn = new TableColumn<>("Pos.");
         positionColumn.setCellValueFactory(
             new Callback<TableColumn.CellDataFeatures<Driver, String>, ObservableValue<String>>() {
 
@@ -79,6 +95,7 @@ public class RaceController {
                 }
             }
         );
+        positionColumn.prefWidthProperty().bind(resultsTable.widthProperty().multiply(0.1));
 
         // Create name column
         TableColumn<Driver, String> nameColumn = new TableColumn<>("Name");
@@ -93,6 +110,7 @@ public class RaceController {
                 }
             }
         );
+        nameColumn.prefWidthProperty().bind(resultsTable.widthProperty().multiply(0.3));
 
         // Create team column
         TableColumn<Driver, String> teamColumn = new TableColumn<>("Team");
@@ -108,6 +126,7 @@ public class RaceController {
                 }
             }
         );
+        teamColumn.prefWidthProperty().bind(resultsTable.widthProperty().multiply(0.3));
 
         ArrayList<Integer> points = new ArrayList<>(Arrays.asList(25, 18, 15, 12, 10, 8, 6, 4, 2, 1));
         for (int x = 10; x < 22; x++) {
@@ -128,6 +147,7 @@ public class RaceController {
                     }
                 }
         );
+        pointsColumn.prefWidthProperty().bind(resultsTable.widthProperty().multiply(0.25));
 
         // Add columns to the table
         resultsTable.getColumns().addAll(positionColumn, nameColumn, teamColumn, pointsColumn);

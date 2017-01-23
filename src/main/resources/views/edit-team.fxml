@@ -7,21 +7,13 @@
 <?import javafx.scene.image.Image?>
 
 <?import javafx.scene.media.MediaView?>
-<?import javafx.scene.media.MediaPlayer?>
-<?import javafx.scene.media.Media?>
+
 <AnchorPane fx:controller="frontend.controllers.EditTeamController" xmlns:fx="http://javafx.com/fxml/1"
             xmlns="http://javafx.com/javafx/8" prefWidth="1920" prefHeight="1080">
 <Pane id="edit-team" stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0">
 
     <!-- play background video-->
     <MediaView fx:id="mediaView">
-        <mediaPlayer>
-            <MediaPlayer fx:id="mediaPlayer" autoPlay="true">
-                <media>
-                    <Media source="http://klavier.nl/alex/edit-team.mp4" />
-                </media>
-            </MediaPlayer>
-        </mediaPlayer>
     </MediaView>
 
     <!-- settings-quit -->

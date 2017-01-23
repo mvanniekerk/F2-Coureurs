@@ -6,6 +6,7 @@ import backend.Team;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
@@ -19,17 +20,21 @@ public class StandingsController {
     @FXML private Pane teamTable;
     @FXML private Pane driverTable;
     @FXML private MediaView mediaView;
-    @FXML private MediaPlayer mediaPlayer;
 
     /**
      * Show the champion standings.
      */
-    public void initialize() {
-
-        mediaView.setFitHeight(1080);
-        mediaView.setFitWidth(1920);
+    public void initialize() throws Exception {
+        Media media = new Media(getClass().getResource("/media/video/standings.mp4").toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setMute(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
+
+        mediaView.setMediaPlayer(mediaPlayer);
+        mediaView.setFitHeight(1080);
+        mediaView.setFitWidth(1920);
+
 
         season = GameEngine.getInstance().getSeason();
         playerControlled = season.getPlayerControlledTeam();
@@ -52,8 +57,8 @@ public class StandingsController {
             teamSLabel.setLayoutY(30 * counter);
 
             if (teamNLabel.getText().equals(playerControlled.getName())) {
-                teamNLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
-                teamSLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
+                teamNLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 1.00)");
+                teamSLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 1.00)");
             }
             returnPane.getChildren().add(teamNLabel);
             returnPane.getChildren().add(teamSLabel);
@@ -78,9 +83,9 @@ public class StandingsController {
 
             if (driverNLabel.getText().equals(playerControlled.getFirstDriver().getName())
                     || driverNLabel.getText().equals(playerControlled.getSecondDriver().getName())) {
-                driverNLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
-                driverTLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
-                driverPLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.59)");
+                driverNLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 1.00)");
+                driverTLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 1.00)");
+                driverPLabel.setStyle("-fx-text-fill: rgba(0, 255, 0, 1.00)");
             }
 
             returnPane.getChildren().add(driverNLabel);

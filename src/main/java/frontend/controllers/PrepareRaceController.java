@@ -14,9 +14,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.Glow;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class PrepareRaceController {
     @FXML private Label engine;
@@ -41,6 +45,8 @@ public class PrepareRaceController {
 
     @FXML private Label nextRace;
 
+    @FXML private MediaView mediaView;
+
     private Season season;
 
     private Setup userSetup;
@@ -50,7 +56,7 @@ public class PrepareRaceController {
      * Initialize the prepare screen with the correct values.
      */
     @FXML
-    public void initialize() {
+    public void initialize() throws URISyntaxException {
         strategyLowRisk.setPickOnBounds(false);
         strategyMediumRisk.setPickOnBounds(false);
         strategyHighRisk.setPickOnBounds(false);
@@ -68,6 +74,17 @@ public class PrepareRaceController {
         aerodynamicist.setText(playerTeam.getAerodynamicist().getName());
         mechanic.setText(playerTeam.getMechanic().getName());
         nextRace.setText(season.getCurrentRound().getTrackName());
+
+        Media media = new Media(getClass().getResource("/media/video/pitstop.mp4").toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setMute(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
+
+        mediaView.setMediaPlayer(mediaPlayer);
+        mediaView.setFitHeight(1080);
+        mediaView.setFitWidth(1920);
+
     }
 
     /**

@@ -56,6 +56,7 @@ Label {
 	-fx-font-size: 38;
 }
 
+
 .table-view {
 	-fx-font-size: 20;
 	-fx-alignment: center-left;
@@ -174,16 +175,16 @@ Button#red {
 }
 
 #resultsTable {
-	-fx-background-color: rgba(44, 44, 44, 0.59);
-	-fx-pref-height: 950;
-	-fx-pref-width: 900;
+	-fx-background-color: rgba(44, 44, 44, 0.00);
+	-fx-pref-height: 900;
+	-fx-pref-width: 1000;
 }
 
-#resultsTable .column {
 
+#resultsTable .label {
+    -fx-font-size: 38;
 }
-
 #resultsTable .table-cell{
 	-fx-text-fill: white;
-	-fx-pref-width: 200;
+    -fx-border-color: transparent;
 }

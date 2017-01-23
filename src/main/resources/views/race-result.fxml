@@ -4,10 +4,21 @@
 <?import javafx.scene.control.TableView?>
 <?import frontend.ExitButton?>
 <?import frontend.HomeButton?>
-<Pane id="race-result" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.RaceController">
 
-    <TableView fx:id="resultsTable"/>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
 
-    <HomeButton styleClass="settings-quit" layoutY="800" layoutX="1670" fx:id="continueButton" text="Continue"/>
-    <ExitButton styleClass="settings-quit" layoutY="925" layoutX="1670" text="Quit" />
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.RaceController">
+<Pane id="race-result" maxHeight="1080" maxWidth="1920" minHeight="1080" minWidth="1920"  stylesheets="@style.css" >
+
+    <!-- play background video-->
+    <MediaView fx:id="mediaView">
+    </MediaView>
+
+    <Pane fx:id="tableBox" layoutX="150" layoutY="100" prefHeight="900" prefWidth="1000" styleClass="block">
+    <TableView layoutX="20" layoutY="20" fx:id="resultsTable"/>
+    </Pane>
+
+    <HomeButton styleClass="settings-quit" layoutY="900" layoutX="1250" fx:id="continueButton" text="Continue"/>
 </Pane>
+</AnchorPane>

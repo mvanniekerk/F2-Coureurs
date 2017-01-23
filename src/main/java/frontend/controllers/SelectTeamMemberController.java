@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
@@ -41,7 +42,6 @@ public class SelectTeamMemberController {
     @FXML private Pane tableBox;
     @FXML private Label budget;
     @FXML private MediaView mediaView;
-    @FXML private MediaPlayer mediaPlayer;
     @FXML private Button cancelButton;
     @FXML private Pane selectTeamMember;
 
@@ -58,7 +58,7 @@ public class SelectTeamMemberController {
      * @param type the type of team member
      * @param showCancel show the cancel button
      */
-    public void load(String type, boolean showCancel) {
+    public void load(String type, boolean showCancel) throws Exception {
         load(type);
         if (!showCancel) {
             selectTeamMember.getChildren().remove(cancelButton);
@@ -70,11 +70,16 @@ public class SelectTeamMemberController {
     /**
      * Initialises the controller.
      */
-    public void load(String type) {
-        mediaView.setFitHeight(1080);
-        mediaView.setFitWidth(1920);
+    public void load(String type) throws Exception {
+        Media media = new Media(getClass().getResource("/media/video/edit-team.mp4").toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setMute(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
+
+        mediaView.setMediaPlayer(mediaPlayer);
+        mediaView.setFitHeight(1080);
+        mediaView.setFitWidth(1920);
 
         season = GameEngine.getInstance().getSeason();
         saveName = GameEngine.getInstance().getSaveName();
