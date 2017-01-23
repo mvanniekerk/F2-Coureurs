@@ -20,6 +20,5 @@
     </Pane>
 
     <HomeButton styleClass="settings-quit" layoutY="900" layoutX="1250" fx:id="continueButton" text="Continue"/>
-    <ExitButton styleClass="settings-quit" layoutY="900" layoutX="1500" text="Quit" />
 </Pane>
 </AnchorPane>
