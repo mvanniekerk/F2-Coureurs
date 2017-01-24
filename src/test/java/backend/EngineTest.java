@@ -48,8 +48,20 @@ public class EngineTest {
     }
 
     @Test
-    public void getPriceTest() {
-        assertEquals(2000000, engine.getPrice());
+    public void getPriceMercedes() {
+        assertEquals(35000000, engine.getPrice());
+    }
+
+    @Test
+    public void getPriceHonda() { assertEquals(25000000, otherEngine.getPrice()); }
+
+    @Test
+    public void getPriceFerrai() { assertEquals(32000000, qualityEngine.getPrice());}
+
+    @Test
+    public void getPriceRenault() {
+        Engine someEngine = new Engine(900, 70, 80, "Renault");
+        assertEquals(27000000, someEngine.getPrice());
     }
 
     @Test
