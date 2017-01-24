@@ -199,7 +199,6 @@ public class PrepareRaceController {
     @FXML
     public void startRace(ActionEvent event) throws Exception {
         if (userSetup == null || userStrategy == null) {
-            // TODO Create flashing button.
             Button button = (Button) event.getSource();
             button.getStyleClass().removeAll("start-race");
             button.getStyleClass().add("start-race-red");
