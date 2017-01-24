@@ -56,7 +56,7 @@ public class EngineTest {
     public void getPriceHonda() { assertEquals(25000000, otherEngine.getPrice()); }
 
     @Test
-    public void getPriceFerrai() { assertEquals(32000000, qualityEngine.getPrice());}
+    public void getPriceFerrai() { assertEquals(32000000, qualityEngine.getPrice()); }
 
     @Test
     public void getPriceRenault() {
