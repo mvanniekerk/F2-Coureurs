@@ -46,8 +46,17 @@ public class Engine {
      * @return replacement price
      */
     public int getPrice() {
-        // TODO discuss price
-        return 2000000;
+        int price;
+        if (name.equals("Mercedes")) {
+            price = 35000000;
+        } else if (name.equals("Ferrari")) {
+            price = 32000000;
+        } else if (name.equals("Renault")) {
+            price = 27000000;
+        } else {
+            price =  25000000; //The price of the engine Honda
+        }
+        return price;
     }
 
     /**
