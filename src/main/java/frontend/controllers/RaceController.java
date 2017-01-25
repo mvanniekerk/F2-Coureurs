@@ -246,6 +246,25 @@ public class RaceController {
             );
         }
 
+        // If the players' budget is below zero show game over screen
+        if (season.getPlayerControlledTeam().getBudget() < 0) {
+            continueButton.setText("Game over");
+            continueButton.setOnAction(event -> {
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("/views/game-over.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Node source = (Node) event.getSource();
+                Stage stage = (Stage) source.getScene().getWindow();
+
+                stage.getScene().setRoot(root);
+            });
+
+            return;
+        }
+
         // Increase salary of winning driver by 1%
         Driver winningDriver = drivers.get(0);
         winningDriver.setSalary(winningDriver.getSalary() + (winningDriver.getSalary() / 100));
@@ -260,11 +279,11 @@ public class RaceController {
 
     private void setupNewSeason() {
         continueButton.setPickOnBounds(false);
-        continueButton.setText("End of season");
+        continueButton.setText("The End");
         continueButton.setOnAction(event -> {
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/views/end-of-season.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }

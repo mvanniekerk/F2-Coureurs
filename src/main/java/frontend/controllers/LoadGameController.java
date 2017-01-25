@@ -5,6 +5,7 @@ import backend.Driver;
 import backend.Engine;
 import backend.GameEngine;
 import backend.Mechanic;
+import backend.Season;
 import backend.Strategist;
 import backend.Team;
 import javafx.event.ActionEvent;
@@ -122,14 +123,29 @@ public class LoadGameController {
         } else {
             new GameEngine.GameEngineBuilder(saveName).build();
             loader = new FXMLLoader(getClass().getResource("/views/edit-team.fxml"));
-            Team playerTeam = GameEngine.getInstance().getSeason().getPlayerControlledTeam();
-            playerTeam.setFirstDriver(new Driver());
-            playerTeam.setSecondDriver(new Driver());
-            playerTeam.setStrategist(new Strategist());
-            playerTeam.setAerodynamicist(new Aerodynamicist());
-            playerTeam.setMechanic(new Mechanic());
-            playerTeam.setEngine(new Engine());
-            playerTeam.setBudget(200000000);
+            // make a new team
+            Driver driver1 = new Driver();
+            Driver driver2 = new Driver();
+            Aerodynamicist aerodynamicist = new Aerodynamicist();
+            Mechanic mechanic = new Mechanic();
+            Strategist strategist = new Strategist();
+            Engine engine = new Engine();
+            // TODO: Allow player to choose a name
+            Team playerTeam = new Team("My Team", "That's me!", 200000000,
+                    engine, aerodynamicist, mechanic, strategist);
+            playerTeam.setFirstDriver(driver1);
+            playerTeam.setSecondDriver(driver2);
+            // Add the new team to the teams
+            Season season = GameEngine.getInstance().getSeason();
+            season.getTeams().set(0, playerTeam);
+            // Add Williams team members to the contract list
+            season.addContractStaffMember(season.getTeams().get(10).getFirstDriver());
+            season.addContractStaffMember(season.getTeams().get(10).getSecondDriver());
+            season.addContractStaffMember(season.getTeams().get(10).getAerodynamicist());
+            season.addContractStaffMember(season.getTeams().get(10).getMechanic());
+            season.addContractStaffMember(season.getTeams().get(10).getStrategist());
+            // Remove Williams team from the competition
+            season.getTeams().remove(10);
         }
 
         Parent root = loader.load();
