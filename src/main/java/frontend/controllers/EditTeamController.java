@@ -1,7 +1,12 @@
 package frontend.controllers;
 
+import backend.Aerodynamicist;
+import backend.Driver;
+import backend.Engine;
 import backend.GameEngine;
+import backend.Mechanic;
 import backend.Season;
+import backend.Strategist;
 import backend.Team;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +19,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class EditTeamController {
@@ -59,16 +65,21 @@ public class EditTeamController {
 
     /**
      * Cancels all the changes by loading the json file from save.
-     * Returns to the home screen after clicking.
+     * Returns to the home screen after clicking if it is not a new game.
      *
      * @param event not using it
-     * @throws IOException throws if the home screen fxml doesn't exist
+     * @throws IOException throws if the home screen or the load game screen fxml doesn't exist
      */
     @FXML
     public void cancel(ActionEvent event) throws IOException {
-        GameEngine.getInstance().setSeason(Season.load(saveName));
-
-        Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
+        Parent root;
+        if (season.getRoundInt() == 0) {
+            new File("saves/" + saveName).delete();
+            root = FXMLLoader.load(getClass().getResource("/views/load-game.fxml"));
+        } else {
+            GameEngine.getInstance().setSeason(Season.load(saveName));
+            root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
+        }
         Stage stage = (Stage) budget.getScene().getWindow();
 
         stage.getScene().setRoot(root);
@@ -82,6 +93,15 @@ public class EditTeamController {
      */
     @FXML
     public void save(ActionEvent event) throws IOException {
+        Team playerTeam = season.getPlayerControlledTeam();
+        if (playerTeam.getFirstDriver().equals(new Driver())
+                || playerTeam.getSecondDriver().equals(new Driver())
+                || playerTeam.getAerodynamicist().equals(new Aerodynamicist())
+                || playerTeam.getMechanic().equals(new Mechanic())
+                || playerTeam.getStrategist().equals(new Strategist())
+                || playerTeam.getEngine().equals(new Engine())) {
+            return;
+        }
         season.save(saveName);
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
