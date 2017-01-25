@@ -176,8 +176,6 @@ Button#red {
 
 #resultsTable {
 	-fx-background-color: rgba(44, 44, 44, 0.00);
-	-fx-pref-height: 900;
-	-fx-pref-width: 1000;
 }
 
 
