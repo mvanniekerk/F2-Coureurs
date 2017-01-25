@@ -1,7 +1,12 @@
 package frontend.controllers;
 
+import backend.Aerodynamicist;
+import backend.Driver;
+import backend.Engine;
 import backend.GameEngine;
+import backend.Mechanic;
 import backend.Season;
+import backend.Strategist;
 import backend.Team;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -82,6 +87,15 @@ public class EditTeamController {
      */
     @FXML
     public void save(ActionEvent event) throws IOException {
+        Team playerTeam = season.getPlayerControlledTeam();
+        if (playerTeam.getFirstDriver().equals(new Driver())
+                || playerTeam.getSecondDriver().equals(new Driver())
+                || playerTeam.getAerodynamicist().equals(new Aerodynamicist())
+                || playerTeam.getMechanic().equals(new Mechanic())
+                || playerTeam.getStrategist().equals(new Strategist())
+                || playerTeam.getEngine().equals(new Engine())) {
+            return;
+        }
         season.save(saveName);
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
