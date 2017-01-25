@@ -44,20 +44,25 @@ public class Engine {
     }
 
     /**
-     * Gets the price to replace the engine for another.
+     * Gets the price of the corresponding engine.
      *
-     * @return replacement price
+     * @return the price of the engine
      */
     public int getPrice() {
         int price;
-        if (name.equals("Mercedes")) {
-            price = 35000000;
-        } else if (name.equals("Ferrari")) {
-            price = 32000000;
-        } else if (name.equals("Renault")) {
-            price = 27000000;
-        } else {
-            price =  25000000; //The price of the engine Honda
+        switch (name) {
+            case "Mercedes":
+                price = 35000000;
+                break;
+            case "Ferrari":
+                price = 32000000;
+                break;
+            case "Renault":
+                price = 27000000;
+                break;
+            default:
+                price = 25000000; //The price of the engine Honda
+                break;
         }
         return price;
     }
