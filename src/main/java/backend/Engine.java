@@ -1,5 +1,8 @@
 package backend;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Engine {
     private int power;
     private int drivability;
@@ -57,6 +60,16 @@ public class Engine {
             price =  25000000; //The price of the engine Honda
         }
         return price;
+    }
+
+    /**
+     * Gets a string representation of the price.
+     *
+     * @return string of the budget
+     */
+    public String getPriceString() {
+        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return euroFormat.format(getPrice());
     }
 
     /**

@@ -3,6 +3,8 @@ package backend;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Locale;
+
 import static org.junit.Assert.*;
 
 public class EngineTest {
@@ -62,6 +64,19 @@ public class EngineTest {
     public void getPriceRenault() {
         Engine someEngine = new Engine(900, 70, 80, "Renault");
         assertEquals(27000000, someEngine.getPrice());
+    }
+
+    @Test
+    public void getSalaryString() {
+        String locale = Locale.getDefault().toLanguageTag();
+        if (locale.equals("nl-NL")) {
+            assertEquals("€ 35.000.000,00", engine.getPriceString());
+        } else if (locale.equals("en-US")) {
+            assertEquals("$ 35.000.000.00", engine.getPriceString());
+        } else {
+            System.out.println("Untested locale :" + locale + " giving " + engine.getPriceString());
+            assertTrue(true);
+        }
     }
 
     @Test

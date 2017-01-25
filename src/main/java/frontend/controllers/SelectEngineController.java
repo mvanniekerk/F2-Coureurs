@@ -61,7 +61,7 @@ public class SelectEngineController {
         Pane returnPane = new Pane();
         returnPane.setOnMouseClicked((event) -> {
             newEngineName.setText(engine.getName());
-            newPrice.setText("$" + engine.getPrice());
+            newPrice.setText(engine.getPriceString());
             newQuality.setText(engine.getQualityString());
             budget.setText(season.getPlayerControlledTeam().getBudgetString(engine.getPrice()));
             newEngine = engine;
@@ -72,7 +72,7 @@ public class SelectEngineController {
         nameLabel.getStyleClass().add("table-content");
         returnPane.getChildren().add(nameLabel);
 
-        Label priceLabel = new Label("$" + engine.getPrice());
+        Label priceLabel = new Label(engine.getPriceString());
         priceLabel.getStyleClass().add("table-content");
         priceLabel.setLayoutX(440);
         returnPane.getChildren().add(priceLabel);
