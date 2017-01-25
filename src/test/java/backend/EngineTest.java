@@ -67,12 +67,12 @@ public class EngineTest {
     }
 
     @Test
-    public void getSalaryString() {
+    public void getPriceStringTest() {
         String locale = Locale.getDefault().toLanguageTag();
         if (locale.equals("nl-NL")) {
             assertEquals("€ 35.000.000,00", engine.getPriceString());
         } else if (locale.equals("en-US")) {
-            assertEquals("$ 35.000.000.00", engine.getPriceString());
+            assertEquals("$ 35.000.000,00", engine.getPriceString());
         } else {
             System.out.println("Untested locale :" + locale + " giving " + engine.getPriceString());
             assertTrue(true);
