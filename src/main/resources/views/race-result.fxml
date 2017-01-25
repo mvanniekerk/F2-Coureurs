@@ -2,7 +2,6 @@
 
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.control.TableView?>
-<?import frontend.ExitButton?>
 <?import frontend.HomeButton?>
 
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,7 +14,7 @@
     <MediaView fx:id="mediaView">
     </MediaView>
 
-    <Pane fx:id="tableBox" layoutX="150" layoutY="100" prefHeight="900" prefWidth="1000" styleClass="block">
+    <Pane fx:id="tableBox" layoutX="150" layoutY="75" prefHeight="925" prefWidth="1000" styleClass="block">
     <TableView layoutX="20" layoutY="20" fx:id="resultsTable"/>
     </Pane>
 
