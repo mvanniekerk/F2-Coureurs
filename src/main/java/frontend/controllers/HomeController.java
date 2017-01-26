@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HomeController {
+    public static boolean trigger;
+
     @FXML private Label teamName;
     @FXML private Label engineName;
     @FXML private Label firstDriverName;
@@ -34,6 +36,7 @@ public class HomeController {
      */
     @FXML
     public void initialize() throws Exception {
+        trigger = true; // Indicate the screen welcome had been opened once
         season = GameEngine.getInstance().getSeason();
 
         Team playerTeam = season.getPlayerControlledTeam();
