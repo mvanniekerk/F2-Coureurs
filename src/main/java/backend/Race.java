@@ -65,6 +65,15 @@ public class Race {
     }
 
     /**
+     * Sets the setup of the race.
+     *
+     * @param userSetup the user setup
+     */
+    public void setSetup(Setup userSetup) {
+        this.userSetup = userSetup;
+    }
+
+    /**
      * Gets the strategy of the race.
      *
      * @return the Strategy
@@ -72,6 +81,16 @@ public class Race {
     public Strategy getStrategy() {
         return userStrategy;
     }
+
+    /**
+     * Sets the strategy of the race.
+     *
+     * @param userStrategy the user setup
+     */
+    public void setStrategy(Strategy userStrategy) {
+        this.userStrategy = userStrategy;
+    }
+
 
     /**
      * Gets the trackName of the race.
@@ -83,12 +102,30 @@ public class Race {
     }
 
     /**
+     * Sets the track name.
+     *
+     * @param trackName the new track name
+     */
+    public void setTrackName(String trackName) {
+        this.trackName = trackName;
+    }
+
+    /**
      * Gets the round in the Championship.
      *
      * @return the round in the championship
      */
     public int getRoundInChampionship() {
         return roundInChampionship;
+    }
+
+    /**
+     * Sets the round in the Championship.
+     *
+     * @param roundInChampionship the round
+     */
+    public void setRoundInChampionship(int roundInChampionship) {
+        this.roundInChampionship = roundInChampionship;
     }
 
     /** Set the result of the race.

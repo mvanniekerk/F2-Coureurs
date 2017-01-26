@@ -1,5 +1,8 @@
 package backend;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Engine {
     private int power;
     private int drivability;
@@ -41,13 +44,37 @@ public class Engine {
     }
 
     /**
-     * Gets the price to replace the engine for another.
+     * Gets the price of the corresponding engine.
      *
-     * @return replacement price
+     * @return the price of the engine
      */
     public int getPrice() {
-        // TODO discuss price
-        return 2000000;
+        int price;
+        switch (name) {
+            case "Mercedes":
+                price = 35000000;
+                break;
+            case "Ferrari":
+                price = 32000000;
+                break;
+            case "Renault":
+                price = 27000000;
+                break;
+            default:
+                price = 25000000; //The price of the engine Honda
+                break;
+        }
+        return price;
+    }
+
+    /**
+     * Gets a string representation of the price.
+     *
+     * @return string of the budget
+     */
+    public String getPriceString() {
+        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return euroFormat.format(getPrice());
     }
 
     /**

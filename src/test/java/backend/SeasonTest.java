@@ -648,11 +648,6 @@ public class SeasonTest {
     }
 
     @Test
-    public void equalsDiffRace() {
-        // TODO no set methods in race
-    }
-
-    @Test
     public void nonPlayerEngines() {
         ArrayList<Engine> engineList = new ArrayList<>();
         engineList.add(otherEngine);

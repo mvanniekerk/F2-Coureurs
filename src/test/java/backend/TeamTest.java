@@ -249,7 +249,7 @@ public class TeamTest {
     @Test
     public void changeEnginePriceTest() {
         team.changeEngine(otherEngine);
-        assertEquals(500000, team.getBudget());
+        assertEquals(-22500000, team.getBudget());
     }
 
     @Test
