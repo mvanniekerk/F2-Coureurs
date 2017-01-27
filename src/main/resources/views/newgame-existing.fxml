@@ -6,7 +6,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <Pane stylesheets="@style.css" prefHeight="1080.0" prefWidth="1920.0"
-      xmlns="http://javafx.com/javafx/8" id="newgame-existing">
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="frontend.controllers.newgameExistingController" id="newgame-existing">
         <Pane layoutX="95" layoutY="75" prefHeight="120" prefWidth="530" styleClass="block">
                 <Label layoutX="30" layoutY="15" styleClass="title" text="Select Team"/>
         </Pane>
