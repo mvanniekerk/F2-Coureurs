@@ -18,6 +18,6 @@
         <TableView layoutX="20" layoutY="20" prefHeight="970" prefWidth="975" maxWidth="975" fx:id="resultsTable"/>
     </Pane>
 
-    <HomeButton styleClass="settings-quit" layoutY="955" layoutX="1250" fx:id="continueButton" text="Continue"/>
+    <HomeButton styleClass="button-xl" layoutY="955" layoutX="1250" fx:id="continueButton" text="Continue"/>
 </Pane>
 </AnchorPane>
