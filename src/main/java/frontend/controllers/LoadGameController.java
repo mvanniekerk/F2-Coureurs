@@ -137,7 +137,7 @@ public class LoadGameController {
             playerTeam.setSecondDriver(driver2);
             // Add the new team to the teams
             Season season = GameEngine.getInstance().getSeason();
-            season.getTeams().set(0, playerTeam);
+            season.getTeams().add(0, playerTeam);
             // Add Williams team members to the contract list
             season.addContractStaffMember(season.getTeams().get(10).getFirstDriver());
             season.addContractStaffMember(season.getTeams().get(10).getSecondDriver());
