@@ -32,7 +32,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 public class RaceController {
@@ -267,27 +266,8 @@ public class RaceController {
             return;
         } else {
             double random = Math.random();
-            if (random < 0.4) {
-                List<Team> nonPlayerTeams = season.getTeams().stream()
-                        .filter(team -> !team.equals(season.getPlayerControlledTeam()))
-                        .collect(Collectors.toList());
-                Team randomTeam = nonPlayerTeams.get(new Random().nextInt(nonPlayerTeams.size()));
-                continueButton.setOnAction(event -> {
-                    try {
-                        FXMLLoader loader = new FXMLLoader(
-                                getClass().getResource("/views/message.fxml"));
-                        Parent root;
-                        root = loader.load();
-                        frontend.controllers.TransferOfferController controller = loader.getController();
-                        controller.load(randomTeam,
-                                season.getPlayerControlledTeam().getFirstDriver());
-                        System.out.println("handling event");
-                        Stage stage = (Stage) continueButton.getScene().getWindow();
-                        stage.getScene().setRoot(root);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
+            if (random < 0.9) {
+                continueButtonHandler();
             }
         }
 
@@ -301,6 +281,39 @@ public class RaceController {
         } else {
             season.setCurrentRound(season.getRoundInt() + 1);
         }
+    }
+
+    private void continueButtonHandler() {
+        List<Team> nonPlayerTeams = season.getTeams().stream()
+                        .filter(team -> !team.equals(season.getPlayerControlledTeam()))
+                        .collect(Collectors.toList());
+        Team randomTeam = nonPlayerTeams.get(new Random().nextInt(nonPlayerTeams.size()));
+        continueButton.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/views/message.fxml"));
+                Parent root;
+                root = loader.load();
+                frontend.controllers.TransferOfferController controller = loader.getController();
+                double randomPlayer = Math.random();
+                if (randomPlayer < 0.2) {
+                    controller.load(randomTeam, season.getPlayerControlledTeam().getFirstDriver());
+                } else if (randomPlayer < 0.4) {
+                    controller.load(randomTeam, season.getPlayerControlledTeam().getSecondDriver());
+                } else if (randomPlayer < 0.6) {
+                    controller.load(randomTeam, season.getPlayerControlledTeam().getAerodynamicist());
+                } else if (randomPlayer < 0.8) {
+                    controller.load(randomTeam, season.getPlayerControlledTeam().getMechanic());
+                } else {
+                    controller.load(randomTeam, season.getPlayerControlledTeam().getStrategist());
+                }
+                System.out.println("handling event");
+                Stage stage = (Stage) continueButton.getScene().getWindow();
+                stage.getScene().setRoot(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     private void setupNewSeason() {
