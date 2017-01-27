@@ -46,6 +46,7 @@ public class SelectEngineController {
         season = GameEngine.getInstance().getSeason();
         engineName.setText(season.getPlayerControlledTeam().getEngine().getName());
         engineQuality.setText(season.getPlayerControlledTeam().getEngine().getQualityString());
+        budget.setText(season.getPlayerControlledTeam().getBudgetString());
 
         engineTable.getChildren().clear();
         int inc = 0;
@@ -60,9 +61,9 @@ public class SelectEngineController {
         Pane returnPane = new Pane();
         returnPane.setOnMouseClicked((event) -> {
             newEngineName.setText(engine.getName());
-            newPrice.setText("$ 2,000,000.00");
+            newPrice.setText(engine.getPriceString());
             newQuality.setText(engine.getQualityString());
-            budget.setText(season.getPlayerControlledTeam().getBudgetString(2000000));
+            budget.setText(season.getPlayerControlledTeam().getBudgetString(engine.getPrice()));
             newEngine = engine;
         });
         returnPane.setLayoutY(35 * position);
@@ -71,14 +72,14 @@ public class SelectEngineController {
         nameLabel.getStyleClass().add("table-content");
         returnPane.getChildren().add(nameLabel);
 
-        Label priceLabel = new Label("$ 2,000,000.00");
+        Label priceLabel = new Label(engine.getPriceString());
         priceLabel.getStyleClass().add("table-content");
-        priceLabel.setLayoutX(220);
+        priceLabel.setLayoutX(440);
         returnPane.getChildren().add(priceLabel);
 
         Label qualityLabel = new Label(engine.getQualityString());
         qualityLabel.getStyleClass().add("table-content");
-        qualityLabel.setLayoutX(440);
+        qualityLabel.setLayoutX(660);
         returnPane.getChildren().add(qualityLabel);
 
         return returnPane;

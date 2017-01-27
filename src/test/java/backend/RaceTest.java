@@ -122,4 +122,28 @@ public class RaceTest {
 
         assertEquals(drivers, this.race.getResult());
     }
+
+    @Test
+    public void setSetupTest() {
+        race.setSetup(new Setup(Setup.HIGH_RISK));
+        assertEquals(Setup.HIGH_RISK, race.getSetup().getRisk());
+    }
+
+    @Test
+    public void setStrategyTest() {
+        race.setStrategy(new Strategy(Strategy.MEDIUM_RISK));
+        assertEquals(Strategy.MEDIUM_RISK, race.getStrategy().getRisk());
+    }
+
+    @Test
+    public void setTrackName() {
+        race.setTrackName("Circuit");
+        assertEquals("Circuit", race.getTrackName());
+    }
+
+    @Test
+    public void setRound() {
+        race.setRoundInChampionship(9);
+        assertEquals(9, race.getRoundInChampionship());
+    }
 }
