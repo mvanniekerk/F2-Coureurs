@@ -186,3 +186,7 @@ Button#red {
 	-fx-text-fill: white;
     -fx-border-color: transparent;
 }
+
+.button-xl {
+	-fx-pref-width: 300;
+}
