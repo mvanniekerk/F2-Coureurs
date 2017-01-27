@@ -32,6 +32,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 public class RaceController {
 
@@ -263,6 +265,30 @@ public class RaceController {
             });
 
             return;
+        } else {
+            double random = Math.random();
+            if (random < 0.4) {
+                List<Team> nonPlayerTeams = season.getTeams().stream()
+                        .filter(team -> !team.equals(season.getPlayerControlledTeam()))
+                        .collect(Collectors.toList());
+                Team randomTeam = nonPlayerTeams.get(new Random().nextInt(nonPlayerTeams.size()));
+                continueButton.setOnAction(event -> {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(
+                                getClass().getResource("/views/message.fxml"));
+                        Parent root;
+                        root = loader.load();
+                        frontend.controllers.TransferOfferController controller = loader.getController();
+                        controller.load(randomTeam,
+                                season.getPlayerControlledTeam().getFirstDriver());
+                        System.out.println("handling event");
+                        Stage stage = (Stage) continueButton.getScene().getWindow();
+                        stage.getScene().setRoot(root);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
         }
 
         // Increase salary of winning driver by 1%
