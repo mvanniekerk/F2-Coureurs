@@ -52,7 +52,7 @@
               <Label fx:id="strategist" layoutX="150" layoutY="385" maxWidth="360" styleClass="content" text="Strategist"/>
 
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="450">
-                      <Image url="@../media/icons/aero.png"/>
+                      <Image url="@../media/icons/aerodynamicist.png"/>
               </ImageView>
               <Label fx:id="aerodynamicist" layoutX="150" layoutY="460" maxWidth="360" styleClass="content" text="Aerodynamicist"/>
 
