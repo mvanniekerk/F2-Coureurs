@@ -16,6 +16,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
@@ -28,6 +30,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SelectTeamMemberController {
+    @FXML private ImageView icon;
     @FXML private Label tableName;
     @FXML private Label teamMateName;
     @FXML private Label teamMateSalary;
@@ -144,6 +147,10 @@ public class SelectTeamMemberController {
                         .collect(Collectors.toList());
                 break;
         }
+        // set the icon
+        String jobTitle = newStaff.get(0).getJobTitle();
+        icon.setImage(new Image("/media/icons/" + jobTitle + ".png"));
+
         // scrollBar seems to misbehave when put inside the fxml file
         // Probably because the listener gets added after initialization?
         scrollBar = new ScrollBar();

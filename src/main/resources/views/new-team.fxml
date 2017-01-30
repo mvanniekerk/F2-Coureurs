@@ -84,7 +84,7 @@
                 <Label alignment="CENTER_RIGHT" text="Aerodynamicist"/>
                 <Pane HBox.hgrow="ALWAYS" />
                 <ImageView fitHeight="75" fitWidth="75">
-                    <Image url="@../media/icons/aero.png" />
+                    <Image url="@../media/icons/aerodynamicist.png" />
                 </ImageView>
             </HBox>
         </graphic>
