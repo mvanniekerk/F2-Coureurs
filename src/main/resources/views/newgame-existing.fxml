@@ -12,12 +12,11 @@
                 <Label layoutX="30" layoutY="15" styleClass="title" text="Select Team"/>
         </Pane>
 
-        <Button onAction="#ferrari" layoutX="95" layoutY="265" styleClass="team-container">
-                <ImageView fitWidth="275" fitHeight="135" layoutY="40">
-                        <Image url="@../media/team-logos/ferrari.png" />
-                </ImageView>
-                <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
-        </Button>
+        <Pane layoutX="95" layoutY="265" styleClass="team-container" fx:id="ferrari">
+            <ImageView fitWidth="275" fitHeight="135" layoutY="40">
+                    <Image url="@../media/team-logos/ferrari.png" />
+            </ImageView>
+        </Pane>
 
         <Button onAction="#mercedes" layoutX="410" layoutY="265" styleClass="team-container">
                 <ImageView fitWidth="275" fitHeight="135" layoutX="20" layoutY="40">

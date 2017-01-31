@@ -3,12 +3,11 @@ package frontend.controllers;
 import backend.GameEngine;
 import backend.Season;
 import backend.Team;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -17,16 +16,28 @@ import java.util.List;
 
 public class NewgameExistingController {
     @FXML private Pane newgameExisting;
+    @FXML private Pane ferrari;
 
-    private void buttonAction(int teamNumber) throws IOException {
-        Season season = GameEngine.getInstance().getSeason();
-        List<Team> teams = season.getTeams();
+    @FXML
+    public void initialize() {
+        ferrari.setOnMouseClicked((MouseEvent event) -> buttonAction(0));
+
+    }
+
+    private void buttonAction(int teamNumber) {
+        new GameEngine.GameEngineBuilder("save1.json").build();
+        List<Team> teams = GameEngine.getInstance().getSeason().getTeams();
         teams.add(0, teams.remove(teamNumber));
 
-        Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
+        } catch (IOException e) {
+            System.out.println("HELP!");
+            e.printStackTrace();
+        }
         Stage stage = (Stage) newgameExisting.getScene().getWindow();
         stage.getScene().setRoot(root);
-
     }
 
     @FXML
