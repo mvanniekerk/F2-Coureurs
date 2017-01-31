@@ -20,10 +20,10 @@
     <Button onAction="#game" fx:id="gameD" layoutX="1143" layoutY="700" styleClass="select-game" text="Game D"/>
 
     <!-- Four select existing team options -->
-    <Button onAction="#existingGame" fx:id="existingA" layoutX="580" layoutY="505" styleClass="delete" text="Existing team"/>
-    <Button onAction="#existingGame" fx:id="existingB" layoutX="1470" layoutY="505" styleClass="delete" text="Existing team"/>
-    <Button onAction="#existingGame" fx:id="existingC" layoutX="580" layoutY="770" styleClass="delete" text="Existing team"/>
-    <Button onAction="#existingGame" fx:id="existingD" layoutX="1470" layoutY="770" styleClass="delete" text="Existing team"/>
+    <Button onAction="#existingGame" fx:id="existingA" layoutX="580" layoutY="505" styleClass="create" text="Existing"/>
+    <Button onAction="#existingGame" fx:id="existingB" layoutX="1470" layoutY="505" styleClass="create" text="Existing"/>
+    <Button onAction="#existingGame" fx:id="existingC" layoutX="580" layoutY="770" styleClass="create" text="Existing"/>
+    <Button onAction="#existingGame" fx:id="existingD" layoutX="1470" layoutY="770" styleClass="create" text="Existing"/>
 
     <!-- Four delete options -->
     <Button onAction="#deleteGame" fx:id="deleteA" layoutX="580" layoutY="505" styleClass="delete" text="Delete"/>

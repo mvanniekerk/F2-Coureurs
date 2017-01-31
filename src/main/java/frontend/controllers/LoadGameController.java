@@ -46,20 +46,18 @@ public class LoadGameController {
      * If the file exists, the player is able to delete it and start again.
      */
     public void initialize() {
-        gameA.setPickOnBounds(false);
-        gameB.setPickOnBounds(false);
-        gameC.setPickOnBounds(false);
-        gameD.setPickOnBounds(false);
+        Button[] buttons = {gameA, gameB, gameC, gameD, existingA, existingB,
+        existingC, existingD, deleteA, deleteB, deleteC, deleteD};
+
+        for (Button button : buttons) {
+            button.setPickOnBounds(false);
+            button.setVisible(true);
+        }
 
         fileA = new File("saves/saveA.json");
         fileB = new File("saves/saveB.json");
         fileC = new File("saves/saveC.json");
         fileD = new File("saves/saveD.json");
-
-        gameA.getStyleClass().add("create");
-        gameB.getStyleClass().add("create");
-        gameC.getStyleClass().add("create");
-        gameD.getStyleClass().add("create");
 
         if (!fileA.exists()) {
             deleteA.setVisible(false);

@@ -31,7 +31,7 @@ Label {
 	-fx-text-fill: white;
 }
 
-.delete {
+.delete, .create{
 	-fx-pref-height: 40;
 	-fx-pref-width: 160;
 }
