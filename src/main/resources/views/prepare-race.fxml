@@ -25,7 +25,7 @@
 
        <!-- Team block-->
        <Pane layoutX="80" layoutY="125" prefHeight="645" prefWidth="530" styleClass="block">
-              <Label layoutX="30" layoutY="40" styleClass="title" text="My team"/>
+              <Label fx:id="teamName" layoutX="30" layoutY="40" styleClass="title" text="My team"/>
               <ImageView  fitWidth="100" fitHeight="100" layoutX="400" layoutY="25">
                     <Image url="@../media/icons/team.png" />
               </ImageView>
