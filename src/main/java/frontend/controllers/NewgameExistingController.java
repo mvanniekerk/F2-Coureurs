@@ -26,9 +26,11 @@ public class NewgameExistingController {
     @FXML private Pane tororosso;
     @FXML private Pane williams;
 
+    private String saveName;
 
-    @FXML
-    public void initialize() {
+
+    public void load(String saveName) {
+        this.saveName = saveName;
         ferrari.setOnMouseClicked((MouseEvent event) -> buttonAction("Ferrari"));
         mercedes.setOnMouseClicked((MouseEvent event) -> buttonAction("Mercedes"));
         redbull.setOnMouseClicked((MouseEvent event) -> buttonAction("Red Bull"));
@@ -44,7 +46,7 @@ public class NewgameExistingController {
     }
 
     private void buttonAction(String teamName) {
-        new GameEngine.GameEngineBuilder("save1.json").build();
+        new GameEngine.GameEngineBuilder(saveName).build();
         List<Team> teams = GameEngine.getInstance().getSeason().getTeams();
         List<String> teamstr = teams.stream().map((Team team) -> team.getName()).collect(Collectors.toList());
         System.out.println(teamstr);

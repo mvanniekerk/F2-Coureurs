@@ -45,7 +45,7 @@ public class Manager extends Application {
             @Override
             public void run() {
                 try {
-                    Parent root = FXMLLoader.load(getClass().getResource("/views/newgame-existing.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/views/load-game.fxml"));
                     Stage stage = (Stage) scene.getWindow();
                     stage.getScene().setRoot(root);
                 } catch (IOException e) {
