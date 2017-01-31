@@ -46,9 +46,7 @@ public class LoadGameController {
      * If the file exists, the player is able to delete it and start again.
      */
     public void initialize() {
-        Button[] buttons = {gameA, gameB, gameC, gameD, existingA, existingB,
-        existingC, existingD, deleteA, deleteB, deleteC, deleteD};
-
+        Button[] buttons = {gameA, gameB, gameC, gameD, existingA, existingB, existingC, existingD, deleteA, deleteB, deleteC, deleteD};
         for (Button button : buttons) {
             button.setPickOnBounds(false);
             button.setVisible(true);
