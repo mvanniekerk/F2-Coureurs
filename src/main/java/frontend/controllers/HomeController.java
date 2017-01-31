@@ -20,6 +20,7 @@ public class HomeController {
     @FXML private Label aerodynamicistName;
     @FXML private Label mechanicName;
     @FXML private Label nextCircuit;
+    @FXML private Label round;
     @FXML private Label currentBudget;
     @FXML private MediaView mediaView;
     private Season season;
@@ -42,6 +43,9 @@ public class HomeController {
         mechanicName.setText(playerTeam.getMechanic().getName());
         nextCircuit.setText(season.getCurrentRound().getTrackName());
         currentBudget.setText(playerTeam.getBudgetString());
+
+        int roundNum = season.getRoundInt() + 1;
+        round.setText("Round " + roundNum);
 
         Media media = new Media(getClass().getResource("/media/video/australia.mp4").toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);

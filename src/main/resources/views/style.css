@@ -86,7 +86,9 @@ Button#red {
 
 .thumb {
 	-fx-background-color: white;
+	-fx-cursor: hand;
 }
+
 .start-race {
 	-fx-background-color: rgba(0, 255, 0, 0.59);
 	-fx-pref-height: 220;

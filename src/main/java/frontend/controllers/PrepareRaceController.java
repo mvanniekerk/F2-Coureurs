@@ -29,6 +29,8 @@ public class PrepareRaceController {
     @FXML private Label strategist;
     @FXML private Label aerodynamicist;
     @FXML private Label mechanic;
+    @FXML private Label nextRace;
+    @FXML private Label round;
 
     @FXML private Button strategyLowRisk;
     @FXML private Button strategyMediumRisk;
@@ -42,8 +44,6 @@ public class PrepareRaceController {
 
     @FXML private Pane strategy;
     @FXML private Pane setup;
-
-    @FXML private Label nextRace;
 
     @FXML private MediaView mediaView;
 
@@ -74,6 +74,9 @@ public class PrepareRaceController {
         aerodynamicist.setText(playerTeam.getAerodynamicist().getName());
         mechanic.setText(playerTeam.getMechanic().getName());
         nextRace.setText(season.getCurrentRound().getTrackName());
+
+        int roundNum = season.getRoundInt() + 1;
+        round.setText("Round " + roundNum);
 
         Media media = new Media(getClass().getResource("/media/video/pitstop.mp4").toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
