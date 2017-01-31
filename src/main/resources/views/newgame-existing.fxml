@@ -18,74 +18,74 @@
             </ImageView>
         </Pane>
 
-        <Button onAction="#mercedes" layoutX="410" layoutY="265" styleClass="team-container">
+        <Pane fx:id="mercedes" layoutX="410" layoutY="265" styleClass="team-container">
                 <ImageView fitWidth="275" fitHeight="135" layoutX="20" layoutY="40">
                         <Image url="@../media/team-logos/mercedes.png" />
                 </ImageView>
                 <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
-        </Button>
+        </Pane>
 
-        <Button onAction="#redbull" layoutX="735" layoutY="265" styleClass="team-container">
+        <Pane fx:id="redbull" layoutX="735" layoutY="265" styleClass="team-container">
                 <ImageView fitWidth="275" fitHeight="135" layoutY="40">
                         <Image url="@../media/team-logos/redbull.png" />
                 </ImageView>
                 <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
-        </Button>
+        </Pane>
 
-        <Button onAction="#mclaren" layoutX="1070" layoutY="265" styleClass="team-container">
+        <Pane fx:id="mclaren" layoutX="1070" layoutY="265" styleClass="team-container">
                 <ImageView fitWidth="275" fitHeight="135" layoutY="40">
                         <Image url="@../media/team-logos/mclaren.png" />
                 </ImageView>
                 <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
-        </Button>
+        </Pane>
 
-        <Button onAction="#forceindia" layoutX="1420" layoutY="265" styleClass="team-container" style="-fx-background-color: rgba(0,0,0,0.65);">
+        <Pane fx:id="forceindia" layoutX="1420" layoutY="265" styleClass="team-container" style="-fx-background-color: rgba(0,0,0,0.65);">
                 <ImageView fitWidth="275" fitHeight="135" layoutY="40">
                         <Image url="@../media/team-logos/forceindia.png" />
                 </ImageView>
                 <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
-        </Button>
+        </Pane>
 
-        <Button onAction="#haas" layoutX="95" layoutY="540" styleClass="team-container">
+        <Pane fx:id="haas" layoutX="95" layoutY="540" styleClass="team-container">
                 <ImageView fitWidth="275" fitHeight="135" layoutY="40">
                         <Image url="@../media/team-logos/haas.png" />
                 </ImageView>
                 <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
-        </Button>
+        </Pane>
 
-        <Button onAction="#manor" layoutX="410" layoutY="540" styleClass="team-container">
+        <Pane fx:id="manor" layoutX="410" layoutY="540" styleClass="team-container">
                 <ImageView fitWidth="275" fitHeight="135" layoutY="40">
                         <Image url="@../media/team-logos/manor.png" />
                 </ImageView>
                 <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
-        </Button>
+        </Pane>
 
-        <Button onAction="#renault" layoutX="735" layoutY="540" styleClass="team-container" style="-fx-background-color: rgba(255,255,0,0.65);">
+        <Pane fx:id="renault" layoutX="735" layoutY="540" styleClass="team-container" style="-fx-background-color: rgba(255,255,0,0.65);">
                 <ImageView fitWidth="275" fitHeight="135" layoutY="40">
                         <Image url="@../media/team-logos/renault.png" />
                 </ImageView>
                 <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
-        </Button>
+        </Pane>
 
-        <Button onAction="#sauber" layoutX="1070" layoutY="540" styleClass="team-container">
+        <Pane fx:id="sauber" layoutX="1070" layoutY="540" styleClass="team-container">
                 <ImageView fitWidth="275" fitHeight="135" layoutY="40">
                         <Image url="@../media/team-logos/sauber.png" />
                 </ImageView>
                 <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
-        </Button>
+        </Pane>
 
-        <Button onAction="#torrorosso" layoutX="1420" layoutY="540" styleClass="team-container" style="-fx-background-color: rgba(32,50,85,0.65);">
+        <Pane fx:id="tororosso" layoutX="1420" layoutY="540" styleClass="team-container" style="-fx-background-color: rgba(32,50,85,0.65);">
                 <ImageView fitWidth="275" fitHeight="135" layoutY="40">
                         <Image url="@../media/team-logos/torrorosso.png" />
                 </ImageView>
                 <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
-        </Button>
+        </Pane>
 
-        <Button onAction="#williams" layoutX="95" layoutY="815" styleClass="team-container">
+        <Pane fx:id="williams" layoutX="95" layoutY="815" styleClass="team-container">
                 <ImageView fitWidth="275" fitHeight="135" layoutY="40">
                         <Image url="@../media/team-logos/williams.png" />
                 </ImageView>
                 <Label layoutX="15" layoutY="165" styleClass="team-container-text" text="Remaining: 25M"/>
-        </Button>
+        </Pane>
 
 </Pane>
