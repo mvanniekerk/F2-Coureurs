@@ -103,6 +103,10 @@ public class LoadGameController {
         initialize();
     }
 
+    /**
+     * Load from an existing game.
+     * @param event not using it
+     */
     public void existingGame(ActionEvent event) {
         Button button = (Button) event.getSource();
 

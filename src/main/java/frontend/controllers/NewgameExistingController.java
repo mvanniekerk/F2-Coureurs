@@ -1,6 +1,7 @@
 package frontend.controllers;
 
-import backend.*;
+import backend.GameEngine;
+import backend.Team;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,7 +29,10 @@ public class NewgameExistingController {
 
     private String saveName;
 
-
+    /**
+     * Loads the screen correctly. Must be called on construction.
+     * @param saveName the saveName that we are working with
+     */
     public void load(String saveName) {
         this.saveName = saveName;
         ferrari.setOnMouseClicked((MouseEvent event) -> buttonAction("Ferrari"));
