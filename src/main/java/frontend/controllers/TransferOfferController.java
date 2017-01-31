@@ -47,7 +47,6 @@ public class TransferOfferController {
      */
     @FXML
     public void accept(ActionEvent event) throws Exception {
-        season.transfer(transferCandidate, team, true);
 
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/views/select-team-member.fxml"));
@@ -56,11 +55,14 @@ public class TransferOfferController {
         SelectTeamMemberController controller = loader.getController();
         if (transferCandidate.getJobTitle().equals("driver")) {
             if (((Driver) transferCandidate).isSecondDriver(season)) {
+                season.transfer(transferCandidate, team, true, true);
                 controller.load("driver2", false);
             } else {
+                season.transfer(transferCandidate, team, true);
                 controller.load("driver1", false);
             }
         } else {
+            season.transfer(transferCandidate, team, true);
             controller.load(transferCandidate.getJobTitle(), false);
         }
 

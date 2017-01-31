@@ -213,8 +213,8 @@
       "winsThisSeason": 0,
       "engine": {
         "power": 90,
-        "drivability": 80,
-        "fuelConsumption": 60,
+        "drivability": 85,
+        "fuelConsumption": 80,
         "name": "Ferrari"
       },
       "aerodynamicist": {
@@ -271,9 +271,9 @@
       "winsAlltime": 0,
       "winsThisSeason": 0,
       "engine": {
-        "power": 80,
+        "power": 95,
         "drivability": 90,
-        "fuelConsumption": 50,
+        "fuelConsumption": 85,
         "name": "Mercedes"
       },
       "aerodynamicist": {
@@ -331,8 +331,8 @@
       "winsThisSeason": 0,
       "engine": {
         "power": 90,
-        "drivability": 80,
-        "fuelConsumption": 60,
+        "drivability": 85,
+        "fuelConsumption": 80,
         "name": "Ferrari"
       },
       "aerodynamicist": {
@@ -389,9 +389,9 @@
       "winsAlltime": 0,
       "winsThisSeason": 0,
       "engine": {
-        "power": 60,
-        "drivability": 90,
-        "fuelConsumption": 40,
+        "power": 75,
+        "drivability": 70,
+        "fuelConsumption": 75,
         "name": "Honda"
       },
       "aerodynamicist": {
@@ -448,9 +448,9 @@
       "winsAlltime": 0,
       "winsThisSeason": 0,
       "engine": {
-        "power": 80,
+        "power": 95,
         "drivability": 90,
-        "fuelConsumption": 50,
+        "fuelConsumption": 85,
         "name": "Mercedes"
       },
       "aerodynamicist": {
@@ -507,9 +507,9 @@
       "winsAlltime": 0,
       "winsThisSeason": 0,
       "engine": {
-        "power": 80,
+        "power": 95,
         "drivability": 90,
-        "fuelConsumption": 50,
+        "fuelConsumption": 85,
         "name": "Mercedes"
       },
       "aerodynamicist": {
@@ -566,9 +566,9 @@
       "winsAlltime": 0,
       "winsThisSeason": 0,
       "engine": {
-        "power": 90,
-        "drivability": 70,
-        "fuelConsumption": 80,
+        "power": 80,
+        "drivability": 75,
+        "fuelConsumption": 75,
         "name": "Renault"
       },
       "aerodynamicist": {
@@ -625,9 +625,9 @@
       "winsAlltime": 0,
       "winsThisSeason": 0,
       "engine": {
-        "power": 90,
-        "drivability": 70,
-        "fuelConsumption": 80,
+        "power": 80,
+        "drivability": 75,
+        "fuelConsumption": 75,
         "name": "Renault"
       },
       "aerodynamicist": {
@@ -685,8 +685,8 @@
       "winsThisSeason": 0,
       "engine": {
         "power": 90,
-        "drivability": 80,
-        "fuelConsumption": 60,
+        "drivability": 85,
+        "fuelConsumption": 80,
         "name": "Ferrari"
       },
       "aerodynamicist": {
@@ -743,9 +743,9 @@
       "winsAlltime": 0,
       "winsThisSeason": 0,
       "engine": {
-        "power": 90,
-        "drivability": 70,
-        "fuelConsumption": 80,
+        "power": 80,
+        "drivability": 75,
+        "fuelConsumption": 75,
         "name": "Renault"
       },
       "aerodynamicist": {
@@ -802,9 +802,9 @@
       "winsAlltime": 0,
       "winsThisSeason": 0,
       "engine": {
-        "power": 80,
+        "power": 95,
         "drivability": 90,
-        "fuelConsumption": 50,
+        "fuelConsumption": 85,
         "name": "Mercedes"
       },
       "aerodynamicist": {
@@ -817,7 +817,7 @@
         "reliability": 80,
         "partFixing": 70,
         "pitstops": 0,
-        "name": "Harvey Postlethwaite",
+        "name": "Mark Pattinson",
         "salary": 260000,
         "buyoutClause": 600000
       },
@@ -861,14 +861,14 @@
       "raceWins": 0,
       "points": 0,
       "championLastYear": false,
-      "name": "Some Guy",
+      "name": "Will Stevens",
       "salary": 710000,
       "buyoutClause": 600000
     }
   ],
   "contractAerodynamicists": [
     {
-      "name": "John With The Short Behindname",
+      "name": "Dan Fallows",
       "salary": 240000,
       "buyoutClause": 700000,
       "quality" : 100
@@ -886,7 +886,7 @@
   ],
   "contractStrategists": [
     {
-      "name": "Mauro the Strategist",
+      "name": "Ruth Buscombe",
       "salary": 290000,
       "buyoutClause": 500000,
       "quality" : 100
