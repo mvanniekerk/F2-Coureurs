@@ -31,7 +31,7 @@ Label {
 	-fx-text-fill: white;
 }
 
-.delete {
+.delete, .create{
 	-fx-pref-height: 40;
 	-fx-pref-width: 160;
 }
@@ -86,7 +86,9 @@ Button#red {
 
 .thumb {
 	-fx-background-color: white;
+	-fx-cursor: hand;
 }
+
 .start-race {
 	-fx-background-color: rgba(0, 255, 0, 0.59);
 	-fx-pref-height: 220;
@@ -124,13 +126,10 @@ Button#red {
 	-fx-background-image: url("../media/backgrounds/race-result.jpg");
 }
 
-#load-game, #new-team, #new-team-overview{
+#load-game, #new-team, #new-team-overview, #new-existing {
 	-fx-background-image: url("../media/backgrounds/pre-home.jpg");
 }
 
-#newgame-existing {
-	-fx-background-image: url("../media/backgrounds/pre-home.jpg");
-}
 
 #edit-team, #select-driver {
 	-fx-background-image: url("../media/backgrounds/edit-team.jpg");
@@ -164,6 +163,12 @@ Button#red {
 	-fx-background-color: rgba(255, 255, 255, 0.59);
 	-fx-pref-height: 235;
 	-fx-pref-width: 275;
+	-fx-cursor: hand;
+	-fx-effect: dropshadow(three-pass-box, rgba(44, 44, 44, 0.59), 10, 0, 4, 4);
+}
+
+.team-container:hover {
+	-fx-effect: inherit;
 }
 
 .team-container-text {
