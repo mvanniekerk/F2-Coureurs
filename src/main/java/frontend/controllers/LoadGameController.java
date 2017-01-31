@@ -25,6 +25,11 @@ public class LoadGameController {
     @FXML private Button gameC;
     @FXML private Button gameD;
 
+    @FXML private Button existingA;
+    @FXML private Button existingB;
+    @FXML private Button existingC;
+    @FXML private Button existingD;
+
     @FXML private Button deleteA;
     @FXML private Button deleteB;
     @FXML private Button deleteC;
@@ -51,21 +56,30 @@ public class LoadGameController {
         fileC = new File("saves/saveC.json");
         fileD = new File("saves/saveD.json");
 
+        gameA.getStyleClass().add("create");
+        gameB.getStyleClass().add("create");
+        gameC.getStyleClass().add("create");
+        gameD.getStyleClass().add("create");
+
         if (!fileA.exists()) {
             deleteA.setVisible(false);
-            gameA.getStyleClass().add("create");
+        } else {
+            existingA.setVisible(false);
         }
         if (!fileB.exists()) {
             deleteB.setVisible(false);
-            gameB.getStyleClass().add("create");
+        } else {
+            existingB.setVisible(false);
         }
         if (!fileC.exists()) {
             deleteC.setVisible(false);
-            gameC.getStyleClass().add("create");
+        } else {
+            existingC.setVisible(false);
         }
         if (!fileD.exists()) {
             deleteD.setVisible(false);
-            gameD.getStyleClass().add("create");
+        } else {
+            existingD.setVisible(false);
         }
     }
 
@@ -87,6 +101,39 @@ public class LoadGameController {
             fileD.delete();
         }
         initialize();
+    }
+
+    /**
+     * Load from an existing game.
+     * @param event not using it
+     */
+    public void existingGame(ActionEvent event) {
+        Button button = (Button) event.getSource();
+
+        if (button == existingA) {
+            goToNewGameExisting("saveA.json");
+        } else if (button == existingB) {
+            goToNewGameExisting("saveB.json");
+        } else if (button == existingC) {
+            goToNewGameExisting("saveC.json");
+        } else if (button == existingD) {
+            goToNewGameExisting("saveD.json");
+        }
+    }
+
+    private void goToNewGameExisting(String saveName) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/views/newgame-existing.fxml"));
+            Parent root = (Parent) loader.load();
+            NewgameExistingController controller = loader.getController();
+            controller.load(saveName);
+
+            Stage stage = (Stage) existingA.getScene().getWindow();
+            stage.getScene().setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

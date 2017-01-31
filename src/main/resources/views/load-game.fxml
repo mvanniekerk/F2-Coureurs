@@ -19,6 +19,12 @@
     <Button onAction="#game" fx:id="gameC" layoutX="250" layoutY="700" styleClass="select-game" text="Game C"/>
     <Button onAction="#game" fx:id="gameD" layoutX="1143" layoutY="700" styleClass="select-game" text="Game D"/>
 
+    <!-- Four select existing team options -->
+    <Button onAction="#existingGame" fx:id="existingA" layoutX="580" layoutY="505" styleClass="delete" text="Existing team"/>
+    <Button onAction="#existingGame" fx:id="existingB" layoutX="1470" layoutY="505" styleClass="delete" text="Existing team"/>
+    <Button onAction="#existingGame" fx:id="existingC" layoutX="580" layoutY="770" styleClass="delete" text="Existing team"/>
+    <Button onAction="#existingGame" fx:id="existingD" layoutX="1470" layoutY="770" styleClass="delete" text="Existing team"/>
+
     <!-- Four delete options -->
     <Button onAction="#deleteGame" fx:id="deleteA" layoutX="580" layoutY="505" styleClass="delete" text="Delete"/>
     <Button onAction="#deleteGame" fx:id="deleteB" layoutX="1470" layoutY="505" styleClass="delete" text="Delete"/>

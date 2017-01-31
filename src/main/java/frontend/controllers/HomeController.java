@@ -4,17 +4,10 @@ import backend.GameEngine;
 import backend.Season;
 import backend.Team;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class HomeController {
     public static boolean trigger;
@@ -60,32 +53,6 @@ public class HomeController {
         mediaView.setFitHeight(1080);
         mediaView.setFitWidth(1920);
 
-        // REMOVE NEXT LINE IF NOT IN DEBUG MODE
-        transferButtonInit();
     }
 
-    private void transferButtonInit() {
-        Button transferButton = new Button();
-        transferButton.setLayoutX(1500);
-        transferButton.setLayoutY(500);
-        transferButton.setText("TransferTest");
-        transferButton.setOnAction((event) -> {
-            try {
-                FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("/views/message.fxml"));
-                Parent root;
-                root = loader.load();
-                frontend.controllers.TransferOfferController controller = loader.getController();
-                controller.load(season.getTeams().get(1),
-                        season.getPlayerControlledTeam().getFirstDriver());
-                System.out.println("handling event");
-                Stage stage = (Stage) teamName.getScene().getWindow();
-                stage.getScene().setRoot(root);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-        Pane homePane = (Pane) teamName.getParent().getParent();
-        homePane.getChildren().add(transferButton);
-    }
 }
