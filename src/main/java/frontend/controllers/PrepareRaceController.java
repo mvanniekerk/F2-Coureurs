@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class PrepareRaceController {
+    @FXML private Label teamName;
     @FXML private Label engine;
     @FXML private Label firstDriver;
     @FXML private Label secondDriver;
@@ -67,6 +68,7 @@ public class PrepareRaceController {
 
         season = GameEngine.getInstance().getSeason();
         Team playerTeam = season.getPlayerControlledTeam();
+        teamName.setText(playerTeam.getName());
         engine.setText(playerTeam.getEngine().getName());
         firstDriver.setText(playerTeam.getFirstDriver().getName());
         secondDriver.setText(playerTeam.getSecondDriver().getName());
