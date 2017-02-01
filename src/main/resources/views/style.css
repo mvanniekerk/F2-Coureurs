@@ -118,11 +118,15 @@ Button#red {
 	-fx-background-image: url("../media/backgrounds/home.jpg");
 }
 
+#game-over{
+	-fx-background-image: url("../media/backgrounds/game-over.jpg");
+}
+
 #prepare-race {
 	-fx-background-image: url("../media/backgrounds/race-preset.jpg");
 }
 
-#race-result, #your-result {
+#race-result, #your-result, #end-of-season {
 	-fx-background-image: url("../media/backgrounds/race-result.jpg");
 }
 
