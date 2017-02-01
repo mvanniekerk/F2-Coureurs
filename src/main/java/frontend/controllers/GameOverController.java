@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class GameOverController {
@@ -25,11 +26,11 @@ public class GameOverController {
         startNewGame.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                GameEngine.getInstance().setSeason(Season.loadNewGameFromSeasonStart());
-
+                new File("saves/" + GameEngine.getInstance().getSaveName()).delete();
+                HomeController.trigger = false;
                 Parent root = null;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("/views/load-game.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
