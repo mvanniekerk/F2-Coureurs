@@ -266,7 +266,7 @@ public class RaceController {
             return;
         } else {
             double random = Math.random();
-            if (random < 0.9) {
+            if (random < 0.3) {
                 continueButtonHandler();
             }
         }
@@ -275,7 +275,7 @@ public class RaceController {
         Driver winningDriver = drivers.get(0);
         winningDriver.setSalary(winningDriver.getSalary() + (winningDriver.getSalary() / 100));
 
-        if (season.getRoundInt() == 1) {
+        if (season.getRoundInt() == 20) {
             // End of season
             setupNewSeason();
         } else {
