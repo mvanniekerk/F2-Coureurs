@@ -221,7 +221,6 @@ public class DriverTest {
 
     @Test
     public void getSalaryString() {
-        //TODO: Change for different locales
         String locale = Locale.getDefault().toLanguageTag();
         if (locale.equals("nl-NL")) {
             assertEquals("€ 16,00", driver.getSalaryString());
@@ -235,7 +234,6 @@ public class DriverTest {
 
     @Test
     public void getBuyoutString() {
-        //TODO: Change for different locales
         String locale = Locale.getDefault().toLanguageTag();
         if (locale.equals("nl-NL")) {
             assertEquals("€ 100,00", driver.getBuyoutClauseString(season));
