@@ -13,5 +13,5 @@
         <Label layoutY="120" layoutX="30" styleClass="content" text="You can go to the next season"/>
     </Pane>
 
-    <Button layoutX="910" layoutY="375" text="Next season" />
+    <HomeButton layoutX="910" layoutY="375" text="Next season" />
 </Pane>

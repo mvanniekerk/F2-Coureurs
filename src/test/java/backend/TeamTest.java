@@ -261,7 +261,6 @@ public class TeamTest {
 
     @Test
     public void getBudgetStringTest() {
-        //TODO: Change for different locales
         String locale = Locale.getDefault().toLanguageTag();
         if (locale.equals("nl-NL")) {
             assertEquals("€ 2.500.000,00", team.getBudgetString());
@@ -275,7 +274,6 @@ public class TeamTest {
 
     @Test
     public void getBudgetStringTest2() {
-        //TODO: Change for different locales
         String locale = Locale.getDefault().toLanguageTag();
         if (locale.equals("nl-NL")) {
             assertEquals("€ 2.000.000,00", team.getBudgetString(500000));

@@ -80,7 +80,6 @@ public abstract class Staff {
      * @return string of the budget
      */
     public String getSalaryString() {
-        // TODO add tests
         NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
         return euroFormat.format(salary);
     }
@@ -91,7 +90,6 @@ public abstract class Staff {
      * @return the buyout clause
      */
     public int getBuyoutClause(Season season) {
-        // TODO add tests
         if (getTeam(season) == null) {
             return 0;
         }
@@ -110,7 +108,6 @@ public abstract class Staff {
      * @return Team or null
      */
     public Team getTeam(Season season) {
-        // TODO add tests
         for (Team team : season.getTeams()) {
             if (team.contains(this)) {
                 return team;
@@ -141,7 +138,6 @@ public abstract class Staff {
      * @return buyout clause string
      */
     public String getBuyoutClauseString(Season season) {
-        // TODO add tests
         NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
         return euroFormat.format(getBuyoutClause(season));
     }
