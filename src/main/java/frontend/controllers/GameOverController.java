@@ -1,7 +1,6 @@
 package frontend.controllers;
 
 import backend.GameEngine;
-import backend.Season;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
