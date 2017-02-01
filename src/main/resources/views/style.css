@@ -114,7 +114,7 @@ Button#red {
 	-fx-background-position: center center;
 }
 
-#home, #current-staff{
+#home, #current-staff, #game-over{
 	-fx-background-image: url("../media/backgrounds/home.jpg");
 }
 
@@ -198,4 +198,9 @@ Button#red {
 
 .button-xl {
 	-fx-pref-width: 300;
+}
+
+.font-xl {
+	-fx-font-size: 100;
+	-fx-text-alignment: center;
 }
